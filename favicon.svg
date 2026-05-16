@@ -1,10 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <g transform="translate(16,16)">
-    <ellipse cx="0" cy="-7" rx="4" ry="6" fill="#b32566" transform="rotate(0)"/>
-    <ellipse cx="0" cy="-7" rx="4" ry="6" fill="#b32566" transform="rotate(72)"/>
-    <ellipse cx="0" cy="-7" rx="4" ry="6" fill="#b32566" transform="rotate(144)"/>
-    <ellipse cx="0" cy="-7" rx="4" ry="6" fill="#b32566" transform="rotate(216)"/>
-    <ellipse cx="0" cy="-7" rx="4" ry="6" fill="#b32566" transform="rotate(288)"/>
-    <circle cx="0" cy="0" r="4" fill="#f9e4ee"/>
+    <ellipse cx="0" cy="-8" rx="5" ry="7" fill="#b32566" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-8" rx="5" ry="7" fill="#b32566" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-8" rx="5" ry="7" fill="#b32566" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-8" rx="5" ry="7" fill="#b32566" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-8" rx="5" ry="7" fill="#b32566" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="4.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="0" cy="0" r="3" fill="#b32566" opacity="0.3"/>
   </g>
 </svg>
