@@ -402,6 +402,8 @@ small { color: var(--muted); }
 .pricing-table td { padding: .5rem 0; }
 .pricing-table td:last-child { text-align: right; }
 .pricing-table tr:not(:last-child) td { border-bottom: 1px solid #eadde2; }
+.pricing-table th { padding: .5rem 0; font-weight: 700; background: var(--surface); color: var(--text); border-bottom: 2px solid var(--border); }
+.pricing-table caption { caption-side: top; text-align: left; font-size: .88rem; color: var(--muted); margin-bottom: .5rem; font-style: italic; }
 .pricing-table-note { margin-top: .75rem; font-size: .88rem; color: #6f5f67; }
 
 /* ─── Footer ─────────────────────────────────────── */
