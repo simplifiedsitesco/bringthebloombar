@@ -415,47 +415,4 @@ small { color: var(--muted); }
 .footer-legal { color: var(--muted); font-size: .82rem; margin-top: .4rem; }
 .footer-built { color: var(--muted); font-size: .82rem; }
 .footer-built a { color: var(--muted); }
-
-/* ─── Hero with background image ─────────────────── */
-.hero-with-bg {
-  position: relative;
-  background-size: cover !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-color: #1a0f14;
-}
-.hero-with-bg::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.50);
-  z-index: 0;
-}
-.hero-with-bg > * {
-  position: relative;
-  z-index: 1;
-}
-.hero-with-bg h1,
-.hero-with-bg .lead {
-  color: #fff;
-}
-.hero-with-bg .badge {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.35);
-}
-.hero-with-bg .trust-row { color: rgba(255, 255, 255, 0.85); }
-.hero-with-bg .hero-image-card figcaption { color: rgba(255, 255, 255, 0.75); }
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
 .footer-built a:hover { color: var(--accent-dark); }
