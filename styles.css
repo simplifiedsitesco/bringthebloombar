@@ -392,6 +392,24 @@ small { color: var(--muted); }
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* ─── Pricing card link wrapper ─────────────────── */
+a.pricing-card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 16px;
+}
+a.pricing-card-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+a.pricing-card-link:hover .pricing-card,
+a.pricing-card-link:focus-visible .pricing-card {
+  box-shadow: 0 16px 36px rgba(42, 16, 26, 0.2);
+  border-color: var(--accent);
+  cursor: pointer;
+}
+
 /* ─── Pricing table (individual items) ──────────── */
 .pricing-table {
   width: 100%;
