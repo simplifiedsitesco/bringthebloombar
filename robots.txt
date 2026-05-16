@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.bringthebloombar.com/sitemap.xml
+Sitemap: https://bringthebloombar.com/sitemap.xml

@@ -2,3 +2,9 @@
   for = "/sitemap.xml"
   [headers.values]
     Content-Type = "application/xml; charset=UTF-8"
+
+[[redirects]]
+  from = "https://www.bringthebloombar.com/*"
+  to = "https://bringthebloombar.com/:splat"
+  status = 301
+  force = true
