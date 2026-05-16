@@ -273,7 +273,9 @@
     <div class="cta-strip">
       <h2>Ready to reserve your bloom bar rental?</h2>
       <p>Send your date and city, and we’ll confirm availability quickly.</p>
-      <form aria-label="Booking request form" action="mailto:lriley@simplifiedsitesco.com" method="POST" enctype="text/plain">
+      <form name="bloom-bar-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Booking request form">
+        <input type="hidden" name="form-name" value="bloom-bar-inquiry">
+        <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
         <label for="name">Name</label>
         <input id="name" name="name" type="text" autocomplete="name" required>
         <label for="email">Email</label>
@@ -282,6 +284,21 @@
         <textarea id="event-details" name="event-details" rows="4" required></textarea>
         <button class="btn btn-primary" type="submit">Check My Date</button>
       </form>
+      <div class="contact-alt" style="margin-top: 1.5rem; text-align: center;">
+        <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.75rem;">Prefer to reach out directly?</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="tel:7142516478"
+             aria-label="Call Bring The BloomBar at 714-251-6478"
+             style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); color: #fff; padding: 0.6rem 1.2rem; border-radius: 2rem; text-decoration: none; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.3);">
+            Call us: (714) 251-6478
+          </a>
+          <a href="sms:7142516478"
+             aria-label="Text Bring The BloomBar at 714-251-6478"
+             style="display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.15); color: #fff; padding: 0.6rem 1.2rem; border-radius: 2rem; text-decoration: none; font-size: 0.95rem; border: 1px solid rgba(255,255,255,0.3);">
+            Text us: (714) 251-6478
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 </main>
@@ -289,7 +306,7 @@
   <div class="container footer-inner">
     <p class="footer-brand">Bring The BloomBar</p>
     <p class="footer-service">Based in La Habra, CA &middot; Serving north Orange County and surrounding areas</p>
-    <p class="footer-contact"><a href="tel:7144199855">(714) 419-9855</a> &middot; M&ndash;F 8:30 AM&ndash;5 PM &middot; Response within 24 hours</p>
+    <p class="footer-contact"><a href="tel:7142516478">(714) 251-6478</a> &middot; M&ndash;F 8:30 AM&ndash;5 PM &middot; Response within 24 hours</p>
     <p class="footer-contact"><a href="mailto:lriley@simplifiedsitesco.com">lriley@simplifiedsitesco.com</a></p>
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="about.html">About</a>
