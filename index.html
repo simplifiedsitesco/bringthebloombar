@@ -486,7 +486,7 @@
   </div>
   <div class="bb-messages" id="bb-messages"></div>
   <div id="bb-text-cta" style="display:none; border-top: 1px solid #f0d9e5; padding: 8px 12px; background: #fff; justify-content: center;">
-    <a id="bb-text-link" href="sms:7142516478" onclick="var ua = navigator.userAgent; if(!/Android|iPhone|iPad|iPod/i.test(ua)){ event.preventDefault(); addMsg('You can text us directly at (714) 251-6478 — we reply within 24 hours!', 'bot'); }" style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #d4537e; text-decoration: none; padding: 6px 14px; border: 1px solid #f4c0d1; border-radius: 20px; background: #fbeaf0;">
+    <a id="bb-text-link" href="sms:7142516478" style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #d4537e; text-decoration: none; padding: 6px 14px; border: 1px solid #f4c0d1; border-radius: 20px; background: #fbeaf0;">
       Rather talk to a real person? Text us
     </a>
   </div>
@@ -637,6 +637,13 @@
   document.getElementById('bb-chat-btn').addEventListener('click', function() {
     var g = document.getElementById('bb-greeting');
     if (g) g.style.display = 'none';
+  });
+  document.getElementById('bb-text-link').addEventListener('click', function(e) {
+    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (!isMobile) {
+      e.preventDefault();
+      addMsg('You can text us directly at (714) 251-6478 — we reply within 24 hours!', 'bot');
+    }
   });
 })();
 </script>
