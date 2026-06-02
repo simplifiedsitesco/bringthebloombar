@@ -485,6 +485,11 @@
     <button class="bb-close" id="bb-close-btn" aria-label="Close chat">✕</button>
   </div>
   <div class="bb-messages" id="bb-messages"></div>
+  <div id="bb-text-cta" style="display:none; border-top: 1px solid #f0d9e5; padding: 8px 12px; background: #fff; justify-content: center;">
+    <a id="bb-text-link" href="sms:7142516478" onclick="var ua = navigator.userAgent; if(!/Android|iPhone|iPad|iPod/i.test(ua)){ event.preventDefault(); addMsg('You can text us directly at (714) 251-6478 — we reply within 24 hours!', 'bot'); }" style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #d4537e; text-decoration: none; padding: 6px 14px; border: 1px solid #f4c0d1; border-radius: 20px; background: #fbeaf0;">
+      Rather talk to a real person? Text us
+    </a>
+  </div>
   <div class="bb-input-area">
     <input class="bb-input" id="bb-input" type="text" placeholder="Ask about rentals, pricing, delivery..." />
     <button class="bb-send" id="bb-send" aria-label="Send">➤</button>
@@ -567,6 +572,11 @@
       awaitingField = null;
       addMsg('Perfect! How can I help you today? You can ask me about packages, pricing, or delivery.', 'bot');
       messages.push({ role: 'user', content: 'Customer info collected: Name: ' + collected.name + ', Phone: ' + collected.phone + ', Event date/city: ' + collected.date });
+      setTimeout(function() {
+        addMsg('If you would ever rather chat with a real person, you can text us directly using the button below!', 'bot');
+        var textCta = document.getElementById('bb-text-cta');
+        if (textCta) textCta.style.display = 'flex';
+      }, 1000);
       return true;
     }
     return false;
