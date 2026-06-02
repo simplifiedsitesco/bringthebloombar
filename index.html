@@ -485,7 +485,6 @@
     <button class="bb-close" id="bb-close-btn" aria-label="Close chat">✕</button>
   </div>
   <div class="bb-messages" id="bb-messages"></div>
-  <div class="bb-quick-replies" id="bb-qr"></div>
   <div class="bb-input-area">
     <input class="bb-input" id="bb-input" type="text" placeholder="Ask about rentals, pricing, delivery..." />
     <button class="bb-send" id="bb-send" aria-label="Send">➤</button>
@@ -549,17 +548,6 @@
     if (t) t.remove();
   }
 
-  function setQR(options) {
-    var qr = document.getElementById('bb-qr');
-    qr.innerHTML = '';
-    options.forEach(function (opt) {
-      var btn = document.createElement('button');
-      btn.className = 'bb-qr';
-      btn.textContent = opt;
-      btn.onclick = function () { handleInput(opt); };
-      qr.appendChild(btn);
-    });
-  }
 
   function handleCollectionFlow(input) {
     if (awaitingField === 'name') {
@@ -577,10 +565,7 @@
     if (awaitingField === 'date') {
       collected.date = input;
       awaitingField = null;
-      addMsg('Perfect! Here\'s what I have:\n👤 ' + collected.name + '\n📱 ' + collected.phone + '\n📅 ' + collected.date + '\n\nWe\'ll follow up within 24 hours. You can also check our calendar and book directly below!', 'bot', [
-        { label: 'Check availability & book', url: 'https://bring-the-bloombar.booqableshop.com/collections/bloombar' }
-      ]);
-      setQR([]);
+      addMsg('Perfect! How can I help you today? You can ask me about packages, pricing, or delivery.', 'bot');
       messages.push({ role: 'user', content: 'Customer info collected: Name: ' + collected.name + ', Phone: ' + collected.phone + ', Event date/city: ' + collected.date });
       return true;
     }
@@ -589,7 +574,6 @@
 
   function handleInput(text) {
     if (!text.trim()) return;
-    document.getElementById('bb-qr').innerHTML = '';
     addMsg(text, 'user');
     document.getElementById('bb-input').value = '';
 
@@ -609,8 +593,7 @@
         var reply = data.reply || 'Sorry, something went wrong. Please call us at (714) 251-6478.';
         addMsg(reply, 'bot');
         messages.push({ role: 'assistant', content: reply });
-        setQR([]);
-      })
+        })
       .catch(function () {
         removeTyping();
         addMsg('Sorry, something went wrong. Please call or text us at (714) 251-6478 🌸', 'bot');
