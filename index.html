@@ -585,9 +585,20 @@ document.addEventListener('focusin', function() {
 
 
   function handleCollectionFlow(input) {
-    var skipPhrases = ['no', 'skip', 'pass', 'rather not', 'no thanks', 'dont want', "don't want", 'not now', 'just a question', 'quick question', 'maybe later', 'later'];
-    var lower = input.toLowerCase();
-    var isSkipping = skipPhrases.some(function(p) { return lower.includes(p); });
+    var lower = input.toLowerCase().trim();
+    var skipPhrases = [
+      'no', 'skip', 'pass', 'rather not', 'no thanks', 'dont want',
+      "don't want", 'not now', 'just a question', 'quick question',
+      'maybe later', 'later', 'prefer not', 'rather skip',
+      'not comfortable', 'dont feel', "don't feel", 'provide it',
+      'want to provide', 'not provide', 'dont provide', "don't provide",
+      'no name', 'anonymous', 'private', 'skip that', 'move on',
+      'next question', 'just ask', 'just want to ask'
+    ];
+
+    var isSkipping = skipPhrases.some(function(p) {
+      return lower.includes(p);
+    });
 
     if (isSkipping && awaitingField !== null) {
       awaitingField = null;
@@ -601,23 +612,26 @@ document.addEventListener('focusin', function() {
       addMsg('Thanks ' + input + '! What is the best phone number to reach you?', 'bot');
       return true;
     }
+
     if (awaitingField === 'phone') {
       collected.phone = input;
       awaitingField = 'date';
       addMsg('Got it! What is your event date and city?', 'bot');
       return true;
     }
+
     if (awaitingField === 'date') {
       collected.date = input;
       awaitingField = null;
+      addMsg('Perfect! How can I help you today?', 'bot');
       setTimeout(function() {
         addMsg('If you would ever rather chat with a real person, you can text us directly using the button below!', 'bot');
         var textCta = document.getElementById('bb-text-cta');
         if (textCta) textCta.style.display = 'flex';
       }, 1000);
-      addMsg('Perfect! How can I help you today?', 'bot');
       return true;
     }
+
     return false;
   }
 
