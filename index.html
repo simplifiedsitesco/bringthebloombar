@@ -556,6 +556,12 @@
 
   function handleCollectionFlow(input) {
     if (awaitingField === 'name') {
+      var skip = /^(no|nope|skip|pass|no thanks|don't want to|dont want to|rather not|no thank you|i'd rather not|id rather not|prefer not|none)$/i.test(input.trim());
+      if (skip) {
+        awaitingField = null;
+        addMsg('Of course! What can I help you with?', 'bot');
+        return true;
+      }
       collected.name = input;
       awaitingField = 'phone';
       addMsg('Thanks ' + input + '! 🌸 What\'s the best phone number to reach you?', 'bot');
