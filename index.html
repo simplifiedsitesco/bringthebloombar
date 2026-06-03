@@ -464,6 +464,30 @@
     font-size: 13.5px; line-height: 1.5; color: #333;
     border: 1px solid #f0d9e5; display: none;
   }
+  @media (max-width: 768px) {
+    #bb-chat-window {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      z-index: 99999;
+    }
+    #bb-messages {
+      flex: 1;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .bb-input-area {
+      position: sticky;
+      bottom: 0;
+      background: #fff;
+      padding-bottom: env(safe-area-inset-bottom, 10px);
+    }
+  }
 </style>
 
 <div id="bb-greeting">
@@ -497,6 +521,12 @@
 </div>
 
 <script>
+document.addEventListener('focusin', function() {
+  if (window.innerWidth <= 768) {
+    document.getElementById('bb-messages').scrollTop = document.getElementById('bb-messages').scrollHeight;
+  }
+});
+
 (function () {
   var messages = [];
   var collected = { name: null, phone: null, date: null };
