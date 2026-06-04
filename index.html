@@ -407,7 +407,7 @@
   }
   .bb-msg.bot .bb-bubble { background: #fff; color: #333; border-bottom-left-radius: 4px; border: 1px solid #f0d9e5; }
   .bb-msg.user .bb-bubble { background: #d4537e; color: #fff; border-bottom-right-radius: 4px; }
-  .bb-time { font-size: 10px; color: #aaa; padding: 0 4px; }
+  .bb-time { font-size: 10px; color: #767676; padding: 0 4px; }
   .bb-msg.user .bb-time { text-align: right; }
   .bb-link {
     display: inline-block; margin-top: 6px;
@@ -494,6 +494,14 @@
       flex-shrink: 0;
     }
   }
+  #bb-chat-btn:focus {
+    outline: 3px solid #a03060;
+    outline-offset: 2px;
+  }
+  .bb-close:focus, #bb-send:focus, #bb-input:focus, .bb-link:focus {
+    outline: 3px solid #a03060;
+    outline-offset: 2px;
+  }
 </style>
 
 <div id="bb-greeting">
@@ -501,28 +509,28 @@
   Hi there! 👋 Have questions about our bloom bar rentals? Ask me anything — pricing, delivery, packages, and more!
 </div>
 
-<button id="bb-chat-btn" aria-label="Open BloomBar chat">
-  <span style="font-size:20px;">🌸</span> Chat with us
+<button id="bb-chat-btn" role="button" aria-label="Open chat with Bring the BloomBar" aria-expanded="false">
+  <span style="font-size:20px;" aria-hidden="true">🌸</span> Chat with us
 </button>
 
-<div id="bb-chat-window" role="dialog" aria-label="BloomBar chat assistant">
+<div id="bb-chat-window" role="dialog" aria-modal="true" aria-label="Bring the BloomBar chat assistant">
   <div class="bb-header">
     <div class="bb-header-avatar">🌸</div>
     <div class="bb-header-info">
       <div class="bb-header-name">Bring the BloomBar</div>
       <div class="bb-header-sub">Bloom bar rentals · La Habra, CA</div>
     </div>
-    <button class="bb-close" id="bb-close-btn" aria-label="Close chat">✕</button>
+    <button class="bb-close" id="bb-close-btn" aria-label="Close chat window">✕</button>
   </div>
-  <div class="bb-messages" id="bb-messages"></div>
+  <div class="bb-messages" id="bb-messages" role="log" aria-live="polite" aria-label="Chat messages" aria-relevant="additions"></div>
   <div id="bb-text-cta" style="display:none; border-top: 1px solid #f0d9e5; padding: 8px 12px; background: #fff; justify-content: center;">
     <a id="bb-text-link" href="sms:7142516478" style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #d4537e; text-decoration: none; padding: 6px 14px; border: 1px solid #f4c0d1; border-radius: 20px; background: #fbeaf0;">
       Rather talk to a real person? Text us
     </a>
   </div>
   <div class="bb-input-area">
-    <input class="bb-input" id="bb-input" type="text" placeholder="Ask about rentals, pricing, delivery..." />
-    <button class="bb-send" id="bb-send" aria-label="Send">➤</button>
+    <input class="bb-input" id="bb-input" type="text" placeholder="Ask about rentals, pricing, delivery..." aria-label="Type your message here" autocomplete="off" />
+    <button class="bb-send" id="bb-send" aria-label="Send message">➤</button>
   </div>
 </div>
 
@@ -672,17 +680,32 @@ document.addEventListener('focusin', function() {
       });
   }
 
+  document.addEventListener('keydown', function(e) {
+    var chatWindow = document.getElementById('bb-chat-window');
+    if (e.key === 'Escape' && chatWindow.classList.contains('open')) {
+      closeChat();
+      document.getElementById('bb-chat-btn').focus();
+    }
+  });
+
   function openChat() {
-    document.getElementById('bb-chat-window').classList.add('open');
+    var chatWindow = document.getElementById('bb-chat-window');
+    chatWindow.classList.add('open');
+    document.getElementById('bb-chat-btn').setAttribute('aria-expanded', 'true');
+    setTimeout(function() {
+      document.getElementById('bb-input').focus();
+    }, 100);
     if (!opened) {
       opened = true;
-      addMsg('Hi there! 🌸 Welcome to Bring the BloomBar! I\'m here to help with rentals, pricing, and booking.\n\nFirst, what\'s your name?', 'bot');
+      addMsg('Hi there! Welcome to Bring the BloomBar! I am here to help with rentals, pricing, and booking. First, what is your name?', 'bot');
       awaitingField = 'name';
     }
   }
 
   function closeChat() {
-    document.getElementById('bb-chat-window').classList.remove('open');
+    var chatWindow = document.getElementById('bb-chat-window');
+    chatWindow.classList.remove('open');
+    document.getElementById('bb-chat-btn').setAttribute('aria-expanded', 'false');
   }
 
   document.getElementById('bb-chat-btn').onclick = openChat;
