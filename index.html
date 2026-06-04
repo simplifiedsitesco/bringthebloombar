@@ -86,6 +86,21 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Bring the BloomBar",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+17142516478",
+      "contactType": "customer service",
+      "email": "bringthebloombar@gmail.com",
+      "areaServed": "Orange County, CA",
+      "availableLanguage": "English"
+    }
+  }
+  </script>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-G30XYYN4VG"></script>
 <script>
@@ -407,8 +422,8 @@
 
   <section class="container" id="reserve">
     <div class="cta-strip">
-      <h2>Ready to reserve your bloom bar rental?</h2>
-      <p>Send your date and city, and we’ll confirm availability quickly.</p>
+      <h2>Reserve Your Bloom Bar</h2>
+      <p>Tell us about your event and we’ll get back to you within 24 hours.</p>
       <form name="bloom-bar-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Booking request form">
         <input type="hidden" name="form-name" value="bloom-bar-inquiry">
         <p style="display:none"><label>Don't fill this out: <input name="bot-field"></label></p>
@@ -416,11 +431,12 @@
         <input id="name" name="name" type="text" autocomplete="name" required>
         <label for="email">Email</label>
         <input id="email" name="email" type="email" autocomplete="email" required>
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone" placeholder="(714) 000-0000" required>
-        <label for="event-details">Event date + city</label>
-        <textarea id="event-details" name="event-details" rows="4" required></textarea>
+        <label for="phone">Phone number<span style="font-size: 0.75rem; opacity: 0.7; margin-left: 0.4rem;">(optional)</span></label>
+        <input type="tel" id="phone" name="phone" placeholder="(714) 000-0000">
+        <label for="event-date-city">Event date + city</label>
+        <input type="text" id="event-date-city" name="event-date-city" placeholder="e.g. July 12 · Fullerton · Bridal shower" required>
         <button class="btn btn-primary" type="submit">Check My Date</button>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.65); text-align: center; margin-top: 0.75rem;">We respond within 24 hours. No spam, ever.</p>
       </form>
       <div class="contact-alt" style="margin-top: 1.5rem; text-align: center">
         <p style="color: rgba(255,255,255,0.8); margin-bottom: 0.75rem">Prefer to reach out directly?</p>

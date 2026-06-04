@@ -283,6 +283,9 @@ ul.checks li { margin-bottom: .45rem; }
 /* ─── Pricing contact link ───────────────────── */
 .pricing-contact-link:hover { text-decoration: underline; }
 
+/* ─── CTA strip submit button focus ─────────── */
+.cta-strip .btn:focus-visible { outline: 2px solid #f4c0d1; outline-offset: 3px; }
+
 /* ─── CTA strip ──────────────────────────────── */
 .cta-strip {
   background: linear-gradient(145deg, #2f1d28, #3d2333);
