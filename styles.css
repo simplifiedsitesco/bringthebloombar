@@ -263,9 +263,25 @@ ul.checks li { margin-bottom: .45rem; }
 .image-card.city-image img { width: 100%; height: auto; }
 
 /* ─── FAQ ────────────────────────────────────── */
-.faq details { border: 1px solid var(--border); border-radius: .8rem; padding: .95rem; margin-bottom: .7rem; background: #fff; }
-summary { cursor: pointer; font-weight: 700; }
-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+.faq details { border: none; border-bottom: 1px solid #ecd7e1; border-radius: 0; padding: 1rem 0; margin-bottom: 0; background: transparent; }
+.faq summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; list-style: none; cursor: pointer; font-weight: 600; }
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::marker { display: none; }
+.faq summary:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; border-radius: 2px; }
+.faq details p { margin: 12px 0 8px; color: #2b2326; line-height: 1.7; }
+.faq-toggle { font-size: 20px; font-weight: 300; flex-shrink: 0; color: #2b2326; line-height: 1; }
+
+/* ─── City grid ──────────────────────────────── */
+.city-grid { gap: 0; }
+.city-link { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid #ecd7e1; text-decoration: none; color: #2b2326; font-weight: 500; font-size: 15px; transition: none; }
+.city-link:hover { color: #2b2326; text-decoration: underline; }
+.city-link:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; border-radius: 2px; }
+.city-arrow { opacity: 0; transition: opacity 0.15s ease; }
+.city-link:hover .city-arrow,
+.city-link:focus-visible .city-arrow { opacity: 1; }
+
+/* ─── Pricing contact link ───────────────────── */
+.pricing-contact-link:hover { text-decoration: underline; }
 
 /* ─── CTA strip ──────────────────────────────── */
 .cta-strip {
