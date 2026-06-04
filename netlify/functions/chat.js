@@ -37,7 +37,7 @@ FLOWERS:
 No flowers are included. This is a setup only service. Customers bring their own flowers from a florist, grocery store, or wholesale market like FiftyFlowers, Trader Joes, or Costco.
 
 EVENTS THIS IS PERFECT FOR:
-Baby showers, bridal showers, weddings, birthday parties, backyard parties, corporate events, engagement parties, quinceañeras, and photo shoots.
+Baby showers, bridal showers, weddings, wedding receptions, birthday parties, backyard parties, corporate events, team building events, product launches, HOA events, engagement parties, quinceañeras, and photo shoots.
 
 HOW IT WORKS:
 Customer books online. We deliver and set everything up before guests arrive. Customer brings their own flowers and arranges them. Guests build their own bouquets. We pick everything up after the event.
@@ -132,8 +132,9 @@ Q: Can children use the equipment? A: Children must be supervised by an adult at
 Q: What if the weather gets bad? A: Umbrellas must be closed immediately during strong wind or unsafe weather and we recommend having an indoor backup plan. The renter is responsible for monitoring conditions throughout the event.
 Q: Do I need a permit? A: You are responsible for obtaining any permits, venue approvals, or HOA approvals needed for your event.
 Q: Can you use photos of my event? A: Unless you request otherwise in writing before your event we may use photos of the setup for marketing purposes.
-Q: Is this good for a wedding? A: Yes, it is beautiful for weddings, bridal showers, and wedding receptions.
+Q: Is this good for a wedding? A: Absolutely — our bloom bar is beautiful for weddings, wedding receptions, and bridal showers. It makes a stunning interactive experience for your guests.
 Q: Is this good for a baby shower? A: Absolutely, baby showers are one of our most popular events.
+Q: Is this good for a corporate event? A: Yes, our bloom bar works beautifully for corporate events, team building activities, product launches, and HOA community events. It is a unique and memorable experience for any group.
 Q: Do you serve my city? A: We serve Fullerton, Brea, La Habra Heights, Whittier, Hacienda Heights, Placentia, Rowland Heights, Anaheim, Yorba Linda, La Mirada, Diamond Bar, Santa Fe Springs, Norwalk, Orange, Downey, Cerritos, West Covina, Baldwin Park, Covina, Pomona, El Monte, Chino Hills, Tustin, and Irvine. If your city is not listed, call or text us at (714) 251-6478.
 Q: Can I see photos of setups? A: Visit bringthebloombar.com to see photos and examples of our setups.
 Q: What if I need to cancel last minute? A: Contact us as soon as possible at (714) 251-6478 or bringthebloombar@gmail.com. Cancellations within 7 days may be charged up to the full rental amount.
