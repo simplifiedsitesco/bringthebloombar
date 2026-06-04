@@ -263,77 +263,80 @@
   </div>
 </section>
 
-  <section class="container pricing-section" id="pricing">
-    <h2>Simple pricing for your event</h2>
-    <p>Simple and transparent pricing with no hidden fees. Delivery and setup from $14.</p>
+  <style>
+    @media (max-width: 640px) {
+      #pricing-diy-grid, #pricing-pkg-grid { grid-template-columns: 1fr !important; }
+    }
+    #pricing-cta-btn:focus-visible { outline: 2px solid #993556; outline-offset: 3px; border-radius: 30px; }
+  </style>
+  <section id="pricing" style="padding: 80px 0; background: #fff;">
+    <div class="container" style="max-width: 900px;">
+      <p style="font-size: 11px; font-weight: 500; color: #993556; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 12px;">Pricing</p>
+      <h2 style="font-size: 36px; font-weight: 500; color: #1a1a1a; margin: 0 0 48px; line-height: 1.3;">Simple pricing for your event</h2>
 
-    <div class="pricing-grid">
+      <!-- Group 1: DIY Rentals -->
+      <p style="font-size: 11px; font-weight: 500; color: #993556; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 20px;">DIY rentals</p>
+      <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 40px;">
 
-      <!-- Package 1: The Flower Bar -->
-      <a class="pricing-card-link" href="https://bring-the-bloombar.booqableshop.com/products/the-flower-bar" target="_blank" rel="noopener noreferrer" aria-label="Book The Flower Bar rental — opens Booqable shop">
-      <article class="pricing-card pricing-card-muted" aria-label="The Flower Bar package">
-        <div class="pricing-card-content">
-          <h3>The Flower Bar</h3>
-          <p class="price">$49/day</p>
-          <p>Everything you need for a beautiful DIY flower bar setup. Flowers are not included.</p>
-          <p><strong>What's included:</strong></p>
-          <ul>
+      <div id="pricing-diy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 20px;">
+        <div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #2b2326; margin: 0 0 6px;">The Flower Bar</h3>
+          <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$49<span style="font-size: 15px; font-weight: 400; color: #6f5f67;">/day</span></p>
+          <ul style="margin: 0; padding-left: 18px; color: #2b2326; line-height: 1.85;">
             <li>Bloom bar stand</li>
+            <li>Delivery and setup included</li>
             <li>Pickup Fridays 4–6 PM in La Habra</li>
-            <li>Delivery from $14 available</li>
-            <li>Setup and breakdown included</li>
+            <li>Delivery from $12 available</li>
           </ul>
         </div>
-      </article>
-      </a>
-
-      <!-- Package 2: Boho Bloom Bundle -->
-      <a class="pricing-card-link" href="https://bring-the-bloombar.booqableshop.com/products/boho-bloom-bundle-flower-bar-and-umbrella" target="_blank" rel="noopener noreferrer" aria-label="Book the Boho Bloom Bundle rental — opens Booqable shop">
-      <article class="pricing-card pricing-card-muted" aria-label="Boho Bloom Bundle package">
-        <div class="pricing-card-content">
-          <h3>Boho Bloom Bundle</h3>
-          <p class="price">$84/day</p>
-          <p>The perfect pairing — our flower bar stand with a stunning boho fringe umbrella. Flowers are not included.</p>
-          <p><strong>What's included:</strong></p>
-          <ul>
+        <div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #2b2326; margin: 0 0 6px;">Boho Bloom Bundle</h3>
+          <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$84<span style="font-size: 15px; font-weight: 400; color: #6f5f67;">/day</span></p>
+          <ul style="margin: 0; padding-left: 18px; color: #2b2326; line-height: 1.85;">
             <li>Bloom bar stand</li>
             <li>Boho umbrella</li>
-            <li>Choice of pink or cream umbrella</li>
-            <li>Delivery from $14 available</li>
-            <li>Setup and breakdown included</li>
+            <li>Delivery and setup included</li>
+            <li>Delivery from $12 available</li>
           </ul>
         </div>
-      </article>
-      </a>
+      </div>
 
-      <!-- Package 3: Bloom & Gather Bundle -->
-      <a class="pricing-card-link" href="https://bring-the-bloombar.booqableshop.com/products/bloom-gather-bundle-flower-bar-umbrella-sign-easel" target="_blank" rel="noopener noreferrer" aria-label="Book the Bloom &amp; Gather Bundle rental — opens Booqable shop">
-      <article class="pricing-card featured" aria-label="Bloom and Gather Bundle package">
-        <div class="pricing-card-content">
-          <p class="badge" aria-label="Most popular package">Most popular</p>
-          <h3>Bloom &amp; Gather Bundle</h3>
-          <p class="price">$110/day</p>
-          <p>Our most complete setup. Everything you need for a stress-free, beautiful bloom bar experience. Flowers are not included.</p>
-          <p><strong>What's included:</strong></p>
-          <ul>
-            <li>Bloom bar stand</li>
-            <li>Boho umbrella</li>
-            <li>Small table with linen</li>
-            <li>Choice of pink or cream umbrella</li>
-            <li>Delivery from $14 available</li>
+      <p style="font-size: 14px; color: #6f5f67; margin: 0 0 36px; font-style: italic;">After booking, let us know your umbrella preference — pink striped or cream white — at no extra charge.</p>
+
+      <div style="text-align: center; margin-bottom: 72px;">
+        <a id="pricing-cta-btn" href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #993556; color: #fff; text-decoration: none; padding: 14px 32px; border-radius: 30px; font-weight: 600; font-size: 16px;">Reserve Your Bloom Bar</a>
+      </div>
+
+      <!-- Group 2: Full Flower Packages -->
+      <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 20px;">
+      <p style="font-size: 11px; font-weight: 500; color: #993556; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 20px;">Full flower packages</p>
+      <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 40px;">
+
+      <div id="pricing-pkg-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+        <div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #2b2326; margin: 0 0 4px;">Bloom Social</h3>
+          <p style="font-size: 13px; color: #6f5f67; margin: 0 0 8px;">10–20 guests</p>
+          <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$725<span style="font-size: 15px; font-weight: 400; color: #6f5f67;"> flat</span></p>
+          <ul style="margin: 0; padding-left: 18px; color: #2b2326; line-height: 1.85;">
+            <li>Full bloom bar setup</li>
+            <li>Flowers sourced and arranged</li>
+            <li>Delivery, setup, and breakdown</li>
           </ul>
+          <p style="margin: 24px 0 6px; font-size: 14px; color: #6f5f67;">Not yet available to book online.</p>
+          <a href="mailto:bringthebloombar@gmail.com" style="color: #993556; text-decoration: none; font-weight: 600; font-size: 15px;">Contact us to book &#8594;</a>
         </div>
-      </article>
-      </a>
-
-    </div>
-
-    <div class="pricing-cta">
-      <div class="pricing-cta-container">
-        <h2>Check your date in Orange County</h2>
-        <p>Availability fills fast — especially on weekends.</p>
-        <a class="btn-primary" href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" target="_blank" rel="noopener noreferrer">Reserve Your Bloom Bar</a>
-        <p class="pricing-cta-note">Weekend dates book quickly — especially for showers, birthdays, and weddings.</p>
+        <div>
+          <h3 style="font-size: 20px; font-weight: 600; color: #2b2326; margin: 0 0 4px;">Bloom Celebration</h3>
+          <p style="font-size: 13px; color: #6f5f67; margin: 0 0 8px;">20–35 guests</p>
+          <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$995<span style="font-size: 15px; font-weight: 400; color: #6f5f67;"> flat</span></p>
+          <ul style="margin: 0; padding-left: 18px; color: #2b2326; line-height: 1.85;">
+            <li>Full bloom bar setup</li>
+            <li>Flowers sourced and arranged</li>
+            <li>Delivery, setup, and breakdown</li>
+          </ul>
+          <p style="margin: 24px 0 6px; font-size: 14px; color: #6f5f67;">Not yet available to book online.</p>
+          <a href="mailto:bringthebloombar@gmail.com" style="color: #993556; text-decoration: none; font-weight: 600; font-size: 15px;">Contact us to book &#8594;</a>
+        </div>
       </div>
     </div>
   </section>
