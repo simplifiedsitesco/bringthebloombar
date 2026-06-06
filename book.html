@@ -223,9 +223,16 @@
     .diy-sep { color: #d4537e; margin: 0 0.2rem; }
 
     /* Product grid */
-    .diy-product-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin: 1.5rem 0; }
+    .diy-product-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin: 1.5rem 0; align-items: stretch; }
     @media (min-width: 520px) { .diy-product-grid { grid-template-columns: 1fr 1fr; } }
-    .diy-product-card { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1.25rem 1rem; display: flex; flex-direction: column; }
+    .diy-product-card { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1.25rem 1rem; display: flex; flex-direction: column; height: 100%; }
+
+    /* Hide Booqable quantity spinner in DIY product section */
+    #diy-products .bq-quantity,
+    #diy-products .bq-product-quantity,
+    #diy-products [class*="quantity"],
+    #diy-products input[type="number"],
+    #diy-products .bq-spinner { display: none !important; }
     .diy-product-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #d4537e; font-weight: 600; margin: 0 0 0.35rem; font-family: "Inter", sans-serif; }
     .diy-product-name { font-family: "Playfair Display", Georgia, serif; font-size: 18px; color: #3d1a2e; margin: 0; }
     .diy-product-rule { border: none; border-top: 0.5px solid #f4c0d1; margin: 0.5rem 0; }
@@ -456,7 +463,7 @@
 
     <!-- Continue to Step 4 -->
     <div style="margin-top:1.75rem;">
-      <p class="diy-continue-instruction">Added your package? Continue to complete your setup.</p>
+      <p class="diy-continue-instruction diy-continue-text" style="display:none;">Added your package? Continue to complete your setup.</p>
       <div class="bk-cta-row" style="margin-top:0.75rem;">
         <button class="bk-btn" onclick="diyProductsContinue()" aria-label="Continue to add-ons after adding package to cart">Continue to add-ons &rarr;</button>
         <button class="bk-back" aria-label="Back to experience selection" onclick="goToStep(1)">&larr; Back</button>
@@ -464,6 +471,34 @@
     </div>
     <a href="#" onclick="event.preventDefault(); state.experience='full'; goToStep2Details();" style="font-size:11px;color:#d4537e;text-decoration:underline;text-underline-offset:3px;display:block;text-align:center;margin-top:1rem;font-family:'Inter',sans-serif;">Prefer us to handle the flowers? Explore our full flower packages &rarr;</a>
   </section>
+  <script>
+  (function() {
+    function showContinueText() {
+      var el = document.querySelector('#diy-products .diy-continue-text');
+      if (el) el.style.display = 'block';
+    }
+
+    // Method 1 — Booqable custom event
+    document.addEventListener('booqable:cart:add', showContinueText);
+
+    // Method 2 — MutationObserver watching for cart changes as fallback
+    var cartObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.type === 'childList' || mutation.type === 'characterData') {
+          var cartCount = document.querySelector('[class*="cart-count"], [class*="cart-badge"], [class*="bq-cart"]');
+          if (cartCount && parseInt(cartCount.textContent) > 0) {
+            showContinueText();
+          }
+        }
+      });
+    });
+
+    var cartArea = document.querySelector('#diy-products');
+    if (cartArea) {
+      cartObserver.observe(cartArea, { childList: true, subtree: true, characterData: true });
+    }
+  })();
+  </script>
 
   <!-- ===================== DIY STEP 4 — Complete Your Setup ===================== -->
   <section id="diy-addons" class="bk-step" aria-live="polite">
