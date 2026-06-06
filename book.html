@@ -1,0 +1,1772 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Bloom Bar Experience | Bring the BloomBar</title>
+  <meta name="description" content="Build your custom bloom bar quote online — DIY rentals from $49/day, full flower packages from $725, and event rentals across Orange County and LA County.">
+  <link rel="canonical" href="https://www.bringthebloombar.com/book.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" href="images/bloombar_favicon.png">
+  <link rel="apple-touch-icon" href="images/bloombar_favicon.png">
+  <link rel="stylesheet" href="styles.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G30XYYN4VG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-G30XYYN4VG');
+  </script>
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wucxrcgmm8");
+  </script>
+  <style>
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    .bk-wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1rem 5rem; }
+    .trust-bar { background: #fff; border-bottom: 0.5px solid #f4c0d1; text-align: center; padding: 0.5rem 1rem; font-size: 11px; color: #6b4c5e; letter-spacing: 0.01em; }
+    .trust-bar .sep { color: #d4537e; margin: 0 0.4rem; }
+
+    /* Progress bar */
+    .bk-progress { display: flex; align-items: center; justify-content: center; gap: 0; padding: 1.25rem 1rem 1.5rem; background: #fff; border-bottom: 0.5px solid #f4c0d1; overflow-x: auto; }
+    .bk-step-item { display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; flex-shrink: 0; }
+    .bk-step-dot { width: 10px; height: 10px; border-radius: 50%; background: #f4c0d1; border: none; transition: background 0.2s; }
+    .bk-step-item.active .bk-step-dot, .bk-step-item.done .bk-step-dot { background: #d4537e; }
+    .bk-step-label { font-size: 10px; color: #9b7080; white-space: nowrap; font-family: "Inter", sans-serif; }
+    .bk-step-item.active .bk-step-label { color: #d4537e; font-weight: 600; }
+    .bk-step-item.done .bk-step-label { color: #6b4c5e; }
+    .bk-step-connector { width: 32px; height: 0.5px; background: #f4c0d1; align-self: flex-start; margin-top: 4px; flex-shrink: 0; transition: background 0.2s; }
+    .bk-step-connector.done { background: #d4537e; }
+    @media (max-width: 480px) { .bk-step-connector { width: 16px; } .bk-step-label { font-size: 9px; } }
+
+    /* Step sections */
+    .bk-step { display: none; }
+    .bk-step.active { display: block; }
+    .bk-eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em; color: #b32566; font-weight: 600; margin: 0 0 0.5rem; font-family: "Inter", sans-serif; }
+    .bk-h1 { font-family: "Playfair Display", Georgia, serif; font-size: 26px; font-weight: 700; color: #3d1a2e; margin: 0 0 0.5rem; line-height: 1.25; }
+    .bk-subtext { font-size: 13px; color: #6b4c5e; margin: 0 0 1.75rem; }
+
+    /* Experience/Package cards */
+    .bk-card-group { display: flex; flex-direction: column; gap: 0; border-top: 0.5px solid #f4c0d1; margin-bottom: 1.5rem; }
+    @media (min-width: 600px) { .bk-card-group-row { flex-direction: row; } }
+    .bk-card { padding: 1.1rem 1rem; border: 1.5px solid transparent; border-radius: 6px; cursor: pointer; background: #fff; transition: border-color 0.15s, background 0.15s; text-align: left; width: 100%; font-family: inherit; border-bottom: 0.5px solid #f4c0d1 !important; }
+    .bk-card:last-child { border-bottom: none !important; }
+    .bk-card[aria-checked="true"] { border: 1.5px solid #d4537e !important; background: #fdf6f9; }
+    .bk-card:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .bk-card-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #b32566; font-weight: 600; margin: 0 0 0.3rem; }
+    .bk-card-title { font-family: "Playfair Display", Georgia, serif; font-size: 15px; color: #3d1a2e; margin: 0 0 0.4rem; }
+    .bk-card-rule { border: none; border-top: 0.5px solid #f4c0d1; margin: 0.4rem 0 0.5rem; }
+    .bk-card-desc { font-size: 12px; color: #6b4c5e; margin: 0 0 0.4rem; line-height: 1.6; }
+    .bk-card-price { font-size: 11px; color: #b32566; font-weight: 500; margin: 0; }
+
+    /* 2-col card grid */
+    .bk-card-grid-2 { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+    @media (min-width: 520px) { .bk-card-grid-2 { grid-template-columns: 1fr 1fr; } }
+    .bk-card-grid-2 .bk-card { border-bottom: 0.5px solid #f4c0d1 !important; border-radius: 6px; }
+
+    /* 3-col full bloom package cards */
+    .bk-card-grid-3 { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+    @media (min-width: 600px) { .bk-card-grid-3 { grid-template-columns: 1fr 1fr 1fr; } }
+    .bk-card-grid-3 .bk-card { border-radius: 6px; border-bottom: 0.5px solid #f4c0d1 !important; }
+
+    /* Inline validation */
+    .bk-error { font-size: 11px; color: #b32566; margin: 0.25rem 0 0.75rem; display: none; }
+    .bk-error.visible { display: block; }
+
+    /* CTA button */
+    .bk-btn { background: #d4537e; color: #fff; border: none; border-radius: 30px; padding: 12px 28px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; transition: background 0.15s; }
+    .bk-btn:hover { background: #b32566; }
+    .bk-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .bk-btn[aria-disabled="true"] { opacity: 0.55; cursor: default; }
+    .bk-btn-ghost { background: transparent; color: #d4537e; border: 0.5px solid #d4537e; border-radius: 30px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; }
+    .bk-btn-ghost:hover { background: #fbeaf0; }
+    .bk-btn-ghost:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .bk-back { background: none; border: none; color: #9b7080; font-size: 13px; cursor: pointer; font-family: "Inter", sans-serif; padding: 0; margin-left: 1rem; }
+    .bk-back:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .bk-cta-row { display: flex; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
+
+    /* Trust line */
+    .bk-trust-line { font-style: italic; font-size: 11px; color: #6b4c5e; border-top: 0.5px solid #f4c0d1; padding-top: 0.75rem; margin-top: 0.5rem; }
+
+    /* Palette cards */
+    .bk-palette-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
+    @media (min-width: 520px) { .bk-palette-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .bk-palette-card { padding: 1rem; border: 1.5px solid transparent; border-radius: 6px; cursor: pointer; background: #fff; border-bottom: 0.5px solid #f4c0d1 !important; text-align: left; transition: border-color 0.15s, background 0.15s; }
+    .bk-palette-card[aria-checked="true"] { border: 1.5px solid #d4537e !important; background: #fdf6f9; }
+    .bk-palette-card:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .bk-palette-name { font-family: "Playfair Display", Georgia, serif; font-size: 14px; color: #3d1a2e; margin: 0 0 0.25rem; }
+    .bk-palette-desc { font-size: 11px; color: #6b4c5e; margin: 0 0 0.6rem; }
+    .bk-swatches { display: flex; gap: 6px; }
+    .bk-swatch { width: 24px; height: 24px; border-radius: 50%; }
+
+    /* Arrangement reveal */
+    .bk-arrange-reveal { display: none; margin-top: 1.25rem; }
+    .bk-arrange-reveal.visible { display: block; }
+    .bk-arrange-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 0.75rem 0 1rem; }
+
+    /* Add-on grid */
+    .bk-addon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.25rem; }
+    @media (max-width: 480px) { .bk-addon-grid { grid-template-columns: repeat(2, 1fr); } }
+    .bk-addon-card { padding: 0.75rem; border: 1.5px solid transparent; border-radius: 6px; cursor: pointer; background: #fff; border: 0.5px solid #f4c0d1; text-align: left; transition: border-color 0.15s, background 0.15s; }
+    .bk-addon-card[aria-pressed="true"] { border: 1.5px solid #d4537e; background: #fdf6f9; }
+    .bk-addon-card:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .bk-addon-img { background: #fbeaf0; height: 80px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #9b7080; margin-bottom: 0.5rem; text-align: center; padding: 0.25rem; }
+    .bk-addon-name { font-size: 12px; font-weight: 500; color: #3d1a2e; margin: 0 0 0.2rem; }
+    .bk-addon-price { font-size: 10px; color: #6b4c5e; margin: 0; }
+
+    /* Quantity rows */
+    .bk-qty-row { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; border-bottom: 0.5px solid #f4c0d1; }
+    .bk-qty-info { flex: 1; }
+    .bk-qty-name { font-size: 12px; font-weight: 500; color: #3d1a2e; margin: 0 0 0.15rem; }
+    .bk-qty-price { font-size: 11px; color: #6b4c5e; margin: 0; }
+    .bk-qty-ctrl { display: flex; align-items: center; gap: 0.5rem; }
+    .bk-qty-btn { width: 28px; height: 28px; border-radius: 50%; border: 0.5px solid #f4c0d1; background: #fff; color: #d4537e; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; font-family: "Inter", sans-serif; transition: background 0.15s; }
+    .bk-qty-btn:hover { background: #fbeaf0; }
+    .bk-qty-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .bk-qty-val { font-size: 13px; font-weight: 500; color: #3d1a2e; min-width: 20px; text-align: center; }
+
+    /* Skip link override for this page */
+    a.skip-link:focus { background: #d4537e; color: #fff; }
+
+    /* Form inputs underline style */
+    .bk-field { margin-bottom: 1.25rem; }
+    .bk-label { display: block; font-size: 12px; font-weight: 600; color: #3d1a2e; margin-bottom: 0.35rem; font-family: "Inter", sans-serif; }
+    .bk-label .opt { font-weight: 400; color: #6b4c5e; }
+    .bk-input { display: block; width: 100%; border: none; border-bottom: 1.5px solid #e8d0da; background: transparent; padding: 0.5rem 0; font-size: 14px; color: #3d1a2e; font-family: "Inter", sans-serif; outline: none; }
+    .bk-input:focus { border-bottom-color: #d4537e; }
+    .bk-input:focus-visible { outline: none; border-bottom-color: #d4537e; }
+    .bk-select { display: block; width: 100%; border: none; border-bottom: 1.5px solid #e8d0da; background: transparent; padding: 0.5rem 0; font-size: 14px; color: #3d1a2e; font-family: "Inter", sans-serif; outline: none; appearance: none; cursor: pointer; }
+    .bk-select:focus { border-bottom-color: #d4537e; }
+
+    /* Quote summary */
+    .bk-quote-box { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.25rem; }
+    .bk-quote-title { font-size: 10px; text-transform: uppercase; color: #9b7080; letter-spacing: 0.08em; margin: 0 0 1rem; font-family: "Inter", sans-serif; }
+    .bk-line-item { display: flex; justify-content: space-between; font-size: 12px; color: #6b4c5e; padding: 0.5rem 0; border-bottom: 0.5px solid #f4c0d1; }
+    .bk-line-item:last-child { border-bottom: none; }
+    .bk-line-deposit { color: #d4537e; font-weight: 600; }
+    .bk-line-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 0.75rem; border-top: 1px solid #f4c0d1; margin-top: 0.25rem; }
+    .bk-total-label { font-size: 12px; color: #6b4c5e; }
+    .bk-total-amount { font-family: "Playfair Display", Georgia, serif; font-size: 26px; color: #3d1a2e; }
+
+    /* Reassurance block */
+    .bk-reassurance { font-style: italic; font-size: 12px; color: #6b4c5e; border-left: 2px solid #f4c0d1; padding-left: 0.75rem; margin-bottom: 1.25rem; }
+
+    /* Upsell nudge */
+    .bk-upsell { background: #fbeaf0; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 1rem; font-size: 12px; color: #6b4c5e; margin-bottom: 1.25rem; }
+    .bk-upsell a { color: #b32566; }
+
+    /* Save quote block */
+    .bk-save-quote { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 1rem; margin-bottom: 1.5rem; }
+    .bk-save-title { font-size: 11px; font-weight: 500; color: #6b4c5e; margin: 0 0 0.25rem; }
+    .bk-save-sub { font-size: 10px; color: #6b4c5e; margin: 0 0 0.75rem; }
+    .bk-save-row { display: flex; gap: 0.5rem; align-items: flex-end; flex-wrap: wrap; }
+    .bk-save-row .bk-input { flex: 1; min-width: 160px; }
+
+    /* Skip add-ons link */
+    .bk-skip-link { display: flex; align-items: center; justify-content: center; min-height: 44px; color: #6b4c5e; font-size: 12px; text-decoration: underline; background: none; border: none; cursor: pointer; font-family: "Inter", sans-serif; margin: 0.5rem auto 0; }
+    .bk-skip-link:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+
+    /* Section label */
+    .bk-section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #9b7080; font-weight: 600; margin: 1.5rem 0 0.75rem; font-family: "Inter", sans-serif; }
+
+    /* Proof line */
+    .bk-proof { font-style: italic; font-size: 12px; color: #6b4c5e; text-align: center; margin-bottom: 1rem; }
+
+    /* Large event inline form */
+    .bk-large-form { display: none; border-top: 0.5px solid #f4c0d1; padding-top: 1.25rem; margin-top: 1rem; }
+    .bk-large-form.visible { display: block; }
+    .bk-large-form-note { font-size: 11px; color: #6b4c5e; margin-top: 0.75rem; font-style: italic; }
+
+    /* Fade in animation */
+    @keyframes bk-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .bk-step.active { animation: bk-fade 0.22s ease; }
+
+    /* Deposit note on card */
+    .bk-deposit-note { font-size: 10px; color: #6b4c5e; margin: 0.25rem 0 0; }
+
+    /* Final note */
+    .bk-final-note { font-size: 11px; color: #6b4c5e; text-align: center; margin-top: 0.75rem; }
+
+    /* Arrangement tag */
+    .bk-card-tag { font-size: 10px; color: #6b4c5e; font-style: italic; margin: 0.3rem 0 0; }
+  </style>
+</head>
+<body>
+
+<a href="#step-1" class="skip-link">Skip to booking flow</a>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="index.html"><img src="images/logo.png" alt="Bring the Bloom Bar and Rentals" width="120" height="120" loading="eager"></a>
+    <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle navigation menu">
+      <span aria-hidden="true">☰</span>
+    </button>
+    <nav aria-label="Primary" class="site-nav">
+      <ul id="primary-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="locations.html">Locations</a></li>
+        <li><a href="blog/diy-bloom-bar-wedding-flowers-save-money.html">Blog</a></li>
+        <li><a class="btn btn-sm" href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" target="_blank" rel="noopener noreferrer">Reserve Your Bloom Bar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="trust-bar" role="complementary" aria-label="Service highlights">
+  Setup &amp; breakdown included on every booking <span class="sep" aria-hidden="true">&middot;</span> Same-day response Mon&ndash;Fri <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County &amp; LA County
+</div>
+
+<main id="main">
+<div class="bk-wrap">
+
+  <div aria-live="polite" aria-atomic="true" class="sr-only" id="step-announcement"></div>
+
+  <!-- Progress bar -->
+  <nav id="bk-progress-bar" class="bk-progress" role="navigation" aria-label="Booking progress">
+    <!-- Rendered by JS -->
+  </nav>
+
+  <!-- Hidden Netlify form for bot detection -->
+  <form name="book-inquiry" data-netlify="true" hidden>
+    <input name="name"><input name="email"><input name="event-date"><input name="guest-count">
+    <input name="experience"><input name="package"><input name="addons"><input name="delivery-city"><input name="total">
+  </form>
+
+  <!-- ===================== STEP 1 ===================== -->
+  <section id="step-1" class="bk-step active" aria-live="polite">
+    <p class="bk-eyebrow">Book Your Experience</p>
+    <h1 class="bk-h1" id="step1-heading">Build your custom event quote.</h1>
+    <p class="bk-subtext">Choose your path below — explore everything before committing to anything.</p>
+
+    <div class="bk-card-group" role="radiogroup" aria-labelledby="step1-heading">
+      <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-exp="diy" onclick="selectExperience('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
+        <p class="bk-card-label">DIY BLOOM BAR</p>
+        <p class="bk-card-title">Rent the Bar</p>
+        <hr class="bk-card-rule">
+        <p class="bk-card-desc">You bring the flowers — we deliver and style the bar, set everything up, and break it down after.</p>
+        <p class="bk-card-price">From $49/day</p>
+      </button>
+      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="full" onclick="selectExperience('full')" onkeydown="rovingKey(event,'step1-rg',1)">
+        <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
+        <p class="bk-card-title">We Handle Everything</p>
+        <hr class="bk-card-rule">
+        <p class="bk-card-desc">From flowers to setup to breakdown — everything is handled for you. All you do is show up.</p>
+        <p class="bk-card-price">From $725</p>
+      </button>
+      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="rentals" onclick="selectExperience('rentals')" onkeydown="rovingKey(event,'step1-rg',2)">
+        <p class="bk-card-label">EVENT RENTALS ONLY</p>
+        <p class="bk-card-title">Rentals Only</p>
+        <hr class="bk-card-rule">
+        <p class="bk-card-desc">Style your event with backdrops, seating, and ambient lighting — no bloom bar required.</p>
+        <p class="bk-card-price">From $8/item</p>
+      </button>
+    </div>
+
+    <p class="bk-error" id="step1-error" role="alert" aria-atomic="true">Please choose an experience above to continue.</p>
+
+    <div class="bk-cta-row">
+      <button class="bk-btn" id="step1-btn" aria-disabled="true" onclick="step1Next()">Choose my experience</button>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 2 ===================== -->
+  <section id="step-2" class="bk-step" aria-live="polite">
+
+    <!-- DIY sub-section -->
+    <div id="step2-diy" style="display:none;">
+      <p class="bk-eyebrow" id="step2-eyebrow-diy">Step 2 &mdash; DIY Bloom Bar</p>
+      <h2 class="bk-h1" id="step2-heading-diy">Choose your package.</h2>
+      <p class="bk-subtext">Both packages include delivery, setup, and breakdown.</p>
+      <div class="bk-card-grid-2" role="radiogroup" aria-labelledby="step2-heading-diy">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="flower-bar" data-price="49" onclick="selectPackage('flower-bar',49)" onkeydown="rovingKey(event,'step2-diy-rg',0)">
+          <p class="bk-card-label">THE FLOWER BAR</p>
+          <p class="bk-card-title">The Flower Bar</p>
+          <hr class="bk-card-rule">
+          <ul class="bk-card-desc" style="padding-left:1.1rem;margin:0 0 0.4rem;">
+            <li>Bloom bar stand</li>
+            <li>Pickup free in La Habra</li>
+            <li>Delivery from $14</li>
+            <li>Setup and breakdown included</li>
+          </ul>
+          <p class="bk-card-price">$49/day</p>
+          <p class="bk-card-tag">Perfect for intimate gatherings and backyard parties</p>
+        </button>
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="boho-bloom-bundle" data-price="84" onclick="selectPackage('boho-bloom-bundle',84)" onkeydown="rovingKey(event,'step2-diy-rg',1)">
+          <p class="bk-card-label">BOHO BLOOM BUNDLE</p>
+          <p class="bk-card-title">Boho Bloom Bundle</p>
+          <hr class="bk-card-rule">
+          <ul class="bk-card-desc" style="padding-left:1.1rem;margin:0 0 0.4rem;">
+            <li>Bloom bar stand</li>
+            <li>Boho umbrella (pink or cream)</li>
+            <li>Pickup free in La Habra</li>
+            <li>Delivery from $14</li>
+            <li>Setup and breakdown included</li>
+          </ul>
+          <p class="bk-card-price">$84/day</p>
+          <p class="bk-card-tag">Styled for bridal showers, baby showers, and birthdays</p>
+        </button>
+      </div>
+      <p class="bk-trust-line">All rentals include setup and breakdown — no extra charges on the day.</p>
+      <p class="bk-error" id="step2-diy-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
+      <div class="bk-cta-row">
+        <button class="bk-btn" id="step2-diy-btn" aria-disabled="true" onclick="step2Next()">Choose my package</button>
+        <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
+      </div>
+    </div>
+
+    <!-- Full sub-section -->
+    <div id="step2-full" style="display:none;">
+      <p class="bk-eyebrow" id="step2-eyebrow-full">Step 2 &mdash; Full Bloom Bar Experience</p>
+      <h2 class="bk-h1" id="step2-heading-full">Choose your package.</h2>
+      <p class="bk-subtext">Flowers, setup, and breakdown are all included.</p>
+      <div class="bk-card-grid-3" role="radiogroup" aria-labelledby="step2-heading-full">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="bloom-social" data-price="725" onclick="selectPackage('bloom-social',725)" onkeydown="rovingKey(event,'step2-full-rg',0)">
+          <p class="bk-card-label">BLOOM SOCIAL</p>
+          <p class="bk-card-title">Bloom Social</p>
+          <p class="bk-card-desc" style="font-size:10px;color:#9b7080;margin:0 0 0.3rem;">10&ndash;20 guests</p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-price">$725 Essential &middot; $925 Lush</p>
+          <ul class="bk-card-desc" style="padding-left:1.1rem;margin:0.4rem 0 0;">
+            <li>Full bloom bar setup</li>
+            <li>Flowers sourced and arranged</li>
+            <li>Delivery, setup and breakdown</li>
+            <li>Attendant add-on available</li>
+          </ul>
+        </button>
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="bloom-celebration" data-price="995" onclick="selectPackage('bloom-celebration',995)" onkeydown="rovingKey(event,'step2-full-rg',1)">
+          <p class="bk-card-label">BLOOM CELEBRATION</p>
+          <p class="bk-card-title">Bloom Celebration</p>
+          <p class="bk-card-desc" style="font-size:10px;color:#9b7080;margin:0 0 0.3rem;">20&ndash;35 guests</p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-price">$995 Essential &middot; $1,250 Lush</p>
+          <ul class="bk-card-desc" style="padding-left:1.1rem;margin:0.4rem 0 0;">
+            <li>Full bloom bar setup</li>
+            <li>Flowers sourced and arranged</li>
+            <li>Delivery, setup and breakdown</li>
+            <li>Attendant add-on available</li>
+          </ul>
+        </button>
+        <button class="bk-card" role="button" aria-pressed="false" tabindex="-1" id="large-event-card" onclick="toggleLargeEvent()" onkeydown="rovingKey(event,'step2-full-rg',2)" style="border-bottom:0.5px solid #f4c0d1!important;">
+          <p class="bk-card-label">LARGE EVENT</p>
+          <p class="bk-card-title">Large Event (35+ guests)</p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-desc">Every large event is unique. Tell us about yours and we'll build a custom quote.</p>
+          <span class="bk-btn-ghost" style="display:inline-block;margin-top:0.5rem;font-size:11px;padding:6px 14px;">Get a custom quote</span>
+        </button>
+      </div>
+
+      <!-- Large event inline form -->
+      <div id="large-event-form" class="bk-large-form">
+        <form name="large-event-inquiry" data-netlify="true" onsubmit="submitLargeEvent(event)">
+          <input type="hidden" name="form-name" value="large-event-inquiry">
+          <div class="bk-field">
+            <label class="bk-label" for="le-name">Name</label>
+            <input class="bk-input" type="text" id="le-name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="bk-field">
+            <label class="bk-label" for="le-email">Email</label>
+            <input class="bk-input" type="email" id="le-email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="bk-field">
+            <label class="bk-label" for="le-date">Event date</label>
+            <input class="bk-input" type="text" id="le-date" name="event-date" placeholder="e.g. July 12, 2026" required>
+          </div>
+          <div class="bk-field">
+            <label class="bk-label" for="le-guests">Guest count</label>
+            <input class="bk-input" type="number" id="le-guests" name="guest-count" placeholder="Approx. number of guests" min="35" required>
+          </div>
+          <button class="bk-btn" type="submit">Send my enquiry</button>
+          <p class="bk-large-form-note">We'll get back to you within 2 hours during business hours.</p>
+        </form>
+      </div>
+
+      <p class="bk-trust-line">All full bloom bar packages include fresh flowers sourced within 48 hours of your event.</p>
+      <p class="bk-error" id="step2-full-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
+      <div class="bk-cta-row" id="step2-full-cta-row">
+        <button class="bk-btn" id="step2-full-btn" aria-disabled="true" onclick="step2Next()">Choose my package</button>
+        <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
+      </div>
+    </div>
+
+    <!-- Rentals sub-section -->
+    <div id="step2-rentals" style="display:none;">
+      <p class="bk-eyebrow" id="step2-eyebrow-rentals">Step 2 &mdash; Event Rentals</p>
+      <h2 class="bk-h1" id="step2-heading-rentals">Choose your statement piece.</h2>
+      <p class="bk-subtext">Pick your centrepiece — it will be pre-added to your quote. You can add more items in the next step.</p>
+      <div class="bk-card-grid-2" role="radiogroup" aria-labelledby="step2-heading-rentals">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="pink-backdrop" data-price="125" onclick="selectPackage('pink-backdrop',125)" onkeydown="rovingKey(event,'step2-rentals-rg',0)">
+          <p class="bk-card-label">BACKDROP</p>
+          <p class="bk-card-title">Pink Flower Backdrop</p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-desc">A stunning full pink floral backdrop — perfect as a photo wall or focal point.</p>
+          <p class="bk-card-price">$125/day</p>
+        </button>
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="white-backdrop" data-price="115" onclick="selectPackage('white-backdrop',115)" onkeydown="rovingKey(event,'step2-rentals-rg',1)">
+          <p class="bk-card-label">BACKDROP</p>
+          <p class="bk-card-title">White Flower Backdrop</p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-desc">Elegant white floral backdrop — versatile for any event theme or colour palette.</p>
+          <p class="bk-card-price">$115/day</p>
+        </button>
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="green-backdrop" data-price="95" onclick="selectPackage('green-backdrop',95)" onkeydown="rovingKey(event,'step2-rentals-rg',2)">
+          <p class="bk-card-label">BACKDROP</p>
+          <p class="bk-card-title">Green Backdrop</p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-desc">Lush greenery backdrop — ideal for a fresh, organic event aesthetic.</p>
+          <p class="bk-card-price">$95/day</p>
+        </button>
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="bar-cart" data-price="85" onclick="selectPackage('bar-cart',85)" onkeydown="rovingKey(event,'step2-rentals-rg',3)">
+          <p class="bk-card-label">FURNITURE</p>
+          <p class="bk-card-title">Bar Cart</p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-desc">Stylish bar cart rental — great for drinks stations, dessert displays, or décor.</p>
+          <p class="bk-card-price">$85/day</p>
+        </button>
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="champagne-wall" data-price="75" onclick="selectPackage('champagne-wall',75)" onkeydown="rovingKey(event,'step2-rentals-rg',4)">
+          <p class="bk-card-label">DISPLAY</p>
+          <p class="bk-card-title">Champagne Wall</p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-desc">A crowd-favourite champagne wall — perfect for welcome drinks at any celebration.</p>
+          <p class="bk-card-price">$75/day</p>
+        </button>
+      </div>
+      <p class="bk-trust-line">Delivery, setup, and breakdown are included with every rental.</p>
+      <p class="bk-error" id="step2-rentals-error" role="alert" aria-atomic="true">Please choose a statement piece above to continue.</p>
+      <div class="bk-cta-row">
+        <button class="bk-btn" id="step2-rentals-btn" aria-disabled="true" onclick="step2Next()">Choose my piece</button>
+        <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== STEP 3 (Full path only) ===================== -->
+  <section id="step-3" class="bk-step" aria-live="polite">
+    <p class="bk-eyebrow">Step 3 &mdash; Your Flowers</p>
+    <h2 class="bk-h1" id="step3-heading">Choose your colour palette.</h2>
+    <p class="bk-subtext">Your arrangement will be styled in your chosen palette using the freshest seasonal blooms available.</p>
+    <p class="bk-trust-line" style="margin-bottom:1.25rem;">Each arrangement is sourced fresh within 48 hours of your event and styled on-site by us.</p>
+
+    <div class="bk-palette-grid" role="radiogroup" aria-labelledby="step3-heading">
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Blush &amp; White — Soft pinks, whites, and cream" tabindex="0" data-palette="blush-white" onclick="selectPalette('blush-white')" onkeydown="rovingKey(event,'step3-palette-rg',0)">
+        <p class="bk-palette-name">Blush &amp; White</p>
+        <p class="bk-palette-desc">Soft pinks, whites, and cream</p>
+        <div class="bk-swatches">
+          <span class="bk-swatch" style="background:#f2c4ce;border:1px solid #c98fa0;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#ffffff;border:1px solid #e0d0d6;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#f5efe6;border:1px solid #c9bfb9;" aria-hidden="true"></span>
+        </div>
+      </button>
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Garden Greens — White blooms with lush greenery and soft peach" tabindex="-1" data-palette="garden-greens" onclick="selectPalette('garden-greens')" onkeydown="rovingKey(event,'step3-palette-rg',1)">
+        <p class="bk-palette-name">Garden Greens</p>
+        <p class="bk-palette-desc">White blooms with lush greenery and soft peach</p>
+        <div class="bk-swatches">
+          <span class="bk-swatch" style="background:#ffffff;border:1px solid #e0d0d6;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#7d9e7a;border:1px solid #5a7857;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#f5c5a3;border:1px solid #c99a78;" aria-hidden="true"></span>
+        </div>
+      </button>
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Bold &amp; Romantic — Deep reds, burgundy, and mauve" tabindex="-1" data-palette="bold-romantic" onclick="selectPalette('bold-romantic')" onkeydown="rovingKey(event,'step3-palette-rg',2)">
+        <p class="bk-palette-name">Bold &amp; Romantic</p>
+        <p class="bk-palette-desc">Deep reds, burgundy, and mauve</p>
+        <div class="bk-swatches">
+          <span class="bk-swatch" style="background:#8b1a2e;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#6b2d3e;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#c47a8a;border:1px solid #9e5a6a;" aria-hidden="true"></span>
+        </div>
+      </button>
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Something Blue — Soft blues, dusty blue, white, and silver" tabindex="-1" data-palette="something-blue" onclick="selectPalette('something-blue')" onkeydown="rovingKey(event,'step3-palette-rg',3)">
+        <p class="bk-palette-name">Something Blue</p>
+        <p class="bk-palette-desc">Soft blues, dusty blue, white, and silver</p>
+        <div class="bk-swatches">
+          <span class="bk-swatch" style="background:#7ba7bc;border:1px solid #5a8099;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#b0cdd8;border:1px solid #8aa8b5;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#ffffff;border:1px solid #e0d0d6;" aria-hidden="true"></span>
+        </div>
+      </button>
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Spring Pastels — Lavender, peach, soft yellow, and pale pink" tabindex="-1" data-palette="spring-pastels" onclick="selectPalette('spring-pastels')" onkeydown="rovingKey(event,'step3-palette-rg',4)">
+        <p class="bk-palette-name">Spring Pastels</p>
+        <p class="bk-palette-desc">Lavender, peach, soft yellow, and pale pink</p>
+        <div class="bk-swatches">
+          <span class="bk-swatch" style="background:#c8a8d4;border:1px solid #a080b0;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#f5c5a3;border:1px solid #c99a78;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#f5e6a3;border:1px solid #c9bb78;" aria-hidden="true"></span>
+        </div>
+      </button>
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Jewel Tones — Deep purple, emerald, and gold accents" tabindex="-1" data-palette="jewel-tones" onclick="selectPalette('jewel-tones')" onkeydown="rovingKey(event,'step3-palette-rg',5)">
+        <p class="bk-palette-name">Jewel Tones</p>
+        <p class="bk-palette-desc">Deep purple, emerald, and gold accents</p>
+        <div class="bk-swatches">
+          <span class="bk-swatch" style="background:#4a1a6b;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#1a6b3e;" aria-hidden="true"></span>
+          <span class="bk-swatch" style="background:#c8a832;border:1px solid #9e8420;" aria-hidden="true"></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- Arrangement reveal -->
+    <div id="arrange-reveal" class="bk-arrange-reveal">
+      <p style="font-size:12px;font-weight:600;color:#3d1a2e;margin:0 0 0.25rem;">Choose your arrangement style.</p>
+      <div class="bk-arrange-grid" role="radiogroup" aria-label="Choose arrangement tier">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" id="tier-essential-card" data-tier="essential" onclick="selectTierCard('essential')" onkeydown="rovingKey(event,'step3-tier-rg',0)">
+          <p class="bk-card-label">ESSENTIAL</p>
+          <p class="bk-card-title" id="tier-essential-price"></p>
+          <p class="bk-deposit-note" id="tier-essential-deposit"></p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-desc">A beautifully curated arrangement in your chosen palette using seasonal blooms. Elegant, intentional, and photo-ready.</p>
+        </button>
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" id="tier-lush-card" data-tier="lush" onclick="selectTierCard('lush')" onkeydown="rovingKey(event,'step3-tier-rg',1)">
+          <p class="bk-card-label">LUSH</p>
+          <p class="bk-card-title" id="tier-lush-price"></p>
+          <p class="bk-deposit-note" id="tier-lush-deposit"></p>
+          <hr class="bk-card-rule">
+          <p class="bk-card-desc">The same arrangement elevated with premium seasonal blooms for a noticeably more luxurious finish.</p>
+        </button>
+      </div>
+    </div>
+
+    <p class="bk-error" id="step3-palette-error" role="alert" aria-atomic="true">Please choose a colour palette above to continue.</p>
+    <p class="bk-error" id="step3-tier-error" role="alert" aria-atomic="true">Please choose your arrangement style above to continue.</p>
+    <div class="bk-cta-row">
+      <button class="bk-btn" id="step3-btn" aria-disabled="true" onclick="step3Next()">Confirm my flowers</button>
+      <button class="bk-back" onclick="goToStep(2)">&larr; Back</button>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 4 ===================== -->
+  <section id="step-4" class="bk-step" aria-live="polite">
+    <p class="bk-eyebrow" id="step4-eyebrow">Step 3 &mdash; Complete the Look</p>
+    <h2 class="bk-h1">Complete the look.</h2>
+    <p class="bk-subtext">Your florals are set. Want to complete the look with backdrops, seating, and ambience? Everything here is optional.</p>
+
+    <p class="bk-section-label">Statement Pieces</p>
+    <div class="bk-addon-grid" id="addon-grid">
+      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-pink-backdrop" onclick="toggleAddon('addon-pink-backdrop','Pink Flower Backdrop',125)">
+        <div class="bk-addon-img">Pink Flower Backdrop</div>
+        <p class="bk-addon-name">Pink Flower Backdrop</p>
+        <p class="bk-addon-price">$125/day</p>
+      </button>
+      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-white-backdrop" onclick="toggleAddon('addon-white-backdrop','White Flower Backdrop',115)">
+        <div class="bk-addon-img">White Flower Backdrop</div>
+        <p class="bk-addon-name">White Flower Backdrop</p>
+        <p class="bk-addon-price">$115/day</p>
+      </button>
+      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-green-backdrop" onclick="toggleAddon('addon-green-backdrop','Green Backdrop',95)">
+        <div class="bk-addon-img">Green Backdrop</div>
+        <p class="bk-addon-name">Green Backdrop</p>
+        <p class="bk-addon-price">$95/day</p>
+      </button>
+      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-bar-cart" onclick="toggleAddon('addon-bar-cart','Bar Cart',85)">
+        <div class="bk-addon-img">Bar Cart</div>
+        <p class="bk-addon-name">Bar Cart</p>
+        <p class="bk-addon-price">$85/day</p>
+      </button>
+      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-champagne-wall" onclick="toggleAddon('addon-champagne-wall','Champagne Wall',75)">
+        <div class="bk-addon-img">Champagne Wall</div>
+        <p class="bk-addon-name">Champagne Wall</p>
+        <p class="bk-addon-price">$75/day</p>
+      </button>
+      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-scissors" onclick="toggleAddon('addon-scissors','Scissors (Set of 4)',6)">
+        <div class="bk-addon-img">Scissors &times;4</div>
+        <p class="bk-addon-name">Scissors (Set of 4)</p>
+        <p class="bk-addon-price">$6</p>
+      </button>
+    </div>
+
+    <p class="bk-section-label">Tables, Seating &amp; Ambience</p>
+
+    <div id="qty-chairs" class="bk-qty-row">
+      <div class="bk-qty-info">
+        <p class="bk-qty-name">Wood Resin Chairs</p>
+        <p class="bk-qty-price">$8/each</p>
+      </div>
+      <div class="bk-qty-ctrl">
+        <button class="bk-qty-btn" aria-label="Decrease Wood Resin Chairs" onclick="updateQty('qty-chairs',-1,30,'Wood Resin Chairs',8)">&#8722;</button>
+        <span class="bk-qty-val" id="qty-chairs-val" aria-live="polite">0</span>
+        <button class="bk-qty-btn" aria-label="Increase Wood Resin Chairs" onclick="updateQty('qty-chairs',1,30,'Wood Resin Chairs',8)">&#43;</button>
+      </div>
+    </div>
+    <div id="qty-tables" class="bk-qty-row">
+      <div class="bk-qty-info">
+        <p class="bk-qty-name">Plastic Tables</p>
+        <p class="bk-qty-price">$18/each</p>
+      </div>
+      <div class="bk-qty-ctrl">
+        <button class="bk-qty-btn" aria-label="Decrease Plastic Tables" onclick="updateQty('qty-tables',-1,10,'Plastic Tables',18)">&#8722;</button>
+        <span class="bk-qty-val" id="qty-tables-val" aria-live="polite">0</span>
+        <button class="bk-qty-btn" aria-label="Increase Plastic Tables" onclick="updateQty('qty-tables',1,10,'Plastic Tables',18)">&#43;</button>
+      </div>
+    </div>
+    <div id="qty-lamps" class="bk-qty-row">
+      <div class="bk-qty-info">
+        <p class="bk-qty-name">Cordless Table Lamps</p>
+        <p class="bk-qty-price">$12/each</p>
+      </div>
+      <div class="bk-qty-ctrl">
+        <button class="bk-qty-btn" aria-label="Decrease Cordless Table Lamps" onclick="updateQty('qty-lamps',-1,20,'Cordless Table Lamps',12)">&#8722;</button>
+        <span class="bk-qty-val" id="qty-lamps-val" aria-live="polite">0</span>
+        <button class="bk-qty-btn" aria-label="Increase Cordless Table Lamps" onclick="updateQty('qty-lamps',1,20,'Cordless Table Lamps',12)">&#43;</button>
+      </div>
+    </div>
+    <div id="qty-candles" class="bk-qty-row">
+      <div class="bk-qty-info">
+        <p class="bk-qty-name">Candle Holders</p>
+        <p class="bk-qty-price">$8/each</p>
+      </div>
+      <div class="bk-qty-ctrl">
+        <button class="bk-qty-btn" aria-label="Decrease Candle Holders" onclick="updateQty('qty-candles',-1,20,'Candle Holders',8)">&#8722;</button>
+        <span class="bk-qty-val" id="qty-candles-val" aria-live="polite">0</span>
+        <button class="bk-qty-btn" aria-label="Increase Candle Holders" onclick="updateQty('qty-candles',1,20,'Candle Holders',8)">&#43;</button>
+      </div>
+    </div>
+
+    <button class="bk-skip-link" id="skip-addons" onclick="step4Next()">Nothing to add — skip this step</button>
+    <div class="bk-cta-row">
+      <button class="bk-btn" onclick="step4Next()">Add to my quote</button>
+      <button class="bk-back" id="step4-back" onclick="step4Back()">&larr; Back</button>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 5 ===================== -->
+  <section id="step-5" class="bk-step" aria-live="polite">
+    <p class="bk-eyebrow" id="step5-eyebrow">Step 4 &mdash; Event Details</p>
+    <h2 class="bk-h1">Your event details.</h2>
+    <p class="bk-subtext">Two quick questions to calculate your delivery cost. Add your email and we'll send your quote instantly.</p>
+
+    <div class="bk-field">
+      <label class="bk-label" for="delivery-city">Delivery city</label>
+      <select class="bk-select" id="delivery-city" required onchange="cityChanged()">
+        <option value="" disabled selected>Select your city...</option>
+        <option value="pickup-free" data-cost="0">Pickup &mdash; La Habra / Free</option>
+        <option value="la-habra" data-cost="0">La Habra &mdash; Free</option>
+        <option value="fullerton" data-cost="14">Fullerton &mdash; $14</option>
+        <option value="brea" data-cost="14">Brea &mdash; $14</option>
+        <option value="placentia" data-cost="16">Placentia &mdash; $16</option>
+        <option value="la-mirada" data-cost="16">La Mirada &mdash; $16</option>
+        <option value="whittier" data-cost="18">Whittier &mdash; $18</option>
+        <option value="anaheim" data-cost="18">Anaheim &mdash; $18</option>
+        <option value="buena-park" data-cost="18">Buena Park &mdash; $18</option>
+        <option value="yorba-linda" data-cost="20">Yorba Linda &mdash; $20</option>
+        <option value="hacienda-heights" data-cost="20">Hacienda Heights &mdash; $20</option>
+        <option value="city-of-industry" data-cost="20">City of Industry &mdash; $20</option>
+        <option value="orange" data-cost="22">Orange &mdash; $22</option>
+        <option value="rowland-heights" data-cost="22">Rowland Heights &mdash; $22</option>
+        <option value="norwalk" data-cost="22">Norwalk &mdash; $22</option>
+        <option value="diamond-bar" data-cost="25">Diamond Bar &mdash; $25</option>
+        <option value="garden-grove" data-cost="25">Garden Grove &mdash; $25</option>
+        <option value="chino-hills" data-cost="28">Chino Hills &mdash; $28</option>
+        <option value="tustin" data-cost="28">Tustin &mdash; $28</option>
+        <option value="santa-ana" data-cost="28">Santa Ana &mdash; $28</option>
+        <option value="downey" data-cost="28">Downey &mdash; $28</option>
+        <option value="long-beach" data-cost="35">Long Beach &mdash; $35</option>
+        <option value="irvine" data-cost="35">Irvine &mdash; $35</option>
+        <option value="los-angeles" data-cost="45">Los Angeles &mdash; $45</option>
+        <option value="pasadena" data-cost="40">Pasadena &mdash; $40</option>
+        <option value="other" data-cost="0">Other (we'll confirm)</option>
+      </select>
+      <p class="bk-error" id="step5-city-error" role="alert" aria-atomic="true">Please select your delivery city to continue.</p>
+    </div>
+
+    <div class="bk-field">
+      <label class="bk-label" for="event-date">Event date</label>
+      <input class="bk-input" type="text" id="event-date" placeholder="e.g. July 12, 2026" required>
+      <p class="bk-error" id="step5-date-error" role="alert" aria-atomic="true">Please enter your event date to continue.</p>
+    </div>
+
+    <div class="bk-field">
+      <label class="bk-label" for="quote-email">Your email <span class="opt">(optional &mdash; we'll send your quote instantly)</span></label>
+      <input class="bk-input" type="email" id="quote-email" placeholder="your@email.com">
+    </div>
+
+    <div class="bk-cta-row">
+      <button class="bk-btn" onclick="step5Next()">Show me my quote</button>
+      <button class="bk-back" onclick="step5Back()">&larr; Back</button>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 6 ===================== -->
+  <section id="step-6" class="bk-step" aria-live="polite">
+    <p class="bk-eyebrow">Your Quote</p>
+    <h2 class="bk-h1">Your quote.</h2>
+    <p class="bk-subtext">Review everything below. Book when you're ready.</p>
+    <p class="bk-proof">Trusted by hosts across Orange County and LA County for showers, birthdays, and corporate events.</p>
+
+    <div class="bk-quote-box" id="quote-box">
+      <p class="bk-quote-title">Your custom quote</p>
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="bk-reassurance">Everything on your quote includes delivery, setup, and breakdown. You show up — we handle the rest.</div>
+
+    <div id="upsell-nudge" class="bk-upsell" style="display:none;">
+      Most of our rental customers add a bloom bar — it gives guests something to do and something to take home.
+      <br><a href="#" onclick="restartToBloom(event)">Add a bloom bar to your quote</a>
+    </div>
+
+    <div class="bk-save-quote">
+      <p class="bk-save-title">Want a copy of this quote?</p>
+      <p class="bk-save-sub">Enter your email and we'll send it straight to your inbox.</p>
+      <div class="bk-save-row">
+        <input class="bk-input" type="email" id="save-email" placeholder="your@email.com">
+        <button class="bk-btn-ghost" onclick="sendQuote()">Send my quote</button>
+      </div>
+    </div>
+
+    <div class="bk-cta-row">
+      <button class="bk-btn" id="final-cta-btn" onclick="finalCta()">Book now</button>
+      <button class="bk-back" onclick="step6Back()">&larr; Back</button>
+    </div>
+    <p class="bk-final-note" id="final-note"></p>
+  </section>
+
+</div>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <p class="footer-brand">Bring The Bloom Bar</p>
+    <p class="footer-service">Delivering bloom bar rentals across Orange County, Southeast LA County, and surrounding areas &mdash; including Fullerton, Brea, Anaheim, Irvine, Tustin, and more.</p>
+    <p class="footer-contact"><a href="tel:7142516478">(714) 251-6478</a> &middot; M&ndash;F 8:30 AM&ndash;5 PM &middot; Response within 24 hours</p>
+    <p class="footer-contact"><a href="mailto:bringthebloombar@gmail.com">bringthebloombar@gmail.com</a></p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="about.html">About</a>
+      <a href="locations.html">Locations</a>
+      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" target="_blank" rel="noopener noreferrer">Reserve Your Bloom Bar</a>
+      <a href="rental-agreement.html">Rental Agreement</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="accessibility.html">Accessibility</a>
+      <a href="safety-guidelines.html">Safety Guidelines</a>
+    </nav>
+    <p class="footer-legal">&copy; 2026 Bring The Bloom Bar</p>
+    <p class="footer-built">Built by <a href="https://www.simplifiedsitesco.com" target="_blank" rel="noopener">SimplifiedSitesCo.com</a></p>
+  </div>
+</footer>
+<script src="mobile-nav.js"></script>
+
+<!-- BRING THE BLOOMBAR CHAT WIDGET -->
+<style>
+  #bb-chat-btn {
+    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
+    height: 48px; border-radius: 24px;
+    background: #d4537e; border: none; cursor: pointer;
+    box-shadow: 0 4px 16px rgba(212,83,126,0.4);
+    display: flex; align-items: center; justify-content: center;
+    gap: 8px; padding: 0 20px;
+    font-size: 14px; font-weight: 600; color: #fff;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    transition: transform 0.2s; white-space: nowrap;
+  }
+  #bb-chat-btn:hover { transform: scale(1.05); }
+  #bb-chat-window {
+    position: fixed; bottom: 96px; right: 24px; z-index: 9999;
+    width: 360px; height: 540px; border-radius: 16px;
+    background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    display: none; flex-direction: column; overflow: hidden;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+  }
+  #bb-chat-window.open { display: flex; }
+  .bb-header {
+    background: #d4537e; padding: 14px 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .bb-header-avatar {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center; font-size: 18px;
+  }
+  .bb-header-info { flex: 1; }
+  .bb-header-name { font-size: 15px; font-weight: 600; color: #fff; }
+  .bb-header-sub { font-size: 11px; color: rgba(255,255,255,0.85); }
+  .bb-close {
+    background: none; border: none; color: #fff;
+    font-size: 20px; cursor: pointer; padding: 0 4px; line-height: 1;
+  }
+  .bb-messages {
+    flex: 1; overflow-y: auto; padding: 14px;
+    display: flex; flex-direction: column; gap: 10px;
+    background: #fdf6f9;
+  }
+  .bb-msg { max-width: 82%; display: flex; flex-direction: column; gap: 2px; }
+  .bb-msg.bot { align-self: flex-start; }
+  .bb-msg.user { align-self: flex-end; }
+  .bb-bubble {
+    padding: 9px 13px; border-radius: 16px;
+    font-size: 13.5px; line-height: 1.5;
+  }
+  .bb-msg.bot .bb-bubble { background: #fff; color: #333; border-bottom-left-radius: 4px; border: 1px solid #f0d9e5; }
+  .bb-msg.user .bb-bubble { background: #d4537e; color: #fff; border-bottom-right-radius: 4px; }
+  .bb-time { font-size: 10px; color: #767676; padding: 0 4px; }
+  .bb-msg.user .bb-time { text-align: right; }
+  .bb-link {
+    display: inline-block; margin-top: 6px;
+    background: #fbeaf0; color: #d4537e;
+    border-radius: 12px; padding: 4px 10px;
+    font-size: 12px; text-decoration: none; cursor: pointer;
+  }
+  .bb-link:hover { background: #f4c0d1; }
+  .bb-quick-replies {
+    display: flex; flex-wrap: wrap; gap: 5px;
+    padding: 6px 14px; background: #fdf6f9;
+  }
+  .bb-qr {
+    font-size: 11.5px; padding: 5px 10px; border-radius: 20px;
+    border: 1px solid #d4537e; background: transparent;
+    color: #d4537e; cursor: pointer; font-family: inherit; transition: all 0.15s;
+  }
+  .bb-qr:hover { background: #d4537e; color: #fff; }
+  .bb-input-area {
+    border-top: 1px solid #f0d9e5; padding: 10px 12px;
+    display: flex; gap: 8px; align-items: center; background: #fff;
+  }
+  .bb-input {
+    flex: 1; border: 1px solid #f0d9e5; border-radius: 20px;
+    padding: 8px 13px; font-size: 13px; font-family: inherit;
+    background: #fdf6f9; color: #333; outline: none;
+  }
+  .bb-input:focus { border-color: #d4537e; }
+  .bb-send {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: #d4537e; border: none; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 15px; transition: opacity 0.15s;
+  }
+  .bb-send:hover { opacity: 0.85; }
+  .bb-typing { display: flex; gap: 4px; align-items: center; padding: 9px 13px; }
+  .bb-typing span {
+    width: 6px; height: 6px; border-radius: 50%; background: #d4537e;
+    animation: bb-blink 1.2s infinite;
+  }
+  .bb-typing span:nth-child(2) { animation-delay: 0.2s; }
+  .bb-typing span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes bb-blink { 0%,80%,100% { opacity: 0.2; } 40% { opacity: 1; } }
+  @media (max-width: 420px) {
+    #bb-chat-window { width: calc(100vw - 24px); right: 12px; bottom: 88px; }
+    #bb-chat-btn { right: 12px; bottom: 12px; }
+  }
+  #bb-greeting {
+    position: fixed; bottom: 84px; right: 24px; z-index: 9998;
+    background: #fff; border-radius: 16px 16px 4px 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.14);
+    padding: 12px 16px; max-width: 240px;
+    font-family: "Inter", system-ui, -apple-system, sans-serif;
+    font-size: 13.5px; line-height: 1.5; color: #333;
+    border: 1px solid #f0d9e5; display: none;
+  }
+  @media (max-width: 768px) {
+    #bb-chat-window {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      width: 100%; height: 100%; height: 100dvh;
+      border-radius: 0; z-index: 99999;
+    }
+    #bb-messages { flex: 1; overflow-y: auto; -webkit-overflow-scrolling: touch; min-height: 0; }
+    .bb-input-area {
+      position: sticky; bottom: 0; background: #fff;
+      padding-bottom: env(safe-area-inset-bottom, 10px); flex-shrink: 0;
+    }
+    #bb-text-cta { flex-shrink: 0; }
+  }
+  #bb-chat-btn:focus { outline: 3px solid #a03060; outline-offset: 2px; }
+  .bb-close:focus, #bb-send:focus, #bb-input:focus, .bb-link:focus { outline: 3px solid #a03060; outline-offset: 2px; }
+</style>
+
+<div id="bb-greeting">
+  <button onclick="document.getElementById('bb-greeting').style.display='none'" style="position:absolute;top:6px;right:10px;background:none;border:none;font-size:14px;color:#aaa;cursor:pointer;">&#x2715;</button>
+  Hi there! Have questions about our bloom bar rentals? Ask me anything &mdash; pricing, delivery, packages, and more!
+</div>
+
+<button id="bb-chat-btn" role="button" aria-label="Open chat with Bring the BloomBar" aria-expanded="false">
+  <span style="font-size:20px;" aria-hidden="true">&#x1F338;</span> Chat with us
+</button>
+
+<div id="bb-chat-window" role="dialog" aria-modal="true" aria-label="Bring the BloomBar chat assistant">
+  <div class="bb-header">
+    <div class="bb-header-avatar">&#x1F338;</div>
+    <div class="bb-header-info">
+      <div class="bb-header-name">Bring the BloomBar</div>
+      <div class="bb-header-sub">Bloom bar rentals &middot; La Habra, CA</div>
+    </div>
+    <button class="bb-close" id="bb-close-btn" aria-label="Close chat window">&#x2715;</button>
+  </div>
+  <div class="bb-messages" id="bb-messages" role="log" aria-live="polite" aria-label="Chat messages" aria-relevant="additions"></div>
+  <div id="bb-text-cta" style="display:none; border-top: 1px solid #f0d9e5; padding: 8px 12px; background: #fff; justify-content: center;">
+    <a id="bb-text-link" href="sms:7142516478" style="display: flex; align-items: center; gap: 6px; font-size: 12px; color: #d4537e; text-decoration: none; padding: 6px 14px; border: 1px solid #f4c0d1; border-radius: 20px; background: #fbeaf0;">
+      Rather talk to a real person? Text us
+    </a>
+  </div>
+  <div class="bb-input-area">
+    <input class="bb-input" id="bb-input" type="text" placeholder="Ask about rentals, pricing, delivery..." aria-label="Type your message here" autocomplete="off" />
+    <button class="bb-send" id="bb-send" aria-label="Send message">&#x27A4;</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('focusin', function() {
+  if (window.innerWidth <= 768) {
+    document.getElementById('bb-messages').scrollTop = document.getElementById('bb-messages').scrollHeight;
+  }
+});
+
+(function () {
+  var messages = [];
+  var collected = { name: null, phone: null, date: null };
+  var awaitingField = null;
+  var opened = false;
+
+  function getTime() {
+    return new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  function addMsg(text, sender, links) {
+    var container = document.getElementById('bb-messages');
+    var wrap = document.createElement('div');
+    wrap.className = 'bb-msg ' + sender;
+    var bubble = document.createElement('div');
+    bubble.className = 'bb-bubble';
+    bubble.innerHTML = text.replace(/\n/g, '<br>');
+    if (links && links.length) {
+      links.forEach(function (l) {
+        var a = document.createElement('a');
+        a.className = 'bb-link';
+        a.textContent = l.label;
+        a.href = l.url;
+        a.target = '_blank';
+        a.rel = 'noopener';
+        bubble.appendChild(document.createElement('br'));
+        bubble.appendChild(a);
+      });
+    }
+    var time = document.createElement('div');
+    time.className = 'bb-time';
+    time.textContent = getTime();
+    wrap.appendChild(bubble);
+    wrap.appendChild(time);
+    container.appendChild(wrap);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function showTyping() {
+    var container = document.getElementById('bb-messages');
+    var wrap = document.createElement('div');
+    wrap.className = 'bb-msg bot';
+    wrap.id = 'bb-typing';
+    var bubble = document.createElement('div');
+    bubble.className = 'bb-bubble bb-typing';
+    bubble.innerHTML = '<span></span><span></span><span></span>';
+    wrap.appendChild(bubble);
+    container.appendChild(wrap);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function removeTyping() {
+    var t = document.getElementById('bb-typing');
+    if (t) t.remove();
+  }
+
+  function handleCollectionFlow(input) {
+    var lower = input.toLowerCase().trim();
+    var skipPhrases = ['no','skip','pass','rather not','no thanks','dont want',"don't want",'not now','just a question','quick question','maybe later','later','prefer not','rather skip','not comfortable','dont feel',"don't feel",'provide it','want to provide','not provide','dont provide',"don't provide",'no name','anonymous','private','skip that','move on','next question','just ask','just want to ask'];
+    var isSkipping = skipPhrases.some(function(p){ return lower.includes(p); });
+    if (isSkipping && awaitingField !== null) {
+      awaitingField = null;
+      addMsg('Of course! What can I help you with today?', 'bot');
+      return true;
+    }
+    if (awaitingField === 'name') {
+      collected.name = input;
+      awaitingField = 'phone';
+      addMsg('Thanks ' + input + '! What is the best phone number to reach you?', 'bot');
+      return true;
+    }
+    if (awaitingField === 'phone') {
+      collected.phone = input;
+      awaitingField = 'date';
+      addMsg('Got it! What is your event date and city?', 'bot');
+      return true;
+    }
+    if (awaitingField === 'date') {
+      collected.date = input;
+      awaitingField = null;
+      addMsg('Perfect! How can I help you today?', 'bot');
+      setTimeout(function() {
+        addMsg('If you would ever rather chat with a real person, you can text us directly using the button below!', 'bot');
+        var textCta = document.getElementById('bb-text-cta');
+        if (textCta) textCta.style.display = 'flex';
+      }, 1000);
+      return true;
+    }
+    return false;
+  }
+
+  function handleInput(text) {
+    if (!text.trim()) return;
+    addMsg(text, 'user');
+    document.getElementById('bb-input').value = '';
+    if (handleCollectionFlow(text)) return;
+    messages.push({ role: 'user', content: text });
+    showTyping();
+    fetch('/.netlify/functions/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ messages: messages, collectedInfo: collected })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        removeTyping();
+        var reply = data.reply || 'Sorry, something went wrong. Please call us at (714) 251-6478.';
+        addMsg(reply, 'bot');
+        if (reply.toLowerCase().includes('booking link') || reply.toLowerCase().includes('check availability') || reply.toLowerCase().includes('reserve your date')) {
+          addMsg('', 'bot', [{ label: 'Check availability and book', url: 'https://bring-the-bloombar.booqableshop.com/collections/bloombar' }]);
+        }
+        messages.push({ role: 'assistant', content: reply });
+      })
+      .catch(function () {
+        removeTyping();
+        addMsg('Sorry, something went wrong. Please call or text us at (714) 251-6478', 'bot');
+      });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    var chatWindow = document.getElementById('bb-chat-window');
+    if (e.key === 'Escape' && chatWindow.classList.contains('open')) {
+      closeChat();
+      document.getElementById('bb-chat-btn').focus();
+    }
+  });
+
+  function openChat() {
+    var chatWindow = document.getElementById('bb-chat-window');
+    chatWindow.classList.add('open');
+    document.getElementById('bb-chat-btn').setAttribute('aria-expanded', 'true');
+    setTimeout(function() { document.getElementById('bb-input').focus(); }, 100);
+    if (!opened) {
+      opened = true;
+      addMsg('Hi there! Welcome to Bring the BloomBar! I am here to help with rentals, pricing, and booking. First, what is your name?', 'bot');
+      awaitingField = 'name';
+    }
+  }
+
+  function closeChat() {
+    var chatWindow = document.getElementById('bb-chat-window');
+    chatWindow.classList.remove('open');
+    document.getElementById('bb-chat-btn').setAttribute('aria-expanded', 'false');
+  }
+
+  document.getElementById('bb-chat-btn').onclick = openChat;
+  document.getElementById('bb-close-btn').onclick = closeChat;
+  document.getElementById('bb-send').onclick = function () { handleInput(document.getElementById('bb-input').value); };
+  document.getElementById('bb-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') handleInput(e.target.value);
+  });
+  setTimeout(function() {
+    var g = document.getElementById('bb-greeting');
+    if (g) g.style.display = 'block';
+  }, 5000);
+  document.getElementById('bb-chat-btn').addEventListener('click', function() {
+    var g = document.getElementById('bb-greeting');
+    if (g) g.style.display = 'none';
+  });
+  document.getElementById('bb-text-link').addEventListener('click', function(e) {
+    var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    if (!isMobile) {
+      e.preventDefault();
+      addMsg('You can text us directly at (714) 251-6478 \u2014 we reply within 24 hours!', 'bot');
+    }
+  });
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', function() {
+      var win = document.getElementById('bb-chat-window');
+      if (win && win.classList.contains('open')) {
+        win.style.height = window.visualViewport.height + 'px';
+        win.style.top = window.visualViewport.offsetTop + 'px';
+        var msgs = document.getElementById('bb-messages');
+        if (msgs) msgs.scrollTop = msgs.scrollHeight;
+      }
+    });
+  }
+})();
+</script>
+<!-- END BLOOMBAR CHAT WIDGET -->
+
+<!-- ===================== BOOKING FLOW JS ===================== -->
+<script>
+var state = {
+  experience: null,
+  pkg: null, pkgPrice: 0,
+  palette: null,
+  tier: null, tierPrice: 0, deposit: 0,
+  addons: {}, quantities: {},
+  deliveryCity: '', deliveryCost: 0,
+  eventDate: '', email: ''
+};
+
+var currentStep = 1;
+
+// Package pricing lookup
+var pkgPricing = {
+  'bloom-social':      { essential: 725, lush: 925, depositEssential: 150, depositLush: 200 },
+  'bloom-celebration': { essential: 995, lush: 1250, depositEssential: 200, depositLush: 250 }
+};
+
+function totalSteps() {
+  return state.experience === 'full' ? 6 : 5;
+}
+
+function stepNumForId(id) {
+  // Returns display step number based on path
+  if (state.experience === 'full') {
+    var map = { 'step-1':1, 'step-2':2, 'step-3':3, 'step-4':4, 'step-5':5, 'step-6':6 };
+    return map[id] || 1;
+  } else {
+    var map2 = { 'step-1':1, 'step-2':2, 'step-4':3, 'step-5':4, 'step-6':5 };
+    return map2[id] || 1;
+  }
+}
+
+// ---- Progress bar rendering ----
+function renderProgress() {
+  var bar = document.getElementById('bk-progress-bar');
+  var steps;
+  if (state.experience === 'full') {
+    steps = ['Experience','Package','Flowers','Add-ons','Details','Quote'];
+  } else if (state.experience === 'rentals') {
+    steps = ['Experience','Piece','Add-ons','Details','Quote'];
+  } else {
+    steps = ['Experience','Package','Add-ons','Details','Quote'];
+  }
+
+  // Map currentStep (section step-N) to display index
+  var dispIdx;
+  if (state.experience === 'full') {
+    var fmap = {'step-1':0,'step-2':1,'step-3':2,'step-4':3,'step-5':4,'step-6':5};
+    dispIdx = fmap['step-' + currentStep] !== undefined ? fmap['step-' + currentStep] : currentStep - 1;
+  } else {
+    // DIY/Rentals skip step 3
+    var smap = {1:0, 2:1, 4:2, 5:3, 6:4};
+    dispIdx = smap[currentStep] !== undefined ? smap[currentStep] : currentStep - 1;
+  }
+
+  var html = '';
+  for (var i = 0; i < steps.length; i++) {
+    var cls = '';
+    if (i < dispIdx) cls = 'done';
+    else if (i === dispIdx) cls = 'active';
+    var ariaCurrent = i === dispIdx ? ' aria-current="step"' : '';
+    html += '<div class="bk-step-item ' + cls + '" data-step="' + (i+1) + '"' + ariaCurrent + '>';
+    html += '<div class="bk-step-dot"></div>';
+    html += '<span class="bk-step-label">' + steps[i] + '</span>';
+    html += '</div>';
+    if (i < steps.length - 1) {
+      html += '<div class="bk-step-connector' + (i < dispIdx ? ' done' : '') + '"></div>';
+    }
+  }
+  bar.innerHTML = html;
+}
+
+// ---- Step navigation ----
+function goToStep(n) {
+  var current = document.getElementById('step-' + currentStep);
+  if (current) { current.classList.remove('active'); }
+  currentStep = n;
+  var next = document.getElementById('step-' + n);
+  if (next) { next.classList.add('active'); }
+  renderProgress();
+  window.scrollTo(0, 0);
+  var ann = document.getElementById('step-announcement');
+  if (ann) {
+    var labels = {1:'Step 1: Choose your experience',2:'Step 2: Choose your package',3:'Step 3: Choose your colour palette',4:'Complete the look — add-ons',5:'Your event details',6:'Your custom quote'};
+    ann.textContent = labels[n] || ('Step ' + n);
+  }
+  // Update back button eyebrows and dynamic content
+  if (n === 4) setupStep4();
+  if (n === 5) setupStep5();
+  if (n === 6) buildQuote();
+}
+
+// ---- Experience selection ----
+function selectExperience(type) {
+  state.experience = type;
+  // Reset downstream
+  state.pkg = null; state.pkgPrice = 0;
+  state.palette = null; state.tier = null; state.tierPrice = 0; state.deposit = 0;
+
+  var cards = document.querySelectorAll('#step-1 [role="radio"]');
+  cards.forEach(function(c) {
+    c.setAttribute('aria-checked', c.dataset.exp === type ? 'true' : 'false');
+    c.setAttribute('tabindex', c.dataset.exp === type ? '0' : '-1');
+  });
+
+  var btn = document.getElementById('step1-btn');
+  btn.setAttribute('aria-disabled', 'false');
+  hideError('step1-error');
+  renderProgress();
+}
+
+function step1Next() {
+  var btn = document.getElementById('step1-btn');
+  if (btn.getAttribute('aria-disabled') === 'true') {
+    showError('step1-error');
+    return;
+  }
+  if (!state.experience) { showError('step1-error'); return; }
+  hideError('step1-error');
+  goToStep(2);
+  showStep2SubSection();
+}
+
+// ---- Step 2 ----
+function showStep2SubSection() {
+  document.getElementById('step2-diy').style.display = 'none';
+  document.getElementById('step2-full').style.display = 'none';
+  document.getElementById('step2-rentals').style.display = 'none';
+  if (state.experience === 'diy') document.getElementById('step2-diy').style.display = 'block';
+  else if (state.experience === 'full') document.getElementById('step2-full').style.display = 'block';
+  else if (state.experience === 'rentals') document.getElementById('step2-rentals').style.display = 'block';
+}
+
+function selectPackage(pkgName, price) {
+  state.pkg = pkgName;
+  state.pkgPrice = price;
+
+  var prefix = 'step2-' + state.experience + '-';
+  // Deselect all cards in this group
+  var grp;
+  if (state.experience === 'diy') grp = document.querySelectorAll('#step2-diy [role="radio"]');
+  else if (state.experience === 'full') grp = document.querySelectorAll('#step2-full [role="radio"]');
+  else grp = document.querySelectorAll('#step2-rentals [role="radio"]');
+
+  grp.forEach(function(c) {
+    var checked = c.dataset.pkg === pkgName;
+    c.setAttribute('aria-checked', checked ? 'true' : 'false');
+    c.setAttribute('tabindex', checked ? '0' : '-1');
+  });
+
+  var btnId = prefix + 'btn';
+  var btn = document.getElementById(btnId);
+  if (btn) btn.setAttribute('aria-disabled', 'false');
+
+  // Update tier prices if full path
+  if (state.experience === 'full' && pkgPricing[pkgName]) {
+    var p = pkgPricing[pkgName];
+    var ePrice = document.getElementById('tier-essential-price');
+    var lPrice = document.getElementById('tier-lush-price');
+    var eDep = document.getElementById('tier-essential-deposit');
+    var lDep = document.getElementById('tier-lush-deposit');
+    if (ePrice) ePrice.textContent = '$' + p.essential;
+    if (lPrice) lPrice.textContent = '$' + p.lush;
+    if (eDep) eDep.textContent = '$' + p.depositEssential + ' deposit to reserve';
+    if (lDep) lDep.textContent = '$' + p.depositLush + ' deposit to reserve';
+    // Reset tier selection
+    state.tier = null; state.tierPrice = 0; state.deposit = 0;
+    var tierCards = document.querySelectorAll('#arrange-reveal [role="radio"]');
+    tierCards.forEach(function(tc) { tc.setAttribute('aria-checked','false'); });
+    var step3btn = document.getElementById('step3-btn');
+    if (step3btn) step3btn.setAttribute('aria-disabled','true');
+  }
+
+  if (state.experience === 'full') {
+    hideError('step2-full-error');
+  } else if (state.experience === 'diy') {
+    hideError('step2-diy-error');
+  } else {
+    hideError('step2-rentals-error');
+  }
+}
+
+function step2Next() {
+  if (!state.pkg) {
+    if (state.experience === 'diy') showError('step2-diy-error');
+    else if (state.experience === 'full') showError('step2-full-error');
+    else showError('step2-rentals-error');
+    return;
+  }
+  if (state.experience === 'full') {
+    goToStep(3);
+  } else {
+    goToStep(4);
+  }
+}
+
+// ---- Large event toggle ----
+function toggleLargeEvent() {
+  var card = document.getElementById('large-event-card');
+  var form = document.getElementById('large-event-form');
+  var ctaRow = document.getElementById('step2-full-cta-row');
+  var isOpen = form.classList.contains('visible');
+  if (isOpen) {
+    form.classList.remove('visible');
+    card.setAttribute('aria-pressed', 'false');
+    if (ctaRow) ctaRow.style.display = 'flex';
+  } else {
+    form.classList.add('visible');
+    card.setAttribute('aria-pressed', 'true');
+    if (ctaRow) ctaRow.style.display = 'none';
+    setTimeout(function() { document.getElementById('le-name').focus(); }, 100);
+  }
+}
+
+function submitLargeEvent(e) {
+  e.preventDefault();
+  var form = e.target;
+  var data = new FormData(form);
+  fetch('/', { method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString() })
+    .then(function() {
+      form.innerHTML = '<p style="color:#d4537e;font-size:13px;font-weight:600;">Thank you! We\'ll be in touch within 2 hours.</p>';
+    })
+    .catch(function() {
+      form.innerHTML = '<p style="color:#d4537e;font-size:13px;">Something went wrong. Please email us at <a href="mailto:bringthebloombar@gmail.com">bringthebloombar@gmail.com</a>.</p>';
+    });
+}
+
+// ---- Step 3 (Full path) ----
+function selectPalette(name) {
+  state.palette = name;
+  var cards = document.querySelectorAll('.bk-palette-grid [role="radio"]');
+  cards.forEach(function(c) {
+    var sel = c.dataset.palette === name;
+    c.setAttribute('aria-checked', sel ? 'true' : 'false');
+    c.setAttribute('tabindex', sel ? '0' : '-1');
+  });
+  hideError('step3-palette-error');
+
+  // Show arrangement reveal
+  var reveal = document.getElementById('arrange-reveal');
+  reveal.classList.add('visible');
+  // Move focus to essential card
+  setTimeout(function() {
+    var ess = document.getElementById('tier-essential-card');
+    if (ess) ess.focus();
+  }, 80);
+
+  // Update step3 btn — still disabled until tier chosen
+  var btn = document.getElementById('step3-btn');
+  if (btn && !state.tier) btn.setAttribute('aria-disabled', 'true');
+}
+
+function selectTierCard(tier) {
+  state.tier = tier;
+  if (!state.pkg || !pkgPricing[state.pkg]) return;
+  var p = pkgPricing[state.pkg];
+  if (tier === 'essential') {
+    state.tierPrice = p.essential;
+    state.deposit = p.depositEssential;
+  } else {
+    state.tierPrice = p.lush;
+    state.deposit = p.depositLush;
+  }
+  state.pkgPrice = state.tierPrice;
+
+  var tierCards = document.querySelectorAll('#arrange-reveal [role="radio"]');
+  tierCards.forEach(function(tc) {
+    var sel = tc.dataset.tier === tier;
+    tc.setAttribute('aria-checked', sel ? 'true' : 'false');
+    tc.setAttribute('tabindex', sel ? '0' : '-1');
+  });
+
+  hideError('step3-tier-error');
+  var btn = document.getElementById('step3-btn');
+  if (btn) btn.setAttribute('aria-disabled', 'false');
+}
+
+function step3Next() {
+  if (!state.palette) { showError('step3-palette-error'); return; }
+  if (!state.tier) { showError('step3-tier-error'); return; }
+  goToStep(4);
+}
+
+// ---- Step 4 setup ----
+function setupStep4() {
+  // Eyebrow
+  var eyebrow = document.getElementById('step4-eyebrow');
+  if (eyebrow) {
+    eyebrow.textContent = state.experience === 'full' ? 'Step 4 \u2014 Complete the Look' : 'Step 3 \u2014 Complete the Look';
+  }
+  // Hide scissors for rentals
+  var scissors = document.getElementById('addon-scissors');
+  if (scissors) {
+    scissors.style.display = state.experience === 'rentals' ? 'none' : '';
+  }
+  // For rentals: pre-select the centrepiece as addon
+  if (state.experience === 'rentals' && state.pkg) {
+    var pkgToAddon = {
+      'pink-backdrop': 'addon-pink-backdrop',
+      'white-backdrop': 'addon-white-backdrop',
+      'green-backdrop': 'addon-green-backdrop',
+      'bar-cart': 'addon-bar-cart',
+      'champagne-wall': 'addon-champagne-wall'
+    };
+    var addonId = pkgToAddon[state.pkg];
+    var addonPrices = {
+      'addon-pink-backdrop': 125,
+      'addon-white-backdrop': 115,
+      'addon-green-backdrop': 95,
+      'addon-bar-cart': 85,
+      'addon-champagne-wall': 75
+    };
+    var addonNames = {
+      'addon-pink-backdrop': 'Pink Flower Backdrop',
+      'addon-white-backdrop': 'White Flower Backdrop',
+      'addon-green-backdrop': 'Green Backdrop',
+      'addon-bar-cart': 'Bar Cart',
+      'addon-champagne-wall': 'Champagne Wall'
+    };
+    if (addonId && !state.addons[addonId]) {
+      state.addons[addonId] = { name: addonNames[addonId], price: addonPrices[addonId] };
+      var el = document.getElementById(addonId);
+      if (el) el.setAttribute('aria-pressed','true');
+    }
+  }
+}
+
+function step4Next() {
+  goToStep(5);
+}
+
+function step4Back() {
+  if (state.experience === 'full') goToStep(3);
+  else goToStep(2);
+}
+
+// ---- Step 5 setup ----
+function setupStep5() {
+  var eyebrow = document.getElementById('step5-eyebrow');
+  if (eyebrow) {
+    eyebrow.textContent = state.experience === 'full' ? 'Step 5 \u2014 Event Details' : 'Step 4 \u2014 Event Details';
+  }
+}
+
+function cityChanged() {
+  var sel = document.getElementById('delivery-city');
+  var opt = sel.options[sel.selectedIndex];
+  state.deliveryCity = sel.value;
+  state.deliveryCost = parseInt(opt.getAttribute('data-cost') || '0', 10);
+  hideError('step5-city-error');
+}
+
+function step5Next() {
+  var city = document.getElementById('delivery-city').value;
+  var date = document.getElementById('event-date').value.trim();
+  var email = document.getElementById('quote-email').value.trim();
+  var valid = true;
+  if (!city) { showError('step5-city-error'); valid = false; }
+  else hideError('step5-city-error');
+  if (!date) { showError('step5-date-error'); valid = false; }
+  else hideError('step5-date-error');
+  if (!valid) return;
+
+  state.deliveryCity = city;
+  var sel = document.getElementById('delivery-city');
+  var opt = sel.options[sel.selectedIndex];
+  state.deliveryCost = parseInt(opt.getAttribute('data-cost') || '0', 10);
+  state.deliveryCityLabel = opt.textContent;
+  state.eventDate = date;
+  state.email = email;
+  goToStep(6);
+}
+
+function step5Back() {
+  goToStep(4);
+}
+
+// ---- Step 6 ----
+function buildQuote() {
+  var box = document.getElementById('quote-box');
+  if (!box) return;
+  var lines = [];
+  var total = 0;
+
+  // Eyebrow
+  var eyebrow = document.querySelector('#step-6 .bk-eyebrow');
+  if (eyebrow) eyebrow.textContent = 'Your Quote';
+
+  // Main package line
+  var pkgLabels = {
+    'flower-bar': 'The Flower Bar (DIY)',
+    'boho-bloom-bundle': 'Boho Bloom Bundle (DIY)',
+    'bloom-social': 'Bloom Social \u2014 ' + (state.tier ? state.tier.charAt(0).toUpperCase() + state.tier.slice(1) : ''),
+    'bloom-celebration': 'Bloom Celebration \u2014 ' + (state.tier ? state.tier.charAt(0).toUpperCase() + state.tier.slice(1) : ''),
+    'pink-backdrop': 'Pink Flower Backdrop',
+    'white-backdrop': 'White Flower Backdrop',
+    'green-backdrop': 'Green Backdrop',
+    'bar-cart': 'Bar Cart',
+    'champagne-wall': 'Champagne Wall'
+  };
+
+  if (state.pkg) {
+    lines.push({ label: pkgLabels[state.pkg] || state.pkg, amount: state.pkgPrice });
+    total += state.pkgPrice;
+  }
+
+  // Palette for full path
+  if (state.experience === 'full' && state.palette) {
+    var paletteLabels = {
+      'blush-white': 'Blush & White palette',
+      'garden-greens': 'Garden Greens palette',
+      'bold-romantic': 'Bold & Romantic palette',
+      'something-blue': 'Something Blue palette',
+      'spring-pastels': 'Spring Pastels palette',
+      'jewel-tones': 'Jewel Tones palette'
+    };
+    lines.push({ label: paletteLabels[state.palette] || state.palette, amount: null });
+  }
+
+  // Add-ons
+  Object.keys(state.addons).forEach(function(id) {
+    var a = state.addons[id];
+    lines.push({ label: a.name, amount: a.price });
+    total += a.price;
+  });
+
+  // Quantities
+  var qtyMeta = {
+    'qty-chairs': { name: 'Wood Resin Chairs', price: 8 },
+    'qty-tables': { name: 'Plastic Tables', price: 18 },
+    'qty-lamps': { name: 'Cordless Table Lamps', price: 12 },
+    'qty-candles': { name: 'Candle Holders', price: 8 }
+  };
+  Object.keys(state.quantities).forEach(function(id) {
+    var qty = state.quantities[id];
+    if (qty > 0 && qtyMeta[id]) {
+      var m = qtyMeta[id];
+      var lineTotal = m.price * qty;
+      lines.push({ label: m.name + ' \u00d7' + qty, amount: lineTotal });
+      total += lineTotal;
+    }
+  });
+
+  // Delivery
+  var deliveryLabel = state.deliveryCityLabel || state.deliveryCity || '';
+  if (state.deliveryCost > 0) {
+    lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: state.deliveryCost });
+    total += state.deliveryCost;
+  } else if (state.deliveryCity) {
+    lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: 0, free: true });
+  }
+
+  // Build HTML
+  var html = '<p class="bk-quote-title">Your custom quote &mdash; ' + (state.eventDate || '') + '</p>';
+  lines.forEach(function(l) {
+    var amountStr;
+    if (l.amount === null) amountStr = '';
+    else if (l.free || l.amount === 0) amountStr = '<span style="color:#6b9e6b;">Free</span>';
+    else amountStr = '$' + l.amount;
+    html += '<div class="bk-line-item"><span>' + l.label + '</span><span>' + amountStr + '</span></div>';
+  });
+
+  // Deposit line for full path
+  if (state.experience === 'full' && state.deposit > 0) {
+    html += '<div class="bk-line-item bk-line-deposit"><span>Deposit to reserve</span><span>$' + state.deposit + '</span></div>';
+  }
+
+  html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total</span><span class="bk-total-amount">$' + total + '</span></div>';
+  box.innerHTML = html;
+
+  // Upsell nudge for rentals
+  var upsell = document.getElementById('upsell-nudge');
+  if (upsell) upsell.style.display = state.experience === 'rentals' ? 'block' : 'none';
+
+  // Pre-fill save email
+  if (state.email) {
+    var saveEmail = document.getElementById('save-email');
+    if (saveEmail) saveEmail.value = state.email;
+  }
+
+  // Final CTA button and note
+  var finalBtn = document.getElementById('final-cta-btn');
+  var finalNote = document.getElementById('final-note');
+  if (state.experience === 'diy') {
+    if (state.pkg === 'flower-bar') {
+      finalBtn.textContent = 'Reserve Your Bloom Bar';
+      finalBtn.setAttribute('data-href', 'https://bring-the-bloombar.booqableshop.com/products/the-flower-bar');
+    } else {
+      finalBtn.textContent = 'Reserve Your Bloom Bar';
+      finalBtn.setAttribute('data-href', 'https://bring-the-bloombar.booqableshop.com/products/boho-bloom-bundle-flower-bar-and-umbrella');
+    }
+    if (finalNote) finalNote.textContent = 'You\'ll be taken to our booking platform to check availability and complete your reservation.';
+  } else if (state.experience === 'full') {
+    finalBtn.textContent = 'Reserve with deposit';
+    finalBtn.setAttribute('data-href', '#stripe-link');
+    if (finalNote) finalNote.textContent = 'A deposit of $' + state.deposit + ' secures your date. We\'ll confirm availability within 2 hours.';
+  } else {
+    finalBtn.textContent = 'Send my booking request';
+    finalBtn.removeAttribute('data-href');
+    if (finalNote) finalNote.textContent = 'We\'ll confirm your booking and send a full invoice within 2 hours.';
+  }
+
+  // Step 6 eyebrow
+  var s6eyebrow = document.querySelector('#step-6 .bk-eyebrow');
+  var s6stepNum = state.experience === 'full' ? 6 : 5;
+  if (s6eyebrow) s6eyebrow.textContent = 'Step ' + s6stepNum + ' \u2014 Your Quote';
+}
+
+function finalCta() {
+  var btn = document.getElementById('final-cta-btn');
+  if (state.experience === 'rentals') {
+    submitRentalsForm();
+  } else {
+    var href = btn.getAttribute('data-href');
+    if (href && href !== '#stripe-link') {
+      window.open(href, '_blank', 'noopener');
+    } else if (href === '#stripe-link') {
+      // Stripe link placeholder — for now email
+      window.location.href = 'mailto:bringthebloombar@gmail.com?subject=Full%20Bloom%20Bar%20Booking&body=I%27d%20like%20to%20reserve%20with%20a%20deposit%20for%20my%20event%20on%20' + encodeURIComponent(state.eventDate);
+    }
+  }
+}
+
+function submitRentalsForm() {
+  var addonNames = Object.values(state.addons).map(function(a){ return a.name; }).join(', ');
+  var qtyParts = [];
+  var qtyMeta2 = { 'qty-chairs':'Wood Resin Chairs','qty-tables':'Plastic Tables','qty-lamps':'Cordless Table Lamps','qty-candles':'Candle Holders' };
+  Object.keys(state.quantities).forEach(function(id){
+    if (state.quantities[id] > 0) qtyParts.push(qtyMeta2[id] + ' x' + state.quantities[id]);
+  });
+  var allAddons = [addonNames, qtyParts.join(', ')].filter(Boolean).join('; ');
+
+  var params = new URLSearchParams({
+    'form-name': 'book-inquiry',
+    name: state.email || '',
+    email: state.email || '',
+    'event-date': state.eventDate,
+    'guest-count': '',
+    experience: state.experience,
+    package: state.pkg,
+    addons: allAddons,
+    'delivery-city': state.deliveryCityLabel || state.deliveryCity,
+    total: calculateTotal()
+  });
+
+  fetch('/', { method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'}, body: params.toString() })
+    .then(function() {
+      var btn = document.getElementById('final-cta-btn');
+      btn.textContent = 'Request sent!';
+      btn.setAttribute('aria-disabled','true');
+      var note = document.getElementById('final-note');
+      if (note) note.textContent = 'Thank you! We\'ll confirm your booking within 2 hours.';
+    })
+    .catch(function() {
+      window.location.href = 'mailto:bringthebloombar@gmail.com?subject=Rental%20Booking%20Request&body=I%27d%20like%20to%20book%20for%20' + encodeURIComponent(state.eventDate);
+    });
+}
+
+function calculateTotal() {
+  var t = state.pkgPrice || 0;
+  Object.values(state.addons).forEach(function(a){ t += a.price; });
+  var qtyMeta3 = { 'qty-chairs':8,'qty-tables':18,'qty-lamps':12,'qty-candles':8 };
+  Object.keys(state.quantities).forEach(function(id){
+    t += (state.quantities[id] || 0) * (qtyMeta3[id] || 0);
+  });
+  t += state.deliveryCost || 0;
+  return t;
+}
+
+function step6Back() {
+  goToStep(5);
+}
+
+function sendQuote() {
+  var email = document.getElementById('save-email').value.trim();
+  if (!email) { document.getElementById('save-email').focus(); return; }
+  window.location.href = 'mailto:' + encodeURIComponent(email) + '?subject=Your%20Bloom%20Bar%20Quote&body=Your%20estimated%20total%20is%20%24' + calculateTotal() + '%20for%20your%20event%20on%20' + encodeURIComponent(state.eventDate) + '.%20Reply%20to%20this%20email%20to%20confirm%20your%20booking.';
+}
+
+function restartToBloom(e) {
+  e.preventDefault();
+  state.experience = null; state.pkg = null; state.pkgPrice = 0;
+  state.palette = null; state.tier = null; state.tierPrice = 0; state.deposit = 0;
+  state.addons = {}; state.quantities = {};
+  // Reset all addon cards
+  document.querySelectorAll('.bk-addon-card').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
+  // Reset qty displays
+  ['qty-chairs','qty-tables','qty-lamps','qty-candles'].forEach(function(id){
+    var el = document.getElementById(id + '-val');
+    if (el) el.textContent = '0';
+  });
+  goToStep(1);
+  // Reset step 1 radio cards
+  document.querySelectorAll('#step-1 [role="radio"]').forEach(function(c){
+    c.setAttribute('aria-checked','false');
+  });
+  document.getElementById('step1-btn').setAttribute('aria-disabled','true');
+}
+
+// ---- Add-ons ----
+function toggleAddon(id, name, price) {
+  var el = document.getElementById(id);
+  var isOn = el.getAttribute('aria-pressed') === 'true';
+  if (isOn) {
+    el.setAttribute('aria-pressed','false');
+    delete state.addons[id];
+  } else {
+    el.setAttribute('aria-pressed','true');
+    state.addons[id] = { name: name, price: price };
+  }
+}
+
+// ---- Quantities ----
+function updateQty(id, delta, max, name, price) {
+  if (!state.quantities[id]) state.quantities[id] = 0;
+  var newVal = state.quantities[id] + delta;
+  if (newVal < 0) newVal = 0;
+  if (newVal > max) newVal = max;
+  state.quantities[id] = newVal;
+  var el = document.getElementById(id + '-val');
+  if (el) el.textContent = newVal;
+}
+
+// ---- Error helpers ----
+function showError(id) {
+  var el = document.getElementById(id);
+  if (el) el.classList.add('visible');
+}
+function hideError(id) {
+  var el = document.getElementById(id);
+  if (el) el.classList.remove('visible');
+}
+
+// ---- Roving tabindex for radiogroups ----
+function rovingKey(e, groupId, idx) {
+  var groups = {
+    'step1-rg': '#step-1 [role="radio"]',
+    'step2-diy-rg': '#step2-diy [role="radio"]',
+    'step2-full-rg': '#step2-full [role="radio"]',
+    'step2-rentals-rg': '#step2-rentals [role="radio"]',
+    'step3-palette-rg': '.bk-palette-grid [role="radio"]',
+    'step3-tier-rg': '#arrange-reveal [role="radio"]'
+  };
+  var sel = groups[groupId];
+  if (!sel) return;
+  var cards = Array.from(document.querySelectorAll(sel));
+  if (!cards.length) return;
+  var newIdx;
+  if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+    e.preventDefault();
+    newIdx = (idx + 1) % cards.length;
+    cards[newIdx].focus();
+    cards[newIdx].click();
+  } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+    e.preventDefault();
+    newIdx = (idx - 1 + cards.length) % cards.length;
+    cards[newIdx].focus();
+    cards[newIdx].click();
+  } else if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    cards[idx].click();
+  }
+}
+
+// ---- Init ----
+renderProgress();
+</script>
+<!-- END BOOKING FLOW JS -->
+
+</body>
+</html>
