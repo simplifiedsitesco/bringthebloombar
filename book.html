@@ -259,6 +259,10 @@
     .diy-addon-price { font-size: 13px; color: #3d1a2e; margin: 0; font-family: "Inter", sans-serif; }
     .diy-notify-link { font-size: 11px; color: #d4537e; text-decoration: underline; white-space: nowrap; font-family: "Inter", sans-serif; flex-shrink: 0; }
     .diy-notify-link:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .diy-scissors-toggle { background: transparent; color: #9b7080; border: 0.5px solid #f4c0d1; border-radius: 20px; padding: 6px 16px; font-size: 11px; font-family: "Inter", sans-serif; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+    .diy-scissors-toggle[aria-pressed="true"] { background: #fbeaf0; color: #d4537e; border-color: #d4537e; }
+    .diy-scissors-toggle:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .diy-scissors-note { font-size: 10px; color: #9b7080; font-style: italic; margin-top: 0.25rem; font-family: "Inter", sans-serif; }
 
     /* Checkout block */
     .diy-checkout-block { border-top: 0.5px solid #f4c0d1; margin-top: 2rem; padding-top: 1.5rem; }
@@ -482,14 +486,15 @@
     <!-- Add-ons — available now -->
     <p class="diy-section-label">ADD TO YOUR ORDER</p>
 
-    <div class="diy-addon-row">
+    <div class="diy-addon-row diy-scissors-row" onclick="toggleScissors()" style="cursor:pointer;">
       <div class="diy-addon-info">
         <p class="diy-addon-name">Scissors (4)</p>
         <p class="diy-addon-desc">A set of 4 scissors for your flower bar guests.</p>
-        <p class="diy-addon-price">$6</p>
+        <p class="diy-addon-price">+$6</p>
       </div>
-      <div class="booqable-product-button" data-id="add-on-scissors-4" aria-label="Add Scissors to cart"></div>
+      <button class="diy-scissors-toggle" id="scissors-toggle" role="button" aria-pressed="false" onclick="event.stopPropagation(); toggleScissors();">Add</button>
     </div>
+    <p class="diy-scissors-note">One set available per booking.</p>
 
     <!-- Coming soon -->
     <p class="diy-section-label" style="margin-top:2rem;">COMING SOON</p>
@@ -1335,7 +1340,7 @@ var state = {
   addons: {}, quantities: {},
   deliveryCity: '', deliveryCost: 0, cityName: '',
   eventDate: '', email: '',
-  selectedProduct: null, selectedProductPrice: null
+  selectedProduct: null, selectedProductPrice: null, scissorsAdded: false
 };
 
 var currentStep = 1;
@@ -1367,14 +1372,25 @@ function updateDIYCartBar() {
   if (!el) return;
   if (state.selectedProduct) {
     var txt = state.selectedProduct;
-    if (state.eventDate) txt += ' · ' + state.eventDate;
-    if (state.selectedProductPrice) txt += ' · $' + state.selectedProductPrice + '/day';
+    if (state.eventDate) txt += ' \u00b7 ' + state.eventDate;
+    if (state.selectedProductPrice) txt += ' \u00b7 $' + state.selectedProductPrice + '/day';
+    if (state.scissorsAdded) txt += ' \u00b7 Scissors (4) \u00b7 +$6';
     el.textContent = txt;
     el.style.color = '#3d1a2e';
   } else {
-    el.textContent = 'No package selected — go back and choose your flower bar.';
+    el.textContent = 'No package selected \u2014 go back and choose your flower bar.';
     el.style.color = '#d4537e';
   }
+}
+
+function toggleScissors() {
+  state.scissorsAdded = !state.scissorsAdded;
+  var btn = document.getElementById('scissors-toggle');
+  if (btn) {
+    btn.setAttribute('aria-pressed', state.scissorsAdded ? 'true' : 'false');
+    btn.textContent = state.scissorsAdded ? 'Added \u2713' : 'Add';
+  }
+  updateDIYCartBar();
 }
 
 // Booqable add-to-cart detection for DIY product cards
@@ -2003,6 +2019,9 @@ function restartToBloom(e) {
   state.experience = null; state.pkg = null; state.pkgPrice = 0;
   state.palette = null; state.tier = null; state.tierPrice = 0; state.deposit = 0;
   state.addons = {}; state.quantities = {};
+  state.selectedProduct = null; state.selectedProductPrice = null; state.scissorsAdded = false;
+  var st = document.getElementById('scissors-toggle');
+  if (st) { st.setAttribute('aria-pressed','false'); st.textContent = 'Add'; }
   // Reset all addon cards
   document.querySelectorAll('.bk-addon-card').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
   // Reset qty displays
