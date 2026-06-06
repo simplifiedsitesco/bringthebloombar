@@ -54,6 +54,13 @@
     .bk-h1 { font-family: "Playfair Display", Georgia, serif; font-size: 26px; font-weight: 700; color: #3d1a2e; margin: 0 0 0.5rem; line-height: 1.25; }
     .bk-subtext { font-size: 13px; color: #6b4c5e; margin: 0 0 1.75rem; }
 
+    /* Experience card 3-col horizontal grid (Step 1) */
+    .bk-exp-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    @media (min-width: 580px) { .bk-exp-grid { grid-template-columns: 1fr 1fr 1fr; } }
+    .bk-exp-grid .bk-card { border: 1.5px solid transparent !important; border-radius: 6px; align-self: stretch; }
+    .bk-exp-grid .bk-card:hover { border-color: #f4c0d1 !important; }
+    .bk-exp-grid .bk-card[aria-checked="true"] { border: 1.5px solid #d4537e !important; background: #fdf6f9; }
+
     /* Experience/Package cards */
     .bk-card-group { display: flex; flex-direction: column; gap: 0; border-top: 0.5px solid #f4c0d1; margin-bottom: 1.5rem; }
     @media (min-width: 600px) { .bk-card-group-row { flex-direction: row; } }
@@ -215,7 +222,6 @@
         <li><a href="about.html">About</a></li>
         <li><a href="locations.html">Locations</a></li>
         <li><a href="blog/diy-bloom-bar-wedding-flowers-save-money.html">Blog</a></li>
-        <li><a href="book.html">Get a Quote</a></li>
         <li><a class="btn btn-sm" href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" target="_blank" rel="noopener noreferrer">Reserve Your Bloom Bar</a></li>
       </ul>
     </nav>
@@ -226,15 +232,14 @@
   Setup &amp; breakdown included on every booking <span class="sep" aria-hidden="true">&middot;</span> Same-day response Mon&ndash;Fri <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County &amp; LA County
 </div>
 
+<nav id="bk-progress-bar" class="bk-progress" role="navigation" aria-label="Booking progress">
+  <!-- Rendered by JS on load -->
+</nav>
+
 <main id="main">
 <div class="bk-wrap">
 
   <div aria-live="polite" aria-atomic="true" class="sr-only" id="step-announcement"></div>
-
-  <!-- Progress bar -->
-  <nav id="bk-progress-bar" class="bk-progress" role="navigation" aria-label="Booking progress">
-    <!-- Rendered by JS -->
-  </nav>
 
   <!-- Hidden Netlify form for bot detection -->
   <form name="book-inquiry" data-netlify="true" hidden>
@@ -248,7 +253,7 @@
     <h1 class="bk-h1" id="step1-heading">Build your custom event quote.</h1>
     <p class="bk-subtext">Choose your path below — explore everything before committing to anything.</p>
 
-    <div class="bk-card-group" role="radiogroup" aria-labelledby="step1-heading">
+    <div class="bk-exp-grid" role="radiogroup" aria-labelledby="step1-heading">
       <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-exp="diy" onclick="selectExperience('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
         <p class="bk-card-label">DIY BLOOM BAR</p>
         <p class="bk-card-title">Rent the Bar</p>
