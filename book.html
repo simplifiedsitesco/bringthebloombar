@@ -478,16 +478,30 @@
       if (el) el.style.display = 'block';
     }
 
-    // Method 1 — Booqable custom event
-    document.addEventListener('booqable:cart:add', showContinueText);
+    function autoAdvanceToDIYAddons() {
+      var diyProducts = document.getElementById('diy-products');
+      if (diyProducts && diyProducts.classList.contains('active')) {
+        setTimeout(function() {
+          showDIYSection('diy-addons', 3);
+        }, 600);
+      }
+    }
 
-    // Method 2 — MutationObserver watching for cart changes as fallback
+    // Method 1 — Booqable custom event
+    document.addEventListener('booqable:cart:add', function() {
+      showContinueText();
+      autoAdvanceToDIYAddons();
+    });
+
+    // Method 2 — MutationObserver watching Booqable cart badge as fallback
     var cartObserver = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutation) {
         if (mutation.type === 'childList' || mutation.type === 'characterData') {
-          var cartCount = document.querySelector('[class*="cart-count"], [class*="cart-badge"], [class*="bq-cart"]');
-          if (cartCount && parseInt(cartCount.textContent) > 0) {
+          var cartBadge = document.querySelector('[class*="cart-count"], [class*="cart-badge"], [class*="bq-cart-count"]');
+          if (cartBadge && parseInt(cartBadge.textContent) > 0) {
             showContinueText();
+            cartObserver.disconnect();
+            autoAdvanceToDIYAddons();
           }
         }
       });
@@ -500,34 +514,36 @@
   })();
   </script>
 
-  <!-- ===================== DIY STEP 4 — Complete Your Setup ===================== -->
+  <!-- ===================== DIY STEP 3 — Complete the Look ===================== -->
   <section id="diy-addons" class="bk-step" aria-live="polite">
-    <p class="bk-confirm-line" id="confirm-diy-addons"></p>
-    <p class="bk-eyebrow diy-eyebrow">Step 4 &mdash; Complete Your Setup</p>
-    <h2 class="bk-h1">Complete your setup.</h2>
-    <p class="bk-subtext">Your flower bar is in your cart. Add anything else before you book.</p>
 
     <!-- Cart confirmation bar -->
-    <div class="diy-cart-bar" role="status" aria-live="polite">
-      <span class="diy-cart-label">In your cart:</span>
-      <span class="diy-cart-contents" id="diy-cart-text">No package selected &mdash; go back and choose your flower bar.</span>
+    <div style="background: white; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between;" aria-live="polite">
+      <span style="font-size: 11px; color: #9b7080; font-family: 'Inter', sans-serif;">In your cart:</span>
+      <span id="diy-cart-summary" style="font-size: 12px; font-weight: 500; color: #3d1a2e; font-family: 'Inter', sans-serif;">Your flower bar</span>
     </div>
+
+    <p class="bk-eyebrow diy-eyebrow">Step 3 &mdash; Complete the Look</p>
+    <h2 class="bk-h1">Complete your setup.</h2>
+    <p class="bk-subtext">Your flower bar is in your cart. Add anything else before you book.</p>
+    <p style="font-style: italic; font-size: 12px; color: #9b7080; font-family: 'Inter', sans-serif; margin-bottom: 2rem;">Most hosts add at least one of these to their flower bar setup.</p>
 
     <!-- Add-ons — available now -->
-    <p class="diy-section-label">ADD TO YOUR ORDER</p>
+    <p class="diy-section-label">AVAILABLE NOW</p>
 
-    <div class="diy-addon-row diy-scissors-row" onclick="toggleScissors()" style="cursor:pointer;">
-      <div class="diy-addon-info">
-        <p class="diy-addon-name">Scissors (4)</p>
-        <p class="diy-addon-desc">A set of 4 scissors for your flower bar guests.</p>
-        <p class="diy-addon-price">+$6</p>
+    <!-- Scissors — Booqable embed -->
+    <div style="background: white; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
+      <div style="width: 60px; height: 60px; background: #fbeaf0; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;" aria-hidden="true">&#9986;&#65039;</div>
+      <div style="flex: 1;">
+        <div style="font-size: 13px; font-weight: 500; color: #3d1a2e; font-family: 'Inter', sans-serif; margin-bottom: 0.2rem;">Scissors (4)</div>
+        <div style="font-size: 11px; color: #9b7080; font-family: 'Inter', sans-serif; margin-bottom: 0.4rem;">A set of 4 scissors for your flower bar guests.</div>
+        <div style="font-size: 11px; color: #9b7080; font-style: italic; font-family: 'Inter', sans-serif;">One set available per booking.</div>
       </div>
-      <button class="diy-scissors-toggle" id="scissors-toggle" role="button" aria-pressed="false" onclick="event.stopPropagation(); toggleScissors();">Add</button>
+      <div class="booqable-product-button" data-id="add-on-scissors-4" aria-label="Add Scissors to cart" style="flex-shrink: 0;"></div>
     </div>
-    <p class="diy-scissors-note">One set available per booking.</p>
 
     <!-- Coming soon -->
-    <p class="diy-section-label" style="margin-top:2rem;">COMING SOON</p>
+    <p class="diy-section-label" style="margin-top:2rem;">COMING SOON &mdash; NOTIFY ME WHEN AVAILABLE</p>
 
     <div class="diy-addon-row">
       <div class="diy-addon-info">
@@ -535,7 +551,7 @@
         <p class="diy-addon-desc">Elegant resin chairs for your event &mdash; up to 30 available.</p>
         <p class="diy-addon-price">$8/each</p>
       </div>
-      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Wood Resin Chairs becomes available">Notify me</a>
+      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Wood Resin Chairs is available">Notify me</a>
     </div>
 
     <div class="diy-addon-row">
@@ -544,7 +560,7 @@
         <p class="diy-addon-desc">Clean white tables for any setup &mdash; up to 10 available.</p>
         <p class="diy-addon-price">$18/each</p>
       </div>
-      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Plastic Tables becomes available">Notify me</a>
+      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Plastic Tables is available">Notify me</a>
     </div>
 
     <div class="diy-addon-row">
@@ -553,7 +569,7 @@
         <p class="diy-addon-desc">Warm ambient lighting for your event space &mdash; up to 20 available.</p>
         <p class="diy-addon-price">$12/each</p>
       </div>
-      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Cordless Table Lamps becomes available">Notify me</a>
+      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Cordless Table Lamps is available">Notify me</a>
     </div>
 
     <div class="diy-addon-row">
@@ -562,7 +578,7 @@
         <p class="diy-addon-desc">Gold candle holders for a styled tablescape &mdash; up to 20 available.</p>
         <p class="diy-addon-price">$8/each</p>
       </div>
-      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Candle Holders becomes available">Notify me</a>
+      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Candle Holders is available">Notify me</a>
     </div>
 
     <!-- Checkout block -->
@@ -571,10 +587,13 @@
       <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
          class="diy-checkout-btn"
          onclick="advanceDIYToBook()"
-         aria-label="Complete my booking on the secure Booqable checkout page">Complete my booking &rarr;</a>
-      <p class="diy-checkout-note">You&rsquo;ll confirm your dates and complete payment on our secure booking page.</p>
-      <button class="bk-back" aria-label="Back to packages" onclick="showDIYSection('diy-products', 3)" style="margin-top:0.5rem;">&larr; Back to packages</button>
+         aria-label="Complete my booking on the secure Booqable checkout page"
+         style="display:inline-block;">Complete my booking &rarr;</a>
+      <p class="diy-checkout-note" style="font-style: italic;">You&rsquo;ll select your dates and complete payment on our secure booking page.</p>
+      <button class="bk-back" aria-label="Back to packages" onclick="showDIYSection('diy-products', 2)" style="margin-top:0.5rem;">&larr; Back to packages</button>
     </div>
+
+    <button style="font-size:11px;color:#d4537e;text-decoration:underline;text-underline-offset:3px;display:block;text-align:center;margin-top:1.25rem;font-family:'Inter',sans-serif;background:none;border:none;cursor:pointer;width:100%;padding:0;" onclick="state.experience='full'; goToStep2Details();" aria-label="Explore full flower packages">Prefer us to handle the flowers? Explore our full flower packages &rarr;</button>
   </section>
 
   <!-- ===================== STEP 3 — Package ===================== -->
@@ -1372,7 +1391,7 @@ var state = {
   quantities: { 'qty-chairs': 0, 'qty-tables': 0, 'qty-lamps': 0, 'qty-candles': 0 },
   deliveryCity: '', deliveryCost: 0, cityName: '',
   eventDate: '', email: '',
-  selectedProduct: '', selectedProductPrice: 0, scissorsAdded: false
+  selectedProduct: '', selectedProductPrice: 0
 };
 
 var currentStep = 1;
@@ -1404,29 +1423,13 @@ function advanceDIYToBook() {
 }
 
 function updateDIYCartBar() {
-  var el = document.getElementById('diy-cart-text');
+  var el = document.getElementById('diy-cart-summary');
   if (!el) return;
   if (state.selectedProduct) {
-    var txt = state.selectedProduct;
-    if (state.eventDate) txt += ' \u00b7 ' + state.eventDate;
-    if (state.selectedProductPrice) txt += ' \u00b7 $' + state.selectedProductPrice + '/day';
-    if (state.scissorsAdded) txt += ' \u00b7 Scissors (4) \u00b7 +$6';
-    el.textContent = txt;
-    el.style.color = '#3d1a2e';
+    el.textContent = state.selectedProduct + ' \u00b7 $' + state.selectedProductPrice + '.00';
   } else {
-    el.textContent = 'No package selected \u2014 go back and choose your flower bar.';
-    el.style.color = '#d4537e';
+    el.textContent = 'Your flower bar';
   }
-}
-
-function toggleScissors() {
-  state.scissorsAdded = !state.scissorsAdded;
-  var btn = document.getElementById('scissors-toggle');
-  if (btn) {
-    btn.setAttribute('aria-pressed', state.scissorsAdded ? 'true' : 'false');
-    btn.textContent = state.scissorsAdded ? 'Added \u2713' : 'Add';
-  }
-  updateDIYCartBar();
 }
 
 function diyProductsContinue() {
