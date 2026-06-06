@@ -30,6 +30,15 @@
     })(window, document, "clarity", "script", "wucxrcgmm8");
   </script>
   <style>
+    html, body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .bk-wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1rem 5rem; }
     .trust-bar { background: #fff; border-bottom: 0.5px solid #f4c0d1; text-align: center; padding: 0.5rem 1rem; font-size: 11px; color: #6b4c5e; letter-spacing: 0.01em; }
@@ -267,6 +276,196 @@
 
     /* Booqable iframe baseline */
     .booqable-datepicker iframe { border: none; }
+
+    /* ---- Mobile Responsiveness — 640px breakpoint ---- */
+    @media (max-width: 640px) {
+
+      /* CONTAINER PADDING */
+      .flow-container,
+      #step-1, #step-2-details,
+      #diy-products, #diy-addons {
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+      }
+
+      /* NAV — reduce font size and gap, keep all links visible */
+      .nav {
+        padding: 0.75rem 1.25rem !important;
+        flex-wrap: wrap !important;
+        gap: 0.5rem !important;
+      }
+      .nav-links {
+        gap: 0.75rem !important;
+      }
+      .nav-link {
+        font-size: 10px !important;
+      }
+      .nav-cta {
+        font-size: 10px !important;
+        padding: 6px 12px !important;
+      }
+
+      /* TRUST BAR */
+      .trust-bar {
+        font-size: 10px !important;
+        padding: 0.5rem 1.25rem !important;
+        line-height: 1.6 !important;
+      }
+
+      /* PROGRESS BAR */
+      .step-label, .prog-label, .bk-step-label {
+        font-size: 8px !important;
+        white-space: normal !important;
+      }
+      .step-dot, .prog-dot, .bk-step-dot {
+        width: 14px !important;
+        height: 14px !important;
+      }
+      .progress-step:not(:last-child)::after,
+      .prog-step:not(:last-child)::after {
+        top: 7px !important;
+      }
+      .bk-step-connector {
+        width: 12px !important;
+      }
+
+      /* HEADINGS */
+      .step-heading, .bk-h1 {
+        font-size: 22px !important;
+        line-height: 1.3 !important;
+      }
+
+      /* FORM INPUTS — 16px prevents iOS zoom */
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      select,
+      textarea {
+        font-size: 16px !important;
+        min-height: 44px !important;
+        padding: 0.75rem 0 !important;
+      }
+
+      /* PRIMARY BUTTONS — full width on mobile */
+      .btn-primary,
+      .btn-next,
+      .flower-btn,
+      .complete-btn,
+      .bk-btn {
+        width: 100% !important;
+        min-height: 48px !important;
+        font-size: 14px !important;
+        text-align: center !important;
+        justify-content: center !important;
+      }
+
+      /* EXPERIENCE CARDS — single column */
+      .bk-exp-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+      }
+      .bk-exp-grid .bk-card {
+        padding: 1.25rem !important;
+      }
+
+      /* PACKAGE GRID — single column */
+      .bk-card-grid-2,
+      .bk-card-grid-3 {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      /* PALETTE GRID — two columns */
+      .bk-palette-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.75rem !important;
+      }
+
+      /* ADDON GRID — two columns */
+      .bk-addon-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 0.75rem !important;
+      }
+      .bk-addon-img {
+        height: 50px !important;
+      }
+
+      /* DIY PRODUCT GRID — single column */
+      #diy-products > div[style] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+
+      /* BOOQABLE PRODUCT CARDS — full width */
+      #diy-products .booqable-product {
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+
+      /* ARRANGE GRID — single column */
+      .bk-arrange-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+      }
+
+      /* QTY BUTTONS */
+      .bk-qty-btn {
+        width: 36px !important;
+        height: 36px !important;
+      }
+
+      /* CART BAR — stack on mobile */
+      #diy-addons [aria-live="polite"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0.25rem !important;
+      }
+
+      /* SAVE QUOTE ROW — stack */
+      .bk-save-row {
+        flex-direction: column !important;
+        gap: 0.75rem !important;
+      }
+      .bk-save-row .bk-btn-ghost {
+        width: 100% !important;
+        min-height: 44px !important;
+        text-align: center !important;
+      }
+
+      /* QUOTE BOX */
+      .bk-quote-box {
+        padding: 1rem !important;
+      }
+      .bk-total-amount {
+        font-size: 22px !important;
+      }
+
+      /* UPGRADE AND BACK LINKS — tap target */
+      .bk-back {
+        min-height: 44px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+      }
+
+      /* FOOTER */
+      .footer {
+        padding: 1.25rem !important;
+      }
+
+      /* STICKY COMPLETE BOOKING BUTTON ON MOBILE */
+      .complete-btn-wrapper {
+        position: sticky !important;
+        bottom: 0 !important;
+        background: #fdf6f9 !important;
+        padding: 1rem 0 !important;
+        border-top: 0.5px solid #f4c0d1 !important;
+        margin: 0 -1.25rem !important;
+        padding-left: 1.25rem !important;
+        padding-right: 1.25rem !important;
+        z-index: 10 !important;
+      }
+
+    } /* end @media (max-width: 640px) */
   </style>
 </head>
 <body>
@@ -528,12 +727,14 @@
     <!-- Checkout block -->
     <div class="diy-checkout-block">
       <p class="diy-reassurance">Everything in your cart includes delivery, setup, and breakdown. You show up &mdash; we handle the rest.</p>
-      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
-         class="diy-checkout-btn"
-         onclick="advanceDIYToBook()"
-         aria-label="Complete my booking on the secure Booqable checkout page"
-         style="display:inline-block;">Complete my booking &rarr;</a>
-      <p class="diy-checkout-note" style="font-style: italic;">You&rsquo;ll select your dates and complete payment on our secure booking page.</p>
+      <div class="complete-btn-wrapper">
+        <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
+           class="diy-checkout-btn"
+           onclick="advanceDIYToBook()"
+           aria-label="Complete my booking on the secure Booqable checkout page"
+           style="display:inline-block;">Complete my booking &rarr;</a>
+        <p class="diy-checkout-note" style="font-style: italic;">You&rsquo;ll select your dates and complete payment on our secure booking page.</p>
+      </div>
       <button class="bk-back" aria-label="Back to packages" onclick="showDIYSection('diy-products', 2)" style="margin-top:0.5rem;">&larr; Back to packages</button>
     </div>
 
