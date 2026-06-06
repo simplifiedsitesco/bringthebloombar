@@ -1571,6 +1571,7 @@ var state = {
 };
 
 var currentStep = 1;
+var step2LeadCaptured = false;
 
 // ---- Aria-hidden management ----
 function updateStepAriaHidden() {
@@ -1641,6 +1642,7 @@ function selectExperienceS1(type) {
   state.selectedProduct = ''; state.selectedProductPrice = 0;
   state.addons = {};
   state.quantities = { 'qty-chairs': 0, 'qty-tables': 0, 'qty-lamps': 0, 'qty-candles': 0 };
+  step2LeadCaptured = false;
 
   var cards = document.querySelectorAll('#step-1 [role="radio"]');
   cards.forEach(function(c) {
@@ -1737,6 +1739,23 @@ function updateStep2CTA() {
   btn.setAttribute('aria-disabled', (dateVal && cityVal) ? 'false' : 'true');
 }
 
+function captureStep2Lead() {
+  if (step2LeadCaptured) return;
+  step2LeadCaptured = true;
+  var payload = {
+    name: state.customerName,
+    eventDate: state.eventDate,
+    city: state.cityName,
+    experience: state.experience,
+    source: 'book.html Step 2'
+  };
+  fetch('/.netlify/functions/lead-capture', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  }).catch(function() {});
+}
+
 function step2DetailsNext() {
   var dateInput = document.getElementById('event-date-s2d');
   var cityInput = document.getElementById('customer-city');
@@ -1750,6 +1769,7 @@ function step2DetailsNext() {
   state.eventDate = dateVal;
   state.cityName = cityVal;
   state.customerName = nameInput ? nameInput.value.trim() : '';
+  captureStep2Lead();
   updateConfirmLine();
   goToStep(3);
   showStep3SubSection();
