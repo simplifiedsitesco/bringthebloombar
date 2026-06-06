@@ -399,10 +399,10 @@
     <h2 class="bk-h1">Book your flower bar.</h2>
     <p class="bk-subtext">Both packages include delivery, setup, and breakdown. Select your dates then add your package to cart.</p>
 
-    <!-- Date input -->
+    <!-- Date picker -->
     <div style="margin-bottom:1.25rem;">
-      <label for="diy-event-date" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your event date</label>
-      <input type="text" id="diy-event-date" placeholder="e.g. July 12, 2026" oninput="state.eventDate=this.value" style="border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;width:100%;max-width:300px;outline:none;">
+      <label style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;">Your event date</label>
+      <div class="booqable-datepicker"></div>
     </div>
     <p class="diy-trust-line">Delivery from $14 <span class="diy-sep">&middot;</span> Setup and breakdown included <span class="diy-sep">&middot;</span> Most dates book 2&ndash;3 weeks out</p>
 
@@ -423,7 +423,7 @@
           <p>Setup and breakdown included</p>
         </div>
         <p class="diy-tag">Perfect for intimate gatherings and backyard parties</p>
-        <div style="overflow:hidden;max-height:60px;">
+        <div style="position:relative;overflow:hidden;height:48px;pointer-events:auto;z-index:1;">
           <div class="booqable-product-button" data-id="the-flower-bar" aria-label="Add The Flower Bar to cart"></div>
         </div>
       </div>
@@ -444,7 +444,7 @@
         </div>
         <p class="diy-tag">Styled for bridal showers, baby showers, and birthdays</p>
         <p class="diy-umbrella-note">Umbrella style selected at checkout.</p>
-        <div style="overflow:hidden;max-height:60px;">
+        <div style="position:relative;overflow:hidden;height:48px;pointer-events:auto;z-index:1;">
           <div class="booqable-product-button" data-id="boho-bloom-bundle-flower-bar-and-umbrella" aria-label="Add Boho Bloom Bundle to cart"></div>
         </div>
       </div>
