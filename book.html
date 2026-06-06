@@ -238,10 +238,8 @@
     .diy-umbrella-note { font-size: 10px; color: #9b7080; margin: 0.25rem 0 0.75rem; font-family: "Inter", sans-serif; }
     .booqable-product-button { margin-top: auto; }
 
-    /* Fallback continue button */
-    .diy-continue-ghost { background: transparent; color: #d4537e; border: 0.5px solid #d4537e; border-radius: 30px; padding: 10px 22px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; transition: background 0.15s; }
-    .diy-continue-ghost:hover { background: #fbeaf0; }
-    .diy-continue-ghost:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    /* Step 3 continue instruction */
+    .diy-continue-instruction { font-size: 12px; color: #6b4c5e; font-family: "Inter", sans-serif; margin: 0; }
 
     /* Cart confirmation bar */
     .diy-cart-bar { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; display: flex; gap: 0.5rem; align-items: flex-start; flex-wrap: wrap; }
@@ -463,10 +461,13 @@
 
     </div>
 
-    <!-- Fallback continue button -->
-    <div class="bk-cta-row" style="margin-top:1.5rem; flex-direction:column; align-items:flex-start; gap:0.75rem;">
-      <button class="diy-continue-ghost" onclick="advanceToDIYAddons()" aria-label="Continue to add-ons without adding to cart">Continue to add-ons &rarr;</button>
-      <button class="bk-back" aria-label="Back to experience selection" onclick="goToStep(2)">&larr; Back</button>
+    <!-- Continue to Step 4 -->
+    <div style="margin-top:1.75rem;">
+      <p class="diy-continue-instruction">Added your package? Continue to complete your setup.</p>
+      <div class="bk-cta-row" style="margin-top:0.75rem;">
+        <button class="bk-btn" onclick="diyProductsContinue()" aria-label="Continue to add-ons after adding package to cart">Continue to add-ons &rarr;</button>
+        <button class="bk-back" aria-label="Back to experience selection" onclick="goToStep(2)">&larr; Back</button>
+      </div>
     </div>
   </section>
 
@@ -1393,20 +1394,27 @@ function toggleScissors() {
   updateDIYCartBar();
 }
 
-// Booqable add-to-cart detection for DIY product cards
+// Track which product card was last interacted with in Step 3.
+// Listens on the card wrapper (covers clicks anywhere inside the card,
+// including the Booqable button). Stores immediately into state.
 document.addEventListener('click', function(e) {
-  var bbBtn = e.target.closest('#diy-products .booqable-product-button');
-  if (!bbBtn) return;
-  var card = bbBtn.closest('[data-product-name]');
+  var card = e.target.closest('#diy-products [data-product-name]');
   if (!card) return;
   var productName = card.getAttribute('data-product-name');
   var productPrice = card.getAttribute('data-product-price');
   if (productName && productPrice) {
     state.selectedProduct = productName;
     state.selectedProductPrice = productPrice;
-    setTimeout(advanceToDIYAddons, 800);
   }
 });
+
+// Primary advancement from Step 3 → Step 4.
+// Reads state.selectedProduct (set by card click above) then advances.
+function diyProductsContinue() {
+  // If no card was clicked yet, still allow advancing (user may have
+  // used keyboard or Booqable iframe interaction we can't detect).
+  advanceToDIYAddons();
+}
 
 // ---- Step 1: Date + City ----
 function citySelectChanged() {
