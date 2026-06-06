@@ -72,17 +72,26 @@
     .bk-card-title { font-family: "Playfair Display", Georgia, serif; font-size: 15px; color: #3d1a2e; margin: 0 0 0.4rem; }
     .bk-card-rule { border: none; border-top: 0.5px solid #f4c0d1; margin: 0.4rem 0 0.5rem; }
     .bk-card-desc { font-size: 12px; color: #6b4c5e; margin: 0 0 0.4rem; line-height: 1.6; }
-    .bk-card-price { font-size: 11px; color: #b32566; font-weight: 500; margin: 0; }
+    .bk-card-price { font-size: 11px; color: #3d1a2e; font-weight: 600; margin: 0.4rem 0 0; }
 
     /* 2-col card grid */
     .bk-card-grid-2 { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
     @media (min-width: 520px) { .bk-card-grid-2 { grid-template-columns: 1fr 1fr; } }
-    .bk-card-grid-2 .bk-card { border-bottom: 0.5px solid #f4c0d1 !important; border-radius: 6px; }
+    .bk-card-grid-2 .bk-card { border: 1.5px solid #f4c0d1 !important; border-radius: 6px; }
+    .bk-card-grid-2 .bk-card:hover { border-color: #d4537e !important; }
+    .bk-card-grid-2 .bk-card[aria-checked="true"] { border: 1.5px solid #d4537e !important; background: #fdf6f9; }
 
     /* 3-col full bloom package cards */
     .bk-card-grid-3 { display: grid; grid-template-columns: 1fr; gap: 0.75rem; margin-bottom: 1.5rem; }
     @media (min-width: 600px) { .bk-card-grid-3 { grid-template-columns: 1fr 1fr 1fr; } }
-    .bk-card-grid-3 .bk-card { border-radius: 6px; border-bottom: 0.5px solid #f4c0d1 !important; }
+    .bk-card-grid-3 .bk-card { border: 1.5px solid #f4c0d1 !important; border-radius: 6px; }
+    .bk-card-grid-3 .bk-card:hover { border-color: #d4537e !important; }
+    .bk-card-grid-3 .bk-card[aria-checked="true"] { border: 1.5px solid #d4537e !important; background: #fdf6f9; }
+
+    /* Custom dash bullets on package inclusion lists */
+    ul.bk-card-desc { list-style: none; padding-left: 0; }
+    ul.bk-card-desc li { position: relative; padding-left: 1.1rem; line-height: 2; }
+    ul.bk-card-desc li::before { content: "—"; position: absolute; left: 0; color: #f4c0d1; font-weight: 300; }
 
     /* Inline validation */
     .bk-error { font-size: 11px; color: #b32566; margin: 0.25rem 0 0.75rem; display: none; }
@@ -92,7 +101,7 @@
     .bk-btn { background: #d4537e; color: #fff; border: none; border-radius: 30px; padding: 12px 28px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; transition: background 0.15s; }
     .bk-btn:hover { background: #b32566; }
     .bk-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
-    .bk-btn[aria-disabled="true"] { opacity: 0.55; cursor: default; }
+    .bk-btn[aria-disabled="true"] { opacity: 1; cursor: pointer; }
     .bk-btn-ghost { background: transparent; color: #d4537e; border: 0.5px solid #d4537e; border-radius: 30px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; }
     .bk-btn-ghost:hover { background: #fbeaf0; }
     .bk-btn-ghost:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
@@ -297,7 +306,7 @@
           <p class="bk-card-label">THE FLOWER BAR</p>
           <p class="bk-card-title">The Flower Bar</p>
           <hr class="bk-card-rule">
-          <ul class="bk-card-desc" style="padding-left:1.1rem;margin:0 0 0.4rem;">
+          <ul class="bk-card-desc" style="margin:0 0 0.4rem;">
             <li>Bloom bar stand</li>
             <li>Pickup free in La Habra</li>
             <li>Delivery from $14</li>
@@ -310,7 +319,7 @@
           <p class="bk-card-label">BOHO BLOOM BUNDLE</p>
           <p class="bk-card-title">Boho Bloom Bundle</p>
           <hr class="bk-card-rule">
-          <ul class="bk-card-desc" style="padding-left:1.1rem;margin:0 0 0.4rem;">
+          <ul class="bk-card-desc" style="margin:0 0 0.4rem;">
             <li>Bloom bar stand</li>
             <li>Boho umbrella (pink or cream)</li>
             <li>Pickup free in La Habra</li>
@@ -324,7 +333,7 @@
       <p class="bk-trust-line">All rentals include setup and breakdown — no extra charges on the day.</p>
       <p class="bk-error" id="step2-diy-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
       <div class="bk-cta-row">
-        <button class="bk-btn" id="step2-diy-btn" aria-disabled="true" onclick="step2Next()">Choose my package</button>
+        <button class="bk-btn" id="step2-diy-btn" aria-disabled="true" onclick="step2Next()">Continue with this package &rarr;</button>
         <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
       </div>
     </div>
@@ -341,7 +350,7 @@
           <p class="bk-card-desc" style="font-size:10px;color:#9b7080;margin:0 0 0.3rem;">10&ndash;20 guests</p>
           <hr class="bk-card-rule">
           <p class="bk-card-price">$725 Essential &middot; $925 Lush</p>
-          <ul class="bk-card-desc" style="padding-left:1.1rem;margin:0.4rem 0 0;">
+          <ul class="bk-card-desc" style="margin:0.4rem 0 0;">
             <li>Full bloom bar setup</li>
             <li>Flowers sourced and arranged</li>
             <li>Delivery, setup and breakdown</li>
@@ -354,7 +363,7 @@
           <p class="bk-card-desc" style="font-size:10px;color:#9b7080;margin:0 0 0.3rem;">20&ndash;35 guests</p>
           <hr class="bk-card-rule">
           <p class="bk-card-price">$995 Essential &middot; $1,250 Lush</p>
-          <ul class="bk-card-desc" style="padding-left:1.1rem;margin:0.4rem 0 0;">
+          <ul class="bk-card-desc" style="margin:0.4rem 0 0;">
             <li>Full bloom bar setup</li>
             <li>Flowers sourced and arranged</li>
             <li>Delivery, setup and breakdown</li>
@@ -398,7 +407,7 @@
       <p class="bk-trust-line">All full bloom bar packages include fresh flowers sourced within 48 hours of your event.</p>
       <p class="bk-error" id="step2-full-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
       <div class="bk-cta-row" id="step2-full-cta-row">
-        <button class="bk-btn" id="step2-full-btn" aria-disabled="true" onclick="step2Next()">Choose my package</button>
+        <button class="bk-btn" id="step2-full-btn" aria-disabled="true" onclick="step2Next()">Continue with this package &rarr;</button>
         <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
       </div>
     </div>
@@ -448,7 +457,7 @@
       <p class="bk-trust-line">Delivery, setup, and breakdown are included with every rental.</p>
       <p class="bk-error" id="step2-rentals-error" role="alert" aria-atomic="true">Please choose a statement piece above to continue.</p>
       <div class="bk-cta-row">
-        <button class="bk-btn" id="step2-rentals-btn" aria-disabled="true" onclick="step2Next()">Choose my piece</button>
+        <button class="bk-btn" id="step2-rentals-btn" aria-disabled="true" onclick="step2Next()">Continue with this selection &rarr;</button>
         <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
       </div>
     </div>
