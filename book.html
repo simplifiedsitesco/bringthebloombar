@@ -213,6 +213,14 @@
 
     /* Arrangement tag */
     .bk-card-tag { font-size: 10px; color: #6b4c5e; font-style: italic; margin: 0.3rem 0 0; }
+
+    /* Booqable product grid */
+    .bk-booqable-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+    @media (min-width: 520px) { .bk-booqable-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* Confirmation line (date · city · delivery) */
+    .bk-confirm-line { font-size: 11px; color: #9b7080; margin: 0 0 1rem; letter-spacing: 0.01em; min-height: 1em; }
+    .bk-confirm-line:empty { display: none; }
   </style>
 </head>
 <body>
@@ -256,11 +264,63 @@
     <input name="experience"><input name="package"><input name="addons"><input name="delivery-city"><input name="total">
   </form>
 
-  <!-- ===================== STEP 1 ===================== -->
+  <!-- ===================== STEP 1 — Date + City ===================== -->
   <section id="step-1" class="bk-step active" aria-live="polite">
-    <p class="bk-eyebrow">Book Your Experience</p>
-    <h1 class="bk-h1" id="step1-heading">Build your custom event quote.</h1>
-    <p class="bk-subtext">Choose your path below — explore everything before committing to anything.</p>
+    <p class="bk-eyebrow">Step 1 &mdash; Your Event</p>
+    <h1 class="bk-h1" id="step1-date-heading">When&rsquo;s your event?</h1>
+    <p class="bk-subtext">We&rsquo;ll use your date and city to check availability and calculate delivery.</p>
+
+    <div class="bk-field">
+      <label class="bk-label" for="event-date-s1">Event date</label>
+      <input class="bk-input" type="text" id="event-date-s1" placeholder="e.g. July 12, 2026" required>
+      <p class="bk-error" id="step1-date-error" role="alert" aria-atomic="true">Please enter your event date to continue.</p>
+    </div>
+
+    <div class="bk-field">
+      <label class="bk-label" for="delivery-city-s1">Delivery city</label>
+      <select class="bk-select" id="delivery-city-s1" required onchange="citySelectChanged()">
+        <option value="" disabled selected>Select your city&hellip;</option>
+        <option value="0">Pickup &mdash; La Habra / Free</option>
+        <option value="0">La Habra &mdash; Free</option>
+        <option value="14">Fullerton &mdash; $14</option>
+        <option value="14">Brea &mdash; $14</option>
+        <option value="16">Placentia &mdash; $16</option>
+        <option value="16">La Mirada &mdash; $16</option>
+        <option value="18">Whittier &mdash; $18</option>
+        <option value="18">Anaheim &mdash; $18</option>
+        <option value="18">Buena Park &mdash; $18</option>
+        <option value="20">Yorba Linda &mdash; $20</option>
+        <option value="20">Hacienda Heights &mdash; $20</option>
+        <option value="20">City of Industry &mdash; $20</option>
+        <option value="22">Orange &mdash; $22</option>
+        <option value="22">Rowland Heights &mdash; $22</option>
+        <option value="22">Norwalk &mdash; $22</option>
+        <option value="25">Diamond Bar &mdash; $25</option>
+        <option value="25">Garden Grove &mdash; $25</option>
+        <option value="28">Chino Hills &mdash; $28</option>
+        <option value="28">Tustin &mdash; $28</option>
+        <option value="28">Santa Ana &mdash; $28</option>
+        <option value="28">Downey &mdash; $28</option>
+        <option value="35">Long Beach &mdash; $35</option>
+        <option value="35">Irvine &mdash; $35</option>
+        <option value="45">Los Angeles &mdash; $45</option>
+        <option value="40">Pasadena &mdash; $40</option>
+        <option value="0">Other (we&rsquo;ll confirm)</option>
+      </select>
+      <p class="bk-error" id="step1-city-error" role="alert" aria-atomic="true">Please select your delivery city to continue.</p>
+    </div>
+
+    <div class="bk-cta-row">
+      <button class="bk-btn" onclick="step1Next()">Choose my experience &rarr;</button>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 2 — Experience ===================== -->
+  <section id="step-2" class="bk-step" aria-live="polite">
+    <p class="bk-confirm-line" id="confirm-s2"></p>
+    <p class="bk-eyebrow">Step 2 &mdash; Choose Your Experience</p>
+    <h1 class="bk-h1" id="step1-heading">How can we help?</h1>
+    <p class="bk-subtext">Choose your path below &mdash; explore everything before committing to anything.</p>
 
     <div class="bk-exp-grid" role="radiogroup" aria-labelledby="step1-heading">
       <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-exp="diy" onclick="selectExperience('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
@@ -289,62 +349,38 @@
     <p class="bk-error" id="step1-error" role="alert" aria-atomic="true">Please choose an experience above to continue.</p>
 
     <div class="bk-cta-row">
-      <button class="bk-btn" id="step1-btn" aria-disabled="true" onclick="step1Next()">Choose my experience</button>
+      <button class="bk-btn" id="step1-btn" aria-disabled="true" onclick="experienceNext()">Choose my experience</button>
+      <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
     </div>
   </section>
 
-  <!-- ===================== STEP 2 ===================== -->
-  <section id="step-2" class="bk-step" aria-live="polite">
+  <!-- ===================== STEP 3 — Package ===================== -->
+  <section id="step-3" class="bk-step" aria-live="polite">
 
-    <!-- DIY sub-section -->
-    <div id="step2-diy" style="display:none;">
-      <p class="bk-eyebrow" id="step2-eyebrow-diy">Step 2 &mdash; DIY Bloom Bar</p>
-      <h2 class="bk-h1" id="step2-heading-diy">Choose your package.</h2>
-      <p class="bk-subtext">Both packages include delivery, setup, and breakdown.</p>
-      <div class="bk-card-grid-2" role="radiogroup" aria-labelledby="step2-heading-diy">
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="flower-bar" data-price="49" onclick="selectPackage('flower-bar',49)" onkeydown="rovingKey(event,'step2-diy-rg',0)">
-          <p class="bk-card-label">THE FLOWER BAR</p>
-          <p class="bk-card-title">The Flower Bar</p>
-          <hr class="bk-card-rule">
-          <ul class="bk-card-desc" style="margin:0 0 0.4rem;">
-            <li>Bloom bar stand</li>
-            <li>Pickup free in La Habra</li>
-            <li>Delivery from $14</li>
-            <li>Setup and breakdown included</li>
-          </ul>
-          <p class="bk-card-price">$49/day</p>
-          <p class="bk-card-tag">Perfect for intimate gatherings and backyard parties</p>
-        </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="boho-bloom-bundle" data-price="84" onclick="selectPackage('boho-bloom-bundle',84)" onkeydown="rovingKey(event,'step2-diy-rg',1)">
-          <p class="bk-card-label">BOHO BLOOM BUNDLE</p>
-          <p class="bk-card-title">Boho Bloom Bundle</p>
-          <hr class="bk-card-rule">
-          <ul class="bk-card-desc" style="margin:0 0 0.4rem;">
-            <li>Bloom bar stand</li>
-            <li>Boho umbrella (pink or cream)</li>
-            <li>Pickup free in La Habra</li>
-            <li>Delivery from $14</li>
-            <li>Setup and breakdown included</li>
-          </ul>
-          <p class="bk-card-price">$84/day</p>
-          <p class="bk-card-tag">Styled for bridal showers, baby showers, and birthdays</p>
-        </button>
+    <!-- DIY sub-section — Booqable product cards -->
+    <div id="step3-diy" style="display:none;">
+      <p class="bk-confirm-line" id="confirm-diy"></p>
+      <p class="bk-eyebrow">Step 3 &mdash; DIY Bloom Bar</p>
+      <h2 class="bk-h1">Choose your package.</h2>
+      <p class="bk-subtext">Both packages include delivery, setup, and breakdown. Select below to check availability and book.</p>
+      <div class="bk-booqable-grid">
+        <div class="booqable-product" data-id="the-flower-bar"></div>
+        <div class="booqable-product" data-id="boho-bloom-bundle-flower-bar-and-umbrella"></div>
       </div>
-      <p class="bk-trust-line">All rentals include setup and breakdown — no extra charges on the day.</p>
-      <p class="bk-error" id="step2-diy-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
+      <p class="bk-trust-line">All rentals include setup and breakdown &mdash; no extra charges on the day.</p>
       <div class="bk-cta-row">
-        <button class="bk-btn" id="step2-diy-btn" aria-disabled="true" onclick="step2Next()">Continue with this package &rarr;</button>
-        <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
+        <button class="bk-back" onclick="goToStep(2)">&larr; Back</button>
       </div>
     </div>
 
     <!-- Full sub-section -->
-    <div id="step2-full" style="display:none;">
-      <p class="bk-eyebrow" id="step2-eyebrow-full">Step 2 &mdash; Full Bloom Bar Experience</p>
+    <div id="step3-full" style="display:none;">
+      <p class="bk-confirm-line" id="confirm-full"></p>
+      <p class="bk-eyebrow" id="step2-eyebrow-full">Step 3 &mdash; Full Bloom Bar Experience</p>
       <h2 class="bk-h1" id="step2-heading-full">Choose your package.</h2>
       <p class="bk-subtext">Flowers, setup, and breakdown are all included.</p>
       <div class="bk-card-grid-3" role="radiogroup" aria-labelledby="step2-heading-full">
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="bloom-social" data-price="725" onclick="selectPackage('bloom-social',725)" onkeydown="rovingKey(event,'step2-full-rg',0)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="bloom-social" data-price="725" onclick="selectPackage('bloom-social',725)" onkeydown="rovingKey(event,'step3-full-rg',0)">
           <p class="bk-card-label">BLOOM SOCIAL</p>
           <p class="bk-card-title">Bloom Social</p>
           <p class="bk-card-desc" style="font-size:10px;color:#9b7080;margin:0 0 0.3rem;">10&ndash;20 guests</p>
@@ -357,7 +393,7 @@
             <li>Attendant add-on available</li>
           </ul>
         </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="bloom-celebration" data-price="995" onclick="selectPackage('bloom-celebration',995)" onkeydown="rovingKey(event,'step2-full-rg',1)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="bloom-celebration" data-price="995" onclick="selectPackage('bloom-celebration',995)" onkeydown="rovingKey(event,'step3-full-rg',1)">
           <p class="bk-card-label">BLOOM CELEBRATION</p>
           <p class="bk-card-title">Bloom Celebration</p>
           <p class="bk-card-desc" style="font-size:10px;color:#9b7080;margin:0 0 0.3rem;">20&ndash;35 guests</p>
@@ -370,7 +406,7 @@
             <li>Attendant add-on available</li>
           </ul>
         </button>
-        <button class="bk-card" role="button" aria-pressed="false" tabindex="-1" id="large-event-card" onclick="toggleLargeEvent()" onkeydown="rovingKey(event,'step2-full-rg',2)" style="border-bottom:0.5px solid #f4c0d1!important;">
+        <button class="bk-card" role="button" aria-pressed="false" tabindex="-1" id="large-event-card" onclick="toggleLargeEvent()" onkeydown="rovingKey(event,'step3-full-rg',2)" style="border-bottom:0.5px solid #f4c0d1!important;">
           <p class="bk-card-label">LARGE EVENT</p>
           <p class="bk-card-title">Large Event (35+ guests)</p>
           <hr class="bk-card-rule">
@@ -405,48 +441,49 @@
       </div>
 
       <p class="bk-trust-line">All full bloom bar packages include fresh flowers sourced within 48 hours of your event.</p>
-      <p class="bk-error" id="step2-full-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
-      <div class="bk-cta-row" id="step2-full-cta-row">
-        <button class="bk-btn" id="step2-full-btn" aria-disabled="true" onclick="step2Next()">Continue with this package &rarr;</button>
-        <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
+      <p class="bk-error" id="step3-full-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
+      <div class="bk-cta-row" id="step3-full-cta-row">
+        <button class="bk-btn" id="step3-full-btn" aria-disabled="true" onclick="step2Next()">Continue with this package &rarr;</button>
+        <button class="bk-back" onclick="goToStep(2)">&larr; Back</button>
       </div>
     </div>
 
     <!-- Rentals sub-section -->
-    <div id="step2-rentals" style="display:none;">
-      <p class="bk-eyebrow" id="step2-eyebrow-rentals">Step 2 &mdash; Event Rentals</p>
+    <div id="step3-rentals" style="display:none;">
+      <p class="bk-confirm-line" id="confirm-rentals"></p>
+      <p class="bk-eyebrow" id="step2-eyebrow-rentals">Step 3 &mdash; Event Rentals</p>
       <h2 class="bk-h1" id="step2-heading-rentals">Choose your statement piece.</h2>
       <p class="bk-subtext">Pick your centrepiece — it will be pre-added to your quote. You can add more items in the next step.</p>
       <div class="bk-card-grid-2" role="radiogroup" aria-labelledby="step2-heading-rentals">
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="pink-backdrop" data-price="125" onclick="selectPackage('pink-backdrop',125)" onkeydown="rovingKey(event,'step2-rentals-rg',0)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="pink-backdrop" data-price="125" onclick="selectPackage('pink-backdrop',125)" onkeydown="rovingKey(event,'step3-rentals-rg',0)">
           <p class="bk-card-label">BACKDROP</p>
           <p class="bk-card-title">Pink Flower Backdrop</p>
           <hr class="bk-card-rule">
           <p class="bk-card-desc">A stunning full pink floral backdrop — perfect as a photo wall or focal point.</p>
           <p class="bk-card-price">$125/day</p>
         </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="white-backdrop" data-price="115" onclick="selectPackage('white-backdrop',115)" onkeydown="rovingKey(event,'step2-rentals-rg',1)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="white-backdrop" data-price="115" onclick="selectPackage('white-backdrop',115)" onkeydown="rovingKey(event,'step3-rentals-rg',1)">
           <p class="bk-card-label">BACKDROP</p>
           <p class="bk-card-title">White Flower Backdrop</p>
           <hr class="bk-card-rule">
           <p class="bk-card-desc">Elegant white floral backdrop — versatile for any event theme or colour palette.</p>
           <p class="bk-card-price">$115/day</p>
         </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="green-backdrop" data-price="95" onclick="selectPackage('green-backdrop',95)" onkeydown="rovingKey(event,'step2-rentals-rg',2)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="green-backdrop" data-price="95" onclick="selectPackage('green-backdrop',95)" onkeydown="rovingKey(event,'step3-rentals-rg',2)">
           <p class="bk-card-label">BACKDROP</p>
           <p class="bk-card-title">Green Backdrop</p>
           <hr class="bk-card-rule">
           <p class="bk-card-desc">Lush greenery backdrop — ideal for a fresh, organic event aesthetic.</p>
           <p class="bk-card-price">$95/day</p>
         </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="bar-cart" data-price="85" onclick="selectPackage('bar-cart',85)" onkeydown="rovingKey(event,'step2-rentals-rg',3)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="bar-cart" data-price="85" onclick="selectPackage('bar-cart',85)" onkeydown="rovingKey(event,'step3-rentals-rg',3)">
           <p class="bk-card-label">FURNITURE</p>
           <p class="bk-card-title">Bar Cart</p>
           <hr class="bk-card-rule">
           <p class="bk-card-desc">Stylish bar cart rental — great for drinks stations, dessert displays, or décor.</p>
           <p class="bk-card-price">$85/day</p>
         </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="champagne-wall" data-price="75" onclick="selectPackage('champagne-wall',75)" onkeydown="rovingKey(event,'step2-rentals-rg',4)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="champagne-wall" data-price="75" onclick="selectPackage('champagne-wall',75)" onkeydown="rovingKey(event,'step3-rentals-rg',4)">
           <p class="bk-card-label">DISPLAY</p>
           <p class="bk-card-title">Champagne Wall</p>
           <hr class="bk-card-rule">
@@ -455,24 +492,25 @@
         </button>
       </div>
       <p class="bk-trust-line">Delivery, setup, and breakdown are included with every rental.</p>
-      <p class="bk-error" id="step2-rentals-error" role="alert" aria-atomic="true">Please choose a statement piece above to continue.</p>
+      <p class="bk-error" id="step3-rentals-error" role="alert" aria-atomic="true">Please choose a statement piece above to continue.</p>
       <div class="bk-cta-row">
-        <button class="bk-btn" id="step2-rentals-btn" aria-disabled="true" onclick="step2Next()">Continue with this selection &rarr;</button>
-        <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
+        <button class="bk-btn" id="step3-rentals-btn" aria-disabled="true" onclick="step2Next()">Continue with this selection &rarr;</button>
+        <button class="bk-back" onclick="goToStep(2)">&larr; Back</button>
       </div>
     </div>
 
   </section>
 
-  <!-- ===================== STEP 3 (Full path only) ===================== -->
-  <section id="step-3" class="bk-step" aria-live="polite">
-    <p class="bk-eyebrow">Step 3 &mdash; Your Flowers</p>
-    <h2 class="bk-h1" id="step3-heading">Choose your colour palette.</h2>
+  <!-- ===================== STEP 4 — Flowers (Full path only) ===================== -->
+  <section id="step-4" class="bk-step" aria-live="polite">
+    <p class="bk-confirm-line" id="confirm-s4"></p>
+    <p class="bk-eyebrow">Step 4 &mdash; Your Flowers</p>
+    <h2 class="bk-h1" id="step4-heading">Choose your colour palette.</h2>
     <p class="bk-subtext">Your arrangement will be styled in your chosen palette using the freshest seasonal blooms available.</p>
     <p class="bk-trust-line" style="margin-bottom:1.25rem;">Each arrangement is sourced fresh within 48 hours of your event and styled on-site by us.</p>
 
-    <div class="bk-palette-grid" role="radiogroup" aria-labelledby="step3-heading">
-      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Blush &amp; White — Soft pinks, whites, and cream" tabindex="0" data-palette="blush-white" onclick="selectPalette('blush-white')" onkeydown="rovingKey(event,'step3-palette-rg',0)">
+    <div class="bk-palette-grid" role="radiogroup" aria-labelledby="step4-heading">
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Blush &amp; White — Soft pinks, whites, and cream" tabindex="0" data-palette="blush-white" onclick="selectPalette('blush-white')" onkeydown="rovingKey(event,'step4-palette-rg',0)">
         <p class="bk-palette-name">Blush &amp; White</p>
         <p class="bk-palette-desc">Soft pinks, whites, and cream</p>
         <div class="bk-swatches">
@@ -481,7 +519,7 @@
           <span class="bk-swatch" style="background:#f5efe6;border:1px solid #c9bfb9;" aria-hidden="true"></span>
         </div>
       </button>
-      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Garden Greens — White blooms with lush greenery and soft peach" tabindex="-1" data-palette="garden-greens" onclick="selectPalette('garden-greens')" onkeydown="rovingKey(event,'step3-palette-rg',1)">
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Garden Greens — White blooms with lush greenery and soft peach" tabindex="-1" data-palette="garden-greens" onclick="selectPalette('garden-greens')" onkeydown="rovingKey(event,'step4-palette-rg',1)">
         <p class="bk-palette-name">Garden Greens</p>
         <p class="bk-palette-desc">White blooms with lush greenery and soft peach</p>
         <div class="bk-swatches">
@@ -490,7 +528,7 @@
           <span class="bk-swatch" style="background:#f5c5a3;border:1px solid #c99a78;" aria-hidden="true"></span>
         </div>
       </button>
-      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Bold &amp; Romantic — Deep reds, burgundy, and mauve" tabindex="-1" data-palette="bold-romantic" onclick="selectPalette('bold-romantic')" onkeydown="rovingKey(event,'step3-palette-rg',2)">
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Bold &amp; Romantic — Deep reds, burgundy, and mauve" tabindex="-1" data-palette="bold-romantic" onclick="selectPalette('bold-romantic')" onkeydown="rovingKey(event,'step4-palette-rg',2)">
         <p class="bk-palette-name">Bold &amp; Romantic</p>
         <p class="bk-palette-desc">Deep reds, burgundy, and mauve</p>
         <div class="bk-swatches">
@@ -499,7 +537,7 @@
           <span class="bk-swatch" style="background:#c47a8a;border:1px solid #9e5a6a;" aria-hidden="true"></span>
         </div>
       </button>
-      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Something Blue — Soft blues, dusty blue, white, and silver" tabindex="-1" data-palette="something-blue" onclick="selectPalette('something-blue')" onkeydown="rovingKey(event,'step3-palette-rg',3)">
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Something Blue — Soft blues, dusty blue, white, and silver" tabindex="-1" data-palette="something-blue" onclick="selectPalette('something-blue')" onkeydown="rovingKey(event,'step4-palette-rg',3)">
         <p class="bk-palette-name">Something Blue</p>
         <p class="bk-palette-desc">Soft blues, dusty blue, white, and silver</p>
         <div class="bk-swatches">
@@ -508,7 +546,7 @@
           <span class="bk-swatch" style="background:#ffffff;border:1px solid #e0d0d6;" aria-hidden="true"></span>
         </div>
       </button>
-      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Spring Pastels — Lavender, peach, soft yellow, and pale pink" tabindex="-1" data-palette="spring-pastels" onclick="selectPalette('spring-pastels')" onkeydown="rovingKey(event,'step3-palette-rg',4)">
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Spring Pastels — Lavender, peach, soft yellow, and pale pink" tabindex="-1" data-palette="spring-pastels" onclick="selectPalette('spring-pastels')" onkeydown="rovingKey(event,'step4-palette-rg',4)">
         <p class="bk-palette-name">Spring Pastels</p>
         <p class="bk-palette-desc">Lavender, peach, soft yellow, and pale pink</p>
         <div class="bk-swatches">
@@ -517,7 +555,7 @@
           <span class="bk-swatch" style="background:#f5e6a3;border:1px solid #c9bb78;" aria-hidden="true"></span>
         </div>
       </button>
-      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Jewel Tones — Deep purple, emerald, and gold accents" tabindex="-1" data-palette="jewel-tones" onclick="selectPalette('jewel-tones')" onkeydown="rovingKey(event,'step3-palette-rg',5)">
+      <button class="bk-palette-card" role="radio" aria-checked="false" aria-label="Jewel Tones — Deep purple, emerald, and gold accents" tabindex="-1" data-palette="jewel-tones" onclick="selectPalette('jewel-tones')" onkeydown="rovingKey(event,'step4-palette-rg',5)">
         <p class="bk-palette-name">Jewel Tones</p>
         <p class="bk-palette-desc">Deep purple, emerald, and gold accents</p>
         <div class="bk-swatches">
@@ -532,14 +570,14 @@
     <div id="arrange-reveal" class="bk-arrange-reveal">
       <p style="font-size:12px;font-weight:600;color:#3d1a2e;margin:0 0 0.25rem;">Choose your arrangement style.</p>
       <div class="bk-arrange-grid" role="radiogroup" aria-label="Choose arrangement tier">
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" id="tier-essential-card" data-tier="essential" onclick="selectTierCard('essential')" onkeydown="rovingKey(event,'step3-tier-rg',0)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" id="tier-essential-card" data-tier="essential" onclick="selectTierCard('essential')" onkeydown="rovingKey(event,'step4-tier-rg',0)">
           <p class="bk-card-label">ESSENTIAL</p>
           <p class="bk-card-title" id="tier-essential-price"></p>
           <p class="bk-deposit-note" id="tier-essential-deposit"></p>
           <hr class="bk-card-rule">
           <p class="bk-card-desc">A beautifully curated arrangement in your chosen palette using seasonal blooms. Elegant, intentional, and photo-ready.</p>
         </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" id="tier-lush-card" data-tier="lush" onclick="selectTierCard('lush')" onkeydown="rovingKey(event,'step3-tier-rg',1)">
+        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" id="tier-lush-card" data-tier="lush" onclick="selectTierCard('lush')" onkeydown="rovingKey(event,'step4-tier-rg',1)">
           <p class="bk-card-label">LUSH</p>
           <p class="bk-card-title" id="tier-lush-price"></p>
           <p class="bk-deposit-note" id="tier-lush-deposit"></p>
@@ -549,17 +587,18 @@
       </div>
     </div>
 
-    <p class="bk-error" id="step3-palette-error" role="alert" aria-atomic="true">Please choose a colour palette above to continue.</p>
-    <p class="bk-error" id="step3-tier-error" role="alert" aria-atomic="true">Please choose your arrangement style above to continue.</p>
+    <p class="bk-error" id="step4-palette-error" role="alert" aria-atomic="true">Please choose a colour palette above to continue.</p>
+    <p class="bk-error" id="step4-tier-error" role="alert" aria-atomic="true">Please choose your arrangement style above to continue.</p>
     <div class="bk-cta-row">
-      <button class="bk-btn" id="step3-btn" aria-disabled="true" onclick="step3Next()">Confirm my flowers</button>
-      <button class="bk-back" onclick="goToStep(2)">&larr; Back</button>
+      <button class="bk-btn" id="step4-btn" aria-disabled="true" onclick="step4Next_flowers()">Confirm my flowers</button>
+      <button class="bk-back" onclick="goToStep(3)">&larr; Back</button>
     </div>
   </section>
 
   <!-- ===================== STEP 4 ===================== -->
-  <section id="step-4" class="bk-step" aria-live="polite">
-    <p class="bk-eyebrow" id="step4-eyebrow">Step 3 &mdash; Complete the Look</p>
+  <section id="step-5" class="bk-step" aria-live="polite">
+    <p class="bk-confirm-line" id="confirm-s5"></p>
+    <p class="bk-eyebrow" id="step5-eyebrow">Step 3 &mdash; Complete the Look</p>
     <h2 class="bk-h1">Complete the look.</h2>
     <p class="bk-subtext">Your florals are set. Want to complete the look with backdrops, seating, and ambience? Everything here is optional.</p>
 
@@ -651,11 +690,12 @@
     </div>
   </section>
 
-  <!-- ===================== STEP 5 ===================== -->
-  <section id="step-5" class="bk-step" aria-live="polite">
-    <p class="bk-eyebrow" id="step5-eyebrow">Step 4 &mdash; Event Details</p>
-    <h2 class="bk-h1">Your event details.</h2>
-    <p class="bk-subtext">Two quick questions to calculate your delivery cost. Add your email and we'll send your quote instantly.</p>
+  <!-- ===================== STEP 6 — Details ===================== -->
+  <section id="step-6" class="bk-step" aria-live="polite">
+    <p class="bk-confirm-line" id="confirm-s6"></p>
+    <p class="bk-eyebrow" id="step6-eyebrow">Step 4 &mdash; Event Details</p>
+    <h2 class="bk-h1">Just one more thing.</h2>
+    <p class="bk-subtext">Add your email and we&rsquo;ll send your quote instantly.</p>
 
     <div class="bk-field">
       <label class="bk-label" for="delivery-city">Delivery city</label>
@@ -708,8 +748,8 @@
     </div>
   </section>
 
-  <!-- ===================== STEP 6 ===================== -->
-  <section id="step-6" class="bk-step" aria-live="polite">
+  <!-- ===================== STEP 7 — Quote ===================== -->
+  <section id="step-7" class="bk-step" aria-live="polite">
     <p class="bk-eyebrow">Your Quote</p>
     <h2 class="bk-h1">Your quote.</h2>
     <p class="bk-subtext">Review everything below. Book when you're ready.</p>
@@ -1119,11 +1159,49 @@ var state = {
   palette: null,
   tier: null, tierPrice: 0, deposit: 0,
   addons: {}, quantities: {},
-  deliveryCity: '', deliveryCost: 0,
+  deliveryCity: '', deliveryCost: 0, cityName: '',
   eventDate: '', email: ''
 };
 
 var currentStep = 1;
+
+// ---- Step 1: Date + City ----
+function citySelectChanged() {
+  var sel = document.getElementById('delivery-city-s1');
+  var opt = sel.options[sel.selectedIndex];
+  state.deliveryCost = parseInt(sel.value || '0', 10);
+  state.cityName = opt.textContent.trim();
+  hideError('step1-city-error');
+}
+
+function step1Next() {
+  var date = document.getElementById('event-date-s1').value.trim();
+  var cityVal = document.getElementById('delivery-city-s1').value;
+  var valid = true;
+  if (!date) { showError('step1-date-error'); valid = false; } else { hideError('step1-date-error'); }
+  if (cityVal === '') { showError('step1-city-error'); valid = false; } else { hideError('step1-city-error'); }
+  if (!valid) return;
+  state.eventDate = date;
+  var sel = document.getElementById('delivery-city-s1');
+  state.deliveryCost = parseInt(sel.value || '0', 10);
+  state.cityName = sel.options[sel.selectedIndex].textContent.trim();
+  goToStep(2);
+}
+
+// ---- Confirmation line (date · city · delivery) ----
+function updateConfirmLine() {
+  var parts = [];
+  if (state.eventDate) parts.push(state.eventDate);
+  if (state.cityName) parts.push(state.cityName);
+  if (state.deliveryCost > 0) parts.push('$' + state.deliveryCost + ' delivery');
+  else if (state.cityName) parts.push('Free delivery');
+  var text = parts.join(' \u00b7 ');
+  var ids = ['confirm-s2','confirm-diy','confirm-full','confirm-rentals','confirm-s4','confirm-s5','confirm-s6'];
+  ids.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = text;
+  });
+}
 
 // Package pricing lookup
 var pkgPricing = {
@@ -1132,16 +1210,16 @@ var pkgPricing = {
 };
 
 function totalSteps() {
-  return state.experience === 'full' ? 6 : 5;
+  return state.experience === 'full' ? 7 : 6;
 }
 
 function stepNumForId(id) {
   // Returns display step number based on path
   if (state.experience === 'full') {
-    var map = { 'step-1':1, 'step-2':2, 'step-3':3, 'step-4':4, 'step-5':5, 'step-6':6 };
+    var map = { 'step-1':1, 'step-2':2, 'step-3':3, 'step-4':4, 'step-5':5, 'step-6':6, 'step-7':7 };
     return map[id] || 1;
   } else {
-    var map2 = { 'step-1':1, 'step-2':2, 'step-4':3, 'step-5':4, 'step-6':5 };
+    var map2 = { 'step-1':1, 'step-2':2, 'step-3':3, 'step-5':4, 'step-7':5 };
     return map2[id] || 1;
   }
 }
@@ -1149,24 +1227,21 @@ function stepNumForId(id) {
 // ---- Progress bar rendering ----
 function renderProgress() {
   var bar = document.getElementById('bk-progress-bar');
-  var steps;
-  if (state.experience === 'full') {
-    steps = ['Experience','Package','Flowers','Add-ons','Details','Quote'];
-  } else if (state.experience === 'rentals') {
-    steps = ['Experience','Piece','Add-ons','Details','Quote'];
-  } else {
-    steps = ['Experience','Package','Add-ons','Details','Quote'];
-  }
+  var steps, dispIdx;
 
-  // Map currentStep (section step-N) to display index
-  var dispIdx;
   if (state.experience === 'full') {
-    var fmap = {'step-1':0,'step-2':1,'step-3':2,'step-4':3,'step-5':4,'step-6':5};
-    dispIdx = fmap['step-' + currentStep] !== undefined ? fmap['step-' + currentStep] : currentStep - 1;
+    steps = ['Your Date','Experience','Package','Flowers','Add-ons','Details','Quote'];
+    var fmap = {1:0, 2:1, 3:2, 4:3, 5:4, 6:5, 7:6};
+    dispIdx = fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
+  } else if (state.experience === 'rentals') {
+    steps = ['Your Date','Experience','Piece','Add-ons','Details','Quote'];
+    var rmap = {1:0, 2:1, 3:2, 5:3, 6:4, 7:5};
+    dispIdx = rmap[currentStep] !== undefined ? rmap[currentStep] : 0;
   } else {
-    // DIY/Rentals skip step 3
-    var smap = {1:0, 2:1, 4:2, 5:3, 6:4};
-    dispIdx = smap[currentStep] !== undefined ? smap[currentStep] : currentStep - 1;
+    // DIY and initial (no experience chosen yet)
+    steps = ['Your Date','Experience','Your Package'];
+    var dmap = {1:0, 2:1, 3:2};
+    dispIdx = dmap[currentStep] !== undefined ? dmap[currentStep] : 0;
   }
 
   var html = '';
@@ -1197,13 +1272,14 @@ function goToStep(n) {
   window.scrollTo(0, 0);
   var ann = document.getElementById('step-announcement');
   if (ann) {
-    var labels = {1:'Step 1: Choose your experience',2:'Step 2: Choose your package',3:'Step 3: Choose your colour palette',4:'Complete the look — add-ons',5:'Your event details',6:'Your custom quote'};
+    var labels = {1:'Step 1: Your event date',2:'Step 2: Choose your experience',3:'Step 3: Choose your package',4:'Step 4: Choose your colour palette',5:'Complete the look — add-ons',6:'Your event details',7:'Your custom quote'};
     ann.textContent = labels[n] || ('Step ' + n);
   }
   // Update back button eyebrows and dynamic content
-  if (n === 4) setupStep4();
-  if (n === 5) setupStep5();
-  if (n === 6) buildQuote();
+  if (n >= 2) updateConfirmLine();
+  if (n === 5) setupStep4();
+  if (n === 6) setupStep5();
+  if (n === 7) buildQuote();
 }
 
 // ---- Experience selection ----
@@ -1213,7 +1289,7 @@ function selectExperience(type) {
   state.pkg = null; state.pkgPrice = 0;
   state.palette = null; state.tier = null; state.tierPrice = 0; state.deposit = 0;
 
-  var cards = document.querySelectorAll('#step-1 [role="radio"]');
+  var cards = document.querySelectorAll('#step-2 [role="radio"]');
   cards.forEach(function(c) {
     c.setAttribute('aria-checked', c.dataset.exp === type ? 'true' : 'false');
     c.setAttribute('tabindex', c.dataset.exp === type ? '0' : '-1');
@@ -1225,7 +1301,7 @@ function selectExperience(type) {
   renderProgress();
 }
 
-function step1Next() {
+function experienceNext() {
   var btn = document.getElementById('step1-btn');
   if (btn.getAttribute('aria-disabled') === 'true') {
     showError('step1-error');
@@ -1233,30 +1309,30 @@ function step1Next() {
   }
   if (!state.experience) { showError('step1-error'); return; }
   hideError('step1-error');
-  goToStep(2);
-  showStep2SubSection();
+  goToStep(3);
+  showStep3SubSection();
 }
 
 // ---- Step 2 ----
-function showStep2SubSection() {
-  document.getElementById('step2-diy').style.display = 'none';
-  document.getElementById('step2-full').style.display = 'none';
-  document.getElementById('step2-rentals').style.display = 'none';
-  if (state.experience === 'diy') document.getElementById('step2-diy').style.display = 'block';
-  else if (state.experience === 'full') document.getElementById('step2-full').style.display = 'block';
-  else if (state.experience === 'rentals') document.getElementById('step2-rentals').style.display = 'block';
+function showStep3SubSection() {
+  document.getElementById('step3-diy').style.display = 'none';
+  document.getElementById('step3-full').style.display = 'none';
+  document.getElementById('step3-rentals').style.display = 'none';
+  if (state.experience === 'diy') document.getElementById('step3-diy').style.display = 'block';
+  else if (state.experience === 'full') document.getElementById('step3-full').style.display = 'block';
+  else if (state.experience === 'rentals') document.getElementById('step3-rentals').style.display = 'block';
 }
 
 function selectPackage(pkgName, price) {
   state.pkg = pkgName;
   state.pkgPrice = price;
 
-  var prefix = 'step2-' + state.experience + '-';
+  var prefix = 'step3-' + state.experience + '-';
   // Deselect all cards in this group
   var grp;
-  if (state.experience === 'diy') grp = document.querySelectorAll('#step2-diy [role="radio"]');
-  else if (state.experience === 'full') grp = document.querySelectorAll('#step2-full [role="radio"]');
-  else grp = document.querySelectorAll('#step2-rentals [role="radio"]');
+  if (state.experience === 'diy') grp = document.querySelectorAll('#step3-diy [role="radio"]');
+  else if (state.experience === 'full') grp = document.querySelectorAll('#step3-full [role="radio"]');
+  else grp = document.querySelectorAll('#step3-rentals [role="radio"]');
 
   grp.forEach(function(c) {
     var checked = c.dataset.pkg === pkgName;
@@ -1283,30 +1359,30 @@ function selectPackage(pkgName, price) {
     state.tier = null; state.tierPrice = 0; state.deposit = 0;
     var tierCards = document.querySelectorAll('#arrange-reveal [role="radio"]');
     tierCards.forEach(function(tc) { tc.setAttribute('aria-checked','false'); });
-    var step3btn = document.getElementById('step3-btn');
+    var step3btn = document.getElementById('step4-btn');
     if (step3btn) step3btn.setAttribute('aria-disabled','true');
   }
 
   if (state.experience === 'full') {
-    hideError('step2-full-error');
+    hideError('step3-full-error');
   } else if (state.experience === 'diy') {
-    hideError('step2-diy-error');
+    hideError('step3-diy-error');
   } else {
-    hideError('step2-rentals-error');
+    hideError('step3-rentals-error');
   }
 }
 
 function step2Next() {
   if (!state.pkg) {
-    if (state.experience === 'diy') showError('step2-diy-error');
-    else if (state.experience === 'full') showError('step2-full-error');
-    else showError('step2-rentals-error');
+    if (state.experience === 'diy') showError('step3-diy-error');
+    else if (state.experience === 'full') showError('step3-full-error');
+    else showError('step3-rentals-error');
     return;
   }
   if (state.experience === 'full') {
-    goToStep(3);
-  } else {
     goToStep(4);
+  } else {
+    goToStep(5);
   }
 }
 
@@ -1314,7 +1390,7 @@ function step2Next() {
 function toggleLargeEvent() {
   var card = document.getElementById('large-event-card');
   var form = document.getElementById('large-event-form');
-  var ctaRow = document.getElementById('step2-full-cta-row');
+  var ctaRow = document.getElementById('step3-full-cta-row');
   var isOpen = form.classList.contains('visible');
   if (isOpen) {
     form.classList.remove('visible');
@@ -1350,7 +1426,7 @@ function selectPalette(name) {
     c.setAttribute('aria-checked', sel ? 'true' : 'false');
     c.setAttribute('tabindex', sel ? '0' : '-1');
   });
-  hideError('step3-palette-error');
+  hideError('step4-palette-error');
 
   // Show arrangement reveal
   var reveal = document.getElementById('arrange-reveal');
@@ -1362,7 +1438,7 @@ function selectPalette(name) {
   }, 80);
 
   // Update step3 btn — still disabled until tier chosen
-  var btn = document.getElementById('step3-btn');
+  var btn = document.getElementById('step4-btn');
   if (btn && !state.tier) btn.setAttribute('aria-disabled', 'true');
 }
 
@@ -1386,21 +1462,21 @@ function selectTierCard(tier) {
     tc.setAttribute('tabindex', sel ? '0' : '-1');
   });
 
-  hideError('step3-tier-error');
-  var btn = document.getElementById('step3-btn');
+  hideError('step4-tier-error');
+  var btn = document.getElementById('step4-btn');
   if (btn) btn.setAttribute('aria-disabled', 'false');
 }
 
-function step3Next() {
-  if (!state.palette) { showError('step3-palette-error'); return; }
-  if (!state.tier) { showError('step3-tier-error'); return; }
-  goToStep(4);
+function step4Next_flowers() {
+  if (!state.palette) { showError('step4-palette-error'); return; }
+  if (!state.tier) { showError('step4-tier-error'); return; }
+  goToStep(5);
 }
 
 // ---- Step 4 setup ----
 function setupStep4() {
   // Eyebrow
-  var eyebrow = document.getElementById('step4-eyebrow');
+  var eyebrow = document.getElementById('step5-eyebrow');
   if (eyebrow) {
     eyebrow.textContent = state.experience === 'full' ? 'Step 4 \u2014 Complete the Look' : 'Step 3 \u2014 Complete the Look';
   }
@@ -1442,17 +1518,17 @@ function setupStep4() {
 }
 
 function step4Next() {
-  goToStep(5);
+  goToStep(6);
 }
 
 function step4Back() {
-  if (state.experience === 'full') goToStep(3);
-  else goToStep(2);
+  if (state.experience === 'full') goToStep(4);
+  else goToStep(3);
 }
 
 // ---- Step 5 setup ----
 function setupStep5() {
-  var eyebrow = document.getElementById('step5-eyebrow');
+  var eyebrow = document.getElementById('step6-eyebrow');
   if (eyebrow) {
     eyebrow.textContent = state.experience === 'full' ? 'Step 5 \u2014 Event Details' : 'Step 4 \u2014 Event Details';
   }
@@ -1484,11 +1560,11 @@ function step5Next() {
   state.deliveryCityLabel = opt.textContent;
   state.eventDate = date;
   state.email = email;
-  goToStep(6);
+  goToStep(7);
 }
 
 function step5Back() {
-  goToStep(4);
+  goToStep(5);
 }
 
 // ---- Step 6 ----
@@ -1499,7 +1575,7 @@ function buildQuote() {
   var total = 0;
 
   // Eyebrow
-  var eyebrow = document.querySelector('#step-6 .bk-eyebrow');
+  var eyebrow = document.querySelector('#step-7 .bk-eyebrow');
   if (eyebrow) eyebrow.textContent = 'Your Quote';
 
   // Main package line
@@ -1617,8 +1693,8 @@ function buildQuote() {
   }
 
   // Step 6 eyebrow
-  var s6eyebrow = document.querySelector('#step-6 .bk-eyebrow');
-  var s6stepNum = state.experience === 'full' ? 6 : 5;
+  var s6eyebrow = document.querySelector('#step-7 .bk-eyebrow');
+  var s6stepNum = state.experience === 'full' ? 7 : 6;
   if (s6eyebrow) s6eyebrow.textContent = 'Step ' + s6stepNum + ' \u2014 Your Quote';
 }
 
@@ -1684,7 +1760,7 @@ function calculateTotal() {
 }
 
 function step6Back() {
-  goToStep(5);
+  goToStep(6);
 }
 
 function sendQuote() {
@@ -1706,8 +1782,8 @@ function restartToBloom(e) {
     if (el) el.textContent = '0';
   });
   goToStep(1);
-  // Reset step 1 radio cards
-  document.querySelectorAll('#step-1 [role="radio"]').forEach(function(c){
+  // Reset experience radio cards
+  document.querySelectorAll('#step-2 [role="radio"]').forEach(function(c){
     c.setAttribute('aria-checked','false');
   });
   document.getElementById('step1-btn').setAttribute('aria-disabled','true');
@@ -1750,12 +1826,12 @@ function hideError(id) {
 // ---- Roving tabindex for radiogroups ----
 function rovingKey(e, groupId, idx) {
   var groups = {
-    'step1-rg': '#step-1 [role="radio"]',
-    'step2-diy-rg': '#step2-diy [role="radio"]',
-    'step2-full-rg': '#step2-full [role="radio"]',
-    'step2-rentals-rg': '#step2-rentals [role="radio"]',
-    'step3-palette-rg': '.bk-palette-grid [role="radio"]',
-    'step3-tier-rg': '#arrange-reveal [role="radio"]'
+    'step1-rg': '#step-2 [role="radio"]',
+    'step3-diy-rg': '#step3-diy [role="radio"]',
+    'step3-full-rg': '#step3-full [role="radio"]',
+    'step3-rentals-rg': '#step3-rentals [role="radio"]',
+    'step4-palette-rg': '.bk-palette-grid [role="radio"]',
+    'step4-tier-rg': '#arrange-reveal [role="radio"]'
   };
   var sel = groups[groupId];
   if (!sel) return;
@@ -1783,5 +1859,6 @@ renderProgress();
 </script>
 <!-- END BOOKING FLOW JS -->
 
+<script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js"></script>
 </body>
 </html>
