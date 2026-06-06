@@ -49,7 +49,7 @@
     .bk-step-item { display: flex; flex-direction: column; align-items: center; gap: 4px; position: relative; flex-shrink: 0; }
     .bk-step-dot { width: 10px; height: 10px; border-radius: 50%; background: #f4c0d1; border: none; transition: background 0.2s; }
     .bk-step-item.active .bk-step-dot, .bk-step-item.done .bk-step-dot { background: #d4537e; }
-    .bk-step-label { font-size: 10px; color: #9b7080; white-space: nowrap; font-family: "Inter", sans-serif; }
+    .bk-step-label { font-size: 10px; color: #7a5a6a; white-space: nowrap; font-family: "Inter", sans-serif; }
     .bk-step-item.active .bk-step-label { color: #d4537e; font-weight: 600; }
     .bk-step-item.done .bk-step-label { color: #6b4c5e; }
     .bk-step-connector { width: 32px; height: 0.5px; background: #f4c0d1; align-self: flex-start; margin-top: 4px; flex-shrink: 0; transition: background 0.2s; }
@@ -114,7 +114,7 @@
     .bk-btn-ghost { background: transparent; color: #d4537e; border: 0.5px solid #d4537e; border-radius: 30px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; }
     .bk-btn-ghost:hover { background: #fbeaf0; }
     .bk-btn-ghost:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
-    .bk-back { background: none; border: none; color: #9b7080; font-size: 13px; cursor: pointer; font-family: "Inter", sans-serif; padding: 0; margin-left: 1rem; }
+    .bk-back { background: none; border: none; color: #7a5a6a; font-size: 13px; cursor: pointer; font-family: "Inter", sans-serif; padding: 0; margin-left: 1rem; }
     .bk-back:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
     .bk-cta-row { display: flex; align-items: center; margin-top: 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
 
@@ -143,7 +143,7 @@
     .bk-addon-card { padding: 0.75rem; border: 1.5px solid transparent; border-radius: 6px; cursor: pointer; background: #fff; border: 0.5px solid #f4c0d1; text-align: left; transition: border-color 0.15s, background 0.15s; }
     .bk-addon-card[aria-pressed="true"] { border: 1.5px solid #d4537e; background: #fdf6f9; }
     .bk-addon-card:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
-    .bk-addon-img { background: #fbeaf0; height: 80px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #9b7080; margin-bottom: 0.5rem; text-align: center; padding: 0.25rem; }
+    .bk-addon-img { background: #fbeaf0; height: 80px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #7a5a6a; margin-bottom: 0.5rem; text-align: center; padding: 0.25rem; }
     .bk-addon-name { font-size: 12px; font-weight: 500; color: #3d1a2e; margin: 0 0 0.2rem; }
     .bk-addon-price { font-size: 10px; color: #6b4c5e; margin: 0; }
 
@@ -158,8 +158,9 @@
     .bk-qty-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
     .bk-qty-val { font-size: 13px; font-weight: 500; color: #3d1a2e; min-width: 20px; text-align: center; }
 
-    /* Skip link override for this page */
-    a.skip-link:focus { background: #d4537e; color: #fff; }
+    /* Skip link — full override for this page */
+    a.skip-link { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; z-index: 9999; padding: 0.5rem 1rem; font-size: 13px; font-family: "Inter", sans-serif; text-decoration: none; }
+    a.skip-link:focus { left: 1rem; top: 1rem; width: auto; height: auto; overflow: visible; background: #d4537e; color: #fff; outline: 2px solid #72243e; outline-offset: 2px; border-radius: 4px; }
 
     /* Form inputs underline style */
     .bk-field { margin-bottom: 1.25rem; }
@@ -173,7 +174,7 @@
 
     /* Quote summary */
     .bk-quote-box { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1.5rem; margin-bottom: 1.25rem; }
-    .bk-quote-title { font-size: 10px; text-transform: uppercase; color: #9b7080; letter-spacing: 0.08em; margin: 0 0 1rem; font-family: "Inter", sans-serif; }
+    .bk-quote-title { font-size: 10px; text-transform: uppercase; color: #7a5a6a; letter-spacing: 0.08em; margin: 0 0 1rem; font-family: "Inter", sans-serif; }
     .bk-line-item { display: flex; justify-content: space-between; font-size: 12px; color: #6b4c5e; padding: 0.5rem 0; border-bottom: 0.5px solid #f4c0d1; }
     .bk-line-item:last-child { border-bottom: none; }
     .bk-line-deposit { color: #d4537e; font-weight: 600; }
@@ -200,7 +201,7 @@
     .bk-skip-link:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
 
     /* Section label */
-    .bk-section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #9b7080; font-weight: 600; margin: 1.5rem 0 0.75rem; font-family: "Inter", sans-serif; }
+    .bk-section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #7a5a6a; font-weight: 600; margin: 1.5rem 0 0.75rem; font-family: "Inter", sans-serif; }
 
     /* Proof line */
     .bk-proof { font-style: italic; font-size: 12px; color: #6b4c5e; text-align: center; margin-bottom: 1rem; }
@@ -228,7 +229,7 @@
 
     /* Date picker instruction + trust line */
     .diy-datepicker-label { font-size: 12px; color: #6b4c5e; margin-bottom: 0.75rem; font-family: "Inter", sans-serif; }
-    .diy-trust-line { font-size: 11px; color: #9b7080; margin-top: 0.75rem; margin-bottom: 1.5rem; font-family: "Inter", sans-serif; }
+    .diy-trust-line { font-size: 11px; color: #7a5a6a; margin-top: 0.75rem; margin-bottom: 1.5rem; font-family: "Inter", sans-serif; }
     .diy-sep { color: #d4537e; margin: 0 0.2rem; }
 
     /* Booqable native product cards */
@@ -239,7 +240,7 @@
 
     /* Cart confirmation bar */
     .diy-cart-bar { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; display: flex; gap: 0.5rem; align-items: flex-start; flex-wrap: wrap; }
-    .diy-cart-label { font-size: 11px; color: #9b7080; font-family: "Inter", sans-serif; white-space: nowrap; }
+    .diy-cart-label { font-size: 11px; color: #7a5a6a; font-family: "Inter", sans-serif; white-space: nowrap; }
     .diy-cart-contents { font-size: 12px; font-weight: 500; color: #3d1a2e; font-family: "Inter", sans-serif; }
 
     /* Add-on section label */
@@ -251,12 +252,12 @@
     .diy-addon-name { font-size: 13px; font-weight: 500; color: #3d1a2e; margin: 0 0 0.15rem; font-family: "Inter", sans-serif; }
     .diy-addon-desc { font-size: 11px; color: #6b4c5e; margin: 0 0 0.25rem; font-family: "Inter", sans-serif; }
     .diy-addon-price { font-size: 13px; color: #3d1a2e; margin: 0; font-family: "Inter", sans-serif; }
-    .diy-notify-link { font-size: 11px; color: #d4537e; text-decoration: underline; white-space: nowrap; font-family: "Inter", sans-serif; flex-shrink: 0; }
+    .diy-notify-link { font-size: 11px; color: #d4537e; text-decoration: underline; white-space: nowrap; font-family: "Inter", sans-serif; flex-shrink: 0; font-weight: 500; }
     .diy-notify-link:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
-    .diy-scissors-toggle { background: transparent; color: #9b7080; border: 0.5px solid #f4c0d1; border-radius: 20px; padding: 6px 16px; font-size: 11px; font-family: "Inter", sans-serif; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+    .diy-scissors-toggle { background: transparent; color: #7a5a6a; border: 0.5px solid #f4c0d1; border-radius: 20px; padding: 6px 16px; font-size: 11px; font-family: "Inter", sans-serif; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: background 0.15s, color 0.15s, border-color 0.15s; }
     .diy-scissors-toggle[aria-pressed="true"] { background: #fbeaf0; color: #d4537e; border-color: #d4537e; }
     .diy-scissors-toggle:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
-    .diy-scissors-note { font-size: 10px; color: #9b7080; font-style: italic; margin-top: 0.25rem; font-family: "Inter", sans-serif; }
+    .diy-scissors-note { font-size: 10px; color: #7a5a6a; font-style: italic; margin-top: 0.25rem; font-family: "Inter", sans-serif; }
 
     /* Checkout block */
     .diy-checkout-block { border-top: 0.5px solid #f4c0d1; margin-top: 2rem; padding-top: 1.5rem; }
@@ -264,14 +265,14 @@
     .diy-checkout-btn { display: inline-block; background: #d4537e; color: #fff; border: none; border-radius: 30px; padding: 12px 28px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: "Inter", sans-serif; text-decoration: none; transition: background 0.15s; }
     .diy-checkout-btn:hover { background: #b32566; }
     .diy-checkout-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
-    .diy-checkout-note { font-size: 11px; color: #9b7080; margin: 0.5rem 0 0; font-family: "Inter", sans-serif; }
+    .diy-checkout-note { font-size: 11px; color: #7a5a6a; margin: 0.5rem 0 0; font-family: "Inter", sans-serif; }
 
     /* Booqable product grid */
     .bk-booqable-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
     @media (min-width: 520px) { .bk-booqable-grid { grid-template-columns: 1fr 1fr; } }
 
     /* Confirmation line (date · city · delivery) */
-    .bk-confirm-line { font-size: 11px; color: #9b7080; margin: 0 0 1rem; letter-spacing: 0.01em; min-height: 1em; }
+    .bk-confirm-line { font-size: 11px; color: #7a5a6a; margin: 0 0 1rem; letter-spacing: 0.01em; min-height: 1em; }
     .bk-confirm-line:empty { display: none; }
 
     /* Booqable iframe baseline */
@@ -470,7 +471,7 @@
 </head>
 <body>
 
-<a href="#step-1" class="skip-link">Skip to booking flow</a>
+<a href="#main-content" class="skip-link">Skip to booking flow</a>
 
 <header>
   <div class="container nav">
@@ -478,13 +479,13 @@
     <button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle navigation menu">
       <span aria-hidden="true">☰</span>
     </button>
-    <nav aria-label="Primary" class="site-nav">
+    <nav aria-label="Main navigation" class="site-nav">
       <ul id="primary-menu">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="locations.html">Locations</a></li>
         <li><a href="blog/diy-bloom-bar-wedding-flowers-save-money.html">Blog</a></li>
-        <li><a class="btn btn-sm" href="/book.html">Plan Your Bloom Bar Experience</a></li>
+        <li><a class="btn btn-sm" href="/book.html" aria-label="Plan your bloom bar experience — opens booking flow">Plan Your Bloom Bar Experience</a></li>
       </ul>
     </nav>
   </div>
@@ -498,7 +499,7 @@
   <!-- Rendered by JS on load -->
 </nav>
 
-<main id="main">
+<main id="main-content">
 <div class="bk-wrap">
 
   <div aria-live="polite" aria-atomic="true" class="sr-only" id="step-announcement"></div>
@@ -515,7 +516,7 @@
     <h1 class="bk-h1">Your event. Beautifully styled.</h1>
     <p id="step1-question" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#3d1a2e;margin:0 0 0.5rem;">What kind of experience are you planning?</p>
     <p style="font-family:'Inter',sans-serif;font-size:13px;color:#6b4c5e;margin:0 0 0.75rem;">Choose your path below &mdash; explore everything before committing to anything.</p>
-    <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#9b7080;margin:0 0 2rem;">Trusted by hosts across Orange County and LA County for showers, birthdays, and corporate events.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#7a5a6a;margin:0 0 2rem;">Trusted by hosts across Orange County and LA County for showers, birthdays, and corporate events.</p>
 
     <div class="bk-exp-grid" role="radiogroup" aria-labelledby="step1-question">
       <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-exp="diy" onclick="selectExperienceS1('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
@@ -556,28 +557,28 @@
     <p class="bk-subtext">We&rsquo;ll use these details to check availability and get back to you within 2 hours.</p>
 
     <div class="bk-field">
-      <label for="customer-name" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your name <span style="text-transform:none;font-weight:400;">(optional &mdash; so we can personalise your quote)</span></label>
+      <label for="customer-name" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your name <span style="text-transform:none;font-weight:400;">(optional &mdash; so we can personalise your quote)</span></label>
       <input type="text" id="customer-name" placeholder="e.g. Sarah" autocomplete="given-name" oninput="state.customerName=this.value;" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
     </div>
 
     <div class="bk-field">
-      <label for="event-date-s2d" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Event date</label>
-      <input type="text" id="event-date-s2d" placeholder="e.g. July 12, 2026" oninput="state.eventDate=this.value.trim(); updateStep2CTA();" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
+      <label for="event-date-s2d" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Event date</label>
+      <input type="text" id="event-date-s2d" placeholder="e.g. July 12, 2026" autocomplete="off" aria-label="Event date — enter in format Month Day Year, for example July 12 2026" aria-describedby="s2d-date-error" oninput="state.eventDate=this.value.trim(); updateStep2CTA();" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
       <p class="bk-error" id="s2d-date-error" role="alert" aria-atomic="true">Please enter your event date to continue.</p>
     </div>
 
     <div class="bk-field">
-      <label for="customer-city" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your city</label>
-      <input type="text" id="customer-city" placeholder="e.g. Fullerton" autocomplete="address-level2" oninput="state.cityName=this.value.trim(); updateStep2CTA();" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
-      <p style="font-size:10px;color:#9b7080;font-style:italic;margin-top:0.25rem;font-family:'Inter',sans-serif;">We&rsquo;ll confirm your delivery cost when we reach out.</p>
+      <label for="customer-city" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your city</label>
+      <input type="text" id="customer-city" placeholder="e.g. Fullerton" autocomplete="address-level2" aria-describedby="customer-city-hint s2d-city-error" oninput="state.cityName=this.value.trim(); updateStep2CTA();" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
+      <p id="customer-city-hint" style="font-size:10px;color:#7a5a6a;font-style:italic;margin-top:0.25rem;font-family:'Inter',sans-serif;">We&rsquo;ll confirm your delivery cost when we reach out.</p>
       <p class="bk-error" id="s2d-city-error" role="alert" aria-atomic="true">Please enter your city to continue.</p>
     </div>
 
-    <p style="font-family:'Inter',sans-serif;font-size:11px;color:#9b7080;border-left:2px solid #f4c0d1;padding-left:0.75rem;margin-top:1.5rem;">We&rsquo;ll review your details and get back to you within 2 hours during business hours &mdash; Monday to Friday, 8:30&nbsp;AM to 5&nbsp;PM.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:11px;color:#7a5a6a;border-left:2px solid #f4c0d1;padding-left:0.75rem;margin-top:1.5rem;">We&rsquo;ll review your details and get back to you within 2 hours during business hours &mdash; Monday to Friday, 8:30&nbsp;AM to 5&nbsp;PM.</p>
 
     <div class="bk-cta-row">
       <button class="bk-btn" id="s2d-btn" aria-disabled="true" onclick="step2DetailsNext()">Show me what&rsquo;s available &rarr;</button>
-      <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
+      <button class="bk-back" aria-label="Go back to experience selection" onclick="goToStep(1)">&larr; Back</button>
     </div>
   </section>
 
@@ -591,10 +592,10 @@
     <!-- Booqable datepicker -->
     <div style="margin-bottom:1.5rem;">
       <div role="group" aria-labelledby="datepicker-label">
-        <p id="datepicker-label" role="presentation" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;font-family:'Inter',sans-serif;margin-bottom:0.5rem;">Select your rental dates to check availability</p>
+        <p id="datepicker-label" role="presentation" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;font-family:'Inter',sans-serif;margin-bottom:0.5rem;">Select your rental dates to check availability</p>
         <div class="booqable-datepicker"></div>
       </div>
-      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" style="font-size:11px;color:#d4537e;font-family:'Inter',sans-serif;display:block;margin-top:0.5rem;text-underline-offset:3px;">Having trouble? Book directly on our reservations page &rarr;</a>
+      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" aria-label="Book directly on our Booqable reservations page" style="font-size:11px;color:#d4537e;font-family:'Inter',sans-serif;display:block;margin-top:0.5rem;text-underline-offset:3px;">Having trouble? Book directly on our reservations page &rarr;</a>
     </div>
     <p class="diy-trust-line">Delivery from $14 <span class="diy-sep">&middot;</span> Setup and breakdown included <span class="diy-sep">&middot;</span> Most dates book 2&ndash;3 weeks out</p>
 
@@ -612,7 +613,7 @@
         <button class="bk-back" aria-label="Back to experience selection" onclick="goToStep(1)">&larr; Back</button>
       </div>
     </div>
-    <a href="#" onclick="event.preventDefault(); state.experience='full'; goToStep2Details();" style="font-size:11px;color:#d4537e;text-decoration:underline;text-underline-offset:3px;display:block;text-align:center;margin-top:1rem;font-family:'Inter',sans-serif;">Prefer us to handle the flowers? Explore our full flower packages &rarr;</a>
+    <a href="#" aria-label="Switch to full flower package experience" onclick="event.preventDefault(); state.experience='full'; goToStep2Details();" style="font-size:11px;color:#d4537e;text-decoration:underline;text-underline-offset:3px;display:block;text-align:center;margin-top:1rem;font-family:'Inter',sans-serif;">Prefer us to handle the flowers? Explore our full flower packages &rarr;</a>
   </section>
   <script>
   (function() {
@@ -662,14 +663,14 @@
 
     <!-- Cart confirmation bar -->
     <div style="background: white; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between;" aria-live="polite">
-      <span style="font-size: 11px; color: #9b7080; font-family: 'Inter', sans-serif;">In your cart:</span>
+      <span style="font-size: 11px; color: #7a5a6a; font-family: 'Inter', sans-serif;">In your cart:</span>
       <span id="diy-cart-summary" style="font-size: 12px; font-weight: 500; color: #3d1a2e; font-family: 'Inter', sans-serif;">Your flower bar</span>
     </div>
 
     <p class="bk-eyebrow diy-eyebrow">Step 3 &mdash; Complete the Look</p>
     <h2 class="bk-h1">Complete your setup.</h2>
     <p class="bk-subtext">Your flower bar is in your cart. Add anything else before you book.</p>
-    <p style="font-style: italic; font-size: 12px; color: #9b7080; font-family: 'Inter', sans-serif; margin-bottom: 2rem;">Most hosts add at least one of these to their flower bar setup.</p>
+    <p style="font-style: italic; font-size: 12px; color: #7a5a6a; font-family: 'Inter', sans-serif; margin-bottom: 2rem;">Most hosts add at least one of these to their flower bar setup.</p>
 
     <!-- Add-ons — available now -->
     <p class="diy-section-label">AVAILABLE NOW</p>
@@ -679,8 +680,8 @@
       <div style="width: 60px; height: 60px; background: #fbeaf0; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;" aria-hidden="true">&#9986;&#65039;</div>
       <div style="flex: 1;">
         <div style="font-size: 13px; font-weight: 500; color: #3d1a2e; font-family: 'Inter', sans-serif; margin-bottom: 0.2rem;">Scissors (4)</div>
-        <div style="font-size: 11px; color: #9b7080; font-family: 'Inter', sans-serif; margin-bottom: 0.4rem;">A set of 4 scissors for your flower bar guests.</div>
-        <div style="font-size: 11px; color: #9b7080; font-style: italic; font-family: 'Inter', sans-serif;">One set available per booking.</div>
+        <div style="font-size: 11px; color: #7a5a6a; font-family: 'Inter', sans-serif; margin-bottom: 0.4rem;">A set of 4 scissors for your flower bar guests.</div>
+        <div style="font-size: 11px; color: #7a5a6a; font-style: italic; font-family: 'Inter', sans-serif;">One set available per booking.</div>
       </div>
       <div class="booqable-product-button" data-id="add-on-scissors-4" aria-label="Add Scissors to cart" style="flex-shrink: 0;"></div>
     </div>
@@ -731,7 +732,7 @@
         <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
            class="diy-checkout-btn"
            onclick="advanceDIYToBook()"
-           aria-label="Complete my booking on the secure Booqable checkout page"
+           aria-label="Complete my booking — opens secure Booqable checkout page"
            style="display:inline-block;">Complete my booking &rarr;</a>
         <p class="diy-checkout-note" style="font-style: italic;">You&rsquo;ll select your dates and complete payment on our secure booking page.</p>
       </div>
@@ -756,7 +757,7 @@
         <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="bloom-social" data-price="725" onclick="selectPackage('bloom-social',725)" onkeydown="rovingKey(event,'step3-full-rg',0)">
           <p class="bk-card-label">BLOOM SOCIAL</p>
           <p class="bk-card-title">Bloom Social</p>
-          <p class="bk-card-desc" style="font-size:10px;color:#9b7080;margin:0 0 0.3rem;">10&ndash;20 guests</p>
+          <p class="bk-card-desc" style="font-size:10px;color:#7a5a6a;margin:0 0 0.3rem;">10&ndash;20 guests</p>
           <hr class="bk-card-rule">
           <p class="bk-card-price">$725 Essential &middot; $925 Lush</p>
           <ul class="bk-card-desc" style="margin:0.4rem 0 0;">
@@ -769,7 +770,7 @@
         <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="bloom-celebration" data-price="995" onclick="selectPackage('bloom-celebration',995)" onkeydown="rovingKey(event,'step3-full-rg',1)">
           <p class="bk-card-label">BLOOM CELEBRATION</p>
           <p class="bk-card-title">Bloom Celebration</p>
-          <p class="bk-card-desc" style="font-size:10px;color:#9b7080;margin:0 0 0.3rem;">20&ndash;35 guests</p>
+          <p class="bk-card-desc" style="font-size:10px;color:#7a5a6a;margin:0 0 0.3rem;">20&ndash;35 guests</p>
           <hr class="bk-card-rule">
           <p class="bk-card-price">$995 Essential &middot; $1,250 Lush</p>
           <ul class="bk-card-desc" style="margin:0.4rem 0 0;">
@@ -817,7 +818,7 @@
       <p class="bk-error" id="step3-full-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
       <div class="bk-cta-row" id="step3-full-cta-row">
         <button class="bk-btn" id="step3-full-btn" aria-disabled="true" onclick="step2Next()">Continue with this package &rarr;</button>
-        <button class="bk-back" onclick="goToStep2Details()">&larr; Back</button>
+        <button class="bk-back" aria-label="Go back to event details" onclick="goToStep2Details()">&larr; Back</button>
       </div>
     </div>
 
@@ -868,7 +869,7 @@
       <p class="bk-error" id="step3-rentals-error" role="alert" aria-atomic="true">Please choose a statement piece above to continue.</p>
       <div class="bk-cta-row">
         <button class="bk-btn" id="step3-rentals-btn" aria-disabled="true" onclick="step2Next()">Continue with this selection &rarr;</button>
-        <button class="bk-back" onclick="goToStep2Details()">&larr; Back</button>
+        <button class="bk-back" aria-label="Go back to event details" onclick="goToStep2Details()">&larr; Back</button>
       </div>
     </div>
 
@@ -964,7 +965,7 @@
     <p class="bk-error" id="step4-tier-error" role="alert" aria-atomic="true">Please choose your arrangement style above to continue.</p>
     <div class="bk-cta-row">
       <button class="bk-btn" id="step4-btn" aria-disabled="true" onclick="step4Next_flowers()">Confirm my flowers</button>
-      <button class="bk-back" onclick="goToStep(3)">&larr; Back</button>
+      <button class="bk-back" aria-label="Go back to package selection" onclick="goToStep(3)">&larr; Back</button>
     </div>
   </section>
 
@@ -1059,7 +1060,7 @@
     <button class="bk-skip-link" id="skip-addons" onclick="step4Next()">Nothing to add — skip this step</button>
     <div class="bk-cta-row">
       <button class="bk-btn" onclick="step4Next()">Add to my quote</button>
-      <button class="bk-back" id="step4-back" onclick="step4Back()">&larr; Back</button>
+      <button class="bk-back" id="step4-back" aria-label="Go back to previous step" onclick="step4Back()">&larr; Back</button>
     </div>
   </section>
 
@@ -1072,7 +1073,7 @@
 
     <div class="bk-field">
       <label class="bk-label" for="delivery-city">Delivery city</label>
-      <select class="bk-select" id="delivery-city" required onchange="cityChanged()">
+      <select class="bk-select" id="delivery-city" required aria-describedby="step5-city-error" onchange="cityChanged()">
         <option value="" disabled selected>Select your city...</option>
         <option value="pickup-free" data-cost="0">Pickup &mdash; La Habra / Free</option>
         <option value="la-habra" data-cost="0">La Habra &mdash; Free</option>
@@ -1106,7 +1107,7 @@
 
     <div class="bk-field">
       <label class="bk-label" for="event-date">Event date</label>
-      <input class="bk-input" type="text" id="event-date" placeholder="e.g. July 12, 2026" required>
+      <input class="bk-input" type="text" id="event-date" placeholder="e.g. July 12, 2026" required autocomplete="off" aria-label="Event date — enter in format Month Day Year, for example July 12 2026" aria-describedby="step5-date-error">
       <p class="bk-error" id="step5-date-error" role="alert" aria-atomic="true">Please enter your event date to continue.</p>
     </div>
 
@@ -1117,7 +1118,7 @@
 
     <div class="bk-cta-row">
       <button class="bk-btn" onclick="step5Next()">Show me my quote</button>
-      <button class="bk-back" onclick="step5Back()">&larr; Back</button>
+      <button class="bk-back" aria-label="Go back to add-ons" onclick="step5Back()">&larr; Back</button>
     </div>
   </section>
 
@@ -1144,14 +1145,15 @@
       <p class="bk-save-title">Want a copy of this quote?</p>
       <p class="bk-save-sub">Enter your email and we'll send it straight to your inbox.</p>
       <div class="bk-save-row">
+        <label for="save-email" class="sr-only">Your email address for quote delivery</label>
         <input class="bk-input" type="email" id="save-email" placeholder="your@email.com">
-        <button class="bk-btn-ghost" onclick="sendQuote()">Send my quote</button>
+        <button class="bk-btn-ghost" onclick="sendQuote()" aria-label="Send my quote to my email address">Send my quote</button>
       </div>
     </div>
 
     <div class="bk-cta-row">
       <button class="bk-btn" id="final-cta-btn" onclick="finalCta()">Book now</button>
-      <button class="bk-back" onclick="step6Back()">&larr; Back</button>
+      <button class="bk-back" aria-label="Go back to event details" onclick="step6Back()">&larr; Back</button>
     </div>
     <p class="bk-final-note" id="final-note"></p>
   </section>
@@ -1541,6 +1543,13 @@ var state = {
 
 var currentStep = 1;
 
+// ---- Aria-hidden management ----
+function updateStepAriaHidden() {
+  document.querySelectorAll('.bk-step').forEach(function(s) {
+    s.setAttribute('aria-hidden', s.classList.contains('active') ? 'false' : 'true');
+  });
+}
+
 // ---- DIY section navigation ----
 function showDIYSection(id, diyStepNum) {
   document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
@@ -1548,6 +1557,7 @@ function showDIYSection(id, diyStepNum) {
   if (target) target.classList.add('active');
   currentStep = diyStepNum;
   renderProgress();
+  updateStepAriaHidden();
   window.scrollTo(0, 0);
   var ann = document.getElementById('step-announcement');
   if (ann) {
@@ -1555,6 +1565,16 @@ function showDIYSection(id, diyStepNum) {
     else if (id === 'diy-addons') ann.textContent = 'Step 3: Complete your setup.';
   }
   if (id === 'diy-addons') updateDIYCartBar();
+  setTimeout(function() {
+    var newSection = document.getElementById(id);
+    if (newSection) {
+      var heading = newSection.querySelector('h1, h2, h3');
+      if (heading) {
+        if (!heading.getAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+        heading.focus();
+      }
+    }
+  }, 100);
 }
 
 function advanceToDIYAddons() {
@@ -1654,6 +1674,7 @@ function goToStep2Details() {
 
   updateStep2CTA();
   renderProgress();
+  updateStepAriaHidden();
   window.scrollTo(0, 0);
   var ann = document.getElementById('step-announcement');
   if (ann) {
@@ -1661,6 +1682,16 @@ function goToStep2Details() {
       ? 'Step 2: Full Bloom Bar Experience. Tell us about your event.'
       : 'Step 2: Event Rentals. Tell us about your event.';
   }
+  setTimeout(function() {
+    var target = document.getElementById('step-2-details');
+    if (target) {
+      var heading = target.querySelector('h1, h2, h3');
+      if (heading) {
+        if (!heading.getAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+        heading.focus();
+      }
+    }
+  }, 100);
 }
 
 function updateStep2CTA() {
@@ -1739,12 +1770,14 @@ function renderProgress() {
     if (i < dispIdx) cls = 'done';
     else if (i === dispIdx) cls = 'active';
     var ariaCurrent = i === dispIdx ? ' aria-current="step"' : '';
-    html += '<div class="bk-step-item ' + cls + '" data-step="' + (i+1) + '"' + ariaCurrent + '>';
-    html += '<div class="bk-step-dot"></div>';
-    html += '<span class="bk-step-label">' + steps[i] + '</span>';
+    var stepStatus = i < dispIdx ? ' \u2014 completed' : (i === dispIdx ? ' \u2014 current step' : ' \u2014 not yet reached');
+    var ariaLabel = ' aria-label="' + steps[i] + stepStatus + '"';
+    html += '<div class="bk-step-item ' + cls + '" data-step="' + (i+1) + '"' + ariaCurrent + ariaLabel + '>';
+    html += '<div class="bk-step-dot" aria-hidden="true"></div>';
+    html += '<span class="bk-step-label" aria-hidden="true">' + steps[i] + '</span>';
     html += '</div>';
     if (i < steps.length - 1) {
-      html += '<div class="bk-step-connector' + (i < dispIdx ? ' done' : '') + '"></div>';
+      html += '<div class="bk-step-connector' + (i < dispIdx ? ' done' : '') + '" aria-hidden="true"></div>';
     }
   }
   bar.innerHTML = html;
@@ -1757,6 +1790,7 @@ function goToStep(n) {
   var next = document.getElementById('step-' + n);
   if (next) { next.classList.add('active'); }
   renderProgress();
+  updateStepAriaHidden();
   window.scrollTo(0, 0);
   var ann = document.getElementById('step-announcement');
   if (ann) {
@@ -1774,6 +1808,16 @@ function goToStep(n) {
   if (n === 5) setupStep4();
   if (n === 6) setupStep5();
   if (n === 7) buildQuote();
+  setTimeout(function() {
+    var activeStep = document.getElementById('step-' + n);
+    if (activeStep) {
+      var heading = activeStep.querySelector('h1, h2, h3');
+      if (heading) {
+        if (!heading.getAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+        heading.focus();
+      }
+    }
+  }, 100);
 }
 
 // ---- Package sub-section display ----
@@ -2244,15 +2288,25 @@ renderProgress();
 
 <script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js"></script>
 <script>
+function setBooqableIframeTitles() {
+  var frames = document.querySelectorAll('.booqable-datepicker iframe, .booqable-product iframe, .booqable-product-button iframe');
+  var titles = [
+    'Select rental start date',
+    'Select rental end date',
+    'The Flower Bar \u2014 check availability and add to cart',
+    'Boho Bloom Bundle \u2014 check availability and add to cart',
+    'Scissors add-on \u2014 add to cart'
+  ];
+  frames.forEach(function(f, i) {
+    if (!f.getAttribute('title')) {
+      f.setAttribute('title', titles[i] || 'Booqable booking widget');
+    }
+  });
+}
 window.addEventListener('load', function() {
-  setTimeout(function() {
-    var frames = document.querySelectorAll('.booqable-datepicker iframe, .booqable-product-button iframe');
-    frames.forEach(function(f, i) {
-      if (!f.getAttribute('title')) {
-        f.setAttribute('title', i === 0 ? 'Select rental dates' : 'Add product to cart');
-      }
-    });
-  }, 2000);
+  setTimeout(setBooqableIframeTitles, 1000);
+  setTimeout(setBooqableIframeTitles, 2000);
+  setTimeout(setBooqableIframeTitles, 4000);
 });
 </script>
 </body>
