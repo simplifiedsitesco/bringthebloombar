@@ -214,6 +214,60 @@
     /* Arrangement tag */
     .bk-card-tag { font-size: 10px; color: #6b4c5e; font-style: italic; margin: 0.3rem 0 0; }
 
+    /* ---- DIY Path Styles ---- */
+    .diy-eyebrow { color: #d4537e !important; }
+
+    /* Date picker instruction + trust line */
+    .diy-datepicker-label { font-size: 12px; color: #6b4c5e; margin-bottom: 0.75rem; font-family: "Inter", sans-serif; }
+    .diy-trust-line { font-size: 11px; color: #9b7080; margin-top: 0.75rem; margin-bottom: 1.5rem; font-family: "Inter", sans-serif; }
+    .diy-sep { color: #d4537e; margin: 0 0.2rem; }
+
+    /* Product grid */
+    .diy-product-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin: 1.5rem 0; }
+    @media (min-width: 520px) { .diy-product-grid { grid-template-columns: 1fr 1fr; } }
+    .diy-product-card { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1.25rem 1rem; display: flex; flex-direction: column; }
+    .diy-product-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #d4537e; font-weight: 600; margin: 0 0 0.35rem; font-family: "Inter", sans-serif; }
+    .diy-product-name { font-family: "Playfair Display", Georgia, serif; font-size: 18px; color: #3d1a2e; margin: 0; }
+    .diy-product-rule { border: none; border-top: 0.5px solid #f4c0d1; margin: 0.5rem 0; }
+    .diy-price-block { display: flex; align-items: baseline; gap: 2px; margin-bottom: 0.75rem; }
+    .diy-price { font-size: 28px; font-weight: 600; color: #3d1a2e; font-family: "Inter", sans-serif; line-height: 1; }
+    .diy-per { font-size: 13px; color: #9b7080; font-family: "Inter", sans-serif; }
+    .diy-inclusions { margin-bottom: 0.75rem; }
+    .diy-inclusions p { font-size: 12px; color: #6b4c5e; line-height: 2; margin: 0; font-family: "Inter", sans-serif; }
+    .diy-tag { font-size: 11px; color: #9b7080; font-style: italic; margin: 0.5rem 0 0.75rem; font-family: "Inter", sans-serif; }
+    .diy-umbrella-note { font-size: 10px; color: #9b7080; margin: 0.25rem 0 0.75rem; font-family: "Inter", sans-serif; }
+    .booqable-product-button { margin-top: auto; }
+
+    /* Fallback continue button */
+    .diy-continue-ghost { background: transparent; color: #d4537e; border: 0.5px solid #d4537e; border-radius: 30px; padding: 10px 22px; font-size: 12px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; transition: background 0.15s; }
+    .diy-continue-ghost:hover { background: #fbeaf0; }
+    .diy-continue-ghost:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+
+    /* Cart confirmation bar */
+    .diy-cart-bar { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; display: flex; gap: 0.5rem; align-items: flex-start; flex-wrap: wrap; }
+    .diy-cart-label { font-size: 11px; color: #9b7080; font-family: "Inter", sans-serif; white-space: nowrap; }
+    .diy-cart-contents { font-size: 12px; font-weight: 500; color: #3d1a2e; font-family: "Inter", sans-serif; }
+
+    /* Add-on section label */
+    .diy-section-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #d4537e; font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 0.5px solid #f4c0d1; font-family: "Inter", sans-serif; }
+
+    /* Add-on rows */
+    .diy-addon-row { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 0; border-bottom: 0.5px solid #f4c0d1; gap: 1rem; }
+    .diy-addon-info { flex: 1; }
+    .diy-addon-name { font-size: 13px; font-weight: 500; color: #3d1a2e; margin: 0 0 0.15rem; font-family: "Inter", sans-serif; }
+    .diy-addon-desc { font-size: 11px; color: #6b4c5e; margin: 0 0 0.25rem; font-family: "Inter", sans-serif; }
+    .diy-addon-price { font-size: 13px; color: #3d1a2e; margin: 0; font-family: "Inter", sans-serif; }
+    .diy-notify-link { font-size: 11px; color: #d4537e; text-decoration: underline; white-space: nowrap; font-family: "Inter", sans-serif; flex-shrink: 0; }
+    .diy-notify-link:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+
+    /* Checkout block */
+    .diy-checkout-block { border-top: 0.5px solid #f4c0d1; margin-top: 2rem; padding-top: 1.5rem; }
+    .diy-reassurance { font-style: italic; font-size: 12px; color: #6b4c5e; border-left: 2px solid #f4c0d1; padding-left: 0.75rem; margin-bottom: 1.5rem; font-family: "Inter", sans-serif; }
+    .diy-checkout-btn { display: inline-block; background: #d4537e; color: #fff; border: none; border-radius: 30px; padding: 12px 28px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: "Inter", sans-serif; text-decoration: none; transition: background 0.15s; }
+    .diy-checkout-btn:hover { background: #b32566; }
+    .diy-checkout-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    .diy-checkout-note { font-size: 11px; color: #9b7080; margin: 0.5rem 0 0; font-family: "Inter", sans-serif; }
+
     /* Booqable product grid */
     .bk-booqable-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 1.5rem; }
     @media (min-width: 520px) { .bk-booqable-grid { grid-template-columns: 1fr 1fr; } }
@@ -280,8 +334,6 @@
       <label class="bk-label" for="delivery-city-s1">Delivery city</label>
       <select class="bk-select" id="delivery-city-s1" required onchange="citySelectChanged()">
         <option value="" disabled selected>Select your city&hellip;</option>
-        <option value="0">Pickup &mdash; La Habra / Free</option>
-        <option value="0">La Habra &mdash; Free</option>
         <option value="14">Fullerton &mdash; $14</option>
         <option value="14">Brea &mdash; $14</option>
         <option value="16">Placentia &mdash; $16</option>
@@ -354,24 +406,146 @@
     </div>
   </section>
 
+  <!-- ===================== DIY STEP 3 — Book Your Flower Bar ===================== -->
+  <section id="diy-products" class="bk-step" aria-live="polite">
+    <p class="bk-confirm-line" id="confirm-diy-products"></p>
+    <p class="bk-eyebrow diy-eyebrow">Step 3 &mdash; DIY Bloom Bar</p>
+    <h2 class="bk-h1">Book your flower bar.</h2>
+    <p class="bk-subtext">Both packages include delivery, setup, and breakdown. Select your dates then add your package to cart.</p>
+
+    <!-- Date picker -->
+    <p class="diy-datepicker-label">Select your rental dates to check availability.</p>
+    <div class="booqable-datepicker"></div>
+    <p class="diy-trust-line">Delivery from $14 <span class="diy-sep">&middot;</span> Setup and breakdown included <span class="diy-sep">&middot;</span> Most dates book 2&ndash;3 weeks out</p>
+
+    <!-- Product grid -->
+    <div class="diy-product-grid">
+
+      <!-- The Flower Bar -->
+      <div class="diy-product-card" data-product-name="The Flower Bar" data-product-price="49">
+        <p class="diy-product-label">THE FLOWER BAR</p>
+        <p class="diy-product-name">The Flower Bar</p>
+        <hr class="diy-product-rule">
+        <div class="diy-price-block">
+          <span class="diy-price">$49</span><span class="diy-per">/day</span>
+        </div>
+        <div class="diy-inclusions">
+          <p>Bloom bar stand</p>
+          <p>Delivery from $14</p>
+          <p>Setup and breakdown included</p>
+        </div>
+        <p class="diy-tag">Perfect for intimate gatherings and backyard parties</p>
+        <div class="booqable-product-button" data-id="the-flower-bar" aria-label="Add The Flower Bar to cart"></div>
+      </div>
+
+      <!-- Boho Bloom Bundle -->
+      <div class="diy-product-card" data-product-name="Boho Bloom Bundle" data-product-price="84">
+        <p class="diy-product-label">BOHO BLOOM BUNDLE</p>
+        <p class="diy-product-name">Boho Bloom Bundle</p>
+        <hr class="diy-product-rule">
+        <div class="diy-price-block">
+          <span class="diy-price">$84</span><span class="diy-per">/day</span>
+        </div>
+        <div class="diy-inclusions">
+          <p>Bloom bar stand</p>
+          <p>Boho umbrella &mdash; pink striped or cream white</p>
+          <p>Delivery from $14</p>
+          <p>Setup and breakdown included</p>
+        </div>
+        <p class="diy-tag">Styled for bridal showers, baby showers, and birthdays</p>
+        <p class="diy-umbrella-note">Umbrella style selected at checkout.</p>
+        <div class="booqable-product-button" data-id="boho-bloom-bundle-flower-bar-and-umbrella" aria-label="Add Boho Bloom Bundle to cart"></div>
+      </div>
+
+    </div>
+
+    <!-- Fallback continue button -->
+    <div class="bk-cta-row" style="margin-top:1.5rem; flex-direction:column; align-items:flex-start; gap:0.75rem;">
+      <button class="diy-continue-ghost" onclick="advanceToDIYAddons()" aria-label="Continue to add-ons without adding to cart">Continue to add-ons &rarr;</button>
+      <button class="bk-back" aria-label="Back to experience selection" onclick="goToStep(2)">&larr; Back</button>
+    </div>
+  </section>
+
+  <!-- ===================== DIY STEP 4 — Complete Your Setup ===================== -->
+  <section id="diy-addons" class="bk-step" aria-live="polite">
+    <p class="bk-confirm-line" id="confirm-diy-addons"></p>
+    <p class="bk-eyebrow diy-eyebrow">Step 4 &mdash; Complete Your Setup</p>
+    <h2 class="bk-h1">Complete your setup.</h2>
+    <p class="bk-subtext">Your flower bar is in your cart. Add anything else before you book.</p>
+
+    <!-- Cart confirmation bar -->
+    <div class="diy-cart-bar" role="status" aria-live="polite">
+      <span class="diy-cart-label">In your cart:</span>
+      <span class="diy-cart-contents" id="diy-cart-text">No package selected &mdash; go back and choose your flower bar.</span>
+    </div>
+
+    <!-- Add-ons — available now -->
+    <p class="diy-section-label">ADD TO YOUR ORDER</p>
+
+    <div class="diy-addon-row">
+      <div class="diy-addon-info">
+        <p class="diy-addon-name">Scissors (4)</p>
+        <p class="diy-addon-desc">A set of 4 scissors for your flower bar guests.</p>
+        <p class="diy-addon-price">$6</p>
+      </div>
+      <div class="booqable-product-button" data-id="add-on-scissors-4" aria-label="Add Scissors to cart"></div>
+    </div>
+
+    <!-- Coming soon -->
+    <p class="diy-section-label" style="margin-top:2rem;">COMING SOON</p>
+
+    <div class="diy-addon-row">
+      <div class="diy-addon-info">
+        <p class="diy-addon-name">Wood Resin Chairs</p>
+        <p class="diy-addon-desc">Elegant resin chairs for your event &mdash; up to 30 available.</p>
+        <p class="diy-addon-price">$8/each</p>
+      </div>
+      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Wood Resin Chairs becomes available">Notify me</a>
+    </div>
+
+    <div class="diy-addon-row">
+      <div class="diy-addon-info">
+        <p class="diy-addon-name">Plastic Tables</p>
+        <p class="diy-addon-desc">Clean white tables for any setup &mdash; up to 10 available.</p>
+        <p class="diy-addon-price">$18/each</p>
+      </div>
+      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Plastic Tables becomes available">Notify me</a>
+    </div>
+
+    <div class="diy-addon-row">
+      <div class="diy-addon-info">
+        <p class="diy-addon-name">Cordless Table Lamps</p>
+        <p class="diy-addon-desc">Warm ambient lighting for your event space &mdash; up to 20 available.</p>
+        <p class="diy-addon-price">$12/each</p>
+      </div>
+      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Cordless Table Lamps becomes available">Notify me</a>
+    </div>
+
+    <div class="diy-addon-row">
+      <div class="diy-addon-info">
+        <p class="diy-addon-name">Candle Holders</p>
+        <p class="diy-addon-desc">Gold candle holders for a styled tablescape &mdash; up to 20 available.</p>
+        <p class="diy-addon-price">$8/each</p>
+      </div>
+      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Candle Holders becomes available">Notify me</a>
+    </div>
+
+    <!-- Checkout block -->
+    <div class="diy-checkout-block">
+      <p class="diy-reassurance">Everything in your cart includes delivery, setup, and breakdown. You show up &mdash; we handle the rest.</p>
+      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
+         class="diy-checkout-btn"
+         onclick="advanceDIYToBook()"
+         aria-label="Complete my booking on the secure Booqable checkout page">Complete my booking &rarr;</a>
+      <p class="diy-checkout-note">You&rsquo;ll confirm your dates and complete payment on our secure booking page.</p>
+      <button class="bk-back" aria-label="Back to packages" onclick="showDIYSection('diy-products', 3)" style="margin-top:0.5rem;">&larr; Back to packages</button>
+    </div>
+  </section>
+
   <!-- ===================== STEP 3 — Package ===================== -->
   <section id="step-3" class="bk-step" aria-live="polite">
 
-    <!-- DIY sub-section — Booqable product cards -->
-    <div id="step3-diy" style="display:none;">
-      <p class="bk-confirm-line" id="confirm-diy"></p>
-      <p class="bk-eyebrow">Step 3 &mdash; DIY Bloom Bar</p>
-      <h2 class="bk-h1">Choose your package.</h2>
-      <p class="bk-subtext">Both packages include delivery, setup, and breakdown. Select below to check availability and book.</p>
-      <div class="bk-booqable-grid">
-        <div class="booqable-product" data-id="the-flower-bar"></div>
-        <div class="booqable-product" data-id="boho-bloom-bundle-flower-bar-and-umbrella"></div>
-      </div>
-      <p class="bk-trust-line">All rentals include setup and breakdown &mdash; no extra charges on the day.</p>
-      <div class="bk-cta-row">
-        <button class="bk-back" onclick="goToStep(2)">&larr; Back</button>
-      </div>
-    </div>
+    <!-- DIY path now uses standalone #diy-products and #diy-addons sections -->
 
     <!-- Full sub-section -->
     <div id="step3-full" style="display:none;">
@@ -1160,10 +1334,63 @@ var state = {
   tier: null, tierPrice: 0, deposit: 0,
   addons: {}, quantities: {},
   deliveryCity: '', deliveryCost: 0, cityName: '',
-  eventDate: '', email: ''
+  eventDate: '', email: '',
+  selectedProduct: null, selectedProductPrice: null
 };
 
 var currentStep = 1;
+
+// ---- DIY section navigation ----
+function showDIYSection(id, diyStepNum) {
+  document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById(id);
+  if (target) target.classList.add('active');
+  currentStep = diyStepNum;
+  renderProgress();
+  window.scrollTo(0, 0);
+  updateConfirmLine();
+  if (id === 'diy-addons') updateDIYCartBar();
+}
+
+function advanceToDIYAddons() {
+  showDIYSection('diy-addons', 4);
+}
+
+function advanceDIYToBook() {
+  currentStep = 5;
+  renderProgress();
+  // Navigation to Booqable handled by <a href>
+}
+
+function updateDIYCartBar() {
+  var el = document.getElementById('diy-cart-text');
+  if (!el) return;
+  if (state.selectedProduct) {
+    var txt = state.selectedProduct;
+    if (state.eventDate) txt += ' · ' + state.eventDate;
+    if (state.selectedProductPrice) txt += ' · $' + state.selectedProductPrice + '/day';
+    el.textContent = txt;
+    el.style.color = '#3d1a2e';
+  } else {
+    el.textContent = 'No package selected — go back and choose your flower bar.';
+    el.style.color = '#d4537e';
+  }
+}
+
+// Booqable add-to-cart detection for DIY product cards
+document.addEventListener('click', function(e) {
+  var bbBtn = e.target.closest('#diy-products .booqable-product-button');
+  if (!bbBtn) return;
+  var card = bbBtn.closest('[data-product-name]');
+  if (!card) return;
+  var productName = card.getAttribute('data-product-name');
+  var productPrice = card.getAttribute('data-product-price');
+  if (productName && productPrice) {
+    state.selectedProduct = productName;
+    state.selectedProductPrice = productPrice;
+    setTimeout(advanceToDIYAddons, 800);
+  }
+});
 
 // ---- Step 1: Date + City ----
 function citySelectChanged() {
@@ -1196,7 +1423,7 @@ function updateConfirmLine() {
   if (state.deliveryCost > 0) parts.push('$' + state.deliveryCost + ' delivery');
   else if (state.cityName) parts.push('Free delivery');
   var text = parts.join(' \u00b7 ');
-  var ids = ['confirm-s2','confirm-diy','confirm-full','confirm-rentals','confirm-s4','confirm-s5','confirm-s6'];
+  var ids = ['confirm-s2','confirm-diy-products','confirm-diy-addons','confirm-full','confirm-rentals','confirm-s4','confirm-s5','confirm-s6'];
   ids.forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.textContent = text;
@@ -1238,9 +1465,9 @@ function renderProgress() {
     var rmap = {1:0, 2:1, 3:2, 5:3, 6:4, 7:5};
     dispIdx = rmap[currentStep] !== undefined ? rmap[currentStep] : 0;
   } else {
-    // DIY and initial (no experience chosen yet)
-    steps = ['Your Date','Experience','Your Package'];
-    var dmap = {1:0, 2:1, 3:2};
+    // DIY (and initial before experience chosen)
+    steps = ['Your Date','Experience','Your Package','Complete the Look','Book'];
+    var dmap = {1:0, 2:1, 3:2, 4:3, 5:4};
     dispIdx = dmap[currentStep] !== undefined ? dmap[currentStep] : 0;
   }
 
@@ -1263,8 +1490,8 @@ function renderProgress() {
 
 // ---- Step navigation ----
 function goToStep(n) {
-  var current = document.getElementById('step-' + currentStep);
-  if (current) { current.classList.remove('active'); }
+  // Hide all active sections (handles diy-products/diy-addons too)
+  document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
   currentStep = n;
   var next = document.getElementById('step-' + n);
   if (next) { next.classList.add('active'); }
@@ -1309,17 +1536,19 @@ function experienceNext() {
   }
   if (!state.experience) { showError('step1-error'); return; }
   hideError('step1-error');
-  goToStep(3);
-  showStep3SubSection();
+  if (state.experience === 'diy') {
+    showDIYSection('diy-products', 3);
+  } else {
+    goToStep(3);
+    showStep3SubSection();
+  }
 }
 
 // ---- Step 2 ----
 function showStep3SubSection() {
-  document.getElementById('step3-diy').style.display = 'none';
   document.getElementById('step3-full').style.display = 'none';
   document.getElementById('step3-rentals').style.display = 'none';
-  if (state.experience === 'diy') document.getElementById('step3-diy').style.display = 'block';
-  else if (state.experience === 'full') document.getElementById('step3-full').style.display = 'block';
+  if (state.experience === 'full') document.getElementById('step3-full').style.display = 'block';
   else if (state.experience === 'rentals') document.getElementById('step3-rentals').style.display = 'block';
 }
 
