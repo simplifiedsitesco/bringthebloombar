@@ -320,90 +320,74 @@
     <input name="experience"><input name="package"><input name="addons"><input name="delivery-city"><input name="total">
   </form>
 
-  <!-- ===================== STEP 1 — Date + City ===================== -->
+  <!-- ===================== STEP 1 — Experience Selection ===================== -->
   <section id="step-1" class="bk-step active" aria-live="polite">
-    <p class="bk-eyebrow">Step 1 &mdash; Your Event</p>
-    <h1 class="bk-h1" id="step1-date-heading">When&rsquo;s your event?</h1>
-    <p class="bk-subtext">We&rsquo;ll use your date and city to check availability and calculate delivery.</p>
+    <p class="bk-eyebrow" style="color:#d4537e;">Book Your Experience</p>
+    <h1 class="bk-h1">Your event. Beautifully styled.</h1>
+    <p id="step1-question" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#3d1a2e;margin:0 0 0.5rem;">What kind of experience are you planning?</p>
+    <p style="font-family:'Inter',sans-serif;font-size:13px;color:#6b4c5e;margin:0 0 0.75rem;">Choose your path below &mdash; explore everything before committing to anything.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#9b7080;margin:0 0 2rem;">Trusted by hosts across Orange County and LA County for showers, birthdays, and corporate events.</p>
 
-    <div class="bk-field">
-      <label class="bk-label" for="event-date-s1">Event date</label>
-      <input class="bk-input" type="text" id="event-date-s1" placeholder="e.g. July 12, 2026" required>
-      <p class="bk-error" id="step1-date-error" role="alert" aria-atomic="true">Please enter your event date to continue.</p>
-    </div>
-
-    <div class="bk-field">
-      <label class="bk-label" for="delivery-city-s1">Delivery city</label>
-      <select class="bk-select" id="delivery-city-s1" required onchange="citySelectChanged()">
-        <option value="" disabled selected>Select your city&hellip;</option>
-        <option value="14">Fullerton &mdash; $14</option>
-        <option value="14">Brea &mdash; $14</option>
-        <option value="16">Placentia &mdash; $16</option>
-        <option value="16">La Mirada &mdash; $16</option>
-        <option value="18">Whittier &mdash; $18</option>
-        <option value="18">Anaheim &mdash; $18</option>
-        <option value="18">Buena Park &mdash; $18</option>
-        <option value="20">Yorba Linda &mdash; $20</option>
-        <option value="20">Hacienda Heights &mdash; $20</option>
-        <option value="20">City of Industry &mdash; $20</option>
-        <option value="22">Orange &mdash; $22</option>
-        <option value="22">Rowland Heights &mdash; $22</option>
-        <option value="22">Norwalk &mdash; $22</option>
-        <option value="25">Diamond Bar &mdash; $25</option>
-        <option value="25">Garden Grove &mdash; $25</option>
-        <option value="28">Chino Hills &mdash; $28</option>
-        <option value="28">Tustin &mdash; $28</option>
-        <option value="28">Santa Ana &mdash; $28</option>
-        <option value="28">Downey &mdash; $28</option>
-        <option value="35">Long Beach &mdash; $35</option>
-        <option value="35">Irvine &mdash; $35</option>
-        <option value="45">Los Angeles &mdash; $45</option>
-        <option value="40">Pasadena &mdash; $40</option>
-        <option value="0">Other (we&rsquo;ll confirm)</option>
-      </select>
-      <p class="bk-error" id="step1-city-error" role="alert" aria-atomic="true">Please select your delivery city to continue.</p>
-    </div>
-
-    <div class="bk-cta-row">
-      <button class="bk-btn" onclick="step1Next()">Choose my experience &rarr;</button>
-    </div>
-  </section>
-
-  <!-- ===================== STEP 2 — Experience ===================== -->
-  <section id="step-2" class="bk-step" aria-live="polite">
-    <p class="bk-confirm-line" id="confirm-s2"></p>
-    <p class="bk-eyebrow">Step 2 &mdash; Choose Your Experience</p>
-    <h1 class="bk-h1" id="step1-heading">How can we help?</h1>
-    <p class="bk-subtext">Choose your path below &mdash; explore everything before committing to anything.</p>
-
-    <div class="bk-exp-grid" role="radiogroup" aria-labelledby="step1-heading">
-      <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-exp="diy" onclick="selectExperience('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
+    <div class="bk-exp-grid" role="radiogroup" aria-labelledby="step1-question">
+      <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-exp="diy" onclick="selectExperienceS1('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
         <p class="bk-card-label">DIY BLOOM BAR</p>
         <p class="bk-card-title">Rent the Bar</p>
         <hr class="bk-card-rule">
-        <p class="bk-card-desc">You bring the flowers — we deliver and style the bar, set everything up, and break it down after.</p>
-        <p class="bk-card-price">From $49/day</p>
+        <p class="bk-card-desc">You bring the flowers &mdash; we deliver and style the bar, set everything up, and break it down after.</p>
+        <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $49/day</p>
       </button>
-      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="full" onclick="selectExperience('full')" onkeydown="rovingKey(event,'step1-rg',1)">
+      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="full" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
         <p class="bk-card-title">We Handle Everything</p>
         <hr class="bk-card-rule">
-        <p class="bk-card-desc">From flowers to setup to breakdown — everything is handled for you. All you do is show up.</p>
-        <p class="bk-card-price">From $725</p>
+        <p class="bk-card-desc">From flowers to setup to breakdown &mdash; everything is handled for you. All you do is show up.</p>
+        <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $725</p>
       </button>
-      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="rentals" onclick="selectExperience('rentals')" onkeydown="rovingKey(event,'step1-rg',2)">
+      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="rentals" onclick="selectExperienceS1('rentals')" onkeydown="rovingKey(event,'step1-rg',2)">
         <p class="bk-card-label">EVENT RENTALS ONLY</p>
         <p class="bk-card-title">Rentals Only</p>
         <hr class="bk-card-rule">
-        <p class="bk-card-desc">Style your event with backdrops, seating, and ambient lighting — no bloom bar required.</p>
-        <p class="bk-card-price">From $8/item</p>
+        <p class="bk-card-desc">Style your event with backdrops, seating, and ambient lighting &mdash; no bloom bar required.</p>
+        <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $8/item</p>
       </button>
     </div>
 
-    <p class="bk-error" id="step1-error" role="alert" aria-atomic="true">Please choose an experience above to continue.</p>
+    <p class="bk-error" id="step1-exp-error" role="alert" aria-atomic="true">Please choose an experience above to continue.</p>
 
     <div class="bk-cta-row">
-      <button class="bk-btn" id="step1-btn" aria-disabled="true" onclick="experienceNext()">Choose my experience</button>
+      <button class="bk-btn" id="step1-exp-btn" aria-disabled="true" onclick="experienceS1Next()">Choose my experience &rarr;</button>
+    </div>
+  </section>
+
+  <!-- ===================== STEP 2 — Event Details (Full & Rentals paths only) ===================== -->
+  <section id="step-2-details" class="bk-step" aria-live="polite">
+    <p id="s2d-motivation" style="font-family:'Inter',sans-serif;font-size:13px;color:#d4537e;font-style:italic;margin:0 0 0.75rem;"></p>
+    <p class="bk-eyebrow" id="s2d-eyebrow">Step 2</p>
+    <h2 class="bk-h1">Tell us about your event.</h2>
+    <p class="bk-subtext">We&rsquo;ll use these details to check availability and get back to you within 2 hours.</p>
+
+    <div class="bk-field">
+      <label for="customer-name" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your name <span style="text-transform:none;font-weight:400;">(optional &mdash; so we can personalise your quote)</span></label>
+      <input type="text" id="customer-name" placeholder="e.g. Sarah" autocomplete="given-name" oninput="state.customerName=this.value;" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
+    </div>
+
+    <div class="bk-field">
+      <label for="event-date-s2d" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Event date</label>
+      <input type="text" id="event-date-s2d" placeholder="e.g. July 12, 2026" oninput="state.eventDate=this.value.trim(); updateStep2CTA();" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
+      <p class="bk-error" id="s2d-date-error" role="alert" aria-atomic="true">Please enter your event date to continue.</p>
+    </div>
+
+    <div class="bk-field">
+      <label for="customer-city" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your city</label>
+      <input type="text" id="customer-city" placeholder="e.g. Fullerton" autocomplete="address-level2" oninput="state.cityName=this.value.trim(); updateStep2CTA();" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
+      <p style="font-size:10px;color:#9b7080;font-style:italic;margin-top:0.25rem;font-family:'Inter',sans-serif;">We&rsquo;ll confirm your delivery cost when we reach out.</p>
+      <p class="bk-error" id="s2d-city-error" role="alert" aria-atomic="true">Please enter your city to continue.</p>
+    </div>
+
+    <p style="font-family:'Inter',sans-serif;font-size:11px;color:#9b7080;border-left:2px solid #f4c0d1;padding-left:0.75rem;margin-top:1.5rem;">We&rsquo;ll review your details and get back to you within 2 hours during business hours &mdash; Monday to Friday, 8:30&nbsp;AM to 5&nbsp;PM.</p>
+
+    <div class="bk-cta-row">
+      <button class="bk-btn" id="s2d-btn" aria-disabled="true" onclick="step2DetailsNext()">Show me what&rsquo;s available &rarr;</button>
       <button class="bk-back" onclick="goToStep(1)">&larr; Back</button>
     </div>
   </section>
@@ -472,9 +456,10 @@
       <p class="diy-continue-instruction">Added your package? Continue to complete your setup.</p>
       <div class="bk-cta-row" style="margin-top:0.75rem;">
         <button class="bk-btn" onclick="diyProductsContinue()" aria-label="Continue to add-ons after adding package to cart">Continue to add-ons &rarr;</button>
-        <button class="bk-back" aria-label="Back to experience selection" onclick="goToStep(2)">&larr; Back</button>
+        <button class="bk-back" aria-label="Back to experience selection" onclick="goToStep(1)">&larr; Back</button>
       </div>
     </div>
+    <a href="#" onclick="event.preventDefault(); state.experience='full'; goToStep2Details();" style="font-size:11px;color:#d4537e;text-decoration:underline;text-underline-offset:3px;display:block;text-align:center;margin-top:1rem;font-family:'Inter',sans-serif;">Prefer us to handle the flowers? Explore our full flower packages &rarr;</a>
   </section>
 
   <!-- ===================== DIY STEP 4 — Complete Your Setup ===================== -->
@@ -561,7 +546,7 @@
 
     <!-- Full sub-section -->
     <div id="step3-full" style="display:none;">
-      <p class="bk-confirm-line" id="confirm-full"></p>
+      <p class="bk-confirm-line" id="confirm-full" aria-live="polite"><span class="sr-only">YOUR EVENT </span></p>
       <p class="bk-eyebrow" id="step2-eyebrow-full">Step 3 &mdash; Full Bloom Bar Experience</p>
       <h2 class="bk-h1" id="step2-heading-full">Choose your package.</h2>
       <p class="bk-subtext">Flowers, setup, and breakdown are all included.</p>
@@ -630,13 +615,13 @@
       <p class="bk-error" id="step3-full-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
       <div class="bk-cta-row" id="step3-full-cta-row">
         <button class="bk-btn" id="step3-full-btn" aria-disabled="true" onclick="step2Next()">Continue with this package &rarr;</button>
-        <button class="bk-back" onclick="goToStep(2)">&larr; Back</button>
+        <button class="bk-back" onclick="goToStep2Details()">&larr; Back</button>
       </div>
     </div>
 
     <!-- Rentals sub-section -->
     <div id="step3-rentals" style="display:none;">
-      <p class="bk-confirm-line" id="confirm-rentals"></p>
+      <p class="bk-confirm-line" id="confirm-rentals" aria-live="polite"><span class="sr-only">YOUR EVENT </span></p>
       <p class="bk-eyebrow" id="step2-eyebrow-rentals">Step 3 &mdash; Event Rentals</p>
       <h2 class="bk-h1" id="step2-heading-rentals">Choose your statement piece.</h2>
       <p class="bk-subtext">Pick your centrepiece — it will be pre-added to your quote. You can add more items in the next step.</p>
@@ -681,7 +666,7 @@
       <p class="bk-error" id="step3-rentals-error" role="alert" aria-atomic="true">Please choose a statement piece above to continue.</p>
       <div class="bk-cta-row">
         <button class="bk-btn" id="step3-rentals-btn" aria-disabled="true" onclick="step2Next()">Continue with this selection &rarr;</button>
-        <button class="bk-back" onclick="goToStep(2)">&larr; Back</button>
+        <button class="bk-back" onclick="goToStep2Details()">&larr; Back</button>
       </div>
     </div>
 
@@ -689,7 +674,7 @@
 
   <!-- ===================== STEP 4 — Flowers (Full path only) ===================== -->
   <section id="step-4" class="bk-step" aria-live="polite">
-    <p class="bk-confirm-line" id="confirm-s4"></p>
+    <p class="bk-confirm-line" id="confirm-s4" aria-live="polite"></p>
     <p class="bk-eyebrow">Step 4 &mdash; Your Flowers</p>
     <h2 class="bk-h1" id="step4-heading">Choose your colour palette.</h2>
     <p class="bk-subtext">Your arrangement will be styled in your chosen palette using the freshest seasonal blooms available.</p>
@@ -783,7 +768,7 @@
 
   <!-- ===================== STEP 4 ===================== -->
   <section id="step-5" class="bk-step" aria-live="polite">
-    <p class="bk-confirm-line" id="confirm-s5"></p>
+    <p class="bk-confirm-line" id="confirm-s5" aria-live="polite"></p>
     <p class="bk-eyebrow" id="step5-eyebrow">Step 3 &mdash; Complete the Look</p>
     <h2 class="bk-h1">Complete the look.</h2>
     <p class="bk-subtext">Your florals are set. Want to complete the look with backdrops, seating, and ambience? Everything here is optional.</p>
@@ -878,7 +863,7 @@
 
   <!-- ===================== STEP 6 — Details ===================== -->
   <section id="step-6" class="bk-step" aria-live="polite">
-    <p class="bk-confirm-line" id="confirm-s6"></p>
+    <p class="bk-confirm-line" id="confirm-s6" aria-live="polite"></p>
     <p class="bk-eyebrow" id="step6-eyebrow">Step 4 &mdash; Event Details</p>
     <h2 class="bk-h1">Just one more thing.</h2>
     <p class="bk-subtext">Add your email and we&rsquo;ll send your quote instantly.</p>
@@ -1341,13 +1326,15 @@ document.addEventListener('focusin', function() {
 <script>
 var state = {
   experience: null,
+  customerName: '',
   pkg: null, pkgPrice: 0,
   palette: null,
   tier: null, tierPrice: 0, deposit: 0,
-  addons: {}, quantities: {},
+  addons: {},
+  quantities: { 'qty-chairs': 0, 'qty-tables': 0, 'qty-lamps': 0, 'qty-candles': 0 },
   deliveryCity: '', deliveryCost: 0, cityName: '',
   eventDate: '', email: '',
-  selectedProduct: null, selectedProductPrice: null, scissorsAdded: false
+  selectedProduct: '', selectedProductPrice: 0, scissorsAdded: false
 };
 
 var currentStep = 1;
@@ -1360,16 +1347,20 @@ function showDIYSection(id, diyStepNum) {
   currentStep = diyStepNum;
   renderProgress();
   window.scrollTo(0, 0);
-  updateConfirmLine();
+  var ann = document.getElementById('step-announcement');
+  if (ann) {
+    if (id === 'diy-products') ann.textContent = 'Step 2: Choose your flower bar package.';
+    else if (id === 'diy-addons') ann.textContent = 'Step 3: Complete your setup.';
+  }
   if (id === 'diy-addons') updateDIYCartBar();
 }
 
 function advanceToDIYAddons() {
-  showDIYSection('diy-addons', 4);
+  showDIYSection('diy-addons', 3);
 }
 
 function advanceDIYToBook() {
-  currentStep = 5;
+  currentStep = 4;
   renderProgress();
   // Navigation to Booqable handled by <a href>
 }
@@ -1400,9 +1391,9 @@ function toggleScissors() {
   updateDIYCartBar();
 }
 
-// Track which product card was last interacted with in Step 3.
-// Listens on the card wrapper (covers clicks anywhere inside the card,
-// including the Booqable button). Stores immediately into state.
+// Track which product card was last interacted with in diy-products.
+// Listens on the card wrapper — covers clicks anywhere inside the card,
+// including the Booqable button. Stores immediately into state.
 document.addEventListener('click', function(e) {
   var card = e.target.closest('#diy-products [data-product-name]');
   if (!card) return;
@@ -1414,46 +1405,130 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// Primary advancement from Step 3 → Step 4.
-// Reads state.selectedProduct (set by card click above) then advances.
 function diyProductsContinue() {
-  // If no card was clicked yet, still allow advancing (user may have
-  // used keyboard or Booqable iframe interaction we can't detect).
   advanceToDIYAddons();
 }
 
-// ---- Step 1: Date + City ----
-function citySelectChanged() {
-  var sel = document.getElementById('delivery-city-s1');
-  var opt = sel.options[sel.selectedIndex];
-  state.deliveryCost = parseInt(sel.value || '0', 10);
-  state.cityName = opt.textContent.trim();
-  hideError('step1-city-error');
+// ---- Step 1: Experience Selection ----
+function selectExperienceS1(type) {
+  state.experience = type;
+  // Reset downstream state
+  state.pkg = null; state.pkgPrice = 0;
+  state.palette = null; state.tier = null; state.tierPrice = 0; state.deposit = 0;
+  state.customerName = ''; state.eventDate = ''; state.cityName = '';
+
+  var cards = document.querySelectorAll('#step-1 [role="radio"]');
+  cards.forEach(function(c) {
+    var isSelected = c.dataset.exp === type;
+    c.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+    c.setAttribute('tabindex', isSelected ? '0' : '-1');
+  });
+
+  // DIY: advance immediately on card click
+  if (type === 'diy') {
+    showDIYSection('diy-products', 2);
+    return;
+  }
+
+  // Full / Rentals: enable CTA button
+  var btn = document.getElementById('step1-exp-btn');
+  if (btn) btn.setAttribute('aria-disabled', 'false');
+  hideError('step1-exp-error');
+  renderProgress();
 }
 
-function step1Next() {
-  var date = document.getElementById('event-date-s1').value.trim();
-  var cityVal = document.getElementById('delivery-city-s1').value;
+function experienceS1Next() {
+  var btn = document.getElementById('step1-exp-btn');
+  if (!state.experience || state.experience === 'diy') {
+    if (!state.experience) showError('step1-exp-error');
+    return;
+  }
+  if (btn && btn.getAttribute('aria-disabled') === 'true') {
+    showError('step1-exp-error');
+    return;
+  }
+  hideError('step1-exp-error');
+  goToStep2Details();
+}
+
+// ---- Step 2: Event Details (full and rentals only) ----
+function goToStep2Details() {
+  document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('step-2-details');
+  if (target) target.classList.add('active');
+  currentStep = 2;
+
+  // Dynamic copy
+  var eyebrow = document.getElementById('s2d-eyebrow');
+  var motivation = document.getElementById('s2d-motivation');
+  var btn = document.getElementById('s2d-btn');
+  if (state.experience === 'full') {
+    if (eyebrow) eyebrow.textContent = 'Step 2 \u2014 Full Bloom Bar Experience';
+    if (motivation) motivation.textContent = 'You\u2019re one step away from your full flower bar experience.';
+    if (btn) btn.textContent = 'Show me what\u2019s available \u2192';
+  } else {
+    if (eyebrow) eyebrow.textContent = 'Step 2 \u2014 Event Rentals';
+    if (motivation) motivation.textContent = 'You\u2019re one step away from building your rental quote.';
+    if (btn) btn.textContent = 'Build my rental quote \u2192';
+  }
+
+  // Restore field values if user navigates back
+  var nameInput = document.getElementById('customer-name');
+  if (nameInput) nameInput.value = state.customerName || '';
+  var dateInput = document.getElementById('event-date-s2d');
+  if (dateInput) dateInput.value = state.eventDate || '';
+  var cityInput = document.getElementById('customer-city');
+  if (cityInput) cityInput.value = state.cityName || '';
+
+  updateStep2CTA();
+  renderProgress();
+  window.scrollTo(0, 0);
+  var ann = document.getElementById('step-announcement');
+  if (ann) {
+    ann.textContent = state.experience === 'full'
+      ? 'Step 2: Full Bloom Bar Experience. Tell us about your event.'
+      : 'Step 2: Event Rentals. Tell us about your event.';
+  }
+}
+
+function updateStep2CTA() {
+  var btn = document.getElementById('s2d-btn');
+  if (!btn) return;
+  var dateInput = document.getElementById('event-date-s2d');
+  var cityInput = document.getElementById('customer-city');
+  var dateVal = dateInput ? dateInput.value.trim() : '';
+  var cityVal = cityInput ? cityInput.value.trim() : '';
+  btn.setAttribute('aria-disabled', (dateVal && cityVal) ? 'false' : 'true');
+}
+
+function step2DetailsNext() {
+  var dateInput = document.getElementById('event-date-s2d');
+  var cityInput = document.getElementById('customer-city');
+  var nameInput = document.getElementById('customer-name');
+  var dateVal = dateInput ? dateInput.value.trim() : '';
+  var cityVal = cityInput ? cityInput.value.trim() : '';
   var valid = true;
-  if (!date) { showError('step1-date-error'); valid = false; } else { hideError('step1-date-error'); }
-  if (cityVal === '') { showError('step1-city-error'); valid = false; } else { hideError('step1-city-error'); }
+  if (!dateVal) { showError('s2d-date-error'); valid = false; } else { hideError('s2d-date-error'); }
+  if (!cityVal) { showError('s2d-city-error'); valid = false; } else { hideError('s2d-city-error'); }
   if (!valid) return;
-  state.eventDate = date;
-  var sel = document.getElementById('delivery-city-s1');
-  state.deliveryCost = parseInt(sel.value || '0', 10);
-  state.cityName = sel.options[sel.selectedIndex].textContent.trim();
-  goToStep(2);
+  state.eventDate = dateVal;
+  state.cityName = cityVal;
+  state.customerName = nameInput ? nameInput.value.trim() : '';
+  updateConfirmLine();
+  goToStep(3);
+  showStep3SubSection();
 }
 
-// ---- Confirmation line (date · city · delivery) ----
+// ---- Confirmation line (name · date · city — no delivery cost) ----
 function updateConfirmLine() {
   var parts = [];
+  if (state.customerName) parts.push(state.customerName);
   if (state.eventDate) parts.push(state.eventDate);
   if (state.cityName) parts.push(state.cityName);
-  if (state.deliveryCost > 0) parts.push('$' + state.deliveryCost + ' delivery');
-  else if (state.cityName) parts.push('Free delivery');
   var text = parts.join(' \u00b7 ');
-  var ids = ['confirm-s2','confirm-diy-products','confirm-diy-addons','confirm-full','confirm-rentals','confirm-s4','confirm-s5','confirm-s6'];
+  // Only show for full and rentals paths
+  if (state.experience !== 'full' && state.experience !== 'rentals') return;
+  var ids = ['confirm-full', 'confirm-rentals', 'confirm-s4', 'confirm-s5', 'confirm-s6'];
   ids.forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.textContent = text;
@@ -1466,38 +1541,23 @@ var pkgPricing = {
   'bloom-celebration': { essential: 995, lush: 1250, depositEssential: 200, depositLush: 250 }
 };
 
-function totalSteps() {
-  return state.experience === 'full' ? 7 : 6;
-}
-
-function stepNumForId(id) {
-  // Returns display step number based on path
-  if (state.experience === 'full') {
-    var map = { 'step-1':1, 'step-2':2, 'step-3':3, 'step-4':4, 'step-5':5, 'step-6':6, 'step-7':7 };
-    return map[id] || 1;
-  } else {
-    var map2 = { 'step-1':1, 'step-2':2, 'step-3':3, 'step-5':4, 'step-7':5 };
-    return map2[id] || 1;
-  }
-}
-
 // ---- Progress bar rendering ----
 function renderProgress() {
   var bar = document.getElementById('bk-progress-bar');
   var steps, dispIdx;
 
   if (state.experience === 'full') {
-    steps = ['Your Date','Experience','Package','Flowers','Add-ons','Details','Quote'];
-    var fmap = {1:0, 2:1, 3:2, 4:3, 5:4, 6:5, 7:6};
+    steps = ['Experience', 'Your Details', 'Package', 'Your Flowers', 'Complete the Look', 'Your Quote'];
+    var fmap = {1:0, 2:1, 3:2, 4:3, 5:4, 6:5, 7:5};
     dispIdx = fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
   } else if (state.experience === 'rentals') {
-    steps = ['Your Date','Experience','Piece','Add-ons','Details','Quote'];
-    var rmap = {1:0, 2:1, 3:2, 5:3, 6:4, 7:5};
+    steps = ['Experience', 'Your Details', 'Your Rentals', 'Complete the Look', 'Your Quote'];
+    var rmap = {1:0, 2:1, 3:2, 5:3, 6:4, 7:4};
     dispIdx = rmap[currentStep] !== undefined ? rmap[currentStep] : 0;
   } else {
     // DIY (and initial before experience chosen)
-    steps = ['Your Date','Experience','Your Package','Complete the Look','Book'];
-    var dmap = {1:0, 2:1, 3:2, 4:3, 5:4};
+    steps = ['Experience', 'Your Package', 'Complete the Look', 'Book'];
+    var dmap = {1:0, 2:1, 3:2, 4:3};
     dispIdx = dmap[currentStep] !== undefined ? dmap[currentStep] : 0;
   }
 
@@ -1520,7 +1580,6 @@ function renderProgress() {
 
 // ---- Step navigation ----
 function goToStep(n) {
-  // Hide all active sections (handles diy-products/diy-addons too)
   document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
   currentStep = n;
   var next = document.getElementById('step-' + n);
@@ -1529,52 +1588,23 @@ function goToStep(n) {
   window.scrollTo(0, 0);
   var ann = document.getElementById('step-announcement');
   if (ann) {
-    var labels = {1:'Step 1: Your event date',2:'Step 2: Choose your experience',3:'Step 3: Choose your package',4:'Step 4: Choose your colour palette',5:'Complete the look — add-ons',6:'Your event details',7:'Your custom quote'};
+    var labels = {
+      1: 'Step 1: Choose your experience',
+      3: 'Step 3: Choose your package',
+      4: 'Step 4: Choose your colour palette',
+      5: 'Complete the look \u2014 add-ons',
+      6: 'Your event details',
+      7: 'Your custom quote'
+    };
     ann.textContent = labels[n] || ('Step ' + n);
   }
-  // Update back button eyebrows and dynamic content
-  if (n >= 2) updateConfirmLine();
+  if (n >= 3) updateConfirmLine();
   if (n === 5) setupStep4();
   if (n === 6) setupStep5();
   if (n === 7) buildQuote();
 }
 
-// ---- Experience selection ----
-function selectExperience(type) {
-  state.experience = type;
-  // Reset downstream
-  state.pkg = null; state.pkgPrice = 0;
-  state.palette = null; state.tier = null; state.tierPrice = 0; state.deposit = 0;
-
-  var cards = document.querySelectorAll('#step-2 [role="radio"]');
-  cards.forEach(function(c) {
-    c.setAttribute('aria-checked', c.dataset.exp === type ? 'true' : 'false');
-    c.setAttribute('tabindex', c.dataset.exp === type ? '0' : '-1');
-  });
-
-  var btn = document.getElementById('step1-btn');
-  btn.setAttribute('aria-disabled', 'false');
-  hideError('step1-error');
-  renderProgress();
-}
-
-function experienceNext() {
-  var btn = document.getElementById('step1-btn');
-  if (btn.getAttribute('aria-disabled') === 'true') {
-    showError('step1-error');
-    return;
-  }
-  if (!state.experience) { showError('step1-error'); return; }
-  hideError('step1-error');
-  if (state.experience === 'diy') {
-    showDIYSection('diy-products', 3);
-  } else {
-    goToStep(3);
-    showStep3SubSection();
-  }
-}
-
-// ---- Step 2 ----
+// ---- Package sub-section display ----
 function showStep3SubSection() {
   document.getElementById('step3-full').style.display = 'none';
   document.getElementById('step3-rentals').style.display = 'none';
@@ -1586,24 +1616,19 @@ function selectPackage(pkgName, price) {
   state.pkg = pkgName;
   state.pkgPrice = price;
 
-  var prefix = 'step3-' + state.experience + '-';
-  // Deselect all cards in this group
   var grp;
-  if (state.experience === 'diy') grp = document.querySelectorAll('#step3-diy [role="radio"]');
-  else if (state.experience === 'full') grp = document.querySelectorAll('#step3-full [role="radio"]');
+  if (state.experience === 'full') grp = document.querySelectorAll('#step3-full [role="radio"]');
   else grp = document.querySelectorAll('#step3-rentals [role="radio"]');
-
   grp.forEach(function(c) {
     var checked = c.dataset.pkg === pkgName;
     c.setAttribute('aria-checked', checked ? 'true' : 'false');
     c.setAttribute('tabindex', checked ? '0' : '-1');
   });
 
-  var btnId = prefix + 'btn';
+  var btnId = 'step3-' + state.experience + '-btn';
   var btn = document.getElementById(btnId);
   if (btn) btn.setAttribute('aria-disabled', 'false');
 
-  // Update tier prices if full path
   if (state.experience === 'full' && pkgPricing[pkgName]) {
     var p = pkgPricing[pkgName];
     var ePrice = document.getElementById('tier-essential-price');
@@ -1614,35 +1639,25 @@ function selectPackage(pkgName, price) {
     if (lPrice) lPrice.textContent = '$' + p.lush;
     if (eDep) eDep.textContent = '$' + p.depositEssential + ' deposit to reserve';
     if (lDep) lDep.textContent = '$' + p.depositLush + ' deposit to reserve';
-    // Reset tier selection
     state.tier = null; state.tierPrice = 0; state.deposit = 0;
     var tierCards = document.querySelectorAll('#arrange-reveal [role="radio"]');
     tierCards.forEach(function(tc) { tc.setAttribute('aria-checked','false'); });
-    var step3btn = document.getElementById('step4-btn');
-    if (step3btn) step3btn.setAttribute('aria-disabled','true');
+    var step4btn = document.getElementById('step4-btn');
+    if (step4btn) step4btn.setAttribute('aria-disabled','true');
   }
 
-  if (state.experience === 'full') {
-    hideError('step3-full-error');
-  } else if (state.experience === 'diy') {
-    hideError('step3-diy-error');
-  } else {
-    hideError('step3-rentals-error');
-  }
+  if (state.experience === 'full') hideError('step3-full-error');
+  else hideError('step3-rentals-error');
 }
 
 function step2Next() {
   if (!state.pkg) {
-    if (state.experience === 'diy') showError('step3-diy-error');
-    else if (state.experience === 'full') showError('step3-full-error');
+    if (state.experience === 'full') showError('step3-full-error');
     else showError('step3-rentals-error');
     return;
   }
-  if (state.experience === 'full') {
-    goToStep(4);
-  } else {
-    goToStep(5);
-  }
+  if (state.experience === 'full') goToStep(4);
+  else goToStep(5);
 }
 
 // ---- Large event toggle ----
@@ -1676,7 +1691,7 @@ function submitLargeEvent(e) {
     });
 }
 
-// ---- Step 3 (Full path) ----
+// ---- Palette / Flowers (step-4, full only) ----
 function selectPalette(name) {
   state.palette = name;
   var cards = document.querySelectorAll('.bk-palette-grid [role="radio"]');
@@ -1686,17 +1701,12 @@ function selectPalette(name) {
     c.setAttribute('tabindex', sel ? '0' : '-1');
   });
   hideError('step4-palette-error');
-
-  // Show arrangement reveal
   var reveal = document.getElementById('arrange-reveal');
   reveal.classList.add('visible');
-  // Move focus to essential card
   setTimeout(function() {
     var ess = document.getElementById('tier-essential-card');
     if (ess) ess.focus();
   }, 80);
-
-  // Update step3 btn — still disabled until tier chosen
   var btn = document.getElementById('step4-btn');
   if (btn && !state.tier) btn.setAttribute('aria-disabled', 'true');
 }
@@ -1713,14 +1723,12 @@ function selectTierCard(tier) {
     state.deposit = p.depositLush;
   }
   state.pkgPrice = state.tierPrice;
-
   var tierCards = document.querySelectorAll('#arrange-reveal [role="radio"]');
   tierCards.forEach(function(tc) {
     var sel = tc.dataset.tier === tier;
     tc.setAttribute('aria-checked', sel ? 'true' : 'false');
     tc.setAttribute('tabindex', sel ? '0' : '-1');
   });
-
   hideError('step4-tier-error');
   var btn = document.getElementById('step4-btn');
   if (btn) btn.setAttribute('aria-disabled', 'false');
@@ -1732,42 +1740,30 @@ function step4Next_flowers() {
   goToStep(5);
 }
 
-// ---- Step 4 setup ----
+// ---- Add-ons setup (step-5) ----
 function setupStep4() {
-  // Eyebrow
   var eyebrow = document.getElementById('step5-eyebrow');
   if (eyebrow) {
-    eyebrow.textContent = state.experience === 'full' ? 'Step 4 \u2014 Complete the Look' : 'Step 3 \u2014 Complete the Look';
+    if (state.experience === 'full') eyebrow.textContent = 'Step 5 \u2014 Complete the Look';
+    else if (state.experience === 'rentals') eyebrow.textContent = 'Step 4 \u2014 Complete the Look';
+    else eyebrow.textContent = 'Complete the Look';
   }
-  // Hide scissors for rentals
   var scissors = document.getElementById('addon-scissors');
-  if (scissors) {
-    scissors.style.display = state.experience === 'rentals' ? 'none' : '';
-  }
-  // For rentals: pre-select the centrepiece as addon
+  if (scissors) scissors.style.display = state.experience === 'rentals' ? 'none' : '';
   if (state.experience === 'rentals' && state.pkg) {
     var pkgToAddon = {
-      'pink-backdrop': 'addon-pink-backdrop',
-      'white-backdrop': 'addon-white-backdrop',
-      'green-backdrop': 'addon-green-backdrop',
-      'bar-cart': 'addon-bar-cart',
-      'champagne-wall': 'addon-champagne-wall'
+      'pink-backdrop': 'addon-pink-backdrop', 'white-backdrop': 'addon-white-backdrop',
+      'green-backdrop': 'addon-green-backdrop', 'bar-cart': 'addon-bar-cart', 'champagne-wall': 'addon-champagne-wall'
     };
-    var addonId = pkgToAddon[state.pkg];
     var addonPrices = {
-      'addon-pink-backdrop': 125,
-      'addon-white-backdrop': 115,
-      'addon-green-backdrop': 95,
-      'addon-bar-cart': 85,
-      'addon-champagne-wall': 75
+      'addon-pink-backdrop': 125, 'addon-white-backdrop': 115, 'addon-green-backdrop': 95,
+      'addon-bar-cart': 85, 'addon-champagne-wall': 75
     };
     var addonNames = {
-      'addon-pink-backdrop': 'Pink Flower Backdrop',
-      'addon-white-backdrop': 'White Flower Backdrop',
-      'addon-green-backdrop': 'Green Backdrop',
-      'addon-bar-cart': 'Bar Cart',
-      'addon-champagne-wall': 'Champagne Wall'
+      'addon-pink-backdrop': 'Pink Flower Backdrop', 'addon-white-backdrop': 'White Flower Backdrop',
+      'addon-green-backdrop': 'Green Backdrop', 'addon-bar-cart': 'Bar Cart', 'addon-champagne-wall': 'Champagne Wall'
     };
+    var addonId = pkgToAddon[state.pkg];
     if (addonId && !state.addons[addonId]) {
       state.addons[addonId] = { name: addonNames[addonId], price: addonPrices[addonId] };
       var el = document.getElementById(addonId);
@@ -1776,21 +1772,24 @@ function setupStep4() {
   }
 }
 
-function step4Next() {
-  goToStep(6);
-}
+function step4Next() { goToStep(6); }
 
 function step4Back() {
   if (state.experience === 'full') goToStep(4);
   else goToStep(3);
 }
 
-// ---- Step 5 setup ----
+// ---- Event Details (step-6) ----
 function setupStep5() {
   var eyebrow = document.getElementById('step6-eyebrow');
   if (eyebrow) {
-    eyebrow.textContent = state.experience === 'full' ? 'Step 5 \u2014 Event Details' : 'Step 4 \u2014 Event Details';
+    if (state.experience === 'full') eyebrow.textContent = 'Step 6 \u2014 Event Details';
+    else if (state.experience === 'rentals') eyebrow.textContent = 'Step 5 \u2014 Event Details';
+    else eyebrow.textContent = 'Event Details';
   }
+  // Pre-fill event date if already collected in step-2-details
+  var dateInput = document.getElementById('event-date');
+  if (dateInput && state.eventDate && !dateInput.value) dateInput.value = state.eventDate;
 }
 
 function cityChanged() {
@@ -1806,12 +1805,9 @@ function step5Next() {
   var date = document.getElementById('event-date').value.trim();
   var email = document.getElementById('quote-email').value.trim();
   var valid = true;
-  if (!city) { showError('step5-city-error'); valid = false; }
-  else hideError('step5-city-error');
-  if (!date) { showError('step5-date-error'); valid = false; }
-  else hideError('step5-date-error');
+  if (!city) { showError('step5-city-error'); valid = false; } else { hideError('step5-city-error'); }
+  if (!date) { showError('step5-date-error'); valid = false; } else { hideError('step5-date-error'); }
   if (!valid) return;
-
   state.deliveryCity = city;
   var sel = document.getElementById('delivery-city');
   var opt = sel.options[sel.selectedIndex];
@@ -1822,60 +1818,41 @@ function step5Next() {
   goToStep(7);
 }
 
-function step5Back() {
-  goToStep(5);
-}
+function step5Back() { goToStep(5); }
 
-// ---- Step 6 ----
+// ---- Quote (step-7) ----
 function buildQuote() {
   var box = document.getElementById('quote-box');
   if (!box) return;
   var lines = [];
   var total = 0;
-
-  // Eyebrow
   var eyebrow = document.querySelector('#step-7 .bk-eyebrow');
   if (eyebrow) eyebrow.textContent = 'Your Quote';
-
-  // Main package line
   var pkgLabels = {
     'flower-bar': 'The Flower Bar (DIY)',
     'boho-bloom-bundle': 'Boho Bloom Bundle (DIY)',
     'bloom-social': 'Bloom Social \u2014 ' + (state.tier ? state.tier.charAt(0).toUpperCase() + state.tier.slice(1) : ''),
     'bloom-celebration': 'Bloom Celebration \u2014 ' + (state.tier ? state.tier.charAt(0).toUpperCase() + state.tier.slice(1) : ''),
-    'pink-backdrop': 'Pink Flower Backdrop',
-    'white-backdrop': 'White Flower Backdrop',
-    'green-backdrop': 'Green Backdrop',
-    'bar-cart': 'Bar Cart',
-    'champagne-wall': 'Champagne Wall'
+    'pink-backdrop': 'Pink Flower Backdrop', 'white-backdrop': 'White Flower Backdrop',
+    'green-backdrop': 'Green Backdrop', 'bar-cart': 'Bar Cart', 'champagne-wall': 'Champagne Wall'
   };
-
   if (state.pkg) {
     lines.push({ label: pkgLabels[state.pkg] || state.pkg, amount: state.pkgPrice });
     total += state.pkgPrice;
   }
-
-  // Palette for full path
   if (state.experience === 'full' && state.palette) {
     var paletteLabels = {
-      'blush-white': 'Blush & White palette',
-      'garden-greens': 'Garden Greens palette',
-      'bold-romantic': 'Bold & Romantic palette',
-      'something-blue': 'Something Blue palette',
-      'spring-pastels': 'Spring Pastels palette',
-      'jewel-tones': 'Jewel Tones palette'
+      'blush-white': 'Blush & White palette', 'garden-greens': 'Garden Greens palette',
+      'bold-romantic': 'Bold & Romantic palette', 'something-blue': 'Something Blue palette',
+      'spring-pastels': 'Spring Pastels palette', 'jewel-tones': 'Jewel Tones palette'
     };
     lines.push({ label: paletteLabels[state.palette] || state.palette, amount: null });
   }
-
-  // Add-ons
   Object.keys(state.addons).forEach(function(id) {
     var a = state.addons[id];
     lines.push({ label: a.name, amount: a.price });
     total += a.price;
   });
-
-  // Quantities
   var qtyMeta = {
     'qty-chairs': { name: 'Wood Resin Chairs', price: 8 },
     'qty-tables': { name: 'Plastic Tables', price: 18 },
@@ -1891,8 +1868,6 @@ function buildQuote() {
       total += lineTotal;
     }
   });
-
-  // Delivery
   var deliveryLabel = state.deliveryCityLabel || state.deliveryCity || '';
   if (state.deliveryCost > 0) {
     lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: state.deliveryCost });
@@ -1900,9 +1875,7 @@ function buildQuote() {
   } else if (state.deliveryCity) {
     lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: 0, free: true });
   }
-
-  // Build HTML
-  var html = '<p class="bk-quote-title">Your custom quote &mdash; ' + (state.eventDate || '') + '</p>';
+  var html = '<p class="bk-quote-title">Your custom quote \u2014 ' + (state.eventDate || '') + '</p>';
   lines.forEach(function(l) {
     var amountStr;
     if (l.amount === null) amountStr = '';
@@ -1910,50 +1883,32 @@ function buildQuote() {
     else amountStr = '$' + l.amount;
     html += '<div class="bk-line-item"><span>' + l.label + '</span><span>' + amountStr + '</span></div>';
   });
-
-  // Deposit line for full path
   if (state.experience === 'full' && state.deposit > 0) {
     html += '<div class="bk-line-item bk-line-deposit"><span>Deposit to reserve</span><span>$' + state.deposit + '</span></div>';
   }
-
   html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total</span><span class="bk-total-amount">$' + total + '</span></div>';
   box.innerHTML = html;
 
-  // Upsell nudge for rentals
   var upsell = document.getElementById('upsell-nudge');
   if (upsell) upsell.style.display = state.experience === 'rentals' ? 'block' : 'none';
-
-  // Pre-fill save email
   if (state.email) {
     var saveEmail = document.getElementById('save-email');
     if (saveEmail) saveEmail.value = state.email;
   }
-
-  // Final CTA button and note
   var finalBtn = document.getElementById('final-cta-btn');
   var finalNote = document.getElementById('final-note');
   if (state.experience === 'diy') {
-    if (state.pkg === 'flower-bar') {
-      finalBtn.textContent = 'Reserve Your Bloom Bar';
-      finalBtn.setAttribute('data-href', 'https://bring-the-bloombar.booqableshop.com/products/the-flower-bar');
-    } else {
-      finalBtn.textContent = 'Reserve Your Bloom Bar';
-      finalBtn.setAttribute('data-href', 'https://bring-the-bloombar.booqableshop.com/products/boho-bloom-bundle-flower-bar-and-umbrella');
-    }
+    if (finalBtn) { finalBtn.textContent = 'Reserve Your Bloom Bar'; finalBtn.setAttribute('data-href', 'https://bring-the-bloombar.booqableshop.com/collections/bloombar'); }
     if (finalNote) finalNote.textContent = 'You\'ll be taken to our booking platform to check availability and complete your reservation.';
   } else if (state.experience === 'full') {
-    finalBtn.textContent = 'Reserve with deposit';
-    finalBtn.setAttribute('data-href', '#stripe-link');
+    if (finalBtn) { finalBtn.textContent = 'Reserve with deposit'; finalBtn.setAttribute('data-href', '#stripe-link'); }
     if (finalNote) finalNote.textContent = 'A deposit of $' + state.deposit + ' secures your date. We\'ll confirm availability within 2 hours.';
   } else {
-    finalBtn.textContent = 'Send my booking request';
-    finalBtn.removeAttribute('data-href');
+    if (finalBtn) { finalBtn.textContent = 'Send my booking request'; finalBtn.removeAttribute('data-href'); }
     if (finalNote) finalNote.textContent = 'We\'ll confirm your booking and send a full invoice within 2 hours.';
   }
-
-  // Step 6 eyebrow
   var s6eyebrow = document.querySelector('#step-7 .bk-eyebrow');
-  var s6stepNum = state.experience === 'full' ? 7 : 6;
+  var s6stepNum = state.experience === 'full' ? 6 : (state.experience === 'rentals' ? 5 : 4);
   if (s6eyebrow) s6eyebrow.textContent = 'Step ' + s6stepNum + ' \u2014 Your Quote';
 }
 
@@ -1966,7 +1921,6 @@ function finalCta() {
     if (href && href !== '#stripe-link') {
       window.open(href, '_blank', 'noopener');
     } else if (href === '#stripe-link') {
-      // Stripe link placeholder — for now email
       window.location.href = 'mailto:bringthebloombar@gmail.com?subject=Full%20Bloom%20Bar%20Booking&body=I%27d%20like%20to%20reserve%20with%20a%20deposit%20for%20my%20event%20on%20' + encodeURIComponent(state.eventDate);
     }
   }
@@ -1980,25 +1934,22 @@ function submitRentalsForm() {
     if (state.quantities[id] > 0) qtyParts.push(qtyMeta2[id] + ' x' + state.quantities[id]);
   });
   var allAddons = [addonNames, qtyParts.join(', ')].filter(Boolean).join('; ');
-
   var params = new URLSearchParams({
     'form-name': 'book-inquiry',
-    name: state.email || '',
+    name: state.customerName || state.email || '',
     email: state.email || '',
     'event-date': state.eventDate,
     'guest-count': '',
     experience: state.experience,
     package: state.pkg,
     addons: allAddons,
-    'delivery-city': state.deliveryCityLabel || state.deliveryCity,
+    'delivery-city': state.deliveryCityLabel || state.deliveryCity || state.cityName,
     total: calculateTotal()
   });
-
   fetch('/', { method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'}, body: params.toString() })
     .then(function() {
       var btn = document.getElementById('final-cta-btn');
-      btn.textContent = 'Request sent!';
-      btn.setAttribute('aria-disabled','true');
+      if (btn) { btn.textContent = 'Request sent!'; btn.setAttribute('aria-disabled','true'); }
       var note = document.getElementById('final-note');
       if (note) note.textContent = 'Thank you! We\'ll confirm your booking within 2 hours.';
     })
@@ -2018,9 +1969,7 @@ function calculateTotal() {
   return t;
 }
 
-function step6Back() {
-  goToStep(6);
-}
+function step6Back() { goToStep(6); }
 
 function sendQuote() {
   var email = document.getElementById('save-email').value.trim();
@@ -2032,23 +1981,24 @@ function restartToBloom(e) {
   e.preventDefault();
   state.experience = null; state.pkg = null; state.pkgPrice = 0;
   state.palette = null; state.tier = null; state.tierPrice = 0; state.deposit = 0;
-  state.addons = {}; state.quantities = {};
-  state.selectedProduct = null; state.selectedProductPrice = null; state.scissorsAdded = false;
+  state.addons = {}; state.quantities = { 'qty-chairs': 0, 'qty-tables': 0, 'qty-lamps': 0, 'qty-candles': 0 };
+  state.customerName = ''; state.eventDate = ''; state.cityName = '';
+  state.selectedProduct = ''; state.selectedProductPrice = 0; state.scissorsAdded = false;
   var st = document.getElementById('scissors-toggle');
   if (st) { st.setAttribute('aria-pressed','false'); st.textContent = 'Add'; }
-  // Reset all addon cards
   document.querySelectorAll('.bk-addon-card').forEach(function(c){ c.setAttribute('aria-pressed','false'); });
-  // Reset qty displays
   ['qty-chairs','qty-tables','qty-lamps','qty-candles'].forEach(function(id){
     var el = document.getElementById(id + '-val');
     if (el) el.textContent = '0';
   });
-  goToStep(1);
-  // Reset experience radio cards
-  document.querySelectorAll('#step-2 [role="radio"]').forEach(function(c){
+  var cards = document.querySelectorAll('#step-1 [role="radio"]');
+  cards.forEach(function(c, i) {
     c.setAttribute('aria-checked','false');
+    c.setAttribute('tabindex', i === 0 ? '0' : '-1');
   });
-  document.getElementById('step1-btn').setAttribute('aria-disabled','true');
+  var expBtn = document.getElementById('step1-exp-btn');
+  if (expBtn) expBtn.setAttribute('aria-disabled','true');
+  goToStep(1);
 }
 
 // ---- Add-ons ----
@@ -2088,8 +2038,7 @@ function hideError(id) {
 // ---- Roving tabindex for radiogroups ----
 function rovingKey(e, groupId, idx) {
   var groups = {
-    'step1-rg': '#step-2 [role="radio"]',
-    'step3-diy-rg': '#step3-diy [role="radio"]',
+    'step1-rg': '#step-1 [role="radio"]',
     'step3-full-rg': '#step3-full [role="radio"]',
     'step3-rentals-rg': '#step3-rentals [role="radio"]',
     'step4-palette-rg': '.bk-palette-grid [role="radio"]',
