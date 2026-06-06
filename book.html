@@ -222,28 +222,8 @@
     .diy-trust-line { font-size: 11px; color: #9b7080; margin-top: 0.75rem; margin-bottom: 1.5rem; font-family: "Inter", sans-serif; }
     .diy-sep { color: #d4537e; margin: 0 0.2rem; }
 
-    /* Product grid */
-    .diy-product-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin: 1.5rem 0; align-items: stretch; }
-    @media (min-width: 520px) { .diy-product-grid { grid-template-columns: 1fr 1fr; } }
-    .diy-product-card { background: #fff; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1.25rem 1rem; display: flex; flex-direction: column; height: 100%; }
-
-    /* Hide Booqable quantity spinner in DIY product section */
-    #diy-products .bq-quantity,
-    #diy-products .bq-product-quantity,
-    #diy-products [class*="quantity"],
-    #diy-products input[type="number"],
-    #diy-products .bq-spinner { display: none !important; }
-    .diy-product-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #d4537e; font-weight: 600; margin: 0 0 0.35rem; font-family: "Inter", sans-serif; }
-    .diy-product-name { font-family: "Playfair Display", Georgia, serif; font-size: 18px; color: #3d1a2e; margin: 0; }
-    .diy-product-rule { border: none; border-top: 0.5px solid #f4c0d1; margin: 0.5rem 0; }
-    .diy-price-block { display: flex; align-items: baseline; gap: 2px; margin-bottom: 0.75rem; }
-    .diy-price { font-size: 28px; font-weight: 600; color: #3d1a2e; font-family: "Inter", sans-serif; line-height: 1; }
-    .diy-per { font-size: 13px; color: #9b7080; font-family: "Inter", sans-serif; }
-    .diy-inclusions { margin-bottom: 0.75rem; }
-    .diy-inclusions p { font-size: 12px; color: #6b4c5e; line-height: 2; margin: 0; font-family: "Inter", sans-serif; }
-    .diy-tag { font-size: 11px; color: #9b7080; font-style: italic; margin: 0.5rem 0 0.75rem; font-family: "Inter", sans-serif; }
-    .diy-umbrella-note { font-size: 10px; color: #9b7080; margin: 0.25rem 0 0.75rem; font-family: "Inter", sans-serif; }
-    .booqable-product-button { margin-top: auto; }
+    /* Booqable native product cards */
+    .booqable-product { background: white; border: 0.5px solid #f4c0d1; border-radius: 8px; overflow: hidden; }
 
     /* Step 3 continue instruction */
     .diy-continue-instruction { font-size: 12px; color: #6b4c5e; font-family: "Inter", sans-serif; margin: 0; }
@@ -286,8 +266,7 @@
     .bk-confirm-line:empty { display: none; }
 
     /* Booqable iframe baseline */
-    .booqable-datepicker iframe,
-    .booqable-product-button iframe { border: none; }
+    .booqable-datepicker iframe { border: none; }
   </style>
 </head>
 <body>
@@ -421,44 +400,9 @@
     <p class="diy-trust-line">Delivery from $14 <span class="diy-sep">&middot;</span> Setup and breakdown included <span class="diy-sep">&middot;</span> Most dates book 2&ndash;3 weeks out</p>
 
     <!-- Product grid -->
-    <div class="diy-product-grid">
-
-      <!-- The Flower Bar -->
-      <div class="diy-product-card">
-        <p class="diy-product-label">THE FLOWER BAR</p>
-        <p class="diy-product-name">The Flower Bar</p>
-        <hr class="diy-product-rule">
-        <div class="diy-price-block">
-          <span class="diy-price">$49</span><span class="diy-per">/day</span>
-        </div>
-        <div class="diy-inclusions">
-          <p>Bloom bar stand</p>
-          <p>Delivery from $14</p>
-          <p>Setup and breakdown included</p>
-        </div>
-        <p class="diy-tag">Perfect for intimate gatherings and backyard parties</p>
-        <div class="booqable-product-button" data-id="the-flower-bar" aria-label="Add The Flower Bar to cart" style="margin-top:1rem;"></div>
-      </div>
-
-      <!-- Boho Bloom Bundle -->
-      <div class="diy-product-card">
-        <p class="diy-product-label">BOHO BLOOM BUNDLE</p>
-        <p class="diy-product-name">Boho Bloom Bundle</p>
-        <hr class="diy-product-rule">
-        <div class="diy-price-block">
-          <span class="diy-price">$84</span><span class="diy-per">/day</span>
-        </div>
-        <div class="diy-inclusions">
-          <p>Bloom bar stand</p>
-          <p>Boho umbrella &mdash; pink striped or cream white</p>
-          <p>Delivery from $14</p>
-          <p>Setup and breakdown included</p>
-        </div>
-        <p class="diy-tag">Styled for bridal showers, baby showers, and birthdays</p>
-        <p class="diy-umbrella-note">Umbrella style selected at checkout.</p>
-        <div class="booqable-product-button" data-id="boho-bloom-bundle-flower-bar-and-umbrella" aria-label="Add Boho Bloom Bundle to cart" style="margin-top:1rem;"></div>
-      </div>
-
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+      <div class="booqable-product" data-id="the-flower-bar"></div>
+      <div class="booqable-product" data-id="boho-bloom-bundle-flower-bar-and-umbrella"></div>
     </div>
 
     <!-- Continue to Step 4 -->
