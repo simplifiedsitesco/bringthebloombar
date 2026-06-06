@@ -2421,5 +2421,22 @@ window.addEventListener('load', function() {
   setTimeout(setBooqableIframeTitles, 4000);
 });
 </script>
+<script>
+function hideScissorsQuantity() {
+  var scissorsSection = document.getElementById('diy-addons');
+  if (!scissorsSection) return;
+  var quantityEls = scissorsSection.querySelectorAll(
+    'input[type="number"], .bq-quantity, ' +
+    '[class*="quantity"], .bq-spinner, ' +
+    '[class*="spinner"]'
+  );
+  quantityEls.forEach(function(el) {
+    el.style.display = 'none';
+  });
+}
+setTimeout(hideScissorsQuantity, 1000);
+setTimeout(hideScissorsQuantity, 2000);
+setTimeout(hideScissorsQuantity, 3000);
+</script>
 </body>
 </html>
