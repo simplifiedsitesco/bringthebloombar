@@ -278,8 +278,9 @@
     .bk-confirm-line { font-size: 11px; color: #9b7080; margin: 0 0 1rem; letter-spacing: 0.01em; min-height: 1em; }
     .bk-confirm-line:empty { display: none; }
 
-    /* DIY event date input focus */
-    #diy-event-date:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    /* Booqable iframe baseline */
+    .booqable-datepicker iframe,
+    .booqable-product-button iframe { border: none; }
   </style>
 </head>
 <body>
@@ -402,10 +403,13 @@
     <h2 class="bk-h1">Book your flower bar.</h2>
     <p class="bk-subtext">Both packages include delivery, setup, and breakdown. Select your dates then add your package to cart.</p>
 
-    <!-- Date input -->
-    <div style="margin-bottom:1.5rem;max-width:320px;">
-      <label for="diy-event-date" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your event date</label>
-      <input type="text" id="diy-event-date" placeholder="e.g. July 12, 2026" oninput="state.eventDate=this.value" style="border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;width:100%;outline:none;">
+    <!-- Booqable datepicker -->
+    <div style="margin-bottom:1.5rem;">
+      <div role="group" aria-labelledby="datepicker-label">
+        <p id="datepicker-label" role="presentation" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#9b7080;font-family:'Inter',sans-serif;margin-bottom:0.5rem;">Select your rental dates to check availability</p>
+        <div class="booqable-datepicker"></div>
+      </div>
+      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" style="font-size:11px;color:#d4537e;font-family:'Inter',sans-serif;display:block;margin-top:0.5rem;text-underline-offset:3px;">Having trouble? Book directly on our reservations page &rarr;</a>
     </div>
     <p class="diy-trust-line">Delivery from $14 <span class="diy-sep">&middot;</span> Setup and breakdown included <span class="diy-sep">&middot;</span> Most dates book 2&ndash;3 weeks out</p>
 
@@ -413,7 +417,7 @@
     <div class="diy-product-grid">
 
       <!-- The Flower Bar -->
-      <div class="diy-product-card" data-product-name="The Flower Bar" data-product-price="49">
+      <div class="diy-product-card">
         <p class="diy-product-label">THE FLOWER BAR</p>
         <p class="diy-product-name">The Flower Bar</p>
         <hr class="diy-product-rule">
@@ -426,11 +430,11 @@
           <p>Setup and breakdown included</p>
         </div>
         <p class="diy-tag">Perfect for intimate gatherings and backyard parties</p>
-        <div class="booqable-product" data-id="the-flower-bar"></div>
+        <div class="booqable-product-button" data-id="the-flower-bar" aria-label="Add The Flower Bar to cart" style="margin-top:1rem;"></div>
       </div>
 
       <!-- Boho Bloom Bundle -->
-      <div class="diy-product-card" data-product-name="Boho Bloom Bundle" data-product-price="84">
+      <div class="diy-product-card">
         <p class="diy-product-label">BOHO BLOOM BUNDLE</p>
         <p class="diy-product-name">Boho Bloom Bundle</p>
         <hr class="diy-product-rule">
@@ -445,7 +449,7 @@
         </div>
         <p class="diy-tag">Styled for bridal showers, baby showers, and birthdays</p>
         <p class="diy-umbrella-note">Umbrella style selected at checkout.</p>
-        <div class="booqable-product" data-id="boho-bloom-bundle-flower-bar-and-umbrella"></div>
+        <div class="booqable-product-button" data-id="boho-bloom-bundle-flower-bar-and-umbrella" aria-label="Add Boho Bloom Bundle to cart" style="margin-top:1rem;"></div>
       </div>
 
     </div>
@@ -1390,20 +1394,6 @@ function toggleScissors() {
   updateDIYCartBar();
 }
 
-// Track which product card was last interacted with in diy-products.
-// Listens on the card wrapper — covers clicks anywhere inside the card,
-// including the Booqable button. Stores immediately into state.
-document.addEventListener('click', function(e) {
-  var card = e.target.closest('#diy-products [data-product-name]');
-  if (!card) return;
-  var productName = card.getAttribute('data-product-name');
-  var productPrice = card.getAttribute('data-product-price');
-  if (productName && productPrice) {
-    state.selectedProduct = productName;
-    state.selectedProductPrice = productPrice;
-  }
-});
-
 function diyProductsContinue() {
   advanceToDIYAddons();
 }
@@ -2070,5 +2060,17 @@ renderProgress();
 <!-- END BOOKING FLOW JS -->
 
 <script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js"></script>
+<script>
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var frames = document.querySelectorAll('.booqable-datepicker iframe, .booqable-product-button iframe');
+    frames.forEach(function(f, i) {
+      if (!f.getAttribute('title')) {
+        f.setAttribute('title', i === 0 ? 'Select rental dates' : 'Add product to cart');
+      }
+    });
+  }, 2000);
+});
+</script>
 </body>
 </html>
