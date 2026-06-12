@@ -459,3 +459,14 @@ a.pricing-card-link:focus-visible .pricing-card {
 .footer-built { color: var(--muted); font-size: .82rem; }
 .footer-built a { color: var(--muted); }
 .footer-built a:hover { color: var(--accent-dark); }
+
+/* ─── Trust Signal & Rating Bar ─────────────────── */
+.bb-trust-signal { display:inline-flex; align-items:center; gap:8px; margin-top:8px; }
+.bb-rating-stars { color:#f4b942; font-size:16px; letter-spacing:1px; line-height:1; }
+.bb-rating-copy { font-size:13px; color:#6f5f67; font-weight:500; }
+.bb-rating-light { font-weight:400; }
+.bb-micro-copy { font-size:13px; color:#6f5f67; margin-top:4px; line-height:1.5; }
+@media (max-width:767px) {
+  .bb-trust-signal { margin-top:4px; }
+  .bb-micro-copy { font-size:12px; }
+}
