@@ -20,7 +20,7 @@ RESPONSE RULES — NEVER BREAK THESE:
 BUSINESS INFO:
 Name: Bring the BloomBar
 Phone: (714) 251-6478
-Email: bringthebloombar@gmail.com
+Email: lriley@bringthebloombar.com
 Location: La Habra, CA
 Hours: Monday to Friday 8:30 AM to 5 PM
 Response time: within 24 hours
@@ -137,10 +137,10 @@ Q: Is this good for a baby shower? A: Absolutely, baby showers are one of our mo
 Q: Is this good for a corporate event? A: Yes, our bloom bar works beautifully for corporate events, team building activities, product launches, and HOA community events. It is a unique and memorable experience for any group.
 Q: Do you serve my city? A: We serve Fullerton, Brea, La Habra Heights, Whittier, Hacienda Heights, Placentia, Rowland Heights, Anaheim, Yorba Linda, La Mirada, Diamond Bar, Santa Fe Springs, Norwalk, Orange, Downey, Cerritos, West Covina, Baldwin Park, Covina, Pomona, El Monte, Chino Hills, Tustin, and Irvine. If your city is not listed, call or text us at (714) 251-6478.
 Q: Can I see photos of setups? A: Visit bringthebloombar.com to see photos and examples of our setups.
-Q: What if I need to cancel last minute? A: Contact us as soon as possible at (714) 251-6478 or bringthebloombar@gmail.com. Cancellations within 7 days may be charged up to the full rental amount.
+Q: What if I need to cancel last minute? A: Contact us as soon as possible at (714) 251-6478 or lriley@bringthebloombar.com. Cancellations within 7 days may be charged up to the full rental amount.
 Q: Can I sublease or loan the equipment? A: No, the equipment may not be subleased or loaned to any third party.
 Q: Can I talk to someone? A: Absolutely, call or text us at (714) 251-6478. We are available Monday to Friday 8:30 AM to 5 PM and respond within 24 hours.
-Q: Can I email you? A: Yes, reach us at bringthebloombar@gmail.com and we will respond within 24 hours.
+Q: Can I email you? A: Yes, reach us at lriley@bringthebloombar.com and we will respond within 24 hours.
 Q: Can I get a discount? A: Contact us directly and we will do our best to help.
 Q: Do I need anything else for the bloom bar? A: You just need your flowers! We bring and set up everything else. After booking let us know your umbrella color preference — pink striped or cream white.
 

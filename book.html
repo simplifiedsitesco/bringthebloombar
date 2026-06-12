@@ -1175,7 +1175,7 @@
     <p class="footer-brand">Bring The Bloom Bar</p>
     <p class="footer-service">Delivering bloom bar rentals across Orange County, Southeast LA County, and surrounding areas &mdash; including Fullerton, Brea, Anaheim, Irvine, Tustin, and more.</p>
     <p class="footer-contact"><a href="tel:7142516478">(714) 251-6478</a> &middot; M&ndash;F 8:30 AM&ndash;5 PM &middot; Response within 24 hours</p>
-    <p class="footer-contact"><a href="mailto:bringthebloombar@gmail.com">bringthebloombar@gmail.com</a></p>
+    <p class="footer-contact"><a href="mailto:lriley@bringthebloombar.com">lriley@bringthebloombar.com</a></p>
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="about.html">About</a>
       <a href="locations.html">Locations</a>
@@ -1693,7 +1693,7 @@ function submitLargeEvent(e) {
       form.innerHTML = '<p style="color:#d4537e;font-size:13px;font-weight:600;">Thank you! We\'ll be in touch within 2 hours.</p>';
     })
     .catch(function() {
-      form.innerHTML = '<p style="color:#d4537e;font-size:13px;">Something went wrong. Please email us at <a href="mailto:bringthebloombar@gmail.com">bringthebloombar@gmail.com</a>.</p>';
+      form.innerHTML = '<p style="color:#d4537e;font-size:13px;">Something went wrong. Please email us at <a href="mailto:lriley@bringthebloombar.com">lriley@bringthebloombar.com</a>.</p>';
     });
 }
 
@@ -1927,7 +1927,7 @@ function finalCta() {
     if (href && href !== '#stripe-link') {
       window.open(href, '_blank', 'noopener');
     } else if (href === '#stripe-link') {
-      window.location.href = 'mailto:bringthebloombar@gmail.com?subject=Full%20Bloom%20Bar%20Booking&body=I%27d%20like%20to%20reserve%20with%20a%20deposit%20for%20my%20event%20on%20' + encodeURIComponent(state.eventDate);
+      window.location.href = 'mailto:lriley@bringthebloombar.com?subject=Full%20Bloom%20Bar%20Booking&body=I%27d%20like%20to%20reserve%20with%20a%20deposit%20for%20my%20event%20on%20' + encodeURIComponent(state.eventDate);
     }
   }
 }
@@ -1960,7 +1960,7 @@ function submitRentalsForm() {
       if (note) note.textContent = 'Thank you! We\'ll confirm your booking within 2 hours.';
     })
     .catch(function() {
-      window.location.href = 'mailto:bringthebloombar@gmail.com?subject=Rental%20Booking%20Request&body=I%27d%20like%20to%20book%20for%20' + encodeURIComponent(state.eventDate);
+      window.location.href = 'mailto:lriley@bringthebloombar.com?subject=Rental%20Booking%20Request&body=I%27d%20like%20to%20book%20for%20' + encodeURIComponent(state.eventDate);
     });
 }
 
