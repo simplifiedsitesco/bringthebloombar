@@ -473,3 +473,18 @@ a.pricing-card-link:focus-visible .pricing-card {
   .bb-micro-copy { font-size:12px; }
   .bb-hero-trust-block { gap:4px; margin-top:12px; }
 }
+
+/* ─── Step 2 Form Fields ─────────────────────────── */
+.bb-field-label { font-size:10px; text-transform:uppercase; letter-spacing:0.05em; color:#7a5a6a; display:block; margin-bottom:0.25rem; font-family:'Inter',sans-serif; font-weight:600; }
+.bb-field-optional { font-size:10px; color:#7a5a6a; font-weight:400; font-style:italic; margin:0 0 0.4rem; font-family:'Inter',sans-serif; text-transform:none; letter-spacing:0; }
+.bb-field-required { color:#b32566; font-weight:700; }
+.bb-field-input { display:block; width:100%; border:none; border-bottom:0.5px solid #f4c0d1; padding:0.5rem 0; font-size:13px; color:#3d1a2e; background:transparent; font-family:'Inter',sans-serif; outline:none; }
+.bb-field-input[aria-invalid="true"] { border-bottom-color:#b32566; }
+.bb-field-error { display:none; font-size:11px; color:#b32566; margin:0.25rem 0 0; font-family:'Inter',sans-serif; }
+.bb-field-error.visible { display:block; }
+.bb-required-note { font-size:10px; color:#7a5a6a; margin:0.75rem 0 0; font-family:'Inter',sans-serif; font-style:italic; }
+@media (max-width:767px) {
+  .bb-field-label { font-size:9px; }
+  .bb-field-optional { font-size:9px; }
+  .bb-required-note { font-size:9px; }
+}

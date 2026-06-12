@@ -710,31 +710,26 @@
   <section id="step-2-details" class="bk-step" aria-live="polite">
     <p id="s2d-motivation" style="font-family:'Inter',sans-serif;font-size:13px;color:#d4537e;font-style:italic;margin:0 0 0.75rem;"></p>
     <p class="bk-eyebrow" id="s2d-eyebrow">Step 2</p>
-    <h2 class="bk-h1">Tell us about your event.</h2>
+    <h2 class="bk-h1">Let&rsquo;s make it yours.</h2>
     <p class="bk-subtext">We&rsquo;ll use these details to check availability and get back to you within 2 hours.</p>
 
     <div class="bk-field">
-      <label for="customer-name" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your name <span style="text-transform:none;font-weight:400;">(optional &mdash; so we can personalise your quote)</span></label>
-      <input type="text" id="customer-name" placeholder="e.g. Sarah" autocomplete="given-name" oninput="state.customerName=this.value;" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
+      <label for="step2-name" class="bb-field-label">Your name</label>
+      <p id="step2-name-hint" class="bb-field-optional">Optional &mdash; so we can personalise your quote</p>
+      <input type="text" id="step2-name" class="bb-field-input" placeholder="e.g. Sarah" autocomplete="given-name" aria-describedby="step2-name-hint" oninput="state.customerName=this.value;">
     </div>
 
     <div class="bk-field">
-      <label for="event-date-s2d" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Event date</label>
-      <input type="text" id="event-date-s2d" placeholder="e.g. July 12, 2026" autocomplete="off" aria-label="Event date — enter in format Month Day Year, for example July 12 2026" aria-describedby="s2d-date-error" oninput="state.eventDate=this.value.trim(); updateStep2CTA();" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
-      <p class="bk-error" id="s2d-date-error" role="alert" aria-atomic="true">Please enter your event date to continue.</p>
-    </div>
-
-    <div class="bk-field">
-      <label for="customer-city" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;display:block;margin-bottom:0.4rem;font-family:'Inter',sans-serif;">Your city</label>
-      <input type="text" id="customer-city" placeholder="e.g. Fullerton" autocomplete="address-level2" aria-describedby="customer-city-hint s2d-city-error" oninput="state.cityName=this.value.trim(); updateStep2CTA();" style="display:block;width:100%;border:none;border-bottom:0.5px solid #f4c0d1;padding:0.5rem 0;font-size:13px;color:#3d1a2e;background:transparent;font-family:'Inter',sans-serif;outline:none;">
-      <p id="customer-city-hint" style="font-size:10px;color:#7a5a6a;font-style:italic;margin-top:0.25rem;font-family:'Inter',sans-serif;">We&rsquo;ll confirm your delivery cost when we reach out.</p>
-      <p class="bk-error" id="s2d-city-error" role="alert" aria-atomic="true">Please enter your city to continue.</p>
+      <label for="step2-date" class="bb-field-label">Event date <span class="bb-field-required" aria-hidden="true">*</span></label>
+      <input type="date" id="step2-date" class="bb-field-input" required aria-required="true" aria-describedby="step2-date-error" oninput="state.eventDate=this.value; updateStep2CTA();">
+      <p class="bb-field-error bk-error" id="step2-date-error" role="alert" aria-atomic="true">Please select your event date to continue.</p>
+      <p class="bb-required-note">* Required field</p>
     </div>
 
     <p style="font-family:'Inter',sans-serif;font-size:11px;color:#7a5a6a;border-left:2px solid #f4c0d1;padding-left:0.75rem;margin-top:1.5rem;">We&rsquo;ll review your details and get back to you within 2 hours during business hours &mdash; Monday to Friday, 8:30&nbsp;AM to 5&nbsp;PM.</p>
 
     <div class="bk-cta-row">
-      <button class="bk-btn" id="s2d-btn" aria-disabled="true" onclick="step2DetailsNext()">Show me what&rsquo;s available &rarr;</button>
+      <button class="bk-btn" id="s2d-btn" aria-disabled="true" aria-label="See my full bloom bar packages and check availability" onclick="step2DetailsNext()">See my full bloom bar packages &rarr;</button>
       <button class="bk-back" aria-label="Go back to experience selection" onclick="goToStep(1)">&larr; Back</button>
     </div>
   </section>
@@ -1548,7 +1543,7 @@ function goToStep2Details() {
   if (state.experience === 'full') {
     if (eyebrow) eyebrow.textContent = 'Step 2 \u2014 Full Bloom Bar Experience';
     if (motivation) motivation.textContent = 'You\u2019re one step away from your full flower bar experience.';
-    if (btn) btn.textContent = 'Show me what\u2019s available \u2192';
+    if (btn) btn.textContent = 'See my full bloom bar packages \u2192';
   } else {
     if (eyebrow) eyebrow.textContent = 'Step 2 \u2014 Event Rentals';
     if (motivation) motivation.textContent = 'You\u2019re one step away from building your rental quote.';
@@ -1556,12 +1551,17 @@ function goToStep2Details() {
   }
 
   // Restore field values if user navigates back
-  var nameInput = document.getElementById('customer-name');
+  var nameInput = document.getElementById('step2-name');
   if (nameInput) nameInput.value = state.customerName || '';
-  var dateInput = document.getElementById('event-date-s2d');
-  if (dateInput) dateInput.value = state.eventDate || '';
-  var cityInput = document.getElementById('customer-city');
-  if (cityInput) cityInput.value = state.cityName || '';
+  var dateInput = document.getElementById('step2-date');
+  if (dateInput) {
+    // Set min to today so past dates can't be selected
+    var today = new Date();
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var dd = String(today.getDate()).padStart(2, '0');
+    dateInput.min = today.getFullYear() + '-' + mm + '-' + dd;
+    dateInput.value = state.eventDate || '';
+  }
 
   updateStep2CTA();
   renderProgress();
@@ -1588,11 +1588,9 @@ function goToStep2Details() {
 function updateStep2CTA() {
   var btn = document.getElementById('s2d-btn');
   if (!btn) return;
-  var dateInput = document.getElementById('event-date-s2d');
-  var cityInput = document.getElementById('customer-city');
+  var dateInput = document.getElementById('step2-date');
   var dateVal = dateInput ? dateInput.value.trim() : '';
-  var cityVal = cityInput ? cityInput.value.trim() : '';
-  btn.setAttribute('aria-disabled', (dateVal && cityVal) ? 'false' : 'true');
+  btn.setAttribute('aria-disabled', dateVal ? 'false' : 'true');
 }
 
 function captureStep2Lead() {
@@ -1613,17 +1611,17 @@ function captureStep2Lead() {
 }
 
 function step2DetailsNext() {
-  var dateInput = document.getElementById('event-date-s2d');
-  var cityInput = document.getElementById('customer-city');
-  var nameInput = document.getElementById('customer-name');
+  var dateInput = document.getElementById('step2-date');
+  var nameInput = document.getElementById('step2-name');
   var dateVal = dateInput ? dateInput.value.trim() : '';
-  var cityVal = cityInput ? cityInput.value.trim() : '';
-  var valid = true;
-  if (!dateVal) { showError('s2d-date-error'); valid = false; } else { hideError('s2d-date-error'); }
-  if (!cityVal) { showError('s2d-city-error'); valid = false; } else { hideError('s2d-city-error'); }
-  if (!valid) return;
+  if (!dateVal) {
+    showError('step2-date-error');
+    if (dateInput) { dateInput.setAttribute('aria-invalid', 'true'); dateInput.focus(); }
+    return;
+  }
+  hideError('step2-date-error');
+  if (dateInput) dateInput.removeAttribute('aria-invalid');
   state.eventDate = dateVal;
-  state.cityName = cityVal;
   state.customerName = nameInput ? nameInput.value.trim() : '';
   captureStep2Lead();
   updateConfirmLine();
