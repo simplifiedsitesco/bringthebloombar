@@ -415,6 +415,14 @@
       .bb-pricing-section-full {
         padding: 24px 16px;
       }
+      .bb-diy-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+      }
+      .bb-diy-grid .bb-card {
+        width: 100% !important;
+        box-sizing: border-box;
+      }
     }
   </style>
   <section id="pricing" style="padding: 80px 0 48px; background: #fdf6f9;">
@@ -423,11 +431,10 @@
       <h2 style="font-size: 36px; font-weight: 500; color: #1a1a1a; margin: 0 0 48px; line-height: 1.3;">Simple pricing for your event</h2>
 
       <!-- Group 1: DIY Rentals -->
-      <p style="font-size: 11px; font-weight: 500; color: #993556; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 12px;">DIY rentals</p>
-      <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 40px;">
+      <p style="font-size: 13px; font-weight: 700; color: #b32566; letter-spacing: 2.5px; text-transform: uppercase; margin: 0 0 24px;">DIY rentals</p>
 
-      <div id="pricing-diy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 20px; align-items: start;">
-        <div>
+      <div id="pricing-diy-grid" class="bb-diy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; align-items: stretch;">
+        <div class="bb-card" style="background: #fff; border: 1px solid #ecd7e1; border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; height: 100%;">
           <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">The Flower Bar</h3>
           <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
           <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$49<span style="font-size: 15px; font-weight: 400; color: #6f5f67;">/day</span></p>
@@ -436,9 +443,9 @@
             <li>Pickup free in La Habra</li>
             <li>Delivery from $14</li>
           </ul>
-          <a href="/book.html" class="btn btn-primary bb-pricing-cta" aria-label="Reserve The Flower Bar — from $49 per day">Reserve Your Bloom Bar</a>
+          <a href="/book.html" class="btn btn-primary bb-pricing-cta" style="margin-top: auto;" aria-label="Reserve The Flower Bar — from $49 per day">Reserve Your Bloom Bar</a>
         </div>
-        <div style="background: #fff4f8; border: 1px solid #e9b8c9; border-radius: 12px; padding: 24px;">
+        <div class="bb-card" style="background: #fff4f8; border: 1px solid #e9b8c9; border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; height: 100%;">
           <span class="bb-pricing-badge">Best Value</span>
           <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Boho Bloom Bundle</h3>
           <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
@@ -449,11 +456,10 @@
             <li>Pickup free in La Habra</li>
             <li>Delivery from $14</li>
           </ul>
-          <a href="/book.html" class="btn btn-primary bb-pricing-cta" aria-label="Reserve the Boho Bloom Bundle — from $84 per day">Reserve Your Bloom Bar</a>
+          <p style="font-size: 13px; color: #6f5f67; font-style: italic; margin: 12px 0 0;">After booking, let us know your umbrella preference &mdash; pink striped or cream white &mdash; at no extra charge.</p>
+          <a href="/book.html" class="btn btn-primary bb-pricing-cta" style="margin-top: auto;" aria-label="Reserve the Boho Bloom Bundle — from $84 per day">Reserve Your Bloom Bar</a>
         </div>
       </div>
-
-      <p style="font-size: 14px; color: #6f5f67; margin: 0 0 36px;">After booking, let us know your umbrella preference — pink striped or cream white — at no extra charge.</p>
 
       <!-- Group 2: Full Flower Packages -->
       <div style="padding-top: 48px; margin-top: 48px; border-top: 1px solid #ecd7e1;">
