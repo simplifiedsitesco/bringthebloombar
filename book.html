@@ -548,6 +548,25 @@
     border: 1.5px solid #d4537e !important;
     background: #fdf6f9 !important;
   }
+  .bb-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 14px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .bb-card-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(179,37,102,0.12);
+  }
+  .bb-card-link:focus-visible {
+    outline: 3px solid #b32566;
+    outline-offset: 3px;
+  }
+  .bb-card-link:active {
+    transform: translateY(0);
+  }
   @media (max-width: 767px) {
     .bb-experience-grid {
       grid-template-columns: 1fr !important;
@@ -571,6 +590,20 @@
     .bb-card-body {
       font-size: 15px !important;
     }
+    .bb-card-link {
+      display: block;
+      width: 100%;
+      min-height: 44px;
+      -webkit-tap-highlight-color: rgba(179,37,102,0.08);
+      touch-action: manipulation;
+    }
+    .bb-card-link:hover {
+      transform: none;
+      box-shadow: none;
+    }
+    .bb-card-link:active {
+      background: rgba(179,37,102,0.04);
+    }
   }
   </style>
 
@@ -582,14 +615,14 @@
     <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#7a5a6a;margin:0 0 2rem;">Hosts across Orange County and LA County choose us for showers, birthdays, weddings, and corporate events.</p>
 
     <div class="bk-exp-grid bb-experience-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;" role="radiogroup" aria-labelledby="step1-question">
-      <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-exp="diy" onclick="selectExperienceS1('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
+      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="0" data-exp="diy" aria-label="Select DIY Bloom Bar Rental from $49 per day" onclick="selectExperienceS1('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
         <p class="bk-card-label">DIY BLOOM BAR</p>
         <p class="bk-card-title">DIY Bloom Bar Rental</p>
         <hr class="bk-card-rule">
         <p class="bk-card-desc">You choose the blooms, we deliver the bar, set it up, and break it down. Your guests do the arranging &mdash; the fun part.</p>
         <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $49/day</p>
       </button>
-      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="full" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
+      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $725" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
         <span class="bb-badge">Most popular</span>
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
         <p class="bk-card-title">We Handle Everything</p>
