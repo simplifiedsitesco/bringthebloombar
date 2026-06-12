@@ -371,7 +371,51 @@
       #pricing-diy-grid, #pricing-pkg-grid { grid-template-columns: 1fr !important; }
     }
     #pricing-cta-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; border-radius: 30px; }
-    .pricing-contact-link:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; border-radius: 2px; }
+    /* Checkmarks */
+    #pricing ul { list-style: none !important; padding-left: 0 !important; }
+    #pricing li { padding-left: 1.5rem; position: relative; }
+    #pricing li::before { content: "✓"; position: absolute; left: 0; color: #b32566; font-weight: 700; }
+    /* Badge */
+    .bb-pricing-badge {
+      display: inline-block;
+      background: #f9e4ee;
+      color: #861a4a;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    /* CTA buttons */
+    .bb-pricing-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 16px;
+      width: 100%;
+      min-height: 44px;
+      text-align: center;
+      text-decoration: none;
+    }
+    .bb-pricing-cta:focus-visible {
+      outline: 3px solid #b32566;
+      outline-offset: 3px;
+    }
+    @media (max-width: 767px) {
+      .bb-pricing-cta {
+        width: 100%;
+        min-height: 48px;
+        font-size: 16px;
+      }
+      .bb-pricing-badge {
+        font-size: 10px;
+      }
+      .bb-pricing-section-full {
+        padding: 24px 16px;
+      }
+    }
   </style>
   <section id="pricing" style="padding: 80px 0 48px; background: #fdf6f9;">
     <div class="container" style="max-width: 900px;">
@@ -382,65 +426,65 @@
       <p style="font-size: 11px; font-weight: 500; color: #993556; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 12px;">DIY rentals</p>
       <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 40px;">
 
-      <div id="pricing-diy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 20px;">
+      <div id="pricing-diy-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 20px; align-items: start;">
         <div>
           <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">The Flower Bar</h3>
           <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
           <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$49<span style="font-size: 15px; font-weight: 400; color: #6f5f67;">/day</span></p>
-          <ul style="margin: 0; padding-left: 18px; color: #2b2326; line-height: 1.85;">
+          <ul style="margin: 0; color: #2b2326; line-height: 1.85;">
             <li>Bloom bar stand</li>
             <li>Pickup free in La Habra</li>
             <li>Delivery from $14</li>
           </ul>
+          <a href="/book.html" class="btn btn-primary bb-pricing-cta" aria-label="Reserve The Flower Bar — from $49 per day">Reserve Your Bloom Bar</a>
         </div>
-        <div>
+        <div style="background: #fff4f8; border: 1px solid #e9b8c9; border-radius: 12px; padding: 24px;">
+          <span class="bb-pricing-badge">Best Value</span>
           <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Boho Bloom Bundle</h3>
           <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
           <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$84<span style="font-size: 15px; font-weight: 400; color: #6f5f67;">/day</span></p>
-          <ul style="margin: 0; padding-left: 18px; color: #2b2326; line-height: 1.85;">
+          <ul style="margin: 0; color: #2b2326; line-height: 1.85;">
             <li>Bloom bar stand</li>
             <li>Boho umbrella</li>
             <li>Pickup free in La Habra</li>
             <li>Delivery from $14</li>
           </ul>
+          <a href="/book.html" class="btn btn-primary bb-pricing-cta" aria-label="Reserve the Boho Bloom Bundle — from $84 per day">Reserve Your Bloom Bar</a>
         </div>
       </div>
 
       <p style="font-size: 14px; color: #6f5f67; margin: 0 0 36px;">After booking, let us know your umbrella preference — pink striped or cream white — at no extra charge.</p>
 
-      <div style="text-align: center; margin-bottom: 72px;">
-        <a id="pricing-cta-btn" href="/book.html" style="display: inline-block; background: #993556; color: #fff; text-decoration: none; padding: 14px 32px; border-radius: 30px; font-weight: 600; font-size: 16px;">Reserve Your Bloom Bar</a>
-      </div>
-
       <!-- Group 2: Full Flower Packages -->
-      <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 20px;">
-      <p style="font-size: 11px; font-weight: 500; color: #993556; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 12px;">Full flower packages</p>
-      <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 40px;">
-
-      <div id="pricing-pkg-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 24px;">
-        <div>
-          <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Bloom Social</h3>
-          <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
-          <p style="font-size: 13px; color: #6f5f67; margin: 0 0 8px;">10–20 guests</p>
-          <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$725</p>
-          <ul style="margin: 0; padding-left: 18px; color: #2b2326; line-height: 1.85;">
-            <li>Full bloom bar setup</li>
-            <li>Flowers sourced and arranged</li>
-            <li>Delivery, setup, and breakdown</li>
-          </ul>
-          <a href="#reserve" class="pricing-contact-link" style="display: inline-block; margin-top: 20px; color: #3d1a2e; text-decoration: none; font-weight: 600; font-size: 15px;">Contact us to book &#8594;</a>
-        </div>
-        <div>
-          <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Bloom Celebration</h3>
-          <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
-          <p style="font-size: 13px; color: #6f5f67; margin: 0 0 8px;">20–35 guests</p>
-          <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$995</p>
-          <ul style="margin: 0; padding-left: 18px; color: #2b2326; line-height: 1.85;">
-            <li>Full bloom bar setup</li>
-            <li>Flowers sourced and arranged</li>
-            <li>Delivery, setup, and breakdown</li>
-          </ul>
-          <a href="#reserve" class="pricing-contact-link" style="display: inline-block; margin-top: 20px; color: #3d1a2e; text-decoration: none; font-weight: 600; font-size: 15px;">Contact us to book &#8594;</a>
+      <div style="padding-top: 48px; margin-top: 48px; border-top: 1px solid #ecd7e1;">
+        <p style="font-size: 13px; font-weight: 700; color: #b32566; letter-spacing: 2.5px; text-transform: uppercase; margin: 0 0 24px;">Full flower packages</p>
+        <div class="bb-pricing-section-full" style="background: #fff3f7; border-radius: 14px; padding: 32px;">
+          <div id="pricing-pkg-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 0; align-items: start;">
+            <div>
+              <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Bloom Social</h3>
+              <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
+              <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 4px; line-height: 1;">$725</p>
+              <p style="font-size: 13px; color: #6f5f67; margin: 0 0 20px;">Starting at $725 for 10&ndash;20 guests</p>
+              <ul style="margin: 0; color: #2b2326; line-height: 1.85;">
+                <li>Full bloom bar setup</li>
+                <li>Flowers sourced and arranged</li>
+                <li>Delivery, setup, and breakdown</li>
+              </ul>
+              <a href="/book.html" class="btn btn-primary bb-pricing-cta" aria-label="Reserve Bloom Social package — starting at $725">Reserve Your Bloom Bar</a>
+            </div>
+            <div>
+              <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Bloom Celebration</h3>
+              <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
+              <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 4px; line-height: 1;">$995</p>
+              <p style="font-size: 13px; color: #6f5f67; margin: 0 0 20px;">Starting at $995 for 20&ndash;35 guests</p>
+              <ul style="margin: 0; color: #2b2326; line-height: 1.85;">
+                <li>Full bloom bar setup</li>
+                <li>Flowers sourced and arranged</li>
+                <li>Delivery, setup, and breakdown</li>
+              </ul>
+              <a href="/book.html" class="btn btn-primary bb-pricing-cta" aria-label="Reserve Bloom Celebration package — starting at $995">Reserve Your Bloom Bar</a>
+            </div>
+          </div>
         </div>
       </div>
 
