@@ -122,8 +122,8 @@ section { padding: 2.5rem 0; }
 .trust-row span { padding: 0; }
 .trust-row span + span::before { content: "·"; margin: 0 .5rem; color: var(--border); }
 
-.hero-image-card { margin: 0; background: transparent; border-radius: 1.2rem; overflow: hidden; }
-.hero-image-card img { display: block; width: 100%; aspect-ratio: 3 / 2; max-height: 420px; object-fit: cover; border-radius: 1.2rem; }
+.hero-image-card { margin: 0; background: transparent; border-radius: 1.2rem; overflow: hidden; width: 100%; }
+.hero-image-card img { display: block; width: 100%; aspect-ratio: 3 / 2; max-height: 420px; object-fit: cover; object-position: center top; border-radius: 1.2rem; }
 .hero-image-card figcaption { padding: .5rem .25rem 0; color: var(--muted); font-size: .88rem; }
 
 .section-heading { max-width: 700px; margin-bottom: 1.6rem; }
@@ -405,6 +405,7 @@ small { color: var(--muted); }
   .pricing-card.featured { order: -1; }
 
   .trust-row { font-size: .88rem; }
+  .hero-image-card img { object-position: center 15%; max-height: 420px; width: 100%; }
 }
 
 @keyframes mobile-menu-enter {
