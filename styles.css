@@ -407,6 +407,7 @@ small { color: var(--muted); }
   .trust-row { font-size: .88rem; }
   .hero-image-card { width: 100%; border-radius: 0.75rem; }
   .hero-image-card img { width: 100%; height: auto; max-height: none; }
+  .footer-nav { flex-wrap: wrap; gap: 0.75rem; }
 }
 
 @keyframes mobile-menu-enter {
@@ -452,7 +453,7 @@ a.pricing-card-link:focus-visible .pricing-card {
 .footer-service { color: var(--muted); font-size: .9rem; }
 .footer-contact { color: var(--muted); font-size: .9rem; }
 .footer-nav { display: flex; gap: 1rem; flex-wrap: wrap; font-size: .9rem; }
-.footer-nav a { color: var(--accent-dark); text-decoration: none; font-weight: 600; }
+.footer-nav a { color: var(--accent-dark); text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; min-height: 44px; }
 .footer-nav a:hover { text-decoration: underline; }
 .footer-legal { color: var(--muted); font-size: .82rem; margin-top: .4rem; }
 .footer-built { color: var(--muted); font-size: .82rem; }
