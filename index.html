@@ -859,11 +859,6 @@ document.addEventListener('focusin', function() {
   document.getElementById('bb-input').addEventListener('keydown', function (e) {
     if (e.key === 'Enter') handleInput(e.target.value);
   });
-  setTimeout(function() {
-    var g = document.getElementById('bb-greeting');
-    if (g) g.style.display = 'block';
-  }, 5000);
-
   document.getElementById('bb-chat-btn').addEventListener('click', function() {
     var g = document.getElementById('bb-greeting');
     if (g) g.style.display = 'none';
