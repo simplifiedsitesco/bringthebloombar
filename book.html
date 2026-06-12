@@ -1649,8 +1649,8 @@ function updateConfirmLine() {
 
 // Package pricing lookup
 var pkgPricing = {
-  'bloom-social':      { essential: 725, lush: 925, depositEssential: 150, depositLush: 200 },
-  'bloom-celebration': { essential: 995, lush: 1250, depositEssential: 200, depositLush: 250 }
+  'bloom-social':      { essential: 725, lush: 925, depositEssential: 100, depositLush: 100 },
+  'bloom-celebration': { essential: 995, lush: 1250, depositEssential: 100, depositLush: 100 }
 };
 
 // ---- Progress bar rendering ----
@@ -2103,7 +2103,7 @@ function buildQuote() {
   lines.forEach(function(l) {
     var amountStr;
     if (l.amount === null) amountStr = '';
-    else if (l.free || l.amount === 0) amountStr = '<span style="color:#6b9e6b;">Free</span>';
+    else if (l.free || l.amount === 0) amountStr = '<span style="color:#b32566;">Free</span>';
     else amountStr = '$' + l.amount;
     html += '<div class="bk-line-item"><span>' + l.label + '</span><span>' + amountStr + '</span></div>';
   });
