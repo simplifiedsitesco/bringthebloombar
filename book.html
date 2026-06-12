@@ -539,6 +539,15 @@
     font-style: italic;
     margin: 0 0 16px;
   }
+  /* Override .bk-exp-grid .bk-card { border: transparent !important } for the featured card */
+  .bb-experience-grid .bk-card[data-exp="full"] {
+    background: #fff4f8 !important;
+    border: 1px solid #e9b8c9 !important;
+  }
+  .bb-experience-grid .bk-card[data-exp="full"][aria-checked="true"] {
+    border: 1.5px solid #d4537e !important;
+    background: #fdf6f9 !important;
+  }
   @media (max-width: 767px) {
     .bb-experience-grid {
       grid-template-columns: 1fr !important;
@@ -580,7 +589,7 @@
         <p class="bk-card-desc">You choose the blooms, we deliver the bar, set it up, and break it down. Your guests do the arranging &mdash; the fun part.</p>
         <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $49/day</p>
       </button>
-      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="full" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)" style="background:#fff4f8;border:1px solid #e9b8c9;">
+      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="full" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
         <span class="bb-badge">Most popular</span>
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
         <p class="bk-card-title">We Handle Everything</p>
