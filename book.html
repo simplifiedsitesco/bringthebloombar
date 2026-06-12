@@ -1122,100 +1122,6 @@
   </section>
 
   <!-- ===================== STEP 4 ===================== -->
-  <section id="step-5" class="bk-step" aria-live="polite">
-    <p class="bk-confirm-line" id="confirm-s5" aria-live="polite"></p>
-    <p class="bk-eyebrow" id="step5-eyebrow">Step 3 &mdash; Complete the Look</p>
-    <h2 class="bk-h1">Complete the look.</h2>
-    <p class="bk-subtext">Your florals are set. Want to complete the look with backdrops, seating, and ambience? Everything here is optional.</p>
-
-    <p class="bk-section-label">Statement Pieces</p>
-    <div class="bk-addon-grid" id="addon-grid">
-      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-pink-backdrop" onclick="toggleAddon('addon-pink-backdrop','Pink Flower Backdrop',125)">
-        <div class="bk-addon-img">Pink Flower Backdrop</div>
-        <p class="bk-addon-name">Pink Flower Backdrop</p>
-        <p class="bk-addon-price">$125/day</p>
-      </button>
-      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-white-backdrop" onclick="toggleAddon('addon-white-backdrop','White Flower Backdrop',115)">
-        <div class="bk-addon-img">White Flower Backdrop</div>
-        <p class="bk-addon-name">White Flower Backdrop</p>
-        <p class="bk-addon-price">$115/day</p>
-      </button>
-      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-green-backdrop" onclick="toggleAddon('addon-green-backdrop','Green Backdrop',95)">
-        <div class="bk-addon-img">Green Backdrop</div>
-        <p class="bk-addon-name">Green Backdrop</p>
-        <p class="bk-addon-price">$95/day</p>
-      </button>
-      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-bar-cart" onclick="toggleAddon('addon-bar-cart','Bar Cart',85)">
-        <div class="bk-addon-img">Bar Cart</div>
-        <p class="bk-addon-name">Bar Cart</p>
-        <p class="bk-addon-price">$85/day</p>
-      </button>
-      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-champagne-wall" onclick="toggleAddon('addon-champagne-wall','Champagne Wall',75)">
-        <div class="bk-addon-img">Champagne Wall</div>
-        <p class="bk-addon-name">Champagne Wall</p>
-        <p class="bk-addon-price">$75/day</p>
-      </button>
-      <button class="bk-addon-card" role="button" aria-pressed="false" id="addon-scissors" onclick="toggleAddon('addon-scissors','Scissors (Set of 4)',6)">
-        <div class="bk-addon-img">Scissors &times;4</div>
-        <p class="bk-addon-name">Scissors (Set of 4)</p>
-        <p class="bk-addon-price">$6</p>
-      </button>
-    </div>
-
-    <p class="bk-section-label">Tables, Seating &amp; Ambience</p>
-
-    <div id="qty-chairs" class="bk-qty-row">
-      <div class="bk-qty-info">
-        <p class="bk-qty-name">Wood Resin Chairs</p>
-        <p class="bk-qty-price">$8/each</p>
-      </div>
-      <div class="bk-qty-ctrl">
-        <button class="bk-qty-btn" aria-label="Decrease Wood Resin Chairs" onclick="updateQty('qty-chairs',-1,30,'Wood Resin Chairs',8)">&#8722;</button>
-        <span class="bk-qty-val" id="qty-chairs-val" aria-live="polite">0</span>
-        <button class="bk-qty-btn" aria-label="Increase Wood Resin Chairs" onclick="updateQty('qty-chairs',1,30,'Wood Resin Chairs',8)">&#43;</button>
-      </div>
-    </div>
-    <div id="qty-tables" class="bk-qty-row">
-      <div class="bk-qty-info">
-        <p class="bk-qty-name">Plastic Tables</p>
-        <p class="bk-qty-price">$18/each</p>
-      </div>
-      <div class="bk-qty-ctrl">
-        <button class="bk-qty-btn" aria-label="Decrease Plastic Tables" onclick="updateQty('qty-tables',-1,10,'Plastic Tables',18)">&#8722;</button>
-        <span class="bk-qty-val" id="qty-tables-val" aria-live="polite">0</span>
-        <button class="bk-qty-btn" aria-label="Increase Plastic Tables" onclick="updateQty('qty-tables',1,10,'Plastic Tables',18)">&#43;</button>
-      </div>
-    </div>
-    <div id="qty-lamps" class="bk-qty-row">
-      <div class="bk-qty-info">
-        <p class="bk-qty-name">Cordless Table Lamps</p>
-        <p class="bk-qty-price">$12/each</p>
-      </div>
-      <div class="bk-qty-ctrl">
-        <button class="bk-qty-btn" aria-label="Decrease Cordless Table Lamps" onclick="updateQty('qty-lamps',-1,20,'Cordless Table Lamps',12)">&#8722;</button>
-        <span class="bk-qty-val" id="qty-lamps-val" aria-live="polite">0</span>
-        <button class="bk-qty-btn" aria-label="Increase Cordless Table Lamps" onclick="updateQty('qty-lamps',1,20,'Cordless Table Lamps',12)">&#43;</button>
-      </div>
-    </div>
-    <div id="qty-candles" class="bk-qty-row">
-      <div class="bk-qty-info">
-        <p class="bk-qty-name">Candle Holders</p>
-        <p class="bk-qty-price">$8/each</p>
-      </div>
-      <div class="bk-qty-ctrl">
-        <button class="bk-qty-btn" aria-label="Decrease Candle Holders" onclick="updateQty('qty-candles',-1,20,'Candle Holders',8)">&#8722;</button>
-        <span class="bk-qty-val" id="qty-candles-val" aria-live="polite">0</span>
-        <button class="bk-qty-btn" aria-label="Increase Candle Holders" onclick="updateQty('qty-candles',1,20,'Candle Holders',8)">&#43;</button>
-      </div>
-    </div>
-
-    <button class="bk-skip-link" id="skip-addons" onclick="step4Next()">Nothing to add — skip this step</button>
-    <div class="bk-cta-row">
-      <button class="bk-btn" onclick="step4Next()">Add to my quote</button>
-      <button class="bk-back" id="step4-back" aria-label="Go back to previous step" onclick="step4Back()">&larr; Back</button>
-    </div>
-  </section>
-
   <!-- ===================== STEP 6 — Details ===================== -->
   <section id="step-6" class="bk-step" aria-live="polite">
     <p class="bk-confirm-line" id="confirm-s6" aria-live="polite"></p>
@@ -1318,7 +1224,6 @@
         <input type="hidden" name="package-price"   id="hf-package-price">
         <input type="hidden" name="color-palette"   id="hf-palette">
         <input type="hidden" name="arrangement-style" id="hf-style">
-        <input type="hidden" name="addons"          id="hf-addons">
         <input type="hidden" name="estimated-total" id="hf-total">
         <input type="hidden" name="delivery-cost"   id="hf-delivery">
         <input type="hidden" name="deposit-amount"  value="$100">
@@ -1657,12 +1562,12 @@ function renderProgress() {
   var steps, dispIdx;
 
   if (state.experience === 'full') {
-    steps = ['Experience', 'Your Details', 'Package', 'Your Flowers', 'Complete the Look', 'Your Quote'];
-    var fmap = {1:0, 2:1, 3:2, 4:3, 5:4, 6:5, 7:5};
+    steps = ['Experience', 'Your Details', 'Package', 'Your Flowers', 'Your Quote'];
+    var fmap = {1:0, 2:1, 3:2, 4:3, 6:4, 7:4};
     dispIdx = fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
   } else if (state.experience === 'rentals') {
-    steps = ['Experience', 'Your Details', 'Your Rentals', 'Complete the Look', 'Your Quote'];
-    var rmap = {1:0, 2:1, 3:2, 5:3, 6:4, 7:4};
+    steps = ['Experience', 'Your Details', 'Your Rentals', 'Your Quote'];
+    var rmap = {1:0, 2:1, 3:2, 6:3, 7:3};
     dispIdx = rmap[currentStep] !== undefined ? rmap[currentStep] : 0;
   } else {
     // DIY (and initial before experience chosen)
@@ -1719,14 +1624,12 @@ function goToStep(n) {
       1: 'Step 1: Choose your experience',
       3: 'Step 3: Choose your package',
       4: 'Step 4: Choose your colour palette',
-      5: 'Complete the look \u2014 add-ons',
       6: 'Your event details',
       7: 'Your custom quote'
     };
     ann.textContent = labels[n] || ('Step ' + n);
   }
   if (n >= 3) updateConfirmLine();
-  if (n === 5) setupStep4();
   if (n === 6) setupStep5();
   if (n === 7) buildQuote();
   setTimeout(function() {
@@ -1746,19 +1649,19 @@ function getStepsForCurrentPath() {
   if (state.experience === 'diy') {
     return ['step-1', 'diy-products', 'diy-addons'];
   } else if (state.experience === 'full') {
-    return ['step-1', 'step-2-details', 'step-3', 'step-4', 'step-5', 'step-6'];
+    return ['step-1', 'step-2-details', 'step-3', 'step-4', 'step-6'];
   } else if (state.experience === 'rentals') {
-    return ['step-1', 'step-2-details', 'step-3', 'step-5', 'step-6'];
+    return ['step-1', 'step-2-details', 'step-3', 'step-6'];
   }
   return ['step-1'];
 }
 
 function getCurrentStepIndex() {
   if (state.experience === 'full') {
-    var fmap = {1:0, 2:1, 3:2, 4:3, 5:4, 6:5, 7:5};
+    var fmap = {1:0, 2:1, 3:2, 4:3, 6:4, 7:4};
     return fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
   } else if (state.experience === 'rentals') {
-    var rmap = {1:0, 2:1, 3:2, 5:3, 6:4, 7:4};
+    var rmap = {1:0, 2:1, 3:2, 6:3, 7:3};
     return rmap[currentStep] !== undefined ? rmap[currentStep] : 0;
   } else {
     var dmap = {1:0, 2:1, 3:2, 4:3};
@@ -1879,7 +1782,7 @@ function step2Next() {
     return;
   }
   if (state.experience === 'full') goToStep(4);
-  else goToStep(5);
+  else goToStep(6);
 }
 
 // ---- Large event toggle ----
@@ -1959,54 +1862,15 @@ function selectTierCard(tier) {
 function step4Next_flowers() {
   if (!state.palette) { showError('step4-palette-error'); return; }
   if (!state.tier) { showError('step4-tier-error'); return; }
-  goToStep(5);
-}
-
-// ---- Add-ons setup (step-5) ----
-function setupStep4() {
-  var eyebrow = document.getElementById('step5-eyebrow');
-  if (eyebrow) {
-    if (state.experience === 'full') eyebrow.textContent = 'Step 5 \u2014 Complete the Look';
-    else if (state.experience === 'rentals') eyebrow.textContent = 'Step 4 \u2014 Complete the Look';
-    else eyebrow.textContent = 'Complete the Look';
-  }
-  var scissors = document.getElementById('addon-scissors');
-  if (scissors) scissors.style.display = state.experience === 'rentals' ? 'none' : '';
-  if (state.experience === 'rentals' && state.pkg) {
-    var pkgToAddon = {
-      'pink-backdrop': 'addon-pink-backdrop', 'white-backdrop': 'addon-white-backdrop',
-      'green-backdrop': 'addon-green-backdrop', 'bar-cart': 'addon-bar-cart', 'champagne-wall': 'addon-champagne-wall'
-    };
-    var addonPrices = {
-      'addon-pink-backdrop': 125, 'addon-white-backdrop': 115, 'addon-green-backdrop': 95,
-      'addon-bar-cart': 85, 'addon-champagne-wall': 75
-    };
-    var addonNames = {
-      'addon-pink-backdrop': 'Pink Flower Backdrop', 'addon-white-backdrop': 'White Flower Backdrop',
-      'addon-green-backdrop': 'Green Backdrop', 'addon-bar-cart': 'Bar Cart', 'addon-champagne-wall': 'Champagne Wall'
-    };
-    var addonId = pkgToAddon[state.pkg];
-    if (addonId && !state.addons[addonId]) {
-      state.addons[addonId] = { name: addonNames[addonId], price: addonPrices[addonId] };
-      var el = document.getElementById(addonId);
-      if (el) el.setAttribute('aria-pressed','true');
-    }
-  }
-}
-
-function step4Next() { goToStep(6); }
-
-function step4Back() {
-  if (state.experience === 'full') goToStep(4);
-  else goToStep(3);
+  goToStep(6);
 }
 
 // ---- Event Details (step-6) ----
 function setupStep5() {
   var eyebrow = document.getElementById('step6-eyebrow');
   if (eyebrow) {
-    if (state.experience === 'full') eyebrow.textContent = 'Step 6 \u2014 Event Details';
-    else if (state.experience === 'rentals') eyebrow.textContent = 'Step 5 \u2014 Event Details';
+    if (state.experience === 'full') eyebrow.textContent = 'Step 5 \u2014 Event Details';
+    else if (state.experience === 'rentals') eyebrow.textContent = 'Step 4 \u2014 Event Details';
     else eyebrow.textContent = 'Event Details';
   }
   // Pre-fill event date if already collected in step-2-details
@@ -2040,7 +1904,10 @@ function step5Next() {
   goToStep(7);
 }
 
-function step5Back() { goToStep(5); }
+function step5Back() {
+  if (state.experience === 'full') goToStep(4);
+  else goToStep(3);
+}
 
 // ---- Quote (step-7) ----
 function buildQuote() {
@@ -2070,26 +1937,6 @@ function buildQuote() {
     };
     lines.push({ label: paletteLabels[state.palette] || state.palette, amount: null });
   }
-  Object.keys(state.addons).forEach(function(id) {
-    var a = state.addons[id];
-    lines.push({ label: a.name, amount: a.price });
-    total += a.price;
-  });
-  var qtyMeta = {
-    'qty-chairs': { name: 'Wood Resin Chairs', price: 8 },
-    'qty-tables': { name: 'Plastic Tables', price: 18 },
-    'qty-lamps': { name: 'Cordless Table Lamps', price: 12 },
-    'qty-candles': { name: 'Candle Holders', price: 8 }
-  };
-  Object.keys(state.quantities).forEach(function(id) {
-    var qty = state.quantities[id];
-    if (qty > 0 && qtyMeta[id]) {
-      var m = qtyMeta[id];
-      var lineTotal = m.price * qty;
-      lines.push({ label: m.name + ' \u00d7' + qty, amount: lineTotal });
-      total += lineTotal;
-    }
-  });
   var deliveryLabel = state.deliveryCityLabel || state.deliveryCity || '';
   if (state.deliveryCost > 0) {
     lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: state.deliveryCost });
@@ -2130,7 +1977,7 @@ function buildQuote() {
     if (finalNote) finalNote.textContent = 'We\'ll confirm your booking and send a full invoice within 2 hours.';
   }
   var s6eyebrow = document.querySelector('#step-7 .bk-eyebrow');
-  var s6stepNum = state.experience === 'full' ? 6 : (state.experience === 'rentals' ? 5 : 4);
+  var s6stepNum = state.experience === 'full' ? 5 : 4;
   if (s6eyebrow) s6eyebrow.textContent = 'Step ' + s6stepNum + ' \u2014 Your Quote';
 }
 
@@ -2149,13 +1996,6 @@ function finalCta() {
 }
 
 function submitRentalsForm() {
-  var addonNames = Object.values(state.addons).map(function(a){ return a.name; }).join(', ');
-  var qtyParts = [];
-  var qtyMeta2 = { 'qty-chairs':'Wood Resin Chairs','qty-tables':'Plastic Tables','qty-lamps':'Cordless Table Lamps','qty-candles':'Candle Holders' };
-  Object.keys(state.quantities).forEach(function(id){
-    if (state.quantities[id] > 0) qtyParts.push(qtyMeta2[id] + ' x' + state.quantities[id]);
-  });
-  var allAddons = [addonNames, qtyParts.join(', ')].filter(Boolean).join('; ');
   var params = new URLSearchParams({
     'form-name': 'book-inquiry',
     name: state.customerName || state.email || '',
@@ -2164,7 +2004,6 @@ function submitRentalsForm() {
     'guest-count': '',
     experience: state.experience,
     package: state.pkg,
-    addons: allAddons,
     'delivery-city': state.deliveryCityLabel || state.deliveryCity || state.cityName,
     total: calculateTotal()
   });
@@ -2182,11 +2021,6 @@ function submitRentalsForm() {
 
 function calculateTotal() {
   var t = state.pkgPrice || 0;
-  Object.values(state.addons).forEach(function(a){ t += a.price; });
-  var qtyMeta3 = { 'qty-chairs':8,'qty-tables':18,'qty-lamps':12,'qty-candles':8 };
-  Object.keys(state.quantities).forEach(function(id){
-    t += (state.quantities[id] || 0) * (qtyMeta3[id] || 0);
-  });
   t += state.deliveryCost || 0;
   return t;
 }
@@ -2397,7 +2231,6 @@ setTimeout(hideScissorsQuantity, 3000);
       set('hf-package-price', s.pkgPrice ? '$' + s.pkgPrice : '');
       set('hf-palette',       PALETTE_LABELS[s.palette] || s.palette);
       set('hf-style',         s.tier ? s.tier.charAt(0).toUpperCase() + s.tier.slice(1) : '');
-      set('hf-addons',        getAddonsString());
       set('hf-total',         '$' + (typeof calculateTotal === 'function' ? calculateTotal() : 0));
       set('hf-delivery',      s.deliveryCost ? '$' + s.deliveryCost : '');
     } catch(e) {
@@ -2621,19 +2454,6 @@ setTimeout(hideScissorsQuantity, 3000);
           // Palette
           var palDisplay = PALETTE_LABELS[s.palette] || s.palette;
           if (palDisplay) addLineItem('Color Palette: ' + palDisplay, '');
-
-          // Addons
-          Object.values(s.addons || {}).forEach(function(a) {
-            addLineItem(a.name, a.price ? '$' + a.price : '');
-          });
-          var qtyMeta2 = { 'qty-chairs':{ name:'Wood Resin Chairs', price:8 }, 'qty-tables':{ name:'Plastic Tables', price:18 }, 'qty-lamps':{ name:'Cordless Table Lamps', price:12 }, 'qty-candles':{ name:'Candle Holders', price:8 } };
-          Object.keys(s.quantities || {}).forEach(function(id) {
-            var qty = s.quantities[id];
-            if (qty > 0 && qtyMeta2[id]) {
-              var m = qtyMeta2[id];
-              addLineItem(m.name + ' \u00d7' + qty, '$' + (m.price * qty));
-            }
-          });
 
           // Delivery
           var cityLabel = s.deliveryCityLabel || s.cityName || s.deliveryCity || '';
