@@ -253,7 +253,17 @@
 </section>
 
 <style>
+  #testimonial-grid {
+    align-items: start;
+  }
+  #testimonial-grid blockquote p {
+    font-size: 20px !important;
+    line-height: 1.7;
+  }
   @media (max-width: 767px) {
+    section[aria-label="Customer testimonials"] {
+      padding-top: 56px !important;
+    }
     #testimonial-grid {
       grid-template-columns: 1fr !important;
       gap: 40px !important;
@@ -262,17 +272,17 @@
     #testimonial-grid figcaption {
       justify-content: center;
     }
-    #testimonial-grid p {
-      font-size: 20px !important;
+    #testimonial-grid blockquote p {
+      font-size: 18px !important;
     }
   }
 </style>
-<section aria-label="Customer testimonials" style="padding: 100px 40px; background: #3d1a2e">
+<section aria-label="Customer testimonials" style="padding: 80px 40px; background: #3d1a2e">
   <div style="max-width: 700px; margin: 0 auto; text-align: center">
 
     <p style="font-size: 11px; font-weight: 500; color: #f4c0d1; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 40px">What our clients are saying</p>
 
-    <div id="testimonial-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;text-align:left;">
+    <div id="testimonial-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;text-align:left;align-items:start;">
 
       <figure style="margin:0;">
         <div role="img" aria-label="5 out of 5 stars" style="display:flex;gap:4px;margin-bottom:16px;">
@@ -287,7 +297,7 @@
         </blockquote>
         <figcaption style="display:flex;align-items:center;gap:16px;">
           <div style="width:40px;height:1px;background:#f4c0d1;" role="presentation"></div>
-          <p style="font-size:13px;color:#f4c0d1;margin:0;letter-spacing:1.5px;text-transform:uppercase;">Verified Customer &nbsp;·&nbsp; Orange County, CA</p>
+          <p style="font-size:13px;color:#f4c0d1;margin:0;letter-spacing:1.5px;text-transform:uppercase;">Verified Customer &nbsp;·&nbsp; Orange County</p>
         </figcaption>
       </figure>
 
