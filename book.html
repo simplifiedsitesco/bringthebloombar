@@ -1299,8 +1299,8 @@
     </div>
 
     <div class="bb-quote-form-wrap">
-      <p class="bb-form-headline">Want this quote in your inbox?</p>
-      <p class="bb-form-sub">Enter your email and we'll send your full quote instantly — plus a reminder before your event date.</p>
+      <p class="bb-form-headline">Save your details</p>
+      <p class="bb-form-sub">Enter your email and we'll be in touch to confirm your booking details.</p>
 
       <form name="bloom-bar-quote"
         method="POST"
@@ -1343,11 +1343,11 @@
             <button type="submit"
               id="bb-send-btn"
               class="btn btn-ghost bb-send-btn"
-              aria-label="Send quote to your email address">
-              Send My Quote
+              aria-label="Save your contact details for booking follow-up">
+              Save My Details
             </button>
           </div>
-          <p id="bb-email-hint" class="bb-email-hint">We never share your email. Unsubscribe anytime.</p>
+          <p id="bb-email-hint" class="bb-email-hint">We'll use this to follow up on your booking.</p>
         </div>
 
         <div id="bb-form-status"
@@ -2472,7 +2472,7 @@ setTimeout(hideScissorsQuantity, 3000);
       })
       .then(function(res) {
         if (!res.ok) throw new Error('Network error');
-        status.innerHTML = '<p class="bb-status-success">\u2713 Quote sent to ' + email + '! Check your inbox. We\u2019ll also follow up via text within 24 hours.</p>';
+        status.innerHTML = '<p class="bb-status-success">\u2713 Details saved! We\u2019ll follow up via text within 24 hours to confirm everything.</p>';
         sendBtn.textContent = '\u2713 Sent!';
         sendBtn.setAttribute('aria-label', 'Quote sent successfully');
       })
@@ -2480,7 +2480,7 @@ setTimeout(hideScissorsQuantity, 3000);
         status.innerHTML = '<p class="bb-status-error" role="alert">Something went wrong. Please try again or call us at <a href="tel:+17142516478">(714) 251-6478</a>.</p>';
         sendBtn.disabled = false;
         sendBtn.removeAttribute('aria-busy');
-        sendBtn.textContent = 'Send My Quote';
+        sendBtn.textContent = 'Save My Details';
       });
     });
   }
@@ -2492,7 +2492,7 @@ setTimeout(hideScissorsQuantity, 3000);
     script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
     script.onload = callback;
     script.onerror = function() {
-      alert('Could not load PDF generator. Please use \u201cSend My Quote\u201d to receive your quote by email, or call us at (714) 251-6478.');
+      alert('Could not load PDF generator. Please use \u201cSave My Details\u201d or call us at (714) 251-6478.');
     };
     document.head.appendChild(script);
   }
@@ -2714,7 +2714,7 @@ setTimeout(hideScissorsQuantity, 3000);
           dlBtn.disabled = false;
           dlBtn.removeAttribute('aria-busy');
           dlBtn.textContent = '\u2193 Save Your Quote as PDF';
-          alert('PDF could not be generated. Please use \u201cSend My Quote\u201d to receive your quote by email, or call us at (714) 251-6478.');
+          alert('PDF could not be generated. Please use \u201cSave My Details\u201d or call us at (714) 251-6478.');
         }
       });
     });
