@@ -257,7 +257,7 @@ ul.checks li { margin-bottom: .45rem; }
 /* ─── Image gallery ──────────────────────────── */
 .image-gallery { display: grid; gap: 1rem; }
 .image-card { margin: 0; overflow: hidden; background: #fff; border: 1px solid var(--border); border-radius: 1rem; padding: .6rem; box-shadow: var(--shadow-soft); }
-.image-card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: .75rem; }
+.image-card img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: center center; border-radius: .75rem; }
 .image-card figcaption { margin: .7rem .2rem .2rem; color: var(--muted); font-size: .95rem; }
 
 /* City image on location pages — full width */
