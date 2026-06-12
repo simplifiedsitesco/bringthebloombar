@@ -519,42 +519,82 @@
     <input name="experience"><input name="package"><input name="addons"><input name="delivery-city"><input name="total">
   </form>
 
+  <style>
+  .bb-badge {
+    display: inline-block;
+    background: #f9e4ee;
+    color: #861a4a;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .bb-highlight {
+    font-size: 14px;
+    font-weight: 700;
+    color: #861a4a;
+    font-style: italic;
+    margin: 0 0 16px;
+  }
+  @media (max-width: 767px) {
+    .bb-experience-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+    .bb-experience-grid .card,
+    .bb-experience-grid [class*="card"] {
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+    .bb-badge {
+      font-size: 10px;
+      padding: 3px 8px;
+    }
+    .bb-highlight {
+      font-size: 13px;
+    }
+    .bb-card-title {
+      font-size: 20px !important;
+    }
+    .bb-card-body {
+      font-size: 15px !important;
+    }
+  }
+  </style>
+
   <!-- ===================== STEP 1 — Experience Selection ===================== -->
   <section id="step-1" class="bk-step active" aria-live="polite">
     <p class="bk-eyebrow" style="color:#d4537e;">Book Your Experience</p>
     <h1 class="bk-h1">Your event. Beautifully styled.</h1>
-    <p id="step1-question" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#3d1a2e;margin:0 0 0.5rem;">What kind of experience are you planning?</p>
-    <p style="font-family:'Inter',sans-serif;font-size:13px;color:#6b4c5e;margin:0 0 0.75rem;">Choose your path below &mdash; explore everything before committing to anything.</p>
-    <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#7a5a6a;margin:0 0 2rem;">Trusted by hosts across Orange County and LA County for showers, birthdays, and corporate events.</p>
+    <p id="step1-question" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#3d1a2e;margin:0 0 0.5rem;">Two ways to bring the bloom bar to your event.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#7a5a6a;margin:0 0 2rem;">Hosts across Orange County and LA County choose us for showers, birthdays, weddings, and corporate events.</p>
 
-    <div class="bk-exp-grid" role="radiogroup" aria-labelledby="step1-question">
+    <div class="bk-exp-grid bb-experience-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;" role="radiogroup" aria-labelledby="step1-question">
       <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-exp="diy" onclick="selectExperienceS1('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
         <p class="bk-card-label">DIY BLOOM BAR</p>
-        <p class="bk-card-title">Rent the Bar</p>
+        <p class="bk-card-title">DIY Bloom Bar Rental</p>
         <hr class="bk-card-rule">
-        <p class="bk-card-desc">You bring the flowers &mdash; we deliver and style the bar, set everything up, and break it down after.</p>
+        <p class="bk-card-desc">You choose the blooms, we deliver the bar, set it up, and break it down. Your guests do the arranging &mdash; the fun part.</p>
         <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $49/day</p>
       </button>
-      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="full" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
+      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="full" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)" style="background:#fff4f8;border:1px solid #e9b8c9;">
+        <span class="bb-badge">Most popular</span>
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
         <p class="bk-card-title">We Handle Everything</p>
         <hr class="bk-card-rule">
-        <p class="bk-card-desc">From flowers to setup to breakdown &mdash; everything is handled for you. All you do is show up.</p>
+        <p class="bk-card-desc">From flowers to setup to breakdown &mdash; everything is handled for you.</p>
+        <p class="bb-highlight">All you do is show up.</p>
         <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $725</p>
-      </button>
-      <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-exp="rentals" onclick="selectExperienceS1('rentals')" onkeydown="rovingKey(event,'step1-rg',2)">
-        <p class="bk-card-label">EVENT RENTALS ONLY</p>
-        <p class="bk-card-title">Rentals Only</p>
-        <hr class="bk-card-rule">
-        <p class="bk-card-desc">Style your event with backdrops, seating, and ambient lighting &mdash; no bloom bar required.</p>
-        <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $8/item</p>
       </button>
     </div>
 
     <p class="bk-error" id="step1-exp-error" role="alert" aria-atomic="true">Please choose an experience above to continue.</p>
 
     <div class="bk-cta-row">
-      <button class="bk-btn" id="step1-exp-btn" aria-disabled="true" onclick="experienceS1Next()">Choose my experience &rarr;</button>
+      <button class="bk-btn" id="step1-exp-btn" aria-disabled="true" aria-label="Reserve your bloom bar experience" onclick="experienceS1Next()" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;">Reserve Your Bloom Bar</button>
     </div>
   </section>
 
