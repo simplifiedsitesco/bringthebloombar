@@ -592,6 +592,47 @@
   @media (min-width:480px) and (max-width:767px) {
     .bb-collection-grid { grid-template-columns:1fr 1fr; }
   }
+
+  /* ── Lead capture (step-7 email gate) ──────────────────────── */
+  .bb-lead-capture { background:#fff3f7; border:1px solid #ecd7e1; border-radius:14px; padding:24px; margin:24px 0; }
+  .bb-lead-title { font-size:15px; font-weight:700; color:#3d1a2e; margin:0 0 6px; font-family:'Inter',sans-serif; }
+  .bb-lead-sub { font-size:13px; color:#7a5a6a; margin:0 0 20px; font-family:'Inter',sans-serif; line-height:1.5; }
+  .bb-lead-label { display:block; font-size:11px; font-weight:600; color:#7a5a6a; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:8px; font-family:'Inter',sans-serif; }
+  .bb-email-row { display:flex; gap:10px; align-items:stretch; }
+  .bb-lead-input { flex:1; padding:10px 14px; font-size:16px; border:1.5px solid #ecd7e1; border-radius:8px; color:#3d1a2e; background:#fff; min-height:48px; font-family:'Inter',sans-serif; -webkit-appearance:none; }
+  .bb-lead-input:focus { outline:3px solid #b32566; outline-offset:2px; border-color:#b32566; }
+  .bb-lead-hint { font-size:11px; color:#7a5a6a; margin:6px 0 0; font-family:'Inter',sans-serif; }
+  .bb-lead-submit { min-height:48px; padding:10px 18px; white-space:nowrap; flex-shrink:0; font-size:13px; }
+  .bb-lead-submit:focus-visible { outline:3px solid #b32566; outline-offset:3px; }
+  .bb-lead-status { margin-top:10px; font-family:'Inter',sans-serif; font-size:13px; }
+  .bb-status-error { color:#b91c1c; margin:0; }
+  .bb-status-error a { color:#b91c1c; font-weight:600; }
+
+  /* ── PDF unlock section ─────────────────────────────────────── */
+  .bb-pdf-unlocked { text-align:center; padding:8px 0 4px; }
+  .bb-unlock-success { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:16px; }
+  .bb-unlock-check { font-size:18px; color:#d4537e; font-weight:700; margin:0; line-height:1; }
+  .bb-unlock-msg { font-size:14px; font-weight:600; color:#3d1a2e; margin:0; font-family:'Inter',sans-serif; }
+  .bb-pdf-btn { display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:48px; background:#fff; border:1.5px solid #d4537e; border-radius:30px; color:#d4537e; font-size:14px; font-weight:600; font-family:'Inter',sans-serif; cursor:pointer; transition:background 0.15s,color 0.15s; margin-bottom:6px; touch-action:manipulation; }
+  .bb-pdf-btn:hover { background:#fbeaf0; }
+  .bb-pdf-btn:focus-visible { outline:3px solid #b32566; outline-offset:3px; }
+  .bb-pdf-btn:disabled { opacity:0.6; cursor:not-allowed; }
+  .bb-pdf-note { font-size:11px; color:#7a5a6a; font-family:'Inter',sans-serif; margin:0; text-align:center; }
+
+  /* ── Deposit + reserve CTA ──────────────────────────────────── */
+  .bb-deposit-btn { display:inline-flex; align-items:center; justify-content:center; min-height:52px; width:100%; text-decoration:none; font-size:15px; font-weight:700; text-align:center; touch-action:manipulation; }
+  .bb-deposit-btn:focus-visible { outline:3px solid #b32566; outline-offset:3px; }
+  .bb-deposit-note { font-size:12px; color:#7a5a6a; text-align:center; margin:8px 0 16px; font-family:'Inter',sans-serif; line-height:1.5; }
+
+  @media (max-width:767px) {
+    .bb-lead-capture { padding:16px; }
+    .bb-email-row { flex-direction:column; gap:10px; }
+    .bb-lead-submit { width:100%; justify-content:center; min-height:52px; font-size:14px; }
+    .bb-lead-input { width:100%; min-height:52px; }
+    .bb-pdf-btn { min-height:52px; font-size:14px; }
+    .bb-deposit-btn { min-height:52px; font-size:14px; }
+    .bb-unlock-msg { font-size:13px; }
+  }
   </style>
 </head>
 <body>
@@ -1378,7 +1419,7 @@
   <section id="step-7" class="bk-step" aria-live="polite">
     <p class="bk-eyebrow">Your Quote</p>
     <h2 class="bk-h1">Your quote.</h2>
-    <p class="bk-subtext">Review everything below. Book when you're ready.</p>
+    <p class="bk-subtext">Review everything below. Book when you&rsquo;re ready.</p>
     <p class="bk-proof">Trusted by hosts across Orange County and LA County for showers, birthdays, and corporate events.</p>
 
     <div class="bk-quote-box" id="quote-box">
@@ -1386,97 +1427,123 @@
       <!-- Populated by JS -->
     </div>
 
-    <div class="bk-reassurance">Everything on your quote includes delivery, setup, and breakdown. You show up — we handle the rest.</div>
+    <div class="bk-reassurance">Everything on your quote includes delivery, setup, and breakdown. You show up &mdash; we handle the rest.</div>
 
     <div id="upsell-nudge" class="bk-upsell" style="display:none;">
-      Most of our rental customers add a bloom bar — it gives guests something to do and something to take home.
+      Most of our rental customers add a bloom bar &mdash; it gives guests something to do and something to take home.
       <br><a href="#" onclick="restartToBloom(event)">Add a bloom bar to your quote</a>
     </div>
 
-    <div class="bb-quote-form-wrap">
-      <p class="bb-form-headline">Save your details</p>
-      <p class="bb-form-sub">Enter your email and we'll be in touch to confirm your booking details.</p>
+    <!-- Email capture + PDF gate -->
+    <div class="bb-lead-capture" id="bb-lead-capture">
+      <div id="bb-lead-form-wrap">
+        <p class="bb-lead-title" id="bb-lead-title">Save your details to download your quote</p>
+        <p class="bb-lead-sub">Enter your email and we&rsquo;ll be in touch to confirm your booking details.</p>
 
-      <form name="bloom-bar-quote"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        id="bb-quote-form"
-        class="bb-quote-form"
-        aria-label="Send quote to your email">
+        <form
+          name="bloom-bar-quote"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          id="bb-quote-form"
+          aria-label="Save booking details and unlock PDF download"
+          novalidate>
 
-        <input type="hidden" name="form-name" value="bloom-bar-quote">
-        <p style="display:none;" aria-hidden="true">
-          <input name="bot-field" tabindex="-1" autocomplete="off">
-        </p>
+          <input type="hidden" name="form-name" value="bloom-bar-quote">
+          <p style="display:none;" aria-hidden="true">
+            <input name="bot-field" tabindex="-1" autocomplete="off">
+          </p>
 
-        <input type="hidden" name="experience"      id="hf-experience">
-        <input type="hidden" name="customer-name"   id="hf-name">
-        <input type="hidden" name="event-date"      id="hf-date">
-        <input type="hidden" name="delivery-city"   id="hf-city">
-        <input type="hidden" name="package"         id="hf-package">
-        <input type="hidden" name="package-price"   id="hf-package-price">
-        <input type="hidden" name="color-palette"   id="hf-palette">
-        <input type="hidden" name="arrangement-style" id="hf-style">
-        <input type="hidden" name="estimated-total" id="hf-total">
-        <input type="hidden" name="delivery-cost"   id="hf-delivery">
-        <input type="hidden" name="deposit-amount"  value="$100">
+          <!-- Hidden fields — populated by JS -->
+          <input type="hidden" name="experience"     id="hf-experience">
+          <input type="hidden" name="customer-name"  id="hf-name">
+          <input type="hidden" name="event-date"     id="hf-date">
+          <input type="hidden" name="delivery-city"  id="hf-city">
+          <input type="hidden" name="collection"     id="hf-collection">
+          <input type="hidden" name="price-per-guest" id="hf-price-per-guest">
+          <input type="hidden" name="guest-count"    id="hf-guest-count">
+          <input type="hidden" name="color-palette"  id="hf-palette">
+          <input type="hidden" name="estimated-total" id="hf-total">
+          <input type="hidden" name="delivery-cost"  id="hf-delivery">
+          <input type="hidden" name="deposit-amount" value="$100">
 
-        <div class="bb-email-field-wrap">
-          <label for="customer-email" class="bb-email-label">Your email address</label>
-          <div class="bb-email-field-row">
-            <input type="email"
-              id="customer-email"
-              name="customer-email"
-              placeholder="your@email.com"
-              class="bb-email-input"
-              autocomplete="email"
-              inputmode="email"
-              aria-required="false"
-              aria-describedby="bb-form-status bb-email-hint">
-            <button type="submit"
-              id="bb-send-btn"
-              class="btn btn-ghost bb-send-btn"
-              aria-label="Save your contact details for booking follow-up">
-              Save My Details
-            </button>
+          <div class="bb-email-field-wrap">
+            <label for="bb-lead-email" class="bb-lead-label">Your email address</label>
+            <div class="bb-email-row">
+              <input
+                type="email"
+                id="bb-lead-email"
+                name="customer-email"
+                placeholder="your@email.com"
+                class="bb-lead-input"
+                autocomplete="email"
+                inputmode="email"
+                aria-required="true"
+                aria-describedby="bb-lead-status bb-lead-hint">
+              <button
+                type="submit"
+                class="bk-btn bb-lead-submit"
+                id="bb-lead-submit-btn"
+                aria-label="Save details and unlock PDF download">
+                Save &amp; Unlock PDF
+              </button>
+            </div>
+            <p id="bb-lead-hint" class="bb-lead-hint">We&rsquo;ll use this to follow up on your booking. We never share your email.</p>
           </div>
-          <p id="bb-email-hint" class="bb-email-hint">We'll use this to follow up on your booking.</p>
-        </div>
 
-        <div id="bb-form-status"
-          role="status"
-          aria-live="polite"
-          aria-atomic="true"
-          class="bb-form-status">
-        </div>
+          <div id="bb-lead-status"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+            class="bb-lead-status">
+          </div>
 
-      </form>
+        </form>
+      </div>
+
+      <!-- PDF unlock — hidden until email submitted -->
+      <div id="bb-pdf-unlocked"
+        class="bb-pdf-unlocked"
+        style="display:none;"
+        aria-live="polite"
+        role="status">
+        <div class="bb-unlock-success">
+          <p class="bb-unlock-check" aria-hidden="true">&#10003;</p>
+          <p class="bb-unlock-msg">Details saved! Your quote PDF is ready.</p>
+        </div>
+        <button
+          type="button"
+          id="bb-download-pdf"
+          class="bb-pdf-btn"
+          aria-label="Download your custom bloom bar quote as a PDF">
+          &#8595; Download My Quote as PDF
+        </button>
+        <p class="bb-pdf-note">Saves instantly to your device</p>
+      </div>
     </div>
 
-    <div class="bk-cta-row">
+    <!-- Reserve + Back -->
+    <div class="bk-cta-row" style="margin-top:24px;">
       <div id="bb-full-actions">
-        <button type="button"
-          id="bb-download-pdf"
-          class="btn btn-ghost bb-pdf-btn"
-          aria-label="Download your custom bloom bar quote as a PDF document">
-          &darr; Save Your Quote as PDF
-        </button>
-        <p class="bb-pdf-note" aria-hidden="true">Saves instantly to your device &mdash; no email needed</p>
         <a href="https://buy.stripe.com/14A7sM8ad6xPgAG1MbfAc03"
           target="_blank"
           rel="noopener noreferrer"
-          class="btn btn-primary bb-deposit-btn"
+          class="bk-btn bb-deposit-btn"
+          id="bb-reserve-btn"
           aria-label="Reserve your bloom bar with a $100 deposit — opens Stripe secure checkout in a new tab">
           Reserve with $100 Deposit &mdash; Secure My Date &rarr;
         </a>
-        <p class="bb-deposit-note"><strong>Secure checkout powered by Stripe.</strong> We'll follow up via text within 24 hours to confirm your final details, delivery, and event logistics.</p>
-        <p class="bb-deposit-reassurance">&#11088;&#11088;&#11088;&#11088;&#11088; Trusted by hosts across Orange County and LA County</p>
+        <p class="bb-deposit-note"><strong>Secure checkout powered by Stripe.</strong> We&rsquo;ll follow up via text within 24 hours to confirm your final details.</p>
       </div>
-      <button class="bk-btn" id="final-cta-btn" onclick="finalCta()">Book now</button>
-      <button class="bk-back" aria-label="Go back to event details" onclick="step6Back()">&larr; Back</button>
+      <button class="bk-btn" id="final-cta-btn" onclick="finalCta()" style="display:none;">Book now</button>
+      <p class="bk-final-note" id="final-note"></p>
+      <button
+        class="bk-back"
+        aria-label="Go back to event details"
+        onclick="step6Back()">
+        &larr; Back
+      </button>
     </div>
-    <p class="bk-final-note" id="final-note"></p>
   </section>
 
 </div>
@@ -2817,277 +2884,279 @@ setTimeout(hideScissorsQuantity, 3000);
     if (step7 && step7.classList.contains('active')) onStep7Shown();
   });
 
-  // ── Netlify form submission ────────────────────────────────
-  var form = document.getElementById('bb-quote-form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      populateHiddenFields();
-      var status  = document.getElementById('bb-form-status');
-      var emailEl = document.getElementById('customer-email');
-      var sendBtn = document.getElementById('bb-send-btn');
-      var email   = emailEl ? emailEl.value.trim() : '';
+})();
 
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        status.innerHTML = '<p class="bb-status-error" role="alert">Please enter a valid email address.</p>';
-        if (emailEl) emailEl.focus();
-        return;
-      }
+// ── PDF GATE — EMAIL CAPTURE ──────────────────────────────────
 
-      sendBtn.disabled = true;
-      sendBtn.setAttribute('aria-busy', 'true');
-      sendBtn.textContent = 'Sending\u2026';
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString()
-      })
-      .then(function(res) {
-        if (!res.ok) throw new Error('Network error');
-        status.innerHTML = '<p class="bb-status-success">\u2713 Details saved! We\u2019ll follow up via text within 24 hours to confirm everything.</p>';
-        sendBtn.textContent = '\u2713 Sent!';
-        sendBtn.setAttribute('aria-label', 'Quote sent successfully');
-      })
-      .catch(function() {
-        status.innerHTML = '<p class="bb-status-error" role="alert">Something went wrong. Please try again or call us at <a href="tel:+17142516478">(714) 251-6478</a>.</p>';
-        sendBtn.disabled = false;
-        sendBtn.removeAttribute('aria-busy');
-        sendBtn.textContent = 'Save My Details';
-      });
-    });
-  }
-
-  // ── Load jsPDF only when download clicked ─────────────────
-  function loadJsPDF(callback) {
-    if (window.jspdf) { callback(); return; }
-    var script = document.createElement('script');
-    script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-    script.onload = callback;
-    script.onerror = function() {
-      alert('Could not load PDF generator. Please use \u201cSave My Details\u201d or call us at (714) 251-6478.');
+function populateLeadFields() {
+  try {
+    var set = function(id, val) {
+      var el = document.getElementById(id);
+      if (el) el.value = val || '';
     };
-    document.head.appendChild(script);
+    set('hf-experience',    state.experience || '');
+    set('hf-name',          state.customerName || '');
+    set('hf-date',          state.eventDate || '');
+    set('hf-city',          state.deliveryCityLabel || state.deliveryCity || state.cityName || '');
+    set('hf-collection',    state.collection || state.pkg || '');
+    set('hf-price-per-guest', state.pricePerGuest ? '$' + state.pricePerGuest + '/guest' : '');
+    set('hf-guest-count',   state.guestCount || '');
+    set('hf-palette',       state.palette || '');
+    set('hf-total',
+      state.collectionTotal
+        ? '$' + state.collectionTotal + ' + $' + (state.deliveryCost || 0) + ' delivery'
+        : state.pkgPrice ? '$' + state.pkgPrice : '');
+    set('hf-delivery',      state.deliveryCost || '');
+  } catch(e) {
+    console.warn('populateLeadFields:', e);
   }
+}
 
-  // ── PDF generation ─────────────────────────────────────────
+// Wire up lead capture form
+(function() {
+  var form = document.getElementById('bb-quote-form');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    populateLeadFields();
+
+    var emailEl   = document.getElementById('bb-lead-email');
+    var submitBtn = document.getElementById('bb-lead-submit-btn');
+    var status    = document.getElementById('bb-lead-status');
+    var email     = emailEl ? emailEl.value.trim() : '';
+
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      if (status) status.innerHTML = '<p class="bb-status-error" role="alert">Please enter a valid email address.</p>';
+      if (emailEl) emailEl.focus();
+      return;
+    }
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+      submitBtn.textContent = 'Saving\u2026';
+    }
+
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(new FormData(form)).toString()
+    })
+    .then(function(res) {
+      if (!res.ok) throw new Error('Network error');
+      var formWrap   = document.getElementById('bb-lead-form-wrap');
+      var pdfUnlocked= document.getElementById('bb-pdf-unlocked');
+      if (formWrap)    formWrap.style.display = 'none';
+      if (pdfUnlocked) {
+        pdfUnlocked.style.display = 'block';
+        pdfUnlocked.setAttribute('tabindex', '-1');
+        pdfUnlocked.focus();
+      }
+      var ann = document.getElementById('step-announcement');
+      if (ann) ann.textContent = 'Details saved. Your PDF download is now available.';
+    })
+    .catch(function() {
+      if (status) status.innerHTML = '<p class="bb-status-error" role="alert">Something went wrong. Please try again or call us at <a href="tel:+17142516478">(714) 251-6478</a>.</p>';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
+        submitBtn.textContent = 'Save \u0026 Unlock PDF';
+      }
+    });
+  });
+})();
+
+function loadAndGeneratePDF() {
   var dlBtn = document.getElementById('bb-download-pdf');
   if (dlBtn) {
-    dlBtn.addEventListener('click', function() {
-      dlBtn.disabled = true;
-      dlBtn.textContent = 'Generating PDF\u2026';
-      dlBtn.setAttribute('aria-busy', 'true');
-
-      loadJsPDF(function() {
-        try {
-          populateHiddenFields();
-          var s      = getState();
-          var jsPDF  = window.jspdf.jsPDF;
-          var doc    = new jsPDF({ unit: 'pt', format: 'letter' });
-          var pink   = [179, 37, 102];
-          var dark   = [43, 35, 38];
-          var muted  = [111, 95, 103];
-          var light  = [249, 228, 238];
-          var W      = doc.internal.pageSize.getWidth();
-          var margin = 56;
-
-          // Header background
-          doc.setFillColor(light[0], light[1], light[2]);
-          doc.rect(0, 0, W, 110, 'F');
-
-          // Logo — load from existing img on page
-          try {
-            var logoEl = document.querySelector('img[src*="logo"]');
-            if (logoEl && logoEl.complete) {
-              var canvas = document.createElement('canvas');
-              canvas.width  = logoEl.naturalWidth;
-              canvas.height = logoEl.naturalHeight;
-              var ctx = canvas.getContext('2d');
-              ctx.drawImage(logoEl, 0, 0);
-              var logoData = canvas.toDataURL('image/png');
-              doc.addImage(logoData, 'PNG', margin, 18, 70, 70);
-            }
-          } catch(e) {}
-
-          // Business info
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(20);
-          doc.setTextColor(pink[0], pink[1], pink[2]);
-          doc.text('Bring the Bloom Bar', margin + 82, 46);
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(10);
-          doc.setTextColor(muted[0], muted[1], muted[2]);
-          doc.text('Bloom Bar Rentals \u00b7 Orange County & LA County', margin + 82, 62);
-          doc.text('(714) 251-6478 \u00b7 lriley@bringthebloombar.com', margin + 82, 76);
-          doc.text('bringthebloombar.com', margin + 82, 90);
-
-          // Quote title
-          var y = 140;
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(24);
-          doc.setTextColor(dark[0], dark[1], dark[2]);
-          doc.text('Your Custom Quote', margin, y);
-          y += 18;
-
-          // Generated date
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(10);
-          doc.setTextColor(muted[0], muted[1], muted[2]);
-          var today = new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
-          doc.text('Generated: ' + today, margin, y);
-          y += 24;
-
-          // Pink divider
-          doc.setDrawColor(pink[0], pink[1], pink[2]);
-          doc.setLineWidth(1.5);
-          doc.line(margin, y, W - margin, y);
-          y += 28;
-
-          // Customer detail rows
-          var addDetail = function(label, val) {
-            if (!val) return;
-            doc.setFont('helvetica', 'bold');
-            doc.setFontSize(9);
-            doc.setTextColor(muted[0], muted[1], muted[2]);
-            doc.text(label.toUpperCase(), margin, y);
-            doc.setFont('helvetica', 'normal');
-            doc.setFontSize(12);
-            doc.setTextColor(dark[0], dark[1], dark[2]);
-            doc.text(String(val), margin, y + 15);
-            y += 36;
-          };
-
-          addDetail('Customer Name', s.customerName || 'Not provided');
-          addDetail('Event Date',    s.eventDate    || 'Not provided');
-          addDetail('Delivery City', s.deliveryCityLabel || s.cityName || s.deliveryCity || 'Not provided');
-
-          // Light divider
-          doc.setDrawColor(236, 215, 225);
-          doc.setLineWidth(0.5);
-          doc.line(margin, y, W - margin, y);
-          y += 24;
-
-          // Quote summary header
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(14);
-          doc.setTextColor(dark[0], dark[1], dark[2]);
-          doc.text('Quote Summary', margin, y);
-          y += 22;
-
-          // Line item helper
-          var addLineItem = function(label, price, isPink) {
-            doc.setFont('helvetica', isPink ? 'bold' : 'normal');
-            doc.setFontSize(11);
-            doc.setTextColor(dark[0], dark[1], dark[2]);
-            var lines = doc.splitTextToSize(label, W - margin * 2 - 80);
-            doc.text(lines, margin, y);
-            if (price) {
-              doc.setTextColor(isPink ? pink[0] : dark[0], isPink ? pink[1] : dark[1], isPink ? pink[2] : dark[2]);
-              doc.text(String(price), W - margin, y, { align: 'right' });
-            }
-            y += (lines.length * 16) + 6;
-          };
-
-          // Package / Collection
-          if (s.experience === 'full') {
-            var COLL_PDF = { 'classic':'Classic Collection','signature':'Signature Collection','luxury':'Luxury Collection' };
-            var collDisplay = COLL_PDF[s.collection] || 'Bloom Bar Collection';
-            if (s.guestCount && s.pricePerGuest) collDisplay += ' \u2014 ' + s.guestCount + ' guests @ $' + s.pricePerGuest + '/guest';
-            addLineItem(collDisplay, s.collectionTotal ? '$' + s.collectionTotal : '');
-          } else {
-            var pkgDisplay = PKG_LABELS[s.pkg] || s.pkg || 'Package';
-            if (s.tier) pkgDisplay += ' \u2014 ' + (s.tier.charAt(0).toUpperCase() + s.tier.slice(1));
-            addLineItem(pkgDisplay, s.pkgPrice ? '$' + s.pkgPrice : '');
-          }
-
-          // Palette
-          var palDisplay = PALETTE_LABELS[s.palette] || s.palette;
-          if (palDisplay) addLineItem('Color Palette: ' + palDisplay, '');
-
-          // Delivery
-          var cityLabel = s.deliveryCityLabel || s.cityName || s.deliveryCity || '';
-          if (s.deliveryCost > 0) {
-            addLineItem('Delivery \u2014 ' + cityLabel, '$' + s.deliveryCost);
-          } else if (cityLabel) {
-            addLineItem('Delivery \u2014 ' + cityLabel, 'Free');
-          }
-
-          // Total divider
-          y += 8;
-          doc.setDrawColor(236, 215, 225);
-          doc.line(margin, y, W - margin, y);
-          y += 20;
-
-          // Estimated total
-          var grandTotal = typeof calculateTotal === 'function' ? calculateTotal() : 0;
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(13);
-          doc.setTextColor(dark[0], dark[1], dark[2]);
-          doc.text('Estimated Total', margin, y);
-          doc.text('$' + grandTotal, W - margin, y, { align: 'right' });
-          y += 22;
-
-          // Deposit line
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(13);
-          doc.setTextColor(pink[0], pink[1], pink[2]);
-          doc.text('Deposit to Reserve', margin, y);
-          doc.text('$100.00', W - margin, y, { align: 'right' });
-          y += 32;
-
-          // Pink divider
-          doc.setDrawColor(pink[0], pink[1], pink[2]);
-          doc.setLineWidth(1.5);
-          doc.line(margin, y, W - margin, y);
-          y += 24;
-
-          // Next steps box
-          var boxH = 120;
-          doc.setFillColor(light[0], light[1], light[2]);
-          doc.roundedRect(margin, y, W - margin * 2, boxH, 8, 8, 'F');
-          doc.setFont('helvetica', 'bold');
-          doc.setFontSize(13);
-          doc.setTextColor(pink[0], pink[1], pink[2]);
-          doc.text('How to Reserve Your Date', margin + 16, y + 24);
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(10);
-          doc.setTextColor(dark[0], dark[1], dark[2]);
-          doc.text('Step 1: Pay your $100 deposit at bringthebloombar.com/book', margin + 16, y + 44);
-          doc.text('Step 2: We\u2019ll text you within 24 hours to confirm all final details,', margin + 16, y + 60);
-          doc.text('         delivery logistics, and event specifics.', margin + 16, y + 74);
-          doc.text('Step 3: Relax \u2014 we handle everything from setup to breakdown.', margin + 16, y + 90);
-          doc.text('Questions? Call or text (714) 251-6478 anytime.', margin + 16, y + 108);
-          y += boxH + 24;
-
-          // Disclaimer
-          doc.setFont('helvetica', 'normal');
-          doc.setFontSize(8);
-          doc.setTextColor(muted[0], muted[1], muted[2]);
-          doc.text('This quote is an estimate. Final pricing confirmed upon booking.', margin, y);
-          doc.text('Flowers sourced fresh within 48 hours of your event. Prices subject to change.', margin, y + 12);
-          doc.text('Note: This PDF is a visual document. For an accessible version contact us at lriley@bringthebloombar.com.', margin, y + 24);
-
-          // Save
-          var safeName = (s.customerName || 'BloomBar').replace(/[^a-z0-9]/gi, '-').substring(0, 20);
-          doc.save('BloomBar-Quote-' + safeName + '.pdf');
-
-          dlBtn.disabled = false;
-          dlBtn.removeAttribute('aria-busy');
-          dlBtn.textContent = '\u2713 Quote Downloaded!';
-          setTimeout(function() { dlBtn.textContent = '\u2193 Save Your Quote as PDF'; }, 3000);
-
-        } catch(err) {
-          console.error('bb: PDF error:', err);
-          dlBtn.disabled = false;
-          dlBtn.removeAttribute('aria-busy');
-          dlBtn.textContent = '\u2193 Save Your Quote as PDF';
-          alert('PDF could not be generated. Please use \u201cSave My Details\u201d or call us at (714) 251-6478.');
-        }
-      });
-    });
+    dlBtn.disabled = true;
+    dlBtn.setAttribute('aria-busy', 'true');
+    dlBtn.textContent = 'Generating\u2026';
   }
+  if (window.jspdf) { generatePDF(); return; }
+  var script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+  script.onload = generatePDF;
+  script.onerror = function() {
+    if (dlBtn) {
+      dlBtn.disabled = false;
+      dlBtn.removeAttribute('aria-busy');
+      dlBtn.innerHTML = '&#8595; Download My Quote as PDF';
+    }
+    alert('Could not load PDF generator. Please call us at (714) 251-6478 and we will send your quote manually.');
+  };
+  document.head.appendChild(script);
+}
 
-})();
+function generatePDF() {
+  var dlBtn = document.getElementById('bb-download-pdf');
+  try {
+    var jsPDF = window.jspdf.jsPDF;
+    var doc   = new jsPDF({ unit: 'pt', format: 'letter' });
+    var pink  = [179, 37, 102];
+    var dark  = [43, 35, 38];
+    var muted = [111, 95, 103];
+    var light = [249, 228, 238];
+    var W     = doc.internal.pageSize.getWidth();
+    var M     = 56;
+
+    // Header background
+    doc.setFillColor(light[0], light[1], light[2]);
+    doc.rect(0, 0, W, 110, 'F');
+
+    // Logo
+    try {
+      var logoEl = document.querySelector('img[src*="logo"]');
+      if (logoEl && logoEl.complete) {
+        var canvas = document.createElement('canvas');
+        canvas.width = logoEl.naturalWidth; canvas.height = logoEl.naturalHeight;
+        canvas.getContext('2d').drawImage(logoEl, 0, 0);
+        doc.addImage(canvas.toDataURL('image/png'), 'PNG', M, 18, 70, 70);
+      }
+    } catch(e) {}
+
+    // Business info
+    doc.setFont('helvetica','bold'); doc.setFontSize(18); doc.setTextColor(pink[0],pink[1],pink[2]);
+    doc.text('Bring the Bloom Bar', M+82, 44);
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(muted[0],muted[1],muted[2]);
+    doc.text('Bloom Bar Rentals \u00b7 Orange County & LA County', M+82, 60);
+    doc.text('(714) 251-6478 \u00b7 lriley@bringthebloombar.com', M+82, 74);
+    doc.text('bringthebloombar.com', M+82, 88);
+
+    // Quote title
+    var y = 138;
+    doc.setFont('helvetica','bold'); doc.setFontSize(22); doc.setTextColor(dark[0],dark[1],dark[2]);
+    var quoteName = state.customerName
+      ? 'YOUR CUSTOM QUOTE \u2014 ' + state.customerName.toUpperCase()
+      : 'YOUR CUSTOM QUOTE';
+    doc.text(quoteName, M, y); y += 18;
+
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(muted[0],muted[1],muted[2]);
+    doc.text('Generated: ' + new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}), M, y);
+    y += 20;
+
+    // Pink divider
+    doc.setDrawColor(pink[0],pink[1],pink[2]); doc.setLineWidth(1.5);
+    doc.line(M, y, W-M, y); y += 24;
+
+    // Customer details
+    var addDetail = function(label, val) {
+      if (!val) return;
+      doc.setFont('helvetica','bold'); doc.setFontSize(8); doc.setTextColor(muted[0],muted[1],muted[2]);
+      doc.text(label.toUpperCase(), M, y);
+      doc.setFont('helvetica','normal'); doc.setFontSize(11); doc.setTextColor(dark[0],dark[1],dark[2]);
+      doc.text(String(val), M, y+14); y += 34;
+    };
+    addDetail('Event Date',  state.eventDate || '');
+    addDetail('Delivery',    state.deliveryCityLabel || state.cityName || state.deliveryCity || '');
+
+    // Light divider
+    doc.setDrawColor(236,215,225); doc.setLineWidth(0.5);
+    doc.line(M, y, W-M, y); y += 20;
+
+    // Quote summary
+    doc.setFont('helvetica','bold'); doc.setFontSize(13); doc.setTextColor(dark[0],dark[1],dark[2]);
+    doc.text('Quote Summary', M, y); y += 20;
+
+    var addLine = function(label, price, isPink) {
+      doc.setFont('helvetica', isPink ? 'bold' : 'normal'); doc.setFontSize(11);
+      doc.setTextColor(dark[0],dark[1],dark[2]);
+      var lines = doc.splitTextToSize(label, W-M*2-80);
+      doc.text(lines, M, y);
+      if (price !== undefined && price !== '') {
+        doc.setTextColor(isPink?pink[0]:dark[0], isPink?pink[1]:dark[1], isPink?pink[2]:dark[2]);
+        doc.text(String(price), W-M, y, {align:'right'});
+      }
+      y += (lines.length * 16) + 4;
+    };
+
+    // Collection or package
+    if (state.experience === 'full') {
+      var collName = state.collection
+        ? state.collection.charAt(0).toUpperCase() + state.collection.slice(1) + ' Collection'
+        : 'Bloom Bar Collection';
+      if (state.guestCount && state.pricePerGuest) {
+        addLine(collName + ' \u2014 ' + state.guestCount + ' guests \u00d7 $' + state.pricePerGuest + '/guest',
+          state.collectionTotal ? '$' + state.collectionTotal : '');
+      } else {
+        addLine(collName, state.collectionTotal ? '$' + state.collectionTotal : '');
+      }
+      var stemsMap = {'classic':'6\u20138 stems per guest','signature':'8\u201310 stems per guest','luxury':'10\u201312 stems per guest'};
+      if (stemsMap[state.collection]) addLine(stemsMap[state.collection], '');
+    } else {
+      var pkgName = state.pkg || 'Package';
+      if (state.tier) pkgName += ' \u2014 ' + state.tier.charAt(0).toUpperCase() + state.tier.slice(1);
+      addLine(pkgName, state.pkgPrice ? '$' + state.pkgPrice : '');
+    }
+
+    if (state.palette) {
+      var palName = state.palette.replace(/-/g,' ').replace(/\b\w/g,function(l){return l.toUpperCase();});
+      addLine(palName + ' palette', '');
+    }
+    addLine('Fresh flowers sourced within 48 hours of your event', '');
+
+    var dc = state.deliveryCost, dCity = state.deliveryCityLabel || state.cityName || state.deliveryCity;
+    if (dCity) addLine('Delivery \u2014 ' + dCity, dc ? '$' + dc : 'Free');
+
+    // Totals
+    y += 8;
+    doc.setDrawColor(236,215,225); doc.line(M, y, W-M, y); y += 16;
+
+    var grandTotal = typeof calculateTotal === 'function' ? calculateTotal() : 0;
+    if (grandTotal) {
+      doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(dark[0],dark[1],dark[2]);
+      doc.text('Estimated Total', M, y);
+      doc.text('$' + grandTotal, W-M, y, {align:'right'}); y += 20;
+    }
+    doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(pink[0],pink[1],pink[2]);
+    doc.text('Deposit to Reserve', M, y);
+    doc.text('$100', W-M, y, {align:'right'}); y += 28;
+
+    doc.setDrawColor(pink[0],pink[1],pink[2]); doc.setLineWidth(1.5);
+    doc.line(M, y, W-M, y); y += 20;
+
+    // Next steps box
+    var boxH = 110;
+    doc.setFillColor(light[0],light[1],light[2]);
+    doc.roundedRect(M, y, W-M*2, boxH, 8, 8, 'F');
+    doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(pink[0],pink[1],pink[2]);
+    doc.text('How to Reserve Your Date', M+16, y+22);
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(dark[0],dark[1],dark[2]);
+    doc.text('Step 1: Pay your $100 deposit at bringthebloombar.com/book', M+16, y+40);
+    doc.text('Step 2: We\u2019ll text you within 24 hours to confirm all final details', M+16, y+55);
+    doc.text('         and event logistics.', M+16, y+68);
+    doc.text('Step 3: Relax \u2014 we handle everything from setup to breakdown.', M+16, y+83);
+    doc.text('Questions? Call or text (714) 251-6478 anytime.', M+16, y+98);
+    y += boxH + 20;
+
+    // Disclaimer
+    doc.setFont('helvetica','normal'); doc.setFontSize(7); doc.setTextColor(muted[0],muted[1],muted[2]);
+    doc.text('This quote is an estimate. Final pricing confirmed upon booking. Flowers subject to seasonal availability.', M, y);
+    doc.text('This PDF is a visual document. For an accessible version contact lriley@bringthebloombar.com', M, y+10);
+
+    var fname = (state.customerName || 'Quote').replace(/[^a-z0-9]/gi,'-').substring(0,20);
+    doc.save('BloomBar-Quote-' + fname + '.pdf');
+
+    if (dlBtn) {
+      dlBtn.disabled = false; dlBtn.removeAttribute('aria-busy');
+      dlBtn.textContent = '\u2713 Quote Downloaded!';
+      setTimeout(function() { dlBtn.innerHTML = '&#8595; Download My Quote as PDF'; }, 3000);
+    }
+  } catch(err) {
+    console.error('bb: PDF error:', err);
+    if (dlBtn) {
+      dlBtn.disabled = false; dlBtn.removeAttribute('aria-busy');
+      dlBtn.innerHTML = '&#8595; Download My Quote as PDF';
+    }
+    alert('PDF could not be generated. Please call us at (714) 251-6478 and we will send your quote manually.');
+  }
+}
+
+// Wire PDF button after DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+  var dlBtn = document.getElementById('bb-download-pdf');
+  if (dlBtn) dlBtn.addEventListener('click', loadAndGeneratePDF);
+});
 </script>
 </body>
 </html>
