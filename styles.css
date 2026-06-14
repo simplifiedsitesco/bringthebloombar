@@ -405,7 +405,7 @@ small { color: var(--muted); }
   .pricing-card.featured { order: -1; }
 
   .trust-row { font-size: .88rem; }
-  .hero-image-card { width: 100%; border-radius: 0.75rem; overflow: hidden; }
+  .hero-image-card { width: 100%; border-radius: 1.2rem; overflow: hidden; }
   .hero-image-card img { width: 100%; height: auto; max-height: 480px; object-position: center 30%; object-fit: cover; }
   .footer-nav { flex-wrap: wrap; gap: 0.75rem; }
 }
@@ -462,7 +462,7 @@ a.pricing-card-link:focus-visible .pricing-card {
 
 /* ─── Trust Signal & Rating Bar ─────────────────── */
 .bb-trust-signal { display:inline-flex; align-items:center; gap:8px; margin-top:8px; }
-.bb-rating-stars { color:#b32566; font-size:16px; letter-spacing:1px; line-height:1; }
+.bb-rating-stars { color:#ffffff !important; font-size:16px; letter-spacing:1px; line-height:1; text-shadow:0 1px 3px rgba(0,0,0,0.3); }
 .bb-rating-copy { font-size:13px; color:#6f5f67; font-weight:500; }
 .bb-rating-light { font-weight:400; }
 .bb-micro-copy { font-size:13px; color:#6f5f67; margin:0; line-height:1.5; font-family:Arial,sans-serif; }
