@@ -65,7 +65,7 @@
     "@type":"FAQPage",
     "mainEntity":[
       {"@type":"Question","name":"Do flowers come with the bloom bar rental?","acceptedAnswer":{"@type":"Answer","text":"No. We rent the bloom bar setup only, so you can source flowers that match your style and budget."}},
-      {"@type":"Question","name":"Is setup included?","acceptedAnswer":{"@type":"Answer","text":"Yes, setup and breakdown are included on every booking. DIY rentals start at $49/day — you bring the flowers and we handle delivery, setup, and breakdown. Full flower packages start at $725 and include everything."}},
+      {"@type":"Question","name":"Is setup included?","acceptedAnswer":{"@type":"Answer","text":"Yes, setup and breakdown are included on every booking. DIY rentals start at $49/day — you bring the flowers and we handle delivery, setup, and breakdown. Full flower packages start at $25/guest (15 guest minimum) and include everything."}},
       {"@type":"Question","name":"What events are bloom bars good for?","acceptedAnswer":{"@type":"Answer","text":"Our bloom bar rentals are popular for bridal showers, baby showers, birthdays, backyard events, and girls' brunches."}}
     ]
   }
@@ -421,6 +421,11 @@
       outline: 3px solid #b32566;
       outline-offset: 3px;
     }
+    a[href="/book"]:focus-visible {
+      outline: 2px solid #72243e;
+      outline-offset: 3px;
+      border-radius: 30px;
+    }
     @media (max-width: 767px) {
       .bb-pricing-cta {
         width: 100%;
@@ -441,6 +446,14 @@
         width: 100% !important;
         box-sizing: border-box;
       }
+      #pricing-pkg-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+      #pricing-pkg-grid a[href="/book"] {
+        min-height: 52px !important;
+        font-size: 15px !important;
+      }
     }
   </style>
   <section id="pricing" style="padding: 80px 0 48px; background: #fdf6f9;">
@@ -456,60 +469,95 @@
           <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">The Flower Bar</h3>
           <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
           <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$49<span style="font-size: 15px; font-weight: 400; color: #6f5f67;">/day</span></p>
-          <ul style="margin: 0; color: #2b2326; line-height: 1.85;">
-            <li>Bloom bar stand</li>
-            <li>Pickup free in La Habra</li>
-            <li>Delivery from $14</li>
+          <ul style="list-style:none;padding:0;margin:0 0 20px;">
+            <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:14px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Bloom bar stand</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:14px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Delivery from $14</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:14px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Setup and breakdown included</li>
           </ul>
-          <a href="/book.html" class="btn btn-primary bb-pricing-cta" style="margin-top: auto;" aria-label="Reserve The Flower Bar — from $49 per day">Reserve Your Bloom Bar</a>
+          <a href="/book" class="btn btn-primary bb-pricing-cta" style="margin-top: auto;" aria-label="Reserve your DIY bloom bar — view packages and check availability">Reserve Your Bloom Bar</a>
         </div>
         <div class="bb-card" style="background: #fff4f8; border: 1px solid #e9b8c9; border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; height: 100%;">
           <span class="bb-pricing-badge">Best Value</span>
           <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Boho Bloom Bundle</h3>
           <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
           <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 20px; line-height: 1;">$84<span style="font-size: 15px; font-weight: 400; color: #6f5f67;">/day</span></p>
-          <ul style="margin: 0; color: #2b2326; line-height: 1.85;">
-            <li>Bloom bar stand</li>
-            <li>Boho umbrella</li>
-            <li>Pickup free in La Habra</li>
-            <li>Delivery from $14</li>
+          <ul style="list-style:none;padding:0;margin:0 0 20px;">
+            <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:14px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Bloom bar stand</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:14px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Boho umbrella</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:14px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Delivery from $14</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:14px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Setup and breakdown included</li>
           </ul>
-          <p style="font-size: 13px; color: #6f5f67; font-style: italic; margin: 12px 0 0;">After booking, let us know your umbrella preference &mdash; pink striped or cream white &mdash; at no extra charge.</p>
-          <a href="/book.html" class="btn btn-primary bb-pricing-cta" style="margin-top: auto;" aria-label="Reserve the Boho Bloom Bundle — from $84 per day">Reserve Your Bloom Bar</a>
+          <p style="font-size: 13px; color: #6f5f67; font-style: italic; margin: 0 0 16px;">After booking, let us know your umbrella preference &mdash; pink striped or cream white &mdash; at no extra charge.</p>
+          <a href="/book" class="btn btn-primary bb-pricing-cta" style="margin-top: auto;" aria-label="Reserve your DIY bloom bar — view packages and check availability">Reserve Your Bloom Bar</a>
         </div>
       </div>
 
-      <!-- Group 2: Full Flower Packages -->
+      <!-- Group 2: Full Bloom Bar Experience -->
       <div style="padding-top: 48px; margin-top: 48px; border-top: 1px solid #ecd7e1;">
-        <p style="font-size: 13px; font-weight: 700; color: #b32566; letter-spacing: 2.5px; text-transform: uppercase; margin: 0 0 24px;">Full flower packages</p>
-        <div class="bb-pricing-section-full" style="background: #fff3f7; border-radius: 14px; padding: 32px;">
-          <div id="pricing-pkg-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 0; align-items: start;">
-            <div>
-              <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Bloom Social</h3>
-              <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
-              <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 4px; line-height: 1;">$725</p>
-              <p style="font-size: 13px; color: #6f5f67; margin: 0 0 20px;">Starting at $725 for 10&ndash;20 guests</p>
-              <ul style="margin: 0; color: #2b2326; line-height: 1.85;">
-                <li>Full bloom bar setup</li>
-                <li>Flowers sourced and arranged</li>
-                <li>Delivery, setup, and breakdown</li>
-              </ul>
-              <a href="/book.html" class="btn btn-primary bb-pricing-cta" aria-label="Reserve Bloom Social package — starting at $725">Reserve Your Bloom Bar</a>
-            </div>
-            <div>
-              <h3 style="font-size: 26px; font-weight: 600; color: #2b2326; margin: 0 0 10px;">Bloom Celebration</h3>
-              <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0 0 16px;">
-              <p style="font-size: 28px; font-weight: 600; color: #2b2326; margin: 0 0 4px; line-height: 1;">$995</p>
-              <p style="font-size: 13px; color: #6f5f67; margin: 0 0 20px;">Starting at $995 for 20&ndash;35 guests</p>
-              <ul style="margin: 0; color: #2b2326; line-height: 1.85;">
-                <li>Full bloom bar setup</li>
-                <li>Flowers sourced and arranged</li>
-                <li>Delivery, setup, and breakdown</li>
-              </ul>
-              <a href="/book.html" class="btn btn-primary bb-pricing-cta" aria-label="Reserve Bloom Celebration package — starting at $995">Reserve Your Bloom Bar</a>
-            </div>
+        <p style="font-size:11px;font-weight:500;color:#993556;letter-spacing:2px;text-transform:uppercase;margin:0 0 12px;">Full Bloom Bar Experience</p>
+        <hr aria-hidden="true" style="border:none;border-top:1px solid #ecd7e1;margin:0 0 16px;">
+        <p style="font-size:14px;color:#6f5f67;margin:0 0 32px;line-height:1.6;">We handle everything — fresh flowers, full setup, and breakdown. Your guests build their own bouquets and leave with something they made. 15 guest minimum.</p>
+
+        <div id="pricing-pkg-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:32px;align-items:start;">
+
+          <!-- CLASSIC -->
+          <div style="border:1px solid #ecd7e1;border-radius:14px;padding:24px;background:#fff;display:flex;flex-direction:column;">
+            <p style="font-size:10px;font-weight:600;color:#993556;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;">Classic Collection</p>
+            <h3 style="font-size:22px;font-weight:600;color:#2b2326;margin:0 0 4px;">Classic</h3>
+            <p style="font-size:12px;color:#993556;font-weight:500;margin:0 0 12px;">6&ndash;8 stems per guest</p>
+            <hr aria-hidden="true" style="border:none;border-top:1px solid #ecd7e1;margin:0 0 16px;">
+            <ul style="list-style:none;padding:0;margin:0 0 16px;flex:1;">
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Carnations</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Daisies</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Alstroemeria</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Fillers &amp; Greenery</li>
+            </ul>
+            <hr aria-hidden="true" style="border:none;border-top:1px solid #ecd7e1;margin:0 0 12px;">
+            <p style="font-size:26px;font-weight:600;color:#2b2326;margin:0 0 4px;line-height:1;">$25<span style="font-size:14px;font-weight:400;color:#6f5f67;">/guest</span></p>
+            <p style="font-size:12px;color:#6f5f67;margin:0 0 16px;font-style:italic;">From $375 for 15 guests</p>
+            <a href="/book" style="display:inline-flex;align-items:center;justify-content:center;background:#993556;color:#fff;text-decoration:none;padding:12px 20px;border-radius:30px;font-weight:600;font-size:14px;min-height:44px;width:100%;text-align:center;box-sizing:border-box;" aria-label="Reserve Classic Collection — $25 per guest, from $375 total">Reserve Your Bloom Bar</a>
           </div>
+
+          <!-- SIGNATURE — featured -->
+          <div style="border:1.5px solid #e9b8c9;border-radius:14px;padding:24px;background:#fff4f8;display:flex;flex-direction:column;position:relative;">
+            <span style="display:inline-block;background:#f9e4ee;color:#861a4a;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:1px;text-transform:uppercase;width:fit-content;" aria-label="Host favorite collection">Host Favorite</span>
+            <p style="font-size:10px;font-weight:600;color:#993556;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;">Signature Collection</p>
+            <h3 style="font-size:22px;font-weight:600;color:#2b2326;margin:0 0 4px;">Signature</h3>
+            <p style="font-size:12px;color:#993556;font-weight:500;margin:0 0 12px;">8&ndash;10 stems per guest</p>
+            <hr aria-hidden="true" style="border:none;border-top:1px solid #ecd7e1;margin:0 0 16px;">
+            <ul style="list-style:none;padding:0;margin:0 0 16px;flex:1;">
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Roses</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Spray Roses</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Premium Fillers</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Greenery</li>
+            </ul>
+            <hr aria-hidden="true" style="border:none;border-top:1px solid #ecd7e1;margin:0 0 12px;">
+            <p style="font-size:26px;font-weight:600;color:#2b2326;margin:0 0 4px;line-height:1;">$35<span style="font-size:14px;font-weight:400;color:#6f5f67;">/guest</span></p>
+            <p style="font-size:12px;color:#6f5f67;margin:0 0 16px;font-style:italic;">From $525 for 15 guests</p>
+            <a href="/book" style="display:inline-flex;align-items:center;justify-content:center;background:#993556;color:#fff;text-decoration:none;padding:12px 20px;border-radius:30px;font-weight:600;font-size:14px;min-height:44px;width:100%;text-align:center;box-sizing:border-box;" aria-label="Reserve Signature Collection — $35 per guest, from $525 total">Reserve Your Bloom Bar</a>
+          </div>
+
+          <!-- LUXURY -->
+          <div style="border:1px solid #ecd7e1;border-radius:14px;padding:24px;background:#fff;display:flex;flex-direction:column;">
+            <p style="font-size:10px;font-weight:600;color:#993556;letter-spacing:2px;text-transform:uppercase;margin:0 0 8px;">Luxury Collection</p>
+            <h3 style="font-size:22px;font-weight:600;color:#2b2326;margin:0 0 4px;">Luxury</h3>
+            <p style="font-size:12px;color:#993556;font-weight:500;margin:0 0 12px;">10&ndash;12 stems per guest</p>
+            <hr aria-hidden="true" style="border:none;border-top:1px solid #ecd7e1;margin:0 0 16px;">
+            <ul style="list-style:none;padding:0;margin:0 0 16px;flex:1;">
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Garden Roses</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Lisianthus</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Premium Fillers</li>
+              <li style="padding-left:20px;position:relative;margin-bottom:8px;color:#2b2326;font-size:13px;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Lush Greenery</li>
+            </ul>
+            <hr aria-hidden="true" style="border:none;border-top:1px solid #ecd7e1;margin:0 0 12px;">
+            <p style="font-size:26px;font-weight:600;color:#2b2326;margin:0 0 4px;line-height:1;">$45<span style="font-size:14px;font-weight:400;color:#6f5f67;">/guest</span></p>
+            <p style="font-size:12px;color:#6f5f67;margin:0 0 16px;font-style:italic;">From $675 for 15 guests</p>
+            <a href="/book" style="display:inline-flex;align-items:center;justify-content:center;background:#993556;color:#fff;text-decoration:none;padding:12px 20px;border-radius:30px;font-weight:600;font-size:14px;min-height:44px;width:100%;text-align:center;box-sizing:border-box;" aria-label="Reserve Luxury Collection — $45 per guest, from $675 total">Reserve Your Bloom Bar</a>
+          </div>
+
         </div>
+
+        <p style="font-size:13px;color:#6f5f67;text-align:center;margin:0 0 48px;font-style:italic;">All fresh flowers sourced within 48 hours of your event. 15 guest minimum applies. Delivery calculated separately.</p>
       </div>
 
     </div>
@@ -519,7 +567,7 @@
     <div class="container" style="max-width: 900px;">
       <h2>What Is a Bloom Bar Rental?</h2>
       <p>A bloom bar is a styled flower station you rent for your event — guests walk up, choose their favorite stems, and build their own bouquet to take home. It works as both décor and entertainment, giving your shower, birthday, wedding, or corporate event a hands-on floral moment that feels intentional and memorable.</p>
-      <p>We offer two ways to experience it. With our DIY rentals starting at $49/day, you bring the flowers and we bring the beautifully styled bar — setup and breakdown included. Prefer a fully flowers-included experience? Our full flower package experiences start at $25/guest and include everything from sourcing to styling to delivery.</p>
+      <p>We offer two ways to experience it. With our DIY rentals starting at $49/day, you bring the flowers and we bring the beautifully styled bar — setup and breakdown included. Prefer a fully flowers-included experience? Our full flower packages start at $25/guest and include everything from sourcing to styling to delivery. 15 guest minimum applies.</p>
       <p>Either way, your guests leave with something they made themselves.</p>
     </div>
   </section>
@@ -534,7 +582,7 @@
       </style>
       <details class="faq-item">
         <summary aria-expanded="false"><span>Do you provide flowers?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
-        <p>Yes — we offer both. Our DIY rentals start at $49/day and you bring your own flowers. If you prefer a fully flowers-included experience, our full flower package experiences start at $25/guest and include sourcing, arranging, and delivery. Contact us to learn more about flower package availability.</p>
+        <p>Yes — we offer both. Our DIY rentals start at $49/day and you bring your own flowers. If you prefer a fully flowers-included experience, our full flower packages start at $25/guest and include sourcing, arranging, and delivery. 15 guest minimum applies.</p>
       </details>
       <details class="faq-item">
         <summary aria-expanded="false"><span>Can I book a flower bar rental near me?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
@@ -542,7 +590,7 @@
       </details>
       <details class="faq-item">
         <summary aria-expanded="false"><span>What if I only need one rental item?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
-        <p>Yes — our Flower Bar stand is available on its own starting at $49/day. You can also add a boho umbrella with our Boho Bloom Bundle at $84/day. Both are bookable directly through our online calendar.</p>
+        <p>Yes — our Flower Bar stand is available on its own starting at $49/day. You can also add a boho umbrella with our Boho Bloom Bundle at $84/day. Flowers are not included — you bring the blooms. Both are bookable directly through our online calendar.</p>
       </details>
       <details class="faq-item">
         <summary aria-expanded="false"><span>How far ahead should I reserve?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
