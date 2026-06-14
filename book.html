@@ -541,6 +541,39 @@
     .bb-quote-form-wrap { padding:16px; }
     .bb-form-headline { font-size:15px; }
   }
+
+  /* ── Guest count stepper ────────────────────────── */
+  .bb-stepper-wrap { display:flex; align-items:center; justify-content:center; gap:24px; margin:32px 0; }
+  .bb-stepper-btn { width:52px; height:52px; border-radius:50%; border:1.5px solid #d4537e; background:#fff; color:#d4537e; font-size:24px; font-weight:300; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s, color 0.15s; font-family:'Inter',sans-serif; line-height:1; touch-action:manipulation; }
+  .bb-stepper-btn:hover { background:#fbeaf0; }
+  .bb-stepper-btn:focus-visible { outline:3px solid #b32566; outline-offset:3px; }
+  .bb-stepper-btn:disabled { opacity:0.4; cursor:not-allowed; }
+  .bb-stepper-display { display:flex; flex-direction:column; align-items:center; gap:4px; min-width:80px; }
+  #guest-count-display { font-size:48px; font-weight:700; color:#3d1a2e; font-family:'Playfair Display',Georgia,serif; line-height:1; }
+  .bb-stepper-label { font-size:12px; color:#7a5a6a; font-family:'Inter',sans-serif; text-transform:uppercase; letter-spacing:1px; }
+
+  /* ── Guest minimum nudge ────────────────────────── */
+  .bb-guest-nudge { font-size:13px; color:#861a4a; font-family:'Inter',sans-serif; text-align:center; background:#f9e4ee; border-radius:8px; padding:10px 16px; margin:0 0 20px; }
+
+  /* ── Live pricing preview ───────────────────────── */
+  .bb-pricing-preview { background:#fff; border:0.5px solid #f4c0d1; border-radius:12px; padding:20px 24px; margin:0 0 32px; }
+  .bb-pricing-preview-label { font-size:10px; text-transform:uppercase; letter-spacing:0.1em; color:#7a5a6a; font-family:'Inter',sans-serif; margin:0 0 16px; }
+  .bb-pricing-rows { display:flex; flex-direction:column; gap:12px; }
+  .bb-pricing-row { display:flex; justify-content:space-between; align-items:center; padding:10px 12px; border-radius:8px; background:#fffaf8; font-family:'Inter',sans-serif; }
+  .bb-pricing-row-featured { background:#fbeaf0; border:0.5px solid #f4c0d1; }
+  .bb-pricing-row-name { font-size:13px; font-weight:500; color:#3d1a2e; display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+  .bb-pricing-row-details { font-size:12px; color:#7a5a6a; white-space:nowrap; }
+  .bb-pricing-row-details strong { color:#3d1a2e; font-size:14px; }
+  .bb-pricing-badge-inline { font-size:9px; font-weight:600; color:#861a4a; background:#f9e4ee; border-radius:20px; padding:2px 8px; letter-spacing:0.5px; text-transform:uppercase; }
+  .bb-pricing-disclaimer { font-size:10px; color:#7a5a6a; font-family:'Inter',sans-serif; font-style:italic; margin:16px 0 0; }
+
+  @media (max-width:767px) {
+    .bb-stepper-btn { width:48px; height:48px; font-size:22px; }
+    #guest-count-display { font-size:40px; }
+    .bb-pricing-row { flex-direction:column; align-items:flex-start; gap:4px; }
+    .bb-pricing-row-details { font-size:13px; }
+    .bb-pricing-preview { padding:16px; }
+  }
   </style>
 </head>
 <body>
@@ -704,6 +737,75 @@
     <div class="bk-cta-row">
       <button class="bk-btn" id="step1-exp-btn" aria-disabled="true" aria-label="Reserve your bloom bar experience" onclick="experienceS1Next()" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;">Reserve Your Bloom Bar</button>
     </div>
+  </section>
+
+  <!-- ===================== STEP GUEST COUNT — Full Bloom Bar Experience only ===================== -->
+  <section id="step-guest-count" class="bk-step"
+    aria-live="polite"
+    aria-labelledby="guest-count-heading">
+
+    <p class="bk-eyebrow" style="color:#d4537e;">Step 2 &mdash; Full Bloom Bar Experience</p>
+    <h2 class="bk-h1" id="guest-count-heading">How many guests are you expecting?</h2>
+    <p class="bk-subtext">We&rsquo;ll use this to build your custom quote. Every guest gets their own bouquet to take home.</p>
+
+    <!-- Guest count stepper -->
+    <div class="bb-stepper-wrap">
+      <button type="button" id="guest-minus" class="bb-stepper-btn"
+        aria-label="Decrease guest count"
+        onclick="adjustGuests(-1)">&minus;</button>
+      <div class="bb-stepper-display">
+        <span id="guest-count-display"
+          aria-live="polite"
+          aria-atomic="true"
+          aria-label="Guest count">20</span>
+        <span class="bb-stepper-label">guests</span>
+      </div>
+      <button type="button" id="guest-plus" class="bb-stepper-btn"
+        aria-label="Increase guest count"
+        onclick="adjustGuests(1)">&plus;</button>
+    </div>
+
+    <!-- 15 guest minimum nudge — hidden by default -->
+    <p id="guest-minimum-nudge" class="bb-guest-nudge"
+      role="status" aria-live="polite"
+      style="display:none;">
+      Our bloom bar experience starts at 15 guests &mdash; we&rsquo;ve updated your count. The more the merrier!
+    </p>
+
+    <!-- Live pricing preview -->
+    <div class="bb-pricing-preview"
+      aria-label="Estimated pricing for your guest count"
+      aria-live="polite"
+      aria-atomic="true">
+      <p class="bb-pricing-preview-label">Estimated pricing for your guests:</p>
+      <div class="bb-pricing-rows">
+        <div class="bb-pricing-row">
+          <span class="bb-pricing-row-name">Classic Collection</span>
+          <span class="bb-pricing-row-details">$25/guest &rarr; <strong id="preview-classic">$500</strong></span>
+        </div>
+        <div class="bb-pricing-row bb-pricing-row-featured">
+          <span class="bb-pricing-row-name">Signature Collection
+            <span class="bb-pricing-badge-inline">Host Favorite</span>
+          </span>
+          <span class="bb-pricing-row-details">$35/guest &rarr; <strong id="preview-signature">$700</strong></span>
+        </div>
+        <div class="bb-pricing-row">
+          <span class="bb-pricing-row-name">Luxury Collection</span>
+          <span class="bb-pricing-row-details">$45/guest &rarr; <strong id="preview-luxury">$900</strong></span>
+        </div>
+      </div>
+      <p class="bb-pricing-disclaimer">Delivery calculated separately based on your location. 15 guest minimum applies.</p>
+    </div>
+
+    <div class="bk-cta-row">
+      <button class="bk-btn" id="guest-count-btn"
+        onclick="guestCountNext()"
+        aria-label="Continue to choose your collection">See my packages &rarr;</button>
+      <button class="bk-back"
+        aria-label="Go back to experience selection"
+        onclick="goToStep(1)">&larr; Back</button>
+    </div>
+
   </section>
 
   <!-- ===================== STEP 2 — Event Details (Full & Rentals paths only) ===================== -->
@@ -1323,11 +1425,13 @@ var state = {
   deliveryCity: '', deliveryCost: 0, cityName: '',
   eventDate: '', email: '',
   selectedProduct: '', selectedProductPrice: 0,
-  pendingExperienceChange: false
+  pendingExperienceChange: false,
+  guestCount: 20
 };
 
 var currentStep = 1;
 var step2LeadCaptured = false;
+var onGuestCountStep = false;
 
 // ---- Aria-hidden management ----
 function updateStepAriaHidden() {
@@ -1431,11 +1535,16 @@ function experienceS1Next() {
     return;
   }
   hideError('step1-exp-error');
-  goToStep2Details();
+  if (state.experience === 'full') {
+    showGuestCountStep();
+  } else {
+    goToStep2Details();
+  }
 }
 
 // ---- Step 2: Event Details (full and rentals only) ----
 function goToStep2Details() {
+  onGuestCountStep = false;
   document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
   var target = document.getElementById('step-2-details');
   if (target) target.classList.add('active');
@@ -1562,9 +1671,13 @@ function renderProgress() {
   var steps, dispIdx;
 
   if (state.experience === 'full') {
-    steps = ['Experience', 'Your Details', 'Package', 'Your Flowers', 'Your Quote'];
-    var fmap = {1:0, 2:1, 3:2, 4:3, 6:4, 7:4};
-    dispIdx = fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
+    steps = ['Experience', 'Guest Count', 'Your Details', 'Package', 'Your Flowers', 'Your Quote'];
+    if (onGuestCountStep) {
+      dispIdx = 1;
+    } else {
+      var fmap = {1:0, 2:2, 3:3, 4:4, 6:5, 7:5};
+      dispIdx = fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
+    }
   } else if (state.experience === 'rentals') {
     steps = ['Experience', 'Your Details', 'Your Rentals', 'Your Quote'];
     var rmap = {1:0, 2:1, 3:2, 6:3, 7:3};
@@ -1611,6 +1724,7 @@ function renderProgress() {
 
 // ---- Step navigation ----
 function goToStep(n) {
+  onGuestCountStep = false;
   document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
   currentStep = n;
   var next = document.getElementById('step-' + n);
@@ -1649,7 +1763,7 @@ function getStepsForCurrentPath() {
   if (state.experience === 'diy') {
     return ['step-1', 'diy-products', 'diy-addons'];
   } else if (state.experience === 'full') {
-    return ['step-1', 'step-2-details', 'step-3', 'step-4', 'step-6'];
+    return ['step-1', 'step-guest-count', 'step-2-details', 'step-3', 'step-4', 'step-6'];
   } else if (state.experience === 'rentals') {
     return ['step-1', 'step-2-details', 'step-3', 'step-6'];
   }
@@ -1658,7 +1772,8 @@ function getStepsForCurrentPath() {
 
 function getCurrentStepIndex() {
   if (state.experience === 'full') {
-    var fmap = {1:0, 2:1, 3:2, 4:3, 6:4, 7:4};
+    if (onGuestCountStep) return 1;
+    var fmap = {1:0, 2:2, 3:3, 4:4, 6:5, 7:5};
     return fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
   } else if (state.experience === 'rentals') {
     var rmap = {1:0, 2:1, 3:2, 6:3, 7:3};
@@ -1681,6 +1796,8 @@ function handleProgressBarClick(targetStepId, clickedStepIndex) {
 function goToStepWithHistory(stepId, stepIndex) {
   if (stepId === 'step-1') {
     goToStep(1);
+  } else if (stepId === 'step-guest-count') {
+    showGuestCountStep();
   } else if (stepId === 'step-2-details') {
     goToStep2Details();
   } else if (stepId === 'diy-products') {
@@ -1706,6 +1823,89 @@ function goToStepWithHistory(stepId, stepIndex) {
 
 function updateProgressBarForStep(activeIndex) {
   renderProgress();
+}
+
+// ── GUEST COUNT STEP ──────────────────────────────
+var MIN_GUESTS = 15;
+var MAX_GUESTS = 200;
+
+function adjustGuests(delta) {
+  var newCount = (state.guestCount || 20) + delta;
+  if (newCount < MIN_GUESTS) {
+    newCount = MIN_GUESTS;
+    var nudge = document.getElementById('guest-minimum-nudge');
+    if (nudge) {
+      nudge.style.display = 'block';
+      setTimeout(function() { nudge.style.display = 'none'; }, 4000);
+    }
+  }
+  if (newCount > MAX_GUESTS) newCount = MAX_GUESTS;
+  state.guestCount = newCount;
+  updateGuestDisplay();
+  updatePricingPreview();
+  updateMinusBtn();
+}
+
+function updateGuestDisplay() {
+  var el = document.getElementById('guest-count-display');
+  if (el) {
+    el.textContent = state.guestCount;
+    el.setAttribute('aria-label', state.guestCount + ' guests selected');
+  }
+}
+
+function updateMinusBtn() {
+  var btn = document.getElementById('guest-minus');
+  if (btn) {
+    var atMin = state.guestCount <= MIN_GUESTS;
+    btn.disabled = atMin;
+    btn.setAttribute('aria-disabled', atMin ? 'true' : 'false');
+  }
+}
+
+function updatePricingPreview() {
+  var g = state.guestCount || 20;
+  var classic   = document.getElementById('preview-classic');
+  var signature = document.getElementById('preview-signature');
+  var luxury    = document.getElementById('preview-luxury');
+  if (classic)   classic.textContent   = '$' + (g * 25).toLocaleString();
+  if (signature) signature.textContent = '$' + (g * 35).toLocaleString();
+  if (luxury)    luxury.textContent    = '$' + (g * 45).toLocaleString();
+}
+
+function guestCountNext() {
+  if (!state.guestCount || state.guestCount < MIN_GUESTS) {
+    state.guestCount = MIN_GUESTS;
+    updateGuestDisplay();
+    updatePricingPreview();
+  }
+  var ann = document.getElementById('step-announcement');
+  if (ann) ann.textContent = state.guestCount + ' guests selected. Moving to your event details.';
+  goToStep2Details();
+}
+
+function showGuestCountStep() {
+  document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('step-guest-count');
+  if (target) target.classList.add('active');
+  onGuestCountStep = true;
+  currentStep = 1;
+  if (!state.guestCount) state.guestCount = 20;
+  updateGuestDisplay();
+  updatePricingPreview();
+  updateMinusBtn();
+  renderProgress();
+  updateStepAriaHidden();
+  window.scrollTo(0, 0);
+  var ann = document.getElementById('step-announcement');
+  if (ann) ann.textContent = 'Step 2: Guest Count. How many guests are you expecting?';
+  setTimeout(function() {
+    var heading = document.getElementById('guest-count-heading');
+    if (heading) {
+      if (!heading.getAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
+  }, 100);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
