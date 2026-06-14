@@ -1255,8 +1255,8 @@
   <section id="step-4" class="bk-step" aria-live="polite">
     <p class="bk-confirm-line" id="confirm-s4" aria-live="polite"></p>
     <p class="bk-eyebrow">Step 4 &mdash; Your Flowers</p>
-    <h2 class="bk-h1" id="step4-heading">Choose your colour palette.</h2>
-    <p class="bk-subtext">Your arrangement will be styled in your chosen palette using the freshest seasonal blooms available.</p>
+    <h2 class="bk-h1" id="step4-heading">What colors are you dreaming of?</h2>
+    <p class="bk-subtext">Your <span id="step4-collection-name"></span> collection will be styled in your chosen palette using the freshest seasonal blooms available.</p>
     <p class="bk-trust-line" style="margin-bottom:1.25rem;">Each arrangement is sourced fresh within 48 hours of your event and styled on-site by us.</p>
 
     <div class="bk-palette-grid" role="radiogroup" aria-labelledby="step4-heading">
@@ -1316,31 +1316,17 @@
       </button>
     </div>
 
-    <!-- Arrangement reveal -->
-    <div id="arrange-reveal" class="bk-arrange-reveal">
-      <p style="font-size:12px;font-weight:600;color:#3d1a2e;margin:0 0 0.25rem;">Choose your arrangement style.</p>
-      <div class="bk-arrange-grid" role="radiogroup" aria-label="Choose arrangement tier">
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" id="tier-essential-card" data-tier="essential" onclick="selectTierCard('essential')" onkeydown="rovingKey(event,'step4-tier-rg',0)">
-          <p class="bk-card-label">ESSENTIAL</p>
-          <p class="bk-card-title" id="tier-essential-price"></p>
-          <p class="bk-deposit-note" id="tier-essential-deposit"></p>
-          <hr class="bk-card-rule">
-          <p class="bk-card-desc">A beautifully curated arrangement in your chosen palette using seasonal blooms. Elegant, intentional, and photo-ready.</p>
-        </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" id="tier-lush-card" data-tier="lush" onclick="selectTierCard('lush')" onkeydown="rovingKey(event,'step4-tier-rg',1)">
-          <p class="bk-card-label">LUSH</p>
-          <p class="bk-card-title" id="tier-lush-price"></p>
-          <p class="bk-deposit-note" id="tier-lush-deposit"></p>
-          <hr class="bk-card-rule">
-          <p class="bk-card-desc">The same arrangement elevated with premium seasonal blooms for a noticeably more luxurious finish.</p>
-        </button>
+    <div id="palette-upsell" class="bb-palette-upsell" style="display:none;" role="status" aria-live="polite">
+      <p class="bb-upsell-text">That palette is only available with our <strong>Signature</strong> or <strong>Luxury</strong> collection. Upgrade now to unlock all six palettes.</p>
+      <div class="bb-upsell-btns">
+        <button class="bb-upsell-upgrade" onclick="upgradeToSignature()">Upgrade to Signature &rarr;</button>
+        <button class="bb-upsell-dismiss" onclick="hideUpsell()">Keep Classic</button>
       </div>
     </div>
 
     <p class="bk-error" id="step4-palette-error" role="alert" aria-atomic="true">Please choose a colour palette above to continue.</p>
-    <p class="bk-error" id="step4-tier-error" role="alert" aria-atomic="true">Please choose your arrangement style above to continue.</p>
     <div class="bk-cta-row">
-      <button class="bk-btn" id="step4-btn" aria-disabled="true" onclick="step4Next_flowers()">Confirm my flowers</button>
+      <button class="bk-btn" id="step4-btn" aria-disabled="true" onclick="step4Next_flowers()">This is my palette &rarr;</button>
       <button class="bk-back" aria-label="Go back to collection selection" onclick="showCollectionStep()">&larr; Back</button>
     </div>
   </section>
@@ -1353,38 +1339,22 @@
     <h2 class="bk-h1">Just one more thing.</h2>
     <p class="bk-subtext">Add your email and we&rsquo;ll send your quote instantly.</p>
 
+    <div id="booking-summary-bar" class="bb-summary-bar" style="display:none;" aria-label="Your selections so far">
+      <span class="bb-summary-item" id="sum-guests"></span>
+      <span class="bb-summary-sep" aria-hidden="true">&middot;</span>
+      <span class="bb-summary-item" id="sum-collection"></span>
+      <span class="bb-summary-sep" aria-hidden="true">&middot;</span>
+      <span class="bb-summary-item" id="sum-palette"></span>
+    </div>
+
     <div class="bk-field">
-      <label class="bk-label" for="delivery-city">Delivery city</label>
-      <select class="bk-select" id="delivery-city" required aria-describedby="step5-city-error" onchange="cityChanged()">
-        <option value="" disabled selected>Select your city...</option>
-        <option value="pickup-free" data-cost="0">Pickup &mdash; La Habra / Free</option>
-        <option value="la-habra" data-cost="0">La Habra &mdash; Free</option>
-        <option value="fullerton" data-cost="14">Fullerton &mdash; $14</option>
-        <option value="brea" data-cost="14">Brea &mdash; $14</option>
-        <option value="placentia" data-cost="16">Placentia &mdash; $16</option>
-        <option value="la-mirada" data-cost="16">La Mirada &mdash; $16</option>
-        <option value="whittier" data-cost="18">Whittier &mdash; $18</option>
-        <option value="anaheim" data-cost="18">Anaheim &mdash; $18</option>
-        <option value="buena-park" data-cost="18">Buena Park &mdash; $18</option>
-        <option value="yorba-linda" data-cost="20">Yorba Linda &mdash; $20</option>
-        <option value="hacienda-heights" data-cost="20">Hacienda Heights &mdash; $20</option>
-        <option value="city-of-industry" data-cost="20">City of Industry &mdash; $20</option>
-        <option value="orange" data-cost="22">Orange &mdash; $22</option>
-        <option value="rowland-heights" data-cost="22">Rowland Heights &mdash; $22</option>
-        <option value="norwalk" data-cost="22">Norwalk &mdash; $22</option>
-        <option value="diamond-bar" data-cost="25">Diamond Bar &mdash; $25</option>
-        <option value="garden-grove" data-cost="25">Garden Grove &mdash; $25</option>
-        <option value="chino-hills" data-cost="28">Chino Hills &mdash; $28</option>
-        <option value="tustin" data-cost="28">Tustin &mdash; $28</option>
-        <option value="santa-ana" data-cost="28">Santa Ana &mdash; $28</option>
-        <option value="downey" data-cost="28">Downey &mdash; $28</option>
-        <option value="long-beach" data-cost="35">Long Beach &mdash; $35</option>
-        <option value="irvine" data-cost="35">Irvine &mdash; $35</option>
-        <option value="los-angeles" data-cost="45">Los Angeles &mdash; $45</option>
-        <option value="pasadena" data-cost="40">Pasadena &mdash; $40</option>
-        <option value="other" data-cost="0">Other (we'll confirm)</option>
-      </select>
-      <p class="bk-error" id="step5-city-error" role="alert" aria-atomic="true">Please select your delivery city to continue.</p>
+      <label class="bk-label" for="delivery-zip-s2">Event zip code</label>
+      <input class="bk-input" type="text" id="delivery-zip-s2" placeholder="e.g. 92831" maxlength="5" inputmode="numeric" pattern="\d{5}" autocomplete="postal-code" aria-describedby="step5-zip-error" oninput="calculateDeliveryS2()">
+      <div id="bb-zip-result" class="bb-zip-result" style="display:none;" aria-live="polite">
+        <span id="bb-zip-city" class="bb-zip-fee"></span>
+        <span id="bb-zip-details" class="bb-zip-details"></span>
+      </div>
+      <p class="bk-error" id="step5-zip-error" role="alert" aria-atomic="true">Please enter your 5-digit zip code to continue.</p>
     </div>
 
     <div class="bk-field">
@@ -1399,7 +1369,7 @@
     </div>
 
     <div class="bk-cta-row">
-      <button class="bk-btn" onclick="step5Next()">Show me my quote</button>
+      <button class="bk-btn" onclick="step5Next()">See my full quote &rarr;</button>
       <button class="bk-back" aria-label="Go back to add-ons" onclick="step5Back()">&larr; Back</button>
     </div>
   </section>
@@ -1873,6 +1843,7 @@ function goToStep(n) {
     ann.textContent = labels[n] || ('Step ' + n);
   }
   if (n >= 3) updateConfirmLine();
+  if (n === 4) updateStep4CollectionName();
   if (n === 6) setupStep5();
   if (n === 7) buildQuote();
   setTimeout(function() {
@@ -2236,8 +2207,42 @@ function submitLargeEvent(e) {
     });
 }
 
+// ---- Step-4 helpers ----
+function updateStep4CollectionName() {
+  var el = document.getElementById('step4-collection-name');
+  if (!el) return;
+  var names = { 'classic':'Classic','signature':'Signature','luxury':'Luxury' };
+  el.textContent = names[state.collection] || '';
+}
+
+function showPaletteUpsell() {
+  var upsell = document.getElementById('palette-upsell');
+  if (upsell) upsell.style.display = 'block';
+}
+
+function hideUpsell() {
+  var upsell = document.getElementById('palette-upsell');
+  if (upsell) upsell.style.display = 'none';
+}
+
+function upgradeToSignature() {
+  state.collection    = 'signature';
+  state.pricePerGuest = 35;
+  state.collectionTotal = (state.guestCount || 20) * 35;
+  state.restrictedPalettes = null;
+  hideUpsell();
+  updateStep4CollectionName();
+  var ann = document.getElementById('step-announcement');
+  if (ann) ann.textContent = 'Upgraded to Signature Collection. All palettes now available.';
+}
+
 // ---- Palette / Flowers (step-4, full only) ----
 function selectPalette(name) {
+  // For Classic collection, only blush-white, garden-greens, spring-pastels are available
+  if (state.restrictedPalettes && state.restrictedPalettes.indexOf(name) === -1) {
+    showPaletteUpsell(name);
+    return;
+  }
   state.palette = name;
   var cards = document.querySelectorAll('.bk-palette-grid [role="radio"]');
   cards.forEach(function(c) {
@@ -2246,14 +2251,9 @@ function selectPalette(name) {
     c.setAttribute('tabindex', sel ? '0' : '-1');
   });
   hideError('step4-palette-error');
-  var reveal = document.getElementById('arrange-reveal');
-  reveal.classList.add('visible');
-  setTimeout(function() {
-    var ess = document.getElementById('tier-essential-card');
-    if (ess) ess.focus();
-  }, 80);
+  hideUpsell();
   var btn = document.getElementById('step4-btn');
-  if (btn && !state.tier) btn.setAttribute('aria-disabled', 'true');
+  if (btn) btn.setAttribute('aria-disabled', 'false');
 }
 
 function selectTierCard(tier) {
@@ -2281,7 +2281,6 @@ function selectTierCard(tier) {
 
 function step4Next_flowers() {
   if (!state.palette) { showError('step4-palette-error'); return; }
-  if (!state.tier) { showError('step4-tier-error'); return; }
   goToStep(6);
 }
 
@@ -2296,29 +2295,124 @@ function setupStep5() {
   // Pre-fill event date if already collected in step-2-details
   var dateInput = document.getElementById('event-date');
   if (dateInput && state.eventDate && !dateInput.value) dateInput.value = state.eventDate;
+  updateSummaryBar();
 }
 
-function cityChanged() {
-  var sel = document.getElementById('delivery-city');
-  var opt = sel.options[sel.selectedIndex];
-  state.deliveryCity = sel.value;
-  state.deliveryCost = parseInt(opt.getAttribute('data-cost') || '0', 10);
-  hideError('step5-city-error');
+var FULL_DELIVERY_ZONES = {
+  '90631':{'city':'La Habra','cost':0},'90632':{'city':'La Habra','cost':0},'90633':{'city':'La Habra','cost':0},
+  '92831':{'city':'Fullerton','cost':14},'92832':{'city':'Fullerton','cost':14},'92833':{'city':'Fullerton','cost':14},
+  '92834':{'city':'Fullerton','cost':14},'92835':{'city':'Fullerton','cost':14},'92836':{'city':'Fullerton','cost':14},
+  '92821':{'city':'Brea','cost':14},'92823':{'city':'Brea','cost':14},
+  '92870':{'city':'Placentia','cost':16},'92871':{'city':'Placentia','cost':16},
+  '90638':{'city':'La Mirada','cost':16},
+  '90601':{'city':'Whittier','cost':18},'90602':{'city':'Whittier','cost':18},'90603':{'city':'Whittier','cost':18},
+  '90604':{'city':'Whittier','cost':18},'90605':{'city':'Whittier','cost':18},'90606':{'city':'Whittier','cost':18},
+  '92801':{'city':'Anaheim','cost':18},'92802':{'city':'Anaheim','cost':18},'92803':{'city':'Anaheim','cost':18},
+  '92804':{'city':'Anaheim','cost':18},'92805':{'city':'Anaheim','cost':18},'92806':{'city':'Anaheim','cost':18},
+  '92807':{'city':'Anaheim','cost':18},'92808':{'city':'Anaheim','cost':18},'92809':{'city':'Anaheim','cost':18},
+  '90620':{'city':'Buena Park','cost':18},'90621':{'city':'Buena Park','cost':18},'90622':{'city':'Buena Park','cost':18},
+  '92885':{'city':'Yorba Linda','cost':20},'92886':{'city':'Yorba Linda','cost':20},'92887':{'city':'Yorba Linda','cost':20},
+  '91745':{'city':'Hacienda Heights','cost':20},
+  '91744':{'city':'City of Industry','cost':20},'91746':{'city':'City of Industry','cost':20},
+  '91748':{'city':'Rowland Heights','cost':22},
+  '92856':{'city':'Orange','cost':22},'92857':{'city':'Orange','cost':22},'92859':{'city':'Orange','cost':22},
+  '92861':{'city':'Orange','cost':22},'92862':{'city':'Orange','cost':22},'92863':{'city':'Orange','cost':22},
+  '92864':{'city':'Orange','cost':22},'92865':{'city':'Orange','cost':22},'92866':{'city':'Orange','cost':22},
+  '92867':{'city':'Orange','cost':22},'92868':{'city':'Orange','cost':22},'92869':{'city':'Orange','cost':22},
+  '90650':{'city':'Norwalk','cost':22},'90651':{'city':'Norwalk','cost':22},'90652':{'city':'Norwalk','cost':22},
+  '91765':{'city':'Diamond Bar','cost':25},'91766':{'city':'Diamond Bar','cost':25},
+  '92840':{'city':'Garden Grove','cost':25},'92841':{'city':'Garden Grove','cost':25},
+  '92843':{'city':'Garden Grove','cost':25},'92844':{'city':'Garden Grove','cost':25},'92845':{'city':'Garden Grove','cost':25},
+  '91709':{'city':'Chino Hills','cost':28},
+  '92780':{'city':'Tustin','cost':28},'92782':{'city':'Tustin','cost':28},
+  '92701':{'city':'Santa Ana','cost':28},'92703':{'city':'Santa Ana','cost':28},'92704':{'city':'Santa Ana','cost':28},
+  '92705':{'city':'Santa Ana','cost':28},'92706':{'city':'Santa Ana','cost':28},'92707':{'city':'Santa Ana','cost':28},
+  '90240':{'city':'Downey','cost':28},'90241':{'city':'Downey','cost':28},'90242':{'city':'Downey','cost':28},
+  '90802':{'city':'Long Beach','cost':35},'90803':{'city':'Long Beach','cost':35},'90804':{'city':'Long Beach','cost':35},
+  '90805':{'city':'Long Beach','cost':35},'90806':{'city':'Long Beach','cost':35},'90807':{'city':'Long Beach','cost':35},
+  '90808':{'city':'Long Beach','cost':35},'90810':{'city':'Long Beach','cost':35},'90813':{'city':'Long Beach','cost':35},
+  '90815':{'city':'Long Beach','cost':35},
+  '92602':{'city':'Irvine','cost':35},'92603':{'city':'Irvine','cost':35},'92604':{'city':'Irvine','cost':35},
+  '92606':{'city':'Irvine','cost':35},'92612':{'city':'Irvine','cost':35},'92614':{'city':'Irvine','cost':35},
+  '92617':{'city':'Irvine','cost':35},'92618':{'city':'Irvine','cost':35},'92620':{'city':'Irvine','cost':35},
+  '91101':{'city':'Pasadena','cost':40},'91103':{'city':'Pasadena','cost':40},'91104':{'city':'Pasadena','cost':40},
+  '91105':{'city':'Pasadena','cost':40},'91106':{'city':'Pasadena','cost':40},'91107':{'city':'Pasadena','cost':40},
+  '90001':{'city':'Los Angeles','cost':45},'90004':{'city':'Los Angeles','cost':45},'90005':{'city':'Los Angeles','cost':45},
+  '90006':{'city':'Los Angeles','cost':45},'90007':{'city':'Los Angeles','cost':45},'90008':{'city':'Los Angeles','cost':45},
+  '90010':{'city':'Los Angeles','cost':45},'90012':{'city':'Los Angeles','cost':45},'90013':{'city':'Los Angeles','cost':45},
+  '90014':{'city':'Los Angeles','cost':45},'90015':{'city':'Los Angeles','cost':45},'90016':{'city':'Los Angeles','cost':45},
+  '90017':{'city':'Los Angeles','cost':45},'90018':{'city':'Los Angeles','cost':45},'90019':{'city':'Los Angeles','cost':45},
+  '90020':{'city':'Los Angeles','cost':45},'90021':{'city':'Los Angeles','cost':45},'90022':{'city':'Los Angeles','cost':45},
+  '90023':{'city':'Los Angeles','cost':45},'90024':{'city':'Los Angeles','cost':45},'90025':{'city':'Los Angeles','cost':45},
+  '90026':{'city':'Los Angeles','cost':45},'90027':{'city':'Los Angeles','cost':45},'90028':{'city':'Los Angeles','cost':45},
+  '90029':{'city':'Los Angeles','cost':45},'90031':{'city':'Los Angeles','cost':45},'90032':{'city':'Los Angeles','cost':45},
+  '90033':{'city':'Los Angeles','cost':45},'90034':{'city':'Los Angeles','cost':45},'90035':{'city':'Los Angeles','cost':45},
+  '90036':{'city':'Los Angeles','cost':45},'90037':{'city':'Los Angeles','cost':45},'90038':{'city':'Los Angeles','cost':45},
+  '90039':{'city':'Los Angeles','cost':45},'90041':{'city':'Los Angeles','cost':45},'90042':{'city':'Los Angeles','cost':45},
+  '90043':{'city':'Los Angeles','cost':45},'90044':{'city':'Los Angeles','cost':45},'90045':{'city':'Los Angeles','cost':45},
+  '90046':{'city':'Los Angeles','cost':45},'90047':{'city':'Los Angeles','cost':45},'90048':{'city':'Los Angeles','cost':45},
+  '90049':{'city':'Los Angeles','cost':45},'90056':{'city':'Los Angeles','cost':45},'90057':{'city':'Los Angeles','cost':45},
+  '90058':{'city':'Los Angeles','cost':45},'90059':{'city':'Los Angeles','cost':45},'90061':{'city':'Los Angeles','cost':45},
+  '90062':{'city':'Los Angeles','cost':45},'90063':{'city':'Los Angeles','cost':45},'90065':{'city':'Los Angeles','cost':45},
+  '90066':{'city':'Los Angeles','cost':45},'90067':{'city':'Los Angeles','cost':45},'90068':{'city':'Los Angeles','cost':45},
+  '90071':{'city':'Los Angeles','cost':45},'90077':{'city':'Los Angeles','cost':45},'90089':{'city':'Los Angeles','cost':45}
+};
+
+function calculateDeliveryS2() {
+  var zipEl = document.getElementById('delivery-zip-s2');
+  if (!zipEl) return;
+  var zip = zipEl.value.trim();
+  var resultEl = document.getElementById('bb-zip-result');
+  var cityEl   = document.getElementById('bb-zip-city');
+  var detailsEl= document.getElementById('bb-zip-details');
+  if (!/^\d{5}$/.test(zip)) {
+    if (resultEl) resultEl.style.display = 'none';
+    return;
+  }
+  var zone = FULL_DELIVERY_ZONES[zip];
+  if (zone) {
+    state.deliveryCost     = zone.cost;
+    state.deliveryCityLabel= zone.city;
+    state.deliveryCity     = zip;
+    if (cityEl) cityEl.textContent = zone.city + (zone.cost === 0 ? ' \u2014 Free delivery' : ' \u2014 $' + zone.cost + ' delivery fee');
+    if (detailsEl) detailsEl.textContent = '';
+  } else {
+    state.deliveryCost     = 0;
+    state.deliveryCityLabel= 'Your area';
+    state.deliveryCity     = zip;
+    if (cityEl) cityEl.textContent = 'We deliver to this area!';
+    if (detailsEl) detailsEl.textContent = 'Exact delivery fee confirmed upon booking.';
+  }
+  if (resultEl) resultEl.style.display = 'block';
+  hideError('step5-zip-error');
+}
+
+function updateSummaryBar() {
+  var bar = document.getElementById('booking-summary-bar');
+  if (!bar) return;
+  if (state.experience !== 'full') { bar.style.display = 'none'; return; }
+  var collNames = { 'classic':'Classic','signature':'Signature','luxury':'Luxury' };
+  var palNames  = { 'blush-white':'Blush & White','garden-greens':'Garden Greens','bold-romantic':'Bold & Romantic','something-blue':'Something Blue','spring-pastels':'Spring Pastels','jewel-tones':'Jewel Tones' };
+  var gEl = document.getElementById('sum-guests');
+  var cEl = document.getElementById('sum-collection');
+  var pEl = document.getElementById('sum-palette');
+  if (gEl) gEl.textContent = (state.guestCount || 20) + ' guests';
+  if (cEl) cEl.textContent = (collNames[state.collection] || '') + ' Collection';
+  if (pEl) pEl.textContent = palNames[state.palette] || 'Palette TBD';
+  bar.style.display = 'flex';
 }
 
 function step5Next() {
-  var city = document.getElementById('delivery-city').value;
-  var date = document.getElementById('event-date').value.trim();
+  var zipEl = document.getElementById('delivery-zip-s2');
+  var zip   = zipEl ? zipEl.value.trim() : '';
+  var date  = document.getElementById('event-date').value.trim();
   var email = document.getElementById('quote-email').value.trim();
   var valid = true;
-  if (!city) { showError('step5-city-error'); valid = false; } else { hideError('step5-city-error'); }
+  if (!zip || !/^\d{5}$/.test(zip)) { showError('step5-zip-error'); valid = false; } else { hideError('step5-zip-error'); }
   if (!date) { showError('step5-date-error'); valid = false; } else { hideError('step5-date-error'); }
   if (!valid) return;
-  state.deliveryCity = city;
-  var sel = document.getElementById('delivery-city');
-  var opt = sel.options[sel.selectedIndex];
-  state.deliveryCost = parseInt(opt.getAttribute('data-cost') || '0', 10);
-  state.deliveryCityLabel = opt.textContent;
+  // calculateDeliveryS2 may already have run; run it again to be sure
+  calculateDeliveryS2();
   state.eventDate = date;
   state.email = email;
   goToStep(7);
@@ -2335,36 +2429,57 @@ function buildQuote() {
   if (!box) return;
   var lines = [];
   var total = 0;
-  var eyebrow = document.querySelector('#step-7 .bk-eyebrow');
-  if (eyebrow) eyebrow.textContent = 'Your Quote';
+  var paletteLabels = {
+    'blush-white': 'Blush & White palette', 'garden-greens': 'Garden Greens palette',
+    'bold-romantic': 'Bold & Romantic palette', 'something-blue': 'Something Blue palette',
+    'spring-pastels': 'Spring Pastels palette', 'jewel-tones': 'Jewel Tones palette'
+  };
   var pkgLabels = {
-    'flower-bar': 'The Flower Bar (DIY)',
-    'boho-bloom-bundle': 'Boho Bloom Bundle (DIY)',
-    'bloom-social': 'Bloom Social \u2014 ' + (state.tier ? state.tier.charAt(0).toUpperCase() + state.tier.slice(1) : ''),
-    'bloom-celebration': 'Bloom Celebration \u2014 ' + (state.tier ? state.tier.charAt(0).toUpperCase() + state.tier.slice(1) : ''),
+    'flower-bar': 'The Flower Bar (DIY)', 'boho-bloom-bundle': 'Boho Bloom Bundle (DIY)',
+    'bloom-social': 'Bloom Social', 'bloom-celebration': 'Bloom Celebration',
     'pink-backdrop': 'Pink Flower Backdrop', 'white-backdrop': 'White Flower Backdrop',
     'green-backdrop': 'Green Backdrop', 'bar-cart': 'Bar Cart', 'champagne-wall': 'Champagne Wall'
   };
-  if (state.pkg) {
-    lines.push({ label: pkgLabels[state.pkg] || state.pkg, amount: state.pkgPrice });
-    total += state.pkgPrice;
+
+  if (state.experience === 'full') {
+    // Full Bloom Bar path — show collection, palette, delivery
+    var collLabels = { 'classic':'Classic Collection','signature':'Signature Collection','luxury':'Luxury Collection' };
+    if (state.collection) {
+      var collLine = (collLabels[state.collection] || 'Bloom Bar');
+      if (state.guestCount && state.pricePerGuest) {
+        collLine += ' \u2014 ' + state.guestCount + ' guests \u00d7 $' + state.pricePerGuest + '/guest';
+      }
+      lines.push({ label: collLine, amount: state.collectionTotal || 0 });
+      total += state.collectionTotal || 0;
+    }
+    if (state.palette) {
+      lines.push({ label: paletteLabels[state.palette] || state.palette, amount: null });
+    }
+  } else {
+    // Rentals / DIY path
+    if (state.pkg) {
+      lines.push({ label: pkgLabels[state.pkg] || state.pkg, amount: state.pkgPrice });
+      total += state.pkgPrice;
+    }
+    if (state.palette) {
+      lines.push({ label: paletteLabels[state.palette] || state.palette, amount: null });
+    }
   }
-  if (state.experience === 'full' && state.palette) {
-    var paletteLabels = {
-      'blush-white': 'Blush & White palette', 'garden-greens': 'Garden Greens palette',
-      'bold-romantic': 'Bold & Romantic palette', 'something-blue': 'Something Blue palette',
-      'spring-pastels': 'Spring Pastels palette', 'jewel-tones': 'Jewel Tones palette'
-    };
-    lines.push({ label: paletteLabels[state.palette] || state.palette, amount: null });
-  }
+
   var deliveryLabel = state.deliveryCityLabel || state.deliveryCity || '';
   if (state.deliveryCost > 0) {
     lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: state.deliveryCost });
     total += state.deliveryCost;
   } else if (state.deliveryCity) {
-    lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: 0, free: true });
+    lines.push({ label: 'Delivery \u2014 ' + (deliveryLabel || state.deliveryCity), amount: 0, free: true });
   }
-  var html = '<p class="bk-quote-title">Your custom quote \u2014 ' + (state.eventDate || '') + '</p>';
+
+  // Personalized headline
+  var quoteTitle = 'Your custom quote';
+  if (state.experience === 'full' && state.customerName) {
+    quoteTitle = state.customerName.split(' ')[0] + '\u2019s custom quote';
+  }
+  var html = '<p class="bk-quote-title">' + quoteTitle + (state.eventDate ? ' \u2014 ' + state.eventDate : '') + '</p>';
   lines.forEach(function(l) {
     var amountStr;
     if (l.amount === null) amountStr = '';
@@ -2372,8 +2487,8 @@ function buildQuote() {
     else amountStr = '$' + l.amount;
     html += '<div class="bk-line-item"><span>' + l.label + '</span><span>' + amountStr + '</span></div>';
   });
-  if (state.experience === 'full' && state.deposit > 0) {
-    html += '<div class="bk-line-item bk-line-deposit"><span>Deposit to reserve</span><span>$' + state.deposit + '</span></div>';
+  if (state.experience === 'full') {
+    html += '<div class="bk-line-item bk-line-deposit"><span>Deposit to reserve</span><span>$100</span></div>';
   }
   html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total</span><span class="bk-total-amount">$' + total + '</span></div>';
   box.innerHTML = html;
@@ -2391,13 +2506,13 @@ function buildQuote() {
     if (finalNote) finalNote.textContent = 'You\'ll be taken to our booking platform to check availability and complete your reservation.';
   } else if (state.experience === 'full') {
     if (finalBtn) { finalBtn.textContent = 'Reserve with deposit'; finalBtn.setAttribute('data-href', '#stripe-link'); }
-    if (finalNote) finalNote.textContent = 'A deposit of $' + state.deposit + ' secures your date. We\'ll confirm availability within 2 hours.';
+    if (finalNote) finalNote.textContent = 'A $100 deposit secures your date. We\u2019ll confirm availability within 2 hours.';
   } else {
     if (finalBtn) { finalBtn.textContent = 'Send my booking request'; finalBtn.removeAttribute('data-href'); }
     if (finalNote) finalNote.textContent = 'We\'ll confirm your booking and send a full invoice within 2 hours.';
   }
   var s6eyebrow = document.querySelector('#step-7 .bk-eyebrow');
-  var s6stepNum = state.experience === 'full' ? 5 : 4;
+  var s6stepNum = state.experience === 'full' ? 6 : 4;
   if (s6eyebrow) s6eyebrow.textContent = 'Step ' + s6stepNum + ' \u2014 Your Quote';
 }
 
@@ -2440,7 +2555,7 @@ function submitRentalsForm() {
 }
 
 function calculateTotal() {
-  var t = state.pkgPrice || 0;
+  var t = state.experience === 'full' ? (state.collectionTotal || 0) : (state.pkgPrice || 0);
   t += state.deliveryCost || 0;
   return t;
 }
@@ -2517,8 +2632,7 @@ function rovingKey(e, groupId, idx) {
     'step1-rg': '#step-1 [role="radio"]',
     'step3-full-rg': '#step3-full [role="radio"]',
     'step3-rentals-rg': '#step3-rentals [role="radio"]',
-    'step4-palette-rg': '.bk-palette-grid [role="radio"]',
-    'step4-tier-rg': '#arrange-reveal [role="radio"]'
+    'step4-palette-rg': '.bk-palette-grid [role="radio"]'
   };
   var sel = groups[groupId];
   if (!sel) return;
@@ -2643,14 +2757,22 @@ setTimeout(hideScissorsQuantity, 3000);
         var el = document.getElementById(id);
         if (el) el.value = (val !== undefined && val !== null) ? String(val) : '';
       };
+      var COLL_LABELS = { 'classic':'Classic Collection','signature':'Signature Collection','luxury':'Luxury Collection' };
       set('hf-experience',    s.experience);
       set('hf-name',          s.customerName);
       set('hf-date',          s.eventDate);
       set('hf-city',          s.deliveryCityLabel || s.cityName || s.deliveryCity);
-      set('hf-package',       PKG_LABELS[s.pkg] || s.pkg);
-      set('hf-package-price', s.pkgPrice ? '$' + s.pkgPrice : '');
-      set('hf-palette',       PALETTE_LABELS[s.palette] || s.palette);
-      set('hf-style',         s.tier ? s.tier.charAt(0).toUpperCase() + s.tier.slice(1) : '');
+      if (s.experience === 'full') {
+        set('hf-package',       COLL_LABELS[s.collection] || s.collection);
+        set('hf-package-price', s.pricePerGuest ? '$' + s.pricePerGuest + '/guest' : '');
+        set('hf-palette',       PALETTE_LABELS[s.palette] || s.palette);
+        set('hf-style',         s.guestCount ? s.guestCount + ' guests \u2014 $' + (s.collectionTotal || 0) + ' total' : '');
+      } else {
+        set('hf-package',       PKG_LABELS[s.pkg] || s.pkg);
+        set('hf-package-price', s.pkgPrice ? '$' + s.pkgPrice : '');
+        set('hf-palette',       PALETTE_LABELS[s.palette] || s.palette);
+        set('hf-style',         s.tier ? s.tier.charAt(0).toUpperCase() + s.tier.slice(1) : '');
+      }
       set('hf-total',         '$' + (typeof calculateTotal === 'function' ? calculateTotal() : 0));
       set('hf-delivery',      s.deliveryCost ? '$' + s.deliveryCost : '');
     } catch(e) {
@@ -2866,10 +2988,17 @@ setTimeout(hideScissorsQuantity, 3000);
             y += (lines.length * 16) + 6;
           };
 
-          // Package
-          var pkgDisplay = PKG_LABELS[s.pkg] || s.pkg || 'Package';
-          if (s.tier) pkgDisplay += ' \u2014 ' + (s.tier.charAt(0).toUpperCase() + s.tier.slice(1));
-          addLineItem(pkgDisplay, s.pkgPrice ? '$' + s.pkgPrice : '');
+          // Package / Collection
+          if (s.experience === 'full') {
+            var COLL_PDF = { 'classic':'Classic Collection','signature':'Signature Collection','luxury':'Luxury Collection' };
+            var collDisplay = COLL_PDF[s.collection] || 'Bloom Bar Collection';
+            if (s.guestCount && s.pricePerGuest) collDisplay += ' \u2014 ' + s.guestCount + ' guests @ $' + s.pricePerGuest + '/guest';
+            addLineItem(collDisplay, s.collectionTotal ? '$' + s.collectionTotal : '');
+          } else {
+            var pkgDisplay = PKG_LABELS[s.pkg] || s.pkg || 'Package';
+            if (s.tier) pkgDisplay += ' \u2014 ' + (s.tier.charAt(0).toUpperCase() + s.tier.slice(1));
+            addLineItem(pkgDisplay, s.pkgPrice ? '$' + s.pkgPrice : '');
+          }
 
           // Palette
           var palDisplay = PALETTE_LABELS[s.palette] || s.palette;
