@@ -574,6 +574,24 @@
     .bb-pricing-row-details { font-size:13px; }
     .bb-pricing-preview { padding:16px; }
   }
+
+  /* ── Collection grid ────────────────────────────── */
+  .bb-collection-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin:24px 0; align-items:start; }
+  .bb-collection-card { text-align:left; height:100%; display:flex; flex-direction:column; }
+  .bb-collection-featured { background:#fff4f8 !important; border-color:#e9b8c9 !important; border-width:1.5px !important; }
+  .bb-collection-stems { font-size:11px; color:#d4537e; font-family:'Inter',sans-serif; font-weight:500; margin:4px 0 8px; letter-spacing:0.3px; }
+  .bb-collection-flowers { list-style:none; padding:0; margin:8px 0; display:flex; flex-direction:column; gap:6px; flex:1; }
+  .bb-collection-flowers li { font-size:12px; color:#6b4c5e; font-family:'Inter',sans-serif; padding-left:16px; position:relative; }
+  .bb-collection-flowers li::before { content:"\2713"; position:absolute; left:0; color:#d4537e; font-weight:600; font-size:11px; }
+  .bb-collection-total { font-size:12px; color:#7a5a6a; font-family:'Inter',sans-serif; font-style:italic; margin:4px 0 0; }
+  @media (max-width:767px) {
+    .bb-collection-grid { grid-template-columns:1fr; gap:12px; }
+    .bb-collection-card { width:100%; }
+    .bb-collection-flowers li { font-size:13px; }
+  }
+  @media (min-width:480px) and (max-width:767px) {
+    .bb-collection-grid { grid-template-columns:1fr 1fr; }
+  }
   </style>
 </head>
 <body>
@@ -615,6 +633,7 @@
   <!-- Hidden Netlify form for bot detection -->
   <form name="book-inquiry" data-netlify="true" hidden>
     <input name="name"><input name="email"><input name="event-date"><input name="guest-count">
+    <input name="collection"><input name="price-per-guest"><input name="collection-total">
     <input name="experience"><input name="package"><input name="addons"><input name="delivery-city"><input name="total">
   </form>
 
@@ -804,6 +823,109 @@
       <button class="bk-back"
         aria-label="Go back to experience selection"
         onclick="goToStep(1)">&larr; Back</button>
+    </div>
+
+  </section>
+
+  <!-- ===================== STEP COLLECTION — Full Bloom Bar Experience only ===================== -->
+  <section id="step-collection" class="bk-step"
+    aria-live="polite"
+    aria-labelledby="collection-heading">
+
+    <p class="bk-confirm-line" id="confirm-collection" aria-live="polite"></p>
+    <p class="bk-eyebrow" style="color:#d4537e;">Step 3 &mdash; Full Bloom Bar Experience</p>
+    <h2 class="bk-h1" id="collection-heading">Choose your collection.</h2>
+    <p class="bk-subtext">Every collection includes fresh flowers and your full bloom bar setup.</p>
+
+    <!-- Collection cards -->
+    <div class="bb-collection-grid" role="radiogroup" aria-labelledby="collection-heading">
+
+      <!-- CLASSIC -->
+      <button class="bk-card bb-collection-card"
+        role="radio" aria-checked="false" tabindex="0"
+        id="collection-classic"
+        data-collection="classic"
+        data-price-per-guest="25"
+        onclick="selectCollection('classic',25)"
+        onkeydown="rovingKey(event,'step-collection-rg',0)">
+        <p class="bk-card-label">CLASSIC COLLECTION</p>
+        <p class="bk-card-title">Classic</p>
+        <p class="bb-collection-stems">6&ndash;8 stems per guest</p>
+        <hr class="bk-card-rule">
+        <ul class="bb-collection-flowers" aria-label="Classic collection flowers">
+          <li>Carnations</li>
+          <li>Daisies</li>
+          <li>Alstroemeria</li>
+          <li>Fillers</li>
+          <li>Greenery</li>
+        </ul>
+        <hr class="bk-card-rule">
+        <p class="bk-card-price">$25/guest</p>
+        <p class="bb-collection-total" id="classic-total">$500 for your 20 guests</p>
+      </button>
+
+      <!-- SIGNATURE — featured -->
+      <button class="bk-card bb-collection-card bb-collection-featured"
+        role="radio" aria-checked="false" tabindex="-1"
+        id="collection-signature"
+        data-collection="signature"
+        data-price-per-guest="35"
+        onclick="selectCollection('signature',35)"
+        onkeydown="rovingKey(event,'step-collection-rg',1)">
+        <span class="bk-badge" aria-label="Host favorite collection">Host Favorite</span>
+        <p class="bk-card-label">SIGNATURE COLLECTION</p>
+        <p class="bk-card-title">Signature</p>
+        <p class="bb-collection-stems">8&ndash;10 stems per guest</p>
+        <hr class="bk-card-rule">
+        <ul class="bb-collection-flowers" aria-label="Signature collection flowers">
+          <li>Roses</li>
+          <li>Spray Roses</li>
+          <li>Premium Fillers</li>
+          <li>Greenery</li>
+        </ul>
+        <hr class="bk-card-rule">
+        <p class="bk-card-price">$35/guest</p>
+        <p class="bb-collection-total" id="signature-total">$700 for your 20 guests</p>
+      </button>
+
+      <!-- LUXURY -->
+      <button class="bk-card bb-collection-card"
+        role="radio" aria-checked="false" tabindex="-1"
+        id="collection-luxury"
+        data-collection="luxury"
+        data-price-per-guest="45"
+        onclick="selectCollection('luxury',45)"
+        onkeydown="rovingKey(event,'step-collection-rg',2)">
+        <p class="bk-card-label">LUXURY COLLECTION</p>
+        <p class="bk-card-title">Luxury</p>
+        <p class="bb-collection-stems">10&ndash;12 stems per guest</p>
+        <hr class="bk-card-rule">
+        <ul class="bb-collection-flowers" aria-label="Luxury collection flowers">
+          <li>Garden Roses</li>
+          <li>Lisianthus</li>
+          <li>Premium Fillers</li>
+          <li>Lush Greenery</li>
+        </ul>
+        <hr class="bk-card-rule">
+        <p class="bk-card-price">$45/guest</p>
+        <p class="bb-collection-total" id="luxury-total">$900 for your 20 guests</p>
+      </button>
+
+    </div>
+
+    <p class="bk-trust-line">All fresh flowers sourced within 48 hours of your event. 15 guest minimum applies.</p>
+
+    <p class="bk-error" id="step-collection-error" role="alert" aria-atomic="true">Please choose a collection above to continue.</p>
+
+    <div class="bk-cta-row">
+      <button class="bk-btn"
+        id="step-collection-btn"
+        aria-disabled="true"
+        onclick="collectionNext()"
+        aria-label="Continue with selected collection">Continue with this collection &rarr;</button>
+      <button class="bk-back"
+        aria-label="Go back to guest count"
+        onclick="showGuestCountStep()">&larr; Back</button>
     </div>
 
   </section>
@@ -1219,7 +1341,7 @@
     <p class="bk-error" id="step4-tier-error" role="alert" aria-atomic="true">Please choose your arrangement style above to continue.</p>
     <div class="bk-cta-row">
       <button class="bk-btn" id="step4-btn" aria-disabled="true" onclick="step4Next_flowers()">Confirm my flowers</button>
-      <button class="bk-back" aria-label="Go back to package selection" onclick="goToStep(3)">&larr; Back</button>
+      <button class="bk-back" aria-label="Go back to collection selection" onclick="showCollectionStep()">&larr; Back</button>
     </div>
   </section>
 
@@ -1426,12 +1548,15 @@ var state = {
   eventDate: '', email: '',
   selectedProduct: '', selectedProductPrice: 0,
   pendingExperienceChange: false,
-  guestCount: 20
+  guestCount: 20,
+  collection: null, pricePerGuest: 0, collectionTotal: 0,
+  restrictedPalettes: null
 };
 
 var currentStep = 1;
 var step2LeadCaptured = false;
 var onGuestCountStep = false;
+var onCollectionStep = false;
 
 // ---- Aria-hidden management ----
 function updateStepAriaHidden() {
@@ -1545,6 +1670,7 @@ function experienceS1Next() {
 // ---- Step 2: Event Details (full and rentals only) ----
 function goToStep2Details() {
   onGuestCountStep = false;
+  onCollectionStep = false;
   document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
   var target = document.getElementById('step-2-details');
   if (target) target.classList.add('active');
@@ -1671,11 +1797,13 @@ function renderProgress() {
   var steps, dispIdx;
 
   if (state.experience === 'full') {
-    steps = ['Experience', 'Guest Count', 'Your Details', 'Package', 'Your Flowers', 'Your Quote'];
+    steps = ['Experience', 'Guest Count', 'Collection', 'Your Palette', 'Your Details', 'Your Quote'];
     if (onGuestCountStep) {
       dispIdx = 1;
+    } else if (onCollectionStep) {
+      dispIdx = 2;
     } else {
-      var fmap = {1:0, 2:2, 3:3, 4:4, 6:5, 7:5};
+      var fmap = {1:0, 4:3, 6:4, 7:5};
       dispIdx = fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
     }
   } else if (state.experience === 'rentals') {
@@ -1725,6 +1853,7 @@ function renderProgress() {
 // ---- Step navigation ----
 function goToStep(n) {
   onGuestCountStep = false;
+  onCollectionStep = false;
   document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
   currentStep = n;
   var next = document.getElementById('step-' + n);
@@ -1763,7 +1892,7 @@ function getStepsForCurrentPath() {
   if (state.experience === 'diy') {
     return ['step-1', 'diy-products', 'diy-addons'];
   } else if (state.experience === 'full') {
-    return ['step-1', 'step-guest-count', 'step-2-details', 'step-3', 'step-4', 'step-6'];
+    return ['step-1', 'step-guest-count', 'step-collection', 'step-4', 'step-6'];
   } else if (state.experience === 'rentals') {
     return ['step-1', 'step-2-details', 'step-3', 'step-6'];
   }
@@ -1773,7 +1902,8 @@ function getStepsForCurrentPath() {
 function getCurrentStepIndex() {
   if (state.experience === 'full') {
     if (onGuestCountStep) return 1;
-    var fmap = {1:0, 2:2, 3:3, 4:4, 6:5, 7:5};
+    if (onCollectionStep) return 2;
+    var fmap = {1:0, 4:3, 6:4, 7:5};
     return fmap[currentStep] !== undefined ? fmap[currentStep] : 0;
   } else if (state.experience === 'rentals') {
     var rmap = {1:0, 2:1, 3:2, 6:3, 7:3};
@@ -1798,6 +1928,8 @@ function goToStepWithHistory(stepId, stepIndex) {
     goToStep(1);
   } else if (stepId === 'step-guest-count') {
     showGuestCountStep();
+  } else if (stepId === 'step-collection') {
+    showCollectionStep();
   } else if (stepId === 'step-2-details') {
     goToStep2Details();
   } else if (stepId === 'diy-products') {
@@ -1880,8 +2012,95 @@ function guestCountNext() {
     updatePricingPreview();
   }
   var ann = document.getElementById('step-announcement');
-  if (ann) ann.textContent = state.guestCount + ' guests selected. Moving to your event details.';
-  goToStep2Details();
+  if (ann) ann.textContent = state.guestCount + ' guests selected. Moving to collection selection.';
+  showCollectionStep();
+}
+
+// ── COLLECTION STEP ──────────────────────────────
+function selectCollection(collection, pricePerGuest) {
+  state.collection = collection;
+  state.pricePerGuest = pricePerGuest;
+  state.collectionTotal = (state.guestCount || 20) * pricePerGuest;
+
+  var cards = document.querySelectorAll('[data-collection]');
+  cards.forEach(function(card) {
+    var isSelected = card.dataset.collection === collection;
+    card.setAttribute('aria-checked', isSelected ? 'true' : 'false');
+    card.classList.toggle('bk-card--selected', isSelected);
+  });
+
+  var btn = document.getElementById('step-collection-btn');
+  if (btn) {
+    btn.removeAttribute('aria-disabled');
+    btn.setAttribute('aria-label',
+      'Continue with ' + collection + ' collection — $' + pricePerGuest +
+      ' per guest, $' + state.collectionTotal.toLocaleString() + ' total');
+  }
+
+  var err = document.getElementById('step-collection-error');
+  if (err) err.style.display = 'none';
+
+  var ann = document.getElementById('step-announcement');
+  if (ann) {
+    ann.textContent = collection.charAt(0).toUpperCase() + collection.slice(1) +
+      ' Collection selected. $' + pricePerGuest + ' per guest. $' +
+      state.collectionTotal.toLocaleString() + ' for your ' + state.guestCount + ' guests.';
+  }
+}
+
+function updateCollectionTotals() {
+  var g = state.guestCount || 20;
+  var classicEl   = document.getElementById('classic-total');
+  var signatureEl = document.getElementById('signature-total');
+  var luxuryEl    = document.getElementById('luxury-total');
+  if (classicEl)   classicEl.textContent   = '$' + (g * 25).toLocaleString() + ' for your ' + g + ' guests';
+  if (signatureEl) signatureEl.textContent = '$' + (g * 35).toLocaleString() + ' for your ' + g + ' guests';
+  if (luxuryEl)    luxuryEl.textContent    = '$' + (g * 45).toLocaleString() + ' for your ' + g + ' guests';
+}
+
+function showCollectionStep() {
+  onCollectionStep = true;
+  onGuestCountStep = false;
+  document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('step-collection');
+  if (target) target.classList.add('active');
+  currentStep = 1;
+
+  updateCollectionTotals();
+
+  var confirmEl = document.getElementById('confirm-collection');
+  if (confirmEl && state.guestCount) confirmEl.textContent = state.guestCount + ' guests';
+
+  var btn = document.getElementById('step-collection-btn');
+  if (btn && !state.collection) btn.setAttribute('aria-disabled', 'true');
+
+  renderProgress();
+  updateStepAriaHidden();
+  window.scrollTo(0, 0);
+
+  var ann = document.getElementById('step-announcement');
+  if (ann) ann.textContent = 'Step 3: Choose your collection.';
+
+  setTimeout(function() {
+    var heading = document.getElementById('collection-heading');
+    if (heading) {
+      if (!heading.getAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
+  }, 100);
+}
+
+function collectionNext() {
+  if (!state.collection) {
+    var err = document.getElementById('step-collection-error');
+    if (err) { err.style.display = 'block'; err.focus(); }
+    return;
+  }
+  state.restrictedPalettes = state.collection === 'classic'
+    ? ['blush-white', 'garden-greens', 'spring-pastels'] : null;
+  var ann = document.getElementById('step-announcement');
+  if (ann) ann.textContent = 'Moving to color palette selection.';
+  goToStep(4);
 }
 
 function showGuestCountStep() {
@@ -1889,6 +2108,7 @@ function showGuestCountStep() {
   var target = document.getElementById('step-guest-count');
   if (target) target.classList.add('active');
   onGuestCountStep = true;
+  onCollectionStep = false;
   currentStep = 1;
   if (!state.guestCount) state.guestCount = 20;
   updateGuestDisplay();
