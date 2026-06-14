@@ -261,9 +261,9 @@
     .diy-addon-name { font-size: 13px; font-weight: 500; color: #3d1a2e; margin: 0 0 0.15rem; font-family: "Inter", sans-serif; }
     .diy-addon-desc { font-size: 11px; color: #6b4c5e; margin: 0 0 0.25rem; font-family: "Inter", sans-serif; }
     .diy-addon-price { font-size: 13px; color: #3d1a2e; margin: 0; font-family: "Inter", sans-serif; }
-    .diy-notify-link { font-size: 11px; color: #d4537e; text-decoration: underline; white-space: nowrap; font-family: "Inter", sans-serif; flex-shrink: 0; font-weight: 500; }
+    .diy-notify-link { font-size: 11px; color: #d4537e; text-decoration: underline; white-space: nowrap; font-family: "Inter", sans-serif; flex-shrink: 0; font-weight: 500; min-height: 44px; display: inline-flex; align-items: center; }
     .diy-notify-link:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
-    .diy-scissors-toggle { background: transparent; color: #7a5a6a; border: 0.5px solid #f4c0d1; border-radius: 20px; padding: 6px 16px; font-size: 11px; font-family: "Inter", sans-serif; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: background 0.15s, color 0.15s, border-color 0.15s; }
+    .diy-scissors-toggle { background: transparent; color: #7a5a6a; border: 0.5px solid #f4c0d1; border-radius: 20px; padding: 6px 16px; font-size: 11px; font-family: "Inter", sans-serif; cursor: pointer; white-space: nowrap; flex-shrink: 0; transition: background 0.15s, color 0.15s, border-color 0.15s; min-height: 44px; }
     .diy-scissors-toggle[aria-pressed="true"] { background: #fbeaf0; color: #d4537e; border-color: #d4537e; }
     .diy-scissors-toggle:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
     .diy-scissors-note { font-size: 10px; color: #7a5a6a; font-style: italic; margin-top: 0.25rem; font-family: "Inter", sans-serif; }
@@ -271,9 +271,13 @@
     /* Checkout block */
     .diy-checkout-block { border-top: 0.5px solid #f4c0d1; margin-top: 2rem; padding-top: 1.5rem; }
     .diy-reassurance { font-style: italic; font-size: 12px; color: #6b4c5e; border-left: 2px solid #f4c0d1; padding-left: 0.75rem; margin-bottom: 1.5rem; font-family: "Inter", sans-serif; }
-    .diy-checkout-btn { display: inline-block; background: #d4537e; color: #fff; border: none; border-radius: 30px; padding: 12px 28px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: "Inter", sans-serif; text-decoration: none; transition: background 0.15s; }
+    .diy-checkout-btn { display: inline-flex; align-items: center; justify-content: center; background: #d4537e; color: #fff; border: none; border-radius: 30px; padding: 12px 28px; font-size: 13px; font-weight: 500; cursor: pointer; font-family: "Inter", sans-serif; text-decoration: none; transition: background 0.15s; min-height: 44px; }
     .diy-checkout-btn:hover { background: #b32566; }
     .diy-checkout-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
+    @media (max-width: 767px) {
+      .diy-checkout-btn { width: 100%; justify-content: center; min-height: 52px; font-size: 14px; }
+      .diy-notify-link { min-height: 52px; }
+    }
     .diy-checkout-note { font-size: 11px; color: #7a5a6a; margin: 0.5rem 0 0; font-family: "Inter", sans-serif; }
 
     /* Booqable product grid */
@@ -1012,9 +1016,9 @@
         <p id="datepicker-label" role="presentation" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;font-family:'Inter',sans-serif;margin-bottom:0.5rem;">Select your rental dates to check availability</p>
         <div class="booqable-datepicker"></div>
       </div>
-      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" aria-label="Book directly on our Booqable reservations page" style="font-size:11px;color:#d4537e;font-family:'Inter',sans-serif;display:block;margin-top:0.5rem;text-underline-offset:3px;">Having trouble? Book directly on our reservations page &rarr;</a>
+      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" target="_blank" rel="noopener noreferrer" aria-label="Having trouble? Book directly on our Booqable reservations page — opens in new tab" style="font-size:11px;color:#d4537e;font-family:'Inter',sans-serif;display:block;margin-top:0.5rem;text-underline-offset:3px;">Having trouble? Book directly on our reservations page &rarr;</a>
     </div>
-    <p class="diy-trust-line">Delivery from $14 <span class="diy-sep">&middot;</span> Setup and breakdown included <span class="diy-sep">&middot;</span> Most dates book 2&ndash;3 weeks out</p>
+    <p class="diy-trust-line">Delivery from $14 <span class="diy-sep" aria-hidden="true">&middot;</span> Setup and breakdown included <span class="diy-sep" aria-hidden="true">&middot;</span> Most dates book 2&ndash;3 weeks out</p>
 
     <!-- Product grid -->
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
@@ -1074,12 +1078,51 @@
     }
   })();
   </script>
+  <script>
+  // Booqable injects product images without alt text — patch them as they appear
+  (function() {
+    var ALT_MAP = {
+      'the-flower-bar': 'The Flower Bar — DIY bloom bar rental with fresh flowers, ribbon holder, and vases',
+      'boho-bloom-bundle-flower-bar-and-umbrella': 'Boho Bloom Bundle — flower bar rental with fringe umbrella included',
+      'add-on-scissors-4': 'Scissors add-on — set of 4 flower-cutting scissors for your bloom bar guests'
+    };
+
+    function patchAltText(root) {
+      Object.keys(ALT_MAP).forEach(function(dataId) {
+        var product = (root || document).querySelector('[data-id="' + dataId + '"]');
+        if (!product) return;
+        product.querySelectorAll('img:not([data-alt-patched])').forEach(function(img) {
+          if (!img.alt) img.alt = ALT_MAP[dataId];
+          img.setAttribute('data-alt-patched', '1');
+        });
+      });
+    }
+
+    var altObserver = new MutationObserver(function(mutations) {
+      mutations.forEach(function(m) {
+        if (m.addedNodes.length) patchAltText(null);
+      });
+    });
+
+    var diySection = document.getElementById('diy-products');
+    if (diySection) {
+      altObserver.observe(diySection, { childList: true, subtree: true });
+    }
+
+    // Also run once on DOMContentLoaded in case Booqable loads synchronously
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', function() { patchAltText(null); });
+    } else {
+      patchAltText(null);
+    }
+  })();
+  </script>
 
   <!-- ===================== DIY STEP 3 — Complete the Look ===================== -->
   <section id="diy-addons" class="bk-step" aria-live="polite">
 
     <!-- Cart confirmation bar -->
-    <div style="background: white; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between;" aria-live="polite">
+    <div style="background: white; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between;" aria-live="polite" role="status">
       <span style="font-size: 11px; color: #7a5a6a; font-family: 'Inter', sans-serif;">In your cart:</span>
       <span id="diy-cart-summary" style="font-size: 12px; font-weight: 500; color: #3d1a2e; font-family: 'Inter', sans-serif;">Your flower bar</span>
     </div>
@@ -1090,7 +1133,7 @@
     <p style="font-style: italic; font-size: 12px; color: #7a5a6a; font-family: 'Inter', sans-serif; margin-bottom: 2rem;">Most hosts add at least one of these to their flower bar setup.</p>
 
     <!-- Add-ons — available now -->
-    <p class="diy-section-label">AVAILABLE NOW</p>
+    <p class="diy-section-label" role="heading" aria-level="3">AVAILABLE NOW</p>
 
     <!-- Scissors — Booqable embed -->
     <div style="background: white; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
@@ -1100,11 +1143,14 @@
         <div style="font-size: 11px; color: #7a5a6a; font-family: 'Inter', sans-serif; margin-bottom: 0.4rem;">A set of 4 scissors for your flower bar guests.</div>
         <div style="font-size: 11px; color: #7a5a6a; font-style: italic; font-family: 'Inter', sans-serif;">One set available per booking.</div>
       </div>
+      <span class="sr-only">Add Scissors (set of 4) to cart — $6.00, one set available per booking</span>
       <div class="booqable-product-button" data-id="add-on-scissors-4" aria-label="Add Scissors to cart" style="flex-shrink: 0;"></div>
     </div>
 
     <!-- Coming soon -->
-    <p class="diy-section-label" style="margin-top:2rem;">COMING SOON &mdash; NOTIFY ME WHEN AVAILABLE</p>
+    <p class="diy-section-label" role="heading" aria-level="3" style="margin-top:2rem;">COMING SOON &mdash; NOTIFY ME WHEN AVAILABLE</p>
+
+    <div role="group" aria-label="Coming soon items — notify me when available">
 
     <div class="diy-addon-row">
       <div class="diy-addon-info">
@@ -1142,15 +1188,18 @@
       <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Candle Holders is available">Notify me</a>
     </div>
 
+    </div><!-- /coming-soon group -->
+
     <!-- Checkout block -->
     <div class="diy-checkout-block">
       <p class="diy-reassurance">Everything in your cart includes delivery, setup, and breakdown. You show up &mdash; we handle the rest.</p>
       <div class="complete-btn-wrapper">
-        <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
+        <a href="https://bring-the-bloombar.booqableshop.com/cart"
            class="diy-checkout-btn"
+           target="_blank"
+           rel="noopener noreferrer"
            onclick="advanceDIYToBook()"
-           aria-label="Complete my booking — opens secure Booqable checkout page"
-           style="display:inline-block;">Complete my booking &rarr;</a>
+           aria-label="Complete my booking — opens secure Booqable cart in new tab">Complete my booking &rarr;</a>
         <p class="diy-checkout-note" style="font-style: italic;">You&rsquo;ll select your dates and complete payment on our secure booking page.</p>
       </div>
       <button class="bk-back" aria-label="Back to packages" onclick="showDIYSection('diy-products', 2)" style="margin-top:0.5rem;">&larr; Back to packages</button>
@@ -2727,7 +2776,7 @@ renderProgress();
 </script>
 <!-- END BOOKING FLOW JS -->
 
-<script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js"></script>
+<script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js" defer></script>
 <script>
 function setBooqableIframeTitles() {
   var frames = document.querySelectorAll('.booqable-datepicker iframe, .booqable-product iframe, .booqable-product-button iframe');
