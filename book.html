@@ -1194,13 +1194,12 @@
     <div class="diy-checkout-block">
       <p class="diy-reassurance">Everything in your cart includes delivery, setup, and breakdown. You show up &mdash; we handle the rest.</p>
       <div class="complete-btn-wrapper">
-        <a href="https://bring-the-bloombar.booqableshop.com/cart"
+        <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
            class="diy-checkout-btn"
-           target="_blank"
-           rel="noopener noreferrer"
+           id="diy-final-btn"
            onclick="advanceDIYToBook()"
-           aria-label="Complete my booking — opens secure Booqable cart in new tab">Complete my booking &rarr;</a>
-        <p class="diy-checkout-note" style="font-style: italic;">You&rsquo;ll select your dates and complete payment on our secure booking page.</p>
+           aria-label="Continue to secure checkout on our Booqable booking page">Continue to checkout &rarr;</a>
+        <p class="diy-checkout-note">You&rsquo;ll confirm your dates and complete payment on our secure booking page.</p>
       </div>
       <button class="bk-back" aria-label="Back to packages" onclick="showDIYSection('diy-products', 2)" style="margin-top:0.5rem;">&larr; Back to packages</button>
     </div>
@@ -1685,7 +1684,7 @@ function advanceToDIYAddons() {
 function advanceDIYToBook() {
   currentStep = 4;
   renderProgress();
-  // Navigation to Booqable handled by <a href>
+  window.location.href = 'https://bring-the-bloombar.booqableshop.com/collections/bloombar';
 }
 
 function updateDIYCartBar() {
