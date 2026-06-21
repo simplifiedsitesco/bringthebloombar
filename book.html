@@ -680,6 +680,7 @@
     <input name="name"><input name="email"><input name="event-date"><input name="guest-count">
     <input name="collection"><input name="price-per-guest"><input name="collection-total">
     <input name="experience"><input name="package"><input name="addons"><input name="delivery-city"><input name="total">
+    <input name="premium-addons">
   </form>
 
   <style>
@@ -895,14 +896,15 @@
         onkeydown="rovingKey(event,'step-collection-rg',0)">
         <p class="bk-card-label">CLASSIC COLLECTION</p>
         <p class="bk-card-title">Classic</p>
-        <p class="bb-collection-stems">6&ndash;8 stems per guest</p>
+        <p class="bb-collection-stems">5&ndash;6 stems per guest</p>
         <hr class="bk-card-rule">
         <ul class="bb-collection-flowers" aria-label="Classic collection flowers">
-          <li>Carnations</li>
-          <li>Daisies</li>
+          <li>Carnation</li>
+          <li>Mini Carnation</li>
+          <li>Daisy</li>
           <li>Alstroemeria</li>
-          <li>Fillers</li>
-          <li>Greenery</li>
+          <li>Baby&rsquo;s Breath</li>
+          <li>Leatherleaf Fern</li>
         </ul>
         <hr class="bk-card-rule">
         <p class="bk-card-price">$25/guest</p>
@@ -920,13 +922,15 @@
         <span class="bk-badge" aria-label="Host favorite collection">Host Favorite</span>
         <p class="bk-card-label">SIGNATURE COLLECTION</p>
         <p class="bk-card-title">Signature</p>
-        <p class="bb-collection-stems">8&ndash;10 stems per guest</p>
+        <p class="bb-collection-stems">6&ndash;8 stems per guest</p>
         <hr class="bk-card-rule">
         <ul class="bb-collection-flowers" aria-label="Signature collection flowers">
           <li>Roses</li>
           <li>Spray Roses</li>
-          <li>Premium Fillers</li>
-          <li>Greenery</li>
+          <li>Alstroemeria</li>
+          <li>Snapdragon</li>
+          <li>Wax Flower</li>
+          <li>Silver Dollar Eucalyptus</li>
         </ul>
         <hr class="bk-card-rule">
         <p class="bk-card-price">$35/guest</p>
@@ -943,13 +947,15 @@
         onkeydown="rovingKey(event,'step-collection-rg',2)">
         <p class="bk-card-label">LUXURY COLLECTION</p>
         <p class="bk-card-title">Luxury</p>
-        <p class="bb-collection-stems">10&ndash;12 stems per guest</p>
+        <p class="bb-collection-stems">8&ndash;10 stems per guest</p>
         <hr class="bk-card-rule">
         <ul class="bb-collection-flowers" aria-label="Luxury collection flowers">
           <li>Garden Roses</li>
-          <li>Lisianthus</li>
-          <li>Premium Fillers</li>
-          <li>Lush Greenery</li>
+          <li>Peonies (seasonal)</li>
+          <li>Premium Roses</li>
+          <li>Spray Roses</li>
+          <li>Astilbe</li>
+          <li>Italian Ruscus</li>
         </ul>
         <hr class="bk-card-rule">
         <p class="bk-card-price">$45/guest</p>
@@ -1340,6 +1346,105 @@
 
   </section>
 
+  <!-- ===================== STEP PREMIUM ADD-ONS — Full Bloom Bar Experience only ===================== -->
+  <section id="step-premium-addons" class="bk-step" aria-live="polite" aria-labelledby="premium-addons-heading">
+
+    <p class="bk-eyebrow" style="color:#d4537e;">Step 3b &mdash; Premium Add-Ons</p>
+    <h2 class="bk-h1" id="premium-addons-heading">Want to add premium blooms?</h2>
+    <p class="bk-subtext">Add Ranunculus, Anemone, Dahlia, Orchid, Specialty Garden Roses, or Imported Peonies to your collection for $2&ndash;$4 per stem.</p>
+
+    <div class="bb-collection-grid" role="group" aria-label="Premium add-on flowers" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:20px 0 24px;">
+
+      <button type="button"
+        class="bk-card bb-addon-toggle"
+        role="checkbox"
+        aria-checked="false"
+        aria-label="Ranunculus add-on — $2 to $4 per stem"
+        data-addon="Ranunculus"
+        onclick="togglePremiumAddon(this)"
+        onkeydown="premiumAddonKey(event,this)"
+        style="min-height:44px;text-align:left;border:1.5px solid #f4c0d1;border-radius:8px;padding:12px 14px;cursor:pointer;background:#fff;font-family:'Inter',sans-serif;transition:border-color 0.15s,background 0.15s;">
+        <span style="display:block;font-size:13px;font-weight:600;color:#3d1a2e;">Ranunculus</span>
+        <span style="display:block;font-size:11px;color:#7a5a6a;margin-top:2px;">$2&ndash;$4 / stem</span>
+      </button>
+
+      <button type="button"
+        class="bk-card bb-addon-toggle"
+        role="checkbox"
+        aria-checked="false"
+        aria-label="Anemone add-on — $2 to $4 per stem"
+        data-addon="Anemone"
+        onclick="togglePremiumAddon(this)"
+        onkeydown="premiumAddonKey(event,this)"
+        style="min-height:44px;text-align:left;border:1.5px solid #f4c0d1;border-radius:8px;padding:12px 14px;cursor:pointer;background:#fff;font-family:'Inter',sans-serif;transition:border-color 0.15s,background 0.15s;">
+        <span style="display:block;font-size:13px;font-weight:600;color:#3d1a2e;">Anemone</span>
+        <span style="display:block;font-size:11px;color:#7a5a6a;margin-top:2px;">$2&ndash;$4 / stem</span>
+      </button>
+
+      <button type="button"
+        class="bk-card bb-addon-toggle"
+        role="checkbox"
+        aria-checked="false"
+        aria-label="Dahlia add-on — $2 to $4 per stem"
+        data-addon="Dahlia"
+        onclick="togglePremiumAddon(this)"
+        onkeydown="premiumAddonKey(event,this)"
+        style="min-height:44px;text-align:left;border:1.5px solid #f4c0d1;border-radius:8px;padding:12px 14px;cursor:pointer;background:#fff;font-family:'Inter',sans-serif;transition:border-color 0.15s,background 0.15s;">
+        <span style="display:block;font-size:13px;font-weight:600;color:#3d1a2e;">Dahlia</span>
+        <span style="display:block;font-size:11px;color:#7a5a6a;margin-top:2px;">$2&ndash;$4 / stem</span>
+      </button>
+
+      <button type="button"
+        class="bk-card bb-addon-toggle"
+        role="checkbox"
+        aria-checked="false"
+        aria-label="Orchid add-on — $2 to $4 per stem"
+        data-addon="Orchid"
+        onclick="togglePremiumAddon(this)"
+        onkeydown="premiumAddonKey(event,this)"
+        style="min-height:44px;text-align:left;border:1.5px solid #f4c0d1;border-radius:8px;padding:12px 14px;cursor:pointer;background:#fff;font-family:'Inter',sans-serif;transition:border-color 0.15s,background 0.15s;">
+        <span style="display:block;font-size:13px;font-weight:600;color:#3d1a2e;">Orchid</span>
+        <span style="display:block;font-size:11px;color:#7a5a6a;margin-top:2px;">$2&ndash;$4 / stem</span>
+      </button>
+
+      <button type="button"
+        class="bk-card bb-addon-toggle"
+        role="checkbox"
+        aria-checked="false"
+        aria-label="Specialty Garden Roses add-on — $2 to $4 per stem"
+        data-addon="Specialty Garden Roses"
+        onclick="togglePremiumAddon(this)"
+        onkeydown="premiumAddonKey(event,this)"
+        style="min-height:44px;text-align:left;border:1.5px solid #f4c0d1;border-radius:8px;padding:12px 14px;cursor:pointer;background:#fff;font-family:'Inter',sans-serif;transition:border-color 0.15s,background 0.15s;">
+        <span style="display:block;font-size:13px;font-weight:600;color:#3d1a2e;">Specialty Garden Roses</span>
+        <span style="display:block;font-size:11px;color:#7a5a6a;margin-top:2px;">$2&ndash;$4 / stem</span>
+      </button>
+
+      <button type="button"
+        class="bk-card bb-addon-toggle"
+        role="checkbox"
+        aria-checked="false"
+        aria-label="Imported Peonies add-on — $2 to $4 per stem"
+        data-addon="Imported Peonies"
+        onclick="togglePremiumAddon(this)"
+        onkeydown="premiumAddonKey(event,this)"
+        style="min-height:44px;text-align:left;border:1.5px solid #f4c0d1;border-radius:8px;padding:12px 14px;cursor:pointer;background:#fff;font-family:'Inter',sans-serif;transition:border-color 0.15s,background 0.15s;">
+        <span style="display:block;font-size:13px;font-weight:600;color:#3d1a2e;">Imported Peonies</span>
+        <span style="display:block;font-size:11px;color:#7a5a6a;margin-top:2px;">$2&ndash;$4 / stem</span>
+      </button>
+
+    </div>
+
+    <p style="font-size:11px;color:#7a5a6a;font-family:'Inter',sans-serif;font-style:italic;margin:0 0 20px;">Pricing for add-ons is confirmed at booking based on your selections and guest count.</p>
+
+    <div class="bk-cta-row">
+      <button class="bk-btn" onclick="premiumAddonsNext()" aria-label="Continue with selected add-ons">Continue &rarr;</button>
+      <button class="bk-skip-link" type="button" onclick="premiumAddonsSkip()" aria-label="No thanks, skip premium add-ons and continue to color palette">No thanks, continue</button>
+      <button class="bk-back" aria-label="Go back to collection selection" onclick="showCollectionStep()">&larr; Back</button>
+    </div>
+
+  </section>
+
   <!-- ===================== STEP 4 — Flowers (Full path only) ===================== -->
   <section id="step-4" class="bk-step" aria-live="polite">
     <p class="bk-confirm-line" id="confirm-s4" aria-live="polite"></p>
@@ -1511,6 +1616,7 @@
           <input type="hidden" name="price-per-guest" id="hf-price-per-guest">
           <input type="hidden" name="guest-count"    id="hf-guest-count">
           <input type="hidden" name="color-palette"  id="hf-palette">
+          <input type="hidden" name="premium-addons" id="form-premium-addons" value="">
           <input type="hidden" name="estimated-total" id="hf-total">
           <input type="hidden" name="delivery-cost"  id="hf-delivery">
           <input type="hidden" name="deposit-amount" value="$100">
@@ -1635,7 +1741,8 @@ var state = {
   pendingExperienceChange: false,
   guestCount: 20,
   collection: null, pricePerGuest: 0, collectionTotal: 0,
-  restrictedPalettes: null
+  restrictedPalettes: null,
+  premiumAddons: []
 };
 
 var currentStep = 1;
@@ -2185,7 +2292,82 @@ function collectionNext() {
   state.restrictedPalettes = state.collection === 'classic'
     ? ['blush-white', 'garden-greens', 'spring-pastels'] : null;
   var ann = document.getElementById('step-announcement');
-  if (ann) ann.textContent = 'Moving to color palette selection.';
+  if (ann) ann.textContent = 'Moving to premium add-ons selection.';
+  showPremiumAddonsStep();
+}
+
+// ── PREMIUM ADD-ONS STEP ──────────────────────────
+function showPremiumAddonsStep() {
+  document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
+  var target = document.getElementById('step-premium-addons');
+  if (target) target.classList.add('active');
+  onCollectionStep = false;
+  onGuestCountStep = false;
+  renderProgress();
+  updateStepAriaHidden();
+  window.scrollTo(0, 0);
+  var ann = document.getElementById('step-announcement');
+  if (ann) ann.textContent = 'Optional step: Select premium add-on blooms for your collection.';
+  setTimeout(function() {
+    var heading = document.getElementById('premium-addons-heading');
+    if (heading) {
+      if (!heading.getAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
+      heading.focus();
+    }
+  }, 100);
+}
+
+function togglePremiumAddon(btn) {
+  var flower = btn.getAttribute('data-addon');
+  var checked = btn.getAttribute('aria-checked') === 'true';
+  var newChecked = !checked;
+  btn.setAttribute('aria-checked', newChecked ? 'true' : 'false');
+  btn.style.borderColor = newChecked ? '#d4537e' : '#f4c0d1';
+  btn.style.background  = newChecked ? '#fdf6f9' : '#fff';
+  if (newChecked) {
+    if (state.premiumAddons.indexOf(flower) === -1) state.premiumAddons.push(flower);
+  } else {
+    state.premiumAddons = state.premiumAddons.filter(function(f) { return f !== flower; });
+  }
+  // Sync hidden form field
+  var hf = document.getElementById('form-premium-addons');
+  if (hf) hf.value = state.premiumAddons.join(', ');
+}
+
+function premiumAddonKey(e, btn) {
+  if (e.key === ' ' || e.key === 'Enter') {
+    e.preventDefault();
+    togglePremiumAddon(btn);
+  }
+}
+
+function premiumAddonsNext() {
+  var ann = document.getElementById('step-announcement');
+  if (ann) {
+    if (state.premiumAddons.length > 0) {
+      ann.textContent = 'Premium add-ons selected: ' + state.premiumAddons.join(', ') + '. Moving to color palette selection.';
+    } else {
+      ann.textContent = 'No premium add-ons selected. Moving to color palette selection.';
+    }
+  }
+  // Sync hidden field before advancing
+  var hf = document.getElementById('form-premium-addons');
+  if (hf) hf.value = state.premiumAddons.join(', ');
+  goToStep(4);
+}
+
+function premiumAddonsSkip() {
+  state.premiumAddons = [];
+  var hf = document.getElementById('form-premium-addons');
+  if (hf) hf.value = '';
+  // Reset all toggle buttons
+  document.querySelectorAll('.bb-addon-toggle').forEach(function(btn) {
+    btn.setAttribute('aria-checked', 'false');
+    btn.style.borderColor = '#f4c0d1';
+    btn.style.background  = '#fff';
+  });
+  var ann = document.getElementById('step-announcement');
+  if (ann) ann.textContent = 'Skipping premium add-ons. Moving to color palette selection.';
   goToStep(4);
 }
 
@@ -2569,6 +2751,9 @@ function buildQuote() {
     }
     if (state.palette) {
       lines.push({ label: paletteLabels[state.palette] || state.palette, amount: null });
+    }
+    if (state.premiumAddons && state.premiumAddons.length > 0) {
+      lines.push({ label: 'Premium Add-Ons: ' + state.premiumAddons.join(', ') + ' \u2014 priced at booking', amount: null });
     }
   } else {
     // Rentals / DIY path
