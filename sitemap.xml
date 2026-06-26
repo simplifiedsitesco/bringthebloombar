@@ -177,4 +177,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://bringthebloombar.com/corporate-events</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://bringthebloombar.com/images/hero-outdoor-patio.webp</image:loc>
+      <image:title>Corporate flower bar rental setup at an Orange County event</image:title>
+    </image:image>
+  </url>
 </urlset>
