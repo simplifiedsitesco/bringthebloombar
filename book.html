@@ -706,12 +706,62 @@
     font-style: italic;
     margin: 0 0 16px;
   }
-  /* ── Step 1 blush background ── */
+  /* ══ STEP 1 — SCALE IMPROVEMENTS (mobile-first) ══ */
+
+  /* Mobile base: full-width blush band with 48px top/bottom padding.
+     Break out of bk-wrap's 1rem side padding so it bleeds edge-to-edge,
+     then re-apply 16px side padding inside. */
   #step-1 {
     background: #fdf6f9;
-    border-radius: 14px;
-    padding: 1.5rem 1.25rem 1.75rem;
+    border-radius: 0;
+    padding: 48px 1rem;
+    margin-left: -1rem;
+    margin-right: -1rem;
     margin-bottom: 1rem;
+    box-sizing: border-box;
+  }
+
+  /* Desktop: break out of bk-wrap's 720px cap and fill 90vw / 1100px max */
+  @media (min-width: 767px) {
+    #step-1 {
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(90vw, 1100px);
+      max-width: 1100px;
+      padding: 80px 60px;
+      border-radius: 20px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  /* Headline — mobile 36px, desktop 48px (scoped to step 1 only) */
+  #step-1 .bk-h1 {
+    font-size: 36px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 767px) {
+    #step-1 .bk-h1 {
+      font-size: 48px;
+      margin-bottom: 28px;
+    }
+  }
+
+  /* Gap between subtext and card grid */
+  #step-1 .bb-experience-grid {
+    margin-top: 40px;
+  }
+
+  /* Card internal padding — mobile 24px, desktop 32px */
+  .bb-experience-grid .bk-card {
+    padding: 24px !important;
+  }
+  @media (min-width: 767px) {
+    .bb-experience-grid .bk-card {
+      padding: 32px !important;
+    }
   }
 
   /* ── Reassurance line ── */
@@ -720,13 +770,13 @@
     font-size: 13px;
     color: #7a5a6a;
     text-align: center;
-    margin: 0.25rem 0 1.25rem;
+    margin: 32px 0 0;
     line-height: 1.5;
   }
 
   /* ── Review pull quote ── */
   .bb-review-pull {
-    margin: 0 0 1.5rem;
+    margin: 24px 0 0;
     text-align: center;
   }
   .bb-review-quote {
@@ -746,6 +796,11 @@
     color: #6b4c5e;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.03em;
+  }
+
+  /* CTA row spacing */
+  #step-1 .bk-cta-row {
+    margin-top: 32px;
   }
 
   /* ── Hide Booqable floating cart button ── */
