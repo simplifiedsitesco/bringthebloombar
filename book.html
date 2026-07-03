@@ -665,7 +665,7 @@
 </header>
 
 <div class="trust-bar" role="complementary" aria-label="Service highlights">
-  Setup &amp; breakdown included on every booking <span class="sep" aria-hidden="true">&middot;</span> Same-day response Mon&ndash;Fri <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County &amp; LA County
+  Setup &amp; breakdown included on every booking <span class="sep" aria-hidden="true">&middot;</span> Same-day response Mon&ndash;Fri <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County, LA County &amp; San Bernardino County
 </div>
 
 <nav id="bk-progress-bar" class="bk-progress" role="navigation" aria-label="Booking progress">
@@ -749,9 +749,18 @@
     }
   }
 
-  /* Gap between subtext and card grid */
+  /* Gap between subtext and card grid + equal-height cards */
   #step-1 .bb-experience-grid {
     margin-top: 40px;
+    align-items: stretch !important; /* override inline align-items:start */
+  }
+  /* Cards fill full height of the grid row */
+  .bb-experience-grid .bk-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
   }
 
   /* Card internal padding — mobile 24px, desktop 32px */
@@ -798,9 +807,22 @@
     letter-spacing: 0.03em;
   }
 
-  /* CTA row spacing */
+  /* CTA row — centered, full-width on mobile */
   #step-1 .bk-cta-row {
     margin-top: 32px;
+    justify-content: center;
+  }
+  /* CTA button — full width on mobile, min 280px centered on desktop */
+  #step1-exp-btn {
+    width: 100%;
+    min-height: 48px;
+    box-sizing: border-box;
+  }
+  @media (min-width: 480px) {
+    #step1-exp-btn {
+      width: auto;
+      min-width: 280px;
+    }
   }
 
   /* ── Hide Booqable floating cart button ── */
