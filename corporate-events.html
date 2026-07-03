@@ -74,7 +74,7 @@
           "name": "How much does a corporate flower bar rental cost?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Corporate flower bar rental pricing starts at $25/guest for the Classic Collection (5–6 stems per guest), $35/guest for the Signature Collection (6–8 stems), and $45/guest for the Luxury Collection (8–10 stems). A 15-guest minimum applies to all full-service bookings. Delivery is a flat zone fee based on distance from La Habra, CA — starting at $35 for events within 5 miles."
+            "text": "Pricing is based on your guest count, collection choice, and delivery zone. Fill out the quote request form above and we'll send you a custom quote within 24 hours."
           }
         },
         {
@@ -336,7 +336,7 @@
 
       <details class="faq-item">
         <summary aria-expanded="false"><span>How much does a corporate flower bar rental cost?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
-        <p>Pricing starts at $25/guest for the Classic Collection (5&ndash;6 stems), $35/guest for the Signature Collection (6&ndash;8 stems), and $45/guest for the Luxury Collection (8&ndash;10 stems). A 15-guest minimum applies to all full-service bookings. Delivery is a flat zone fee based on distance from La Habra &mdash; $35 (0&ndash;5 mi), $50 (5&ndash;10 mi), $55 (10&ndash;15 mi), or $65 (15&ndash;30 mi). Use the form above to get a custom quote with delivery included.</p>
+        <p>Pricing is based on your guest count, collection choice, and delivery zone. Fill out the quote request form above and we&rsquo;ll send you a custom quote within 24 hours.</p>
       </details>
 
       <details class="faq-item">
@@ -358,6 +358,18 @@
   </section>
 
 </main>
+<script>
+(function () {
+  document.querySelectorAll('.faq-item').forEach(function (det) {
+    var sum = det.querySelector('summary');
+    var tog = det.querySelector('.faq-toggle');
+    det.addEventListener('toggle', function () {
+      sum.setAttribute('aria-expanded', det.open ? 'true' : 'false');
+      if (tog) tog.textContent = det.open ? '\u2212' : '+';
+    });
+  });
+})();
+</script>
 
 <footer>
   <div class="container footer-inner">
