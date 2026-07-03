@@ -708,32 +708,33 @@
   }
   /* ══ STEP 1 — SCALE IMPROVEMENTS (mobile-first) ══ */
 
-  /* Mobile base: full-width blush band with 48px top/bottom padding.
-     Break out of bk-wrap's 1rem side padding so it bleeds edge-to-edge,
-     then re-apply 16px side padding inside. */
+  /* Mobile base: full-width blush band, edge-to-edge.
+     width: 100vw + margin-left: calc(50% - 50vw) is the only reliable technique
+     to escape any centered container to viewport edges regardless of container width. */
   #step-1 {
     background: #fdf6f9;
     border-radius: 0;
     padding: 48px 1rem;
-    margin-left: -1rem;
-    margin-right: -1rem;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: 0;
     margin-bottom: 1rem;
     box-sizing: border-box;
   }
 
-  /* Desktop: break out of bk-wrap's 720px cap and fill 90vw / 1100px max.
-     Uses negative margins (not transform) to avoid stacking-context shift. */
+  /* Desktop: maintain full-width background; responsive side padding keeps
+     content centered at up to 1100px without a fixed-width container. */
   @media (min-width: 767px) {
     #step-1 {
       position: static;
       left: auto;
       transform: none;
-      width: min(90vw, 1100px);
-      max-width: 1100px;
-      margin-left: calc((100% - min(90vw, 1100px)) / 2);
-      margin-right: calc((100% - min(90vw, 1100px)) / 2);
-      padding: 80px 60px;
-      border-radius: 20px;
+      width: 100vw;
+      max-width: none;
+      margin-left: calc(50% - 50vw);
+      margin-right: 0;
+      padding: 80px max(60px, calc((100vw - 1100px) / 2));
+      border-radius: 0;
     }
   }
 
@@ -909,7 +910,7 @@
     <p class="bk-eyebrow" style="color:#d4537e;">Book Your Experience</p>
     <h1 class="bk-h1">Your event. Beautifully styled.</h1>
     <p id="step1-question" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#3d1a2e;margin:0 0 0.5rem;">Two ways to bring the bloom bar to your event.</p>
-    <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#7a5a6a;margin:0 0 2rem;">Hosts across Orange County and LA County choose us for showers, birthdays, weddings, and corporate events.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#7a5a6a;margin:0 0 2rem;">Hosts across Orange County, LA County, and San Bernardino County choose us for showers, birthdays, weddings, and corporate events.</p>
 
     <div class="bk-exp-grid bb-experience-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;" role="radiogroup" aria-labelledby="step1-question">
       <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="0" data-exp="diy" aria-label="Select DIY Bloom Bar Rental from $49 per day" onclick="selectExperienceS1('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
@@ -1716,7 +1717,7 @@
     <p class="bk-eyebrow">Your Quote</p>
     <h2 class="bk-h1">Your quote.</h2>
     <p class="bk-subtext">Review everything below. Book when you&rsquo;re ready.</p>
-    <p class="bk-proof">Trusted by hosts across Orange County and LA County for showers, birthdays, and corporate events.</p>
+    <p class="bk-proof">Trusted by hosts across Orange County, LA County, and San Bernardino County for showers, birthdays, and corporate events.</p>
 
     <div class="bk-quote-box" id="quote-box">
       <p class="bk-quote-title">Your custom quote</p>
@@ -1905,6 +1906,11 @@ function showDIYSection(id, diyStepNum) {
   document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
   var target = document.getElementById(id);
   if (target) target.classList.add('active');
+  // Booqable iframes initialize inside hidden steps with zero dimensions.
+  // Dispatching resize after the step becomes visible forces them to recalculate.
+  if (id === 'diy-products' || id === 'diy-addons') {
+    setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 50);
+  }
   currentStep = diyStepNum;
   renderProgress();
   updateStepAriaHidden();
@@ -3103,7 +3109,7 @@ renderProgress();
 </script>
 <!-- END BOOKING FLOW JS -->
 
-<script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js" defer></script>
+<script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js"></script>
 <script>
 function setBooqableIframeTitles() {
   var frames = document.querySelectorAll('.booqable-datepicker iframe, .booqable-product iframe, .booqable-product-button iframe');
