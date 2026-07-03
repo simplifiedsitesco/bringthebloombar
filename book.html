@@ -721,18 +721,19 @@
     box-sizing: border-box;
   }
 
-  /* Desktop: break out of bk-wrap's 720px cap and fill 90vw / 1100px max */
+  /* Desktop: break out of bk-wrap's 720px cap and fill 90vw / 1100px max.
+     Uses negative margins (not transform) to avoid stacking-context shift. */
   @media (min-width: 767px) {
     #step-1 {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+      position: static;
+      left: auto;
+      transform: none;
       width: min(90vw, 1100px);
       max-width: 1100px;
+      margin-left: calc((100% - min(90vw, 1100px)) / 2);
+      margin-right: calc((100% - min(90vw, 1100px)) / 2);
       padding: 80px 60px;
       border-radius: 20px;
-      margin-left: 0;
-      margin-right: 0;
     }
   }
 
