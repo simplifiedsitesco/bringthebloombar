@@ -706,6 +706,58 @@
     font-style: italic;
     margin: 0 0 16px;
   }
+  /* ── Step 1 blush background ── */
+  #step-1 {
+    background: #fdf6f9;
+    border-radius: 14px;
+    padding: 1.5rem 1.25rem 1.75rem;
+    margin-bottom: 1rem;
+  }
+
+  /* ── Reassurance line ── */
+  .bb-reassurance-line {
+    font-style: italic;
+    font-size: 13px;
+    color: #7a5a6a;
+    text-align: center;
+    margin: 0.25rem 0 1.25rem;
+    line-height: 1.5;
+  }
+
+  /* ── Review pull quote ── */
+  .bb-review-pull {
+    margin: 0 0 1.5rem;
+    text-align: center;
+  }
+  .bb-review-quote {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #3d1a2e;
+    line-height: 1.6;
+    margin: 0 0 8px;
+  }
+  @media (min-width: 520px) {
+    .bb-review-quote { font-size: 18px; }
+  }
+  .bb-review-attr {
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b4c5e;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── Hide Booqable floating cart button ── */
+  [class*="bq-cart"],
+  [class*="booqable-cart"],
+  [id*="bq-cart"],
+  [id*="booqable-cart"],
+  .bq-button,
+  .booqable-cart-button {
+    display: none !important;
+  }
+
   /* Override .bk-exp-grid .bk-card { border: transparent !important } for the featured card */
   .bb-experience-grid .bk-card[data-exp="full"] {
     background: #fff4f8 !important;
@@ -790,16 +842,27 @@
         <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $49/day</p>
       </button>
       <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $725" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
-        <span class="bk-badge" aria-label="Most popular experience">Most Popular</span>
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
         <p class="bk-card-title">We Handle Everything</p>
         <hr class="bk-card-rule">
         <p class="bk-card-desc">Fresh flowers, setup, and breakdown &mdash; all included. Your guests build their own bouquets and leave with something they made.</p>
-        <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $25/guest &middot; 15 guest minimum</p>
+        <p class="bk-card-price" style="color:#7a5a6a;font-weight:400;font-size:11px;">15 guest minimum &middot; flowers included</p>
       </button>
     </div>
 
     <p class="bk-error" id="step1-exp-error" role="alert" aria-atomic="true">Please choose an experience above to continue.</p>
+
+    <p class="bb-reassurance-line">$100 deposit secures your date. We&rsquo;ll confirm availability within 24 hours.</p>
+
+    <figure class="bb-review-pull" aria-label="Customer review">
+      <blockquote style="margin:0;">
+        <p class="bb-review-quote">&ldquo;Everything was absolutely amazing! Quick to respond and book. Will book again!&rdquo;</p>
+      </blockquote>
+      <figcaption class="bb-review-attr">
+        <span style="color:#b32566;" aria-label="Five star rating" role="img">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        &ensp;&mdash; Google Review
+      </figcaption>
+    </figure>
 
     <div class="bk-cta-row">
       <button class="bk-btn" id="step1-exp-btn" aria-disabled="true" aria-label="Reserve your bloom bar experience" onclick="experienceS1Next()" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;">Reserve Your Bloom Bar</button>
