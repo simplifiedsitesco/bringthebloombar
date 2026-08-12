@@ -1977,9 +1977,9 @@ function selectExperienceS1(type) {
     c.setAttribute('tabindex', isSelected ? '0' : '-1');
   });
 
-  // DIY: advance immediately on card click
+  // DIY: send to the standalone catalog page
   if (type === 'diy') {
-    showDIYSection('diy-products', 2);
+    window.location.href = '/diy-rentals';
     return;
   }
 
