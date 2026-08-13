@@ -112,6 +112,10 @@
   .product-card .thumb{
     aspect-ratio: 4/3; background: linear-gradient(135deg,var(--accent-light),#fff);
     display:flex; align-items:center; justify-content:center; color:var(--accent-dark); font-size:13px;
+    overflow:hidden;
+  }
+  .product-card .thumb img{
+    width:100%; height:100%; object-fit:cover; display:block;
   }
   .product-card .body{ padding:16px; display:flex; flex-direction:column; gap:8px; flex:1; }
   .product-card h3{ font-size:17px; margin:0; }
@@ -226,8 +230,7 @@
                    alt="White bloom bar cart with fringed umbrella for outdoor DIY flower bar rental"
                    width="800"
                    height="756"
-                   loading="lazy"
-                   style="width:100%;height:100%;object-fit:cover;display:block;">
+                   loading="lazy">
             </picture>
           </div>
           <div class="body">
@@ -250,13 +253,12 @@
                  alt="White bloom bar cart with display bar and fringe umbrella — DIY flower bar rental setup for events"
                  width="800"
                  height="750"
-                 loading="lazy"
-                 style="width:100%;height:100%;object-fit:cover;display:block;">
+                 loading="lazy">
           </div>
           <div class="body">
             <h3>The Bloom Bar Deluxe</h3>
             <p class="desc">Cart + display bar + umbrella. Our fullest DIY setup.</p>
-            <p class="price">$144<small>/day</small></p>
+            <p class="price">$149<small>/day</small></p>
             <p class="avail-badge checking" data-avail-for="complete-bloom-bar">Select dates to check availability</p>
             <div class="qty-row">
               <label for="qty-complete">Qty</label>
