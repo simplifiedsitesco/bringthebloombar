@@ -93,13 +93,9 @@
 
   .date-bar{
     background:#fff; border:1px solid var(--border); border-radius: var(--radius);
-    padding:18px; margin-bottom:22px; display:grid; grid-template-columns:1fr 1fr; gap:14px;
+    padding:18px; margin-bottom:22px; display:flex; flex-direction:column; gap:14px;
   }
-  .date-bar .field label{ display:block; font-size:12px; font-weight:600; color:var(--text-muted); text-transform:uppercase; letter-spacing:.04em; margin-bottom:6px; }
-  .date-bar input[type="date"]{
-    width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:9px; font-size:15px; font-family:inherit; color:var(--text-dark);
-  }
-  .date-bar .hint{ grid-column:1 / -1; font-size:13px; color:var(--text-muted); }
+  .date-bar .hint{ font-size:13px; color:var(--text-muted); margin:0; }
 
   section.category-panel{ display:none; }
   section.category-panel.active{ display:block; }
@@ -171,7 +167,7 @@
     nav.categories{ position:static; }
     nav.categories button{ padding:10px 8px; font-size:12.5px; }
     nav.categories .soon-tag{ font-size:9px; padding:1px 5px; }
-    .date-bar{ grid-template-columns:1fr; padding:14px; }
+    .date-bar{ padding:14px; }
     .steps{ gap:16px; font-size:12px; }
     .page-head{ padding-left:12px; padding-right:12px; }
   }
@@ -210,14 +206,8 @@
 
   <div>
     <div class="date-bar">
-      <div class="field">
-        <label for="date-from">From</label>
-        <input type="date" id="date-from" name="date-from">
-      </div>
-      <div class="field">
-        <label for="date-until">Until</label>
-        <input type="date" id="date-until" name="date-until">
-      </div>
+      <!-- Booqable datepicker — required for product-button embeds to render -->
+      <div class="booqable-datepicker" style="grid-column:1 / -1;"></div>
       <p class="hint">Select your rental dates to check live availability for each item below. Delivery from $14 &middot; setup and breakdown included.</p>
     </div>
 
@@ -320,22 +310,7 @@
     if (btn) setActiveCategory(btn.dataset.cat);
   });
 
-  const dateFrom = document.getElementById('date-from');
-  const dateUntil = document.getElementById('date-until');
-
-  function refreshAvailability(){
-    if (!dateFrom.value || !dateUntil.value) return;
-    document.querySelectorAll('.avail-badge').forEach(badge => {
-      badge.textContent = 'Checking availability…';
-      badge.className = 'avail-badge checking';
-      setTimeout(() => {
-        badge.textContent = 'Available for your dates';
-        badge.className = 'avail-badge in-stock';
-      }, 400);
-    });
-  }
-  dateFrom.addEventListener('change', refreshAvailability);
-  dateUntil.addEventListener('change', refreshAvailability);
+  // Availability display is handled by the Booqable datepicker embed above.
 </script>
 </body>
 </html>
