@@ -220,6 +220,45 @@
     font-size:11.5px; color:var(--text-muted); font-style:italic; margin:0;
   }
 
+  /* ── Lightbox ───────────────────────────────────── */
+  #bb-lightbox{
+    position:fixed; inset:0; z-index:9999;
+    background:rgba(0,0,0,0.86);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px;
+  }
+  #bb-lightbox[hidden]{ display:none; }
+  #bb-lightbox-inner{
+    position:relative; display:flex;
+    align-items:center; justify-content:center;
+  }
+  #bb-lightbox-img{
+    max-width:90vw; max-height:90vh; max-height:90dvh;
+    width:auto; height:auto; object-fit:contain;
+    display:block; border-radius:8px;
+  }
+  #bb-lightbox-close{
+    position:absolute; top:-18px; right:-18px;
+    width:44px; height:44px; border-radius:50%;
+    background:#fff; border:none; cursor:pointer;
+    font-size:22px; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+    color:var(--text-dark); box-shadow:0 2px 10px rgba(0,0,0,0.35);
+    flex-shrink:0;
+  }
+  #bb-lightbox-close:focus-visible{
+    outline:3px solid var(--focus); outline-offset:2px;
+  }
+  /* Image trigger button */
+  .img-trigger{
+    display:block; width:100%; height:100%;
+    background:none; border:none; padding:0;
+    cursor:zoom-in;
+  }
+  .img-trigger:focus-visible{
+    outline:3px solid var(--focus); outline-offset:-3px;
+  }
+
   @media (max-width:820px){
     .layout{ grid-template-columns: 108px 1fr; gap:14px; padding-left:12px; padding-right:12px; }
     nav.categories{ position:static; }
@@ -279,14 +318,20 @@
 
         <article class="product-card">
           <div class="thumb">
-            <picture>
-              <source srcset="images/boho-bloom-bundle.webp" type="image/webp">
-              <img src="images/boho-bloom-bundle.jpg"
-                   alt="White bloom bar cart with fringed umbrella for outdoor DIY flower bar rental"
-                   width="800"
-                   height="756"
-                   loading="lazy">
-            </picture>
+            <button class="img-trigger" type="button"
+                    aria-haspopup="dialog"
+                    aria-label="View Boho Bloom Bundle photo enlarged"
+                    data-src="images/boho-bloom-bundle.jpg"
+                    data-alt="White bloom bar cart with fringed umbrella for outdoor DIY flower bar rental">
+              <picture aria-hidden="true">
+                <source srcset="images/boho-bloom-bundle.webp" type="image/webp">
+                <img src="images/boho-bloom-bundle.jpg"
+                     alt=""
+                     width="800"
+                     height="756"
+                     loading="lazy">
+              </picture>
+            </button>
           </div>
           <div class="body">
             <h3>Boho Bloom Bundle</h3>
@@ -304,11 +349,18 @@
 
         <article class="product-card">
           <div class="thumb">
-            <img src="images/bloom-bar-deluxe.jpg"
-                 alt="White bloom bar cart with display bar and fringe umbrella — DIY flower bar rental setup for events"
-                 width="800"
-                 height="750"
-                 loading="lazy">
+            <button class="img-trigger" type="button"
+                    aria-haspopup="dialog"
+                    aria-label="View The Bloom Bar Deluxe photo enlarged"
+                    data-src="images/bloom-bar-deluxe.jpg"
+                    data-alt="White bloom bar cart with display bar and fringe umbrella — DIY flower bar rental setup for events">
+              <img src="images/bloom-bar-deluxe.jpg"
+                   alt=""
+                   aria-hidden="true"
+                   width="800"
+                   height="750"
+                   loading="lazy">
+            </button>
           </div>
           <div class="body">
             <h3>The Bloom Bar Deluxe</h3>
@@ -336,14 +388,20 @@
 
         <article class="product-card">
           <div class="thumb">
-            <picture>
-              <source srcset="images/flower-bar-25guest.webp" type="image/webp">
-              <img src="images/flower-bar-25guest.jpg"
-                   alt="Labeled buckets of pink roses, lavender alstroemeria, white alstroemeria, blush stock, white snapdragons, baby's breath, and baby blue eucalyptus — 25 guest DIY flower bar package"
-                   width="800"
-                   height="533"
-                   loading="lazy">
-            </picture>
+            <button class="img-trigger" type="button"
+                    aria-haspopup="dialog"
+                    aria-label="View 25 Guest DIY Flower Bar package photo enlarged"
+                    data-src="images/flower-bar-25guest.jpg"
+                    data-alt="Labeled buckets of pink roses, lavender alstroemeria, white alstroemeria, blush stock, white snapdragons, baby's breath, and baby blue eucalyptus — 25 guest DIY flower bar package">
+              <picture aria-hidden="true">
+                <source srcset="images/flower-bar-25guest.webp" type="image/webp">
+                <img src="images/flower-bar-25guest.jpg"
+                     alt=""
+                     width="800"
+                     height="533"
+                     loading="lazy">
+              </picture>
+            </button>
           </div>
           <div class="body">
             <h3>25 Guest DIY Flower Bar</h3>
@@ -432,8 +490,17 @@
 
 <div class="cart-toast" id="cart-toast" role="status" aria-live="polite"></div>
 
+<!-- ── Lightbox modal ─────────────────────────────── -->
+<div id="bb-lightbox" role="dialog" aria-modal="true" aria-label="Product image enlarged" hidden>
+  <div id="bb-lightbox-inner">
+    <button id="bb-lightbox-close" type="button" aria-label="Close image">&#x2715;</button>
+    <img id="bb-lightbox-img" src="" alt="">
+  </div>
+</div>
+
 <script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js"></script>
 <script>
+  /* ── Category nav ──────────────────────────────── */
   const catButtons = Array.from(document.querySelectorAll('#category-list button'));
 
   function setActiveCategory(cat){
@@ -447,7 +514,7 @@
 
   // Availability display is handled by the Booqable datepicker embed above.
 
-  // Sync aria-expanded on stem-list <details> for older screen readers
+  /* ── Stem-list aria-expanded sync ─────────────── */
   document.querySelectorAll('details.stem-list').forEach(function(el){
     var summary = el.querySelector('summary');
     summary.setAttribute('aria-expanded', el.open ? 'true' : 'false');
@@ -455,6 +522,53 @@
       summary.setAttribute('aria-expanded', el.open ? 'true' : 'false');
     });
   });
+
+  /* ── Lightbox ──────────────────────────────────── */
+  (function(){
+    var lb       = document.getElementById('bb-lightbox');
+    var lbImg    = document.getElementById('bb-lightbox-img');
+    var lbClose  = document.getElementById('bb-lightbox-close');
+    var lastTrigger = null;
+
+    function openLightbox(trigger) {
+      lastTrigger = trigger;
+      lbImg.src = trigger.dataset.src;
+      lbImg.alt = trigger.dataset.alt || '';
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      lbClose.focus();
+    }
+
+    function closeLightbox() {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      lbImg.src = '';          // release memory
+      if (lastTrigger) { lastTrigger.focus(); lastTrigger = null; }
+    }
+
+    // Open triggers
+    document.querySelectorAll('.img-trigger').forEach(function(btn){
+      btn.addEventListener('click', function(){ openLightbox(btn); });
+    });
+
+    // Close button
+    lbClose.addEventListener('click', closeLightbox);
+
+    // Click outside image (on backdrop)
+    lb.addEventListener('click', function(e){
+      if (e.target === lb) closeLightbox();
+    });
+
+    // Escape key
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && !lb.hasAttribute('hidden')) closeLightbox();
+    });
+
+    // Focus trap — only lbClose is interactive inside the modal
+    lb.addEventListener('keydown', function(e){
+      if (e.key === 'Tab') { e.preventDefault(); lbClose.focus(); }
+    });
+  })();
 </script>
 </body>
 </html>
