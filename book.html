@@ -658,7 +658,7 @@
         <li><a href="locations.html">Locations</a></li>
         <li><a href="blog/diy-bloom-bar-wedding-flowers-save-money.html">Blog</a></li>
         <li><a href="/faq">FAQ</a></li>
-        <li><a class="btn btn-sm" href="/book" aria-label="Reserve your bloom bar — go to booking page">Reserve Your Bloom Bar</a></li>
+        <li><a class="btn btn-sm" href="/book" aria-label="Book your experience — go to booking page">Book your experience</a></li>
       </ul>
     </nav>
   </div>
@@ -944,7 +944,7 @@
     </figure>
 
     <div class="bk-cta-row">
-      <button class="bk-btn" id="step1-exp-btn" aria-disabled="true" aria-label="Reserve your bloom bar experience" onclick="experienceS1Next()" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;">Reserve Your Bloom Bar</button>
+      <button class="bk-btn" id="step1-exp-btn" aria-disabled="true" aria-label="Book your experience" onclick="experienceS1Next()" style="display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;">Book your experience</button>
     </div>
   </section>
 
@@ -1828,7 +1828,7 @@
           rel="noopener noreferrer"
           class="bk-btn bb-deposit-btn"
           id="bb-reserve-btn"
-          aria-label="Reserve your bloom bar with a $100 deposit — opens Stripe secure checkout in a new tab">
+          aria-label="Book your experience with a $100 deposit — opens Stripe secure checkout in a new tab">
           Reserve with $100 Deposit &mdash; Secure My Date &rarr;
         </a>
         <p class="bb-deposit-note"><strong>Secure checkout powered by Stripe.</strong> We&rsquo;ll follow up via text within 24 hours to confirm your final details.</p>
@@ -1856,7 +1856,7 @@
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="about.html">About</a>
       <a href="locations.html">Locations</a>
-      <a href="/book">Reserve Your Bloom Bar</a>
+      <a href="/book">Book your experience</a>
       <a href="rental-agreement.html">Rental Agreement</a>
       <a href="privacy-policy.html">Privacy Policy</a>
       <a href="accessibility.html">Accessibility</a>
@@ -2951,7 +2951,7 @@ function buildQuote() {
   var finalBtn = document.getElementById('final-cta-btn');
   var finalNote = document.getElementById('final-note');
   if (state.experience === 'diy') {
-    if (finalBtn) { finalBtn.textContent = 'Reserve Your Bloom Bar'; finalBtn.setAttribute('data-href', 'https://bring-the-bloombar.booqableshop.com/collections/bloombar'); }
+    if (finalBtn) { finalBtn.textContent = 'Book your experience'; finalBtn.setAttribute('data-href', 'https://bring-the-bloombar.booqableshop.com/collections/bloombar'); }
     if (finalNote) finalNote.textContent = 'You\'ll be taken to our booking platform to check availability and complete your reservation.';
   } else if (state.experience === 'full') {
     if (finalBtn) { finalBtn.textContent = 'Reserve with deposit'; finalBtn.setAttribute('data-href', '#stripe-link'); }
