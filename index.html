@@ -381,6 +381,135 @@
   </section>
 
 <style>
+  /* ── Persona split ──────────────────────────── */
+  .persona-split{
+    background:#fdf6f9;
+    padding:60px 0;
+    border-bottom:1px solid #f0dce4;
+  }
+  .persona-split__heading{
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:clamp(1.45rem,3vw,2rem);
+    font-weight:700;
+    color:#2e1522;
+    text-align:center;
+    margin:0 0 32px;
+  }
+  .persona-split__grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+  @media(min-width:640px){
+    .persona-split__grid{ grid-template-columns:repeat(3,1fr); }
+  }
+  .persona-card{
+    background:#fff;
+    border:1px solid #ecdfe1;
+    border-radius:14px;
+    padding:28px 24px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .persona-card__badge{
+    display:inline-flex;
+    align-items:center;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    background:#f9e4ee;
+    color:#861a4a;
+    padding:3px 10px;
+    border-radius:20px;
+    border:1px solid #f0c8da;
+    width:fit-content;
+    margin-bottom:2px;
+  }
+  .persona-card__title{
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:20px;
+    font-weight:700;
+    color:#2e1522;
+    margin:0;
+  }
+  .persona-card__sub{
+    font-size:14px;
+    color:#6f5c66;
+    margin:0;
+    flex:1;
+    line-height:1.5;
+  }
+  .persona-card__btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:8px;
+    padding:12px 20px;
+    border-radius:9px;
+    font-family:'Inter',-apple-system,sans-serif;
+    font-size:14.5px;
+    font-weight:600;
+    text-decoration:none;
+    min-height:44px;
+    text-align:center;
+    transition:background .15s,color .15s,border-color .15s;
+  }
+  .persona-card__btn--primary{
+    background:#b32566;
+    color:#fff;
+    border:2px solid #b32566;
+  }
+  .persona-card__btn--primary:hover,
+  .persona-card__btn--primary:focus-visible{
+    background:#8f1c51;
+    border-color:#8f1c51;
+  }
+  .persona-card__btn--outline{
+    background:#fff;
+    color:#b32566;
+    border:2px solid #b32566;
+  }
+  .persona-card__btn--outline:hover,
+  .persona-card__btn--outline:focus-visible{
+    background:#fdf6f9;
+  }
+  .persona-card__btn:focus-visible{
+    outline:3px solid #3d6ff0;
+    outline-offset:2px;
+  }
+</style>
+
+<section class="persona-split" aria-labelledby="persona-split-heading">
+  <div class="container">
+    <h2 id="persona-split-heading" class="persona-split__heading">How are you celebrating?</h2>
+    <div class="persona-split__grid">
+
+      <div class="persona-card">
+        <h3 class="persona-card__title">Personal Events</h3>
+        <p class="persona-card__sub">Bridal showers, birthdays, and celebrations</p>
+        <a href="/book" class="persona-card__btn persona-card__btn--primary">See Pricing</a>
+      </div>
+
+      <div class="persona-card">
+        <h3 class="persona-card__title">Corporate Events</h3>
+        <p class="persona-card__sub">Team building, office parties, client events</p>
+        <a href="/corporate-events" class="persona-card__btn persona-card__btn--primary">Get a Quote</a>
+      </div>
+
+      <div class="persona-card">
+        <span class="persona-card__badge" aria-label="Status: Coming Soon">Coming Soon</span>
+        <h3 class="persona-card__title">Public Workshops</h3>
+        <p class="persona-card__sub">Join a hands-on floral class</p>
+        <a href="/workshops" class="persona-card__btn persona-card__btn--outline">Join the Waitlist</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
   /* ─── Lightbox ─────────────────────────────── */
   #bb-lightbox { position:fixed; inset:0; background:rgba(0,0,0,0.85); display:none; align-items:center; justify-content:center; z-index:10000; }
   #bb-lightbox.open { display:flex; }
