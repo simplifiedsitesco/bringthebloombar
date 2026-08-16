@@ -360,18 +360,48 @@
     </nav>
   </div>
 </header>
+<style>
+  /* ── Hero copy (2026 redesign) ──────────────────────── */
+  .hero-eyebrow{
+    font-size:11px;font-weight:600;color:#b32566;
+    letter-spacing:.1em;text-transform:uppercase;
+    margin:0 0 14px;font-family:'Inter',sans-serif;
+  }
+  .hero-df{
+    font-size:14px;color:#5a3f4a;
+    margin:0 0 20px;line-height:1.6;
+    font-family:'Inter',sans-serif;
+  }
+  .hero-df__label{
+    display:inline-block;
+    font-size:10px;font-weight:700;color:#b32566;
+    letter-spacing:.1em;text-transform:uppercase;
+    font-family:'Inter',sans-serif;
+    margin-right:6px;
+  }
+  .hero-rating{
+    display:flex;align-items:center;gap:8px;
+    margin:0;font-family:'Inter',sans-serif;
+  }
+  .hero-stars{
+    color:#b32566;font-size:19px;letter-spacing:2px;line-height:1;
+  }
+  .hero-rating__text{
+    font-size:13px;color:#6f5c66;
+  }
+</style>
 <main id="main">
   <section class="hero">
     <div class="container">
       <div class="hero-grid">
       <div class="hero-copy">
-        <p style="font-size:12px;font-weight:600;color:#993556;letter-spacing:0.1em;text-transform:uppercase;margin:0 0 14px;font-family:'Inter',sans-serif;">Bloom Bar Rentals &middot; Orange County &amp; Surrounding Areas</p>
-        <h1>Bloom Bar Rentals in Orange County &amp; Surrounding Areas</h1>
-        <p style="font-size:18px;color:#5a3f4a;font-weight:400;margin:0 0 16px;line-height:1.4;font-family:'Playfair Display',Georgia,serif;">Perfect for showers, birthdays, weddings &amp; corporate events</p>
-        <p class="lead">Your guests leave with bouquets they made themselves. Rent the bar from $49/day and bring your own blooms — or let us handle everything, flowers included, from $25/guest. We are Orange County&rsquo;s local bloom bar and flower bar rental &mdash; proudly serving north, central, and south OC, as well as parts of LA and San Bernardino County.</p>
-        <div class="hero-cta-group">
-          <a class="btn btn-primary" href="/book.html">Reserve Your Bloom Bar</a>
-        </div>
+        <p class="hero-eyebrow">Bring the Bloom Bar &middot; Orange County and surrounding areas</p>
+        <h1>Fresh flowers. Hands&#8209;on fun.</h1>
+        <p class="hero-df"><span class="hero-df__label">Designed for</span>Corporate Events &middot; Bridal Showers &middot; Baby Showers &middot; Birthdays</p>
+        <p class="hero-rating" aria-label="Rated 5 out of 5 stars on Google">
+          <span class="hero-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span class="hero-rating__text">Rated 5 stars</span>
+        </p>
       </div>
       <figure class="hero-image-card">
         <img src="images/hero-closeup.webp" alt="Full bloom bar rental setup with white flower bar cart, fresh flowers, ribbon holder, and cream fringe umbrella at an outdoor Orange County event" width="1200" height="1125" loading="eager" fetchpriority="high" decoding="async" style="width:100%;height:auto;display:block;border-radius:1.2rem;object-fit:cover;object-position:center center;">
@@ -381,152 +411,152 @@
   </section>
 
 <style>
-  /* ── Persona split ──────────────────────────── */
-  .persona-split{
-    background:#fdf6f9;
-    padding:0 0 72px;
-    border-bottom:1px solid #f0dce4;
+  /* ── Persona selector ──────────────────────────── */
+  .ps-section{
+    background:#F3D9E1;
+    padding:60px 0 68px;
   }
-  .persona-split__inner{
+  .ps-inner{
     display:grid;
     grid-template-columns:1fr;
-    gap:0;
-    align-items:center;
+    align-items:stretch;
   }
   @media(min-width:720px){
-    .persona-split__inner{
+    .ps-inner{
       grid-template-columns:1fr 1fr;
-      gap:56px;
+      gap:60px;
+      align-items:center;
     }
   }
-  .persona-split__img-col img{
-    width:100%;
-    height:420px;
-    object-fit:cover;
-    display:block;
+  .ps-img-col{ overflow:hidden; }
+  .ps-img-col img{
+    width:100%;height:380px;
+    object-fit:cover;display:block;
   }
   @media(min-width:720px){
-    .persona-split__img-col img{
-      border-radius:16px;
-    }
+    .ps-img-col img{ height:520px;border-radius:16px; }
   }
-  .persona-split__text-col{
-    padding:48px 20px 0;
-    display:flex;
-    flex-direction:column;
-    gap:36px;
-  }
-  @media(min-width:720px){
-    .persona-split__text-col{
-      padding:0;
-    }
-  }
-  .ps-item{
-    display:flex;
-    flex-direction:column;
-    gap:8px;
-  }
-  .ps-item__badge{
-    display:inline-flex;
-    align-items:center;
-    font-size:10px;
-    font-weight:700;
-    letter-spacing:.06em;
-    text-transform:uppercase;
-    background:#f9e4ee;
-    color:#861a4a;
-    padding:3px 10px;
-    border-radius:20px;
-    border:1px solid #f0c8da;
-    width:fit-content;
-    margin-bottom:2px;
-  }
-  .ps-item__title{
+  .ps-text-col{ padding:40px 20px 0; }
+  @media(min-width:720px){ .ps-text-col{ padding:0; } }
+  .ps-heading{
     font-family:'Playfair Display',Georgia,serif;
-    font-size:20px;
-    font-weight:700;
-    color:#2e1522;
-    margin:0;
+    font-size:21px;font-weight:500;font-style:normal;
+    color:#2A0E17;margin:0 0 4px;
   }
-  .ps-item__sub{
-    font-size:14px;
-    color:#6f5c66;
-    margin:0;
-    line-height:1.5;
+  .ps-radiogroup{
+    margin:0;padding:0;border:none;
+    display:flex;flex-direction:column;
   }
-  .ps-item__btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    margin-top:4px;
-    padding:11px 22px;
+  .ps-row{
+    display:flex;align-items:center;
+    justify-content:space-between;gap:12px;
+    width:100%;padding:20px 0;
+    background:none;border:none;
+    border-bottom:1px solid #D9A9BB;
+    cursor:pointer;text-align:left;
+  }
+  .ps-row:first-child{ border-top:1px solid #D9A9BB; }
+  .ps-row:focus-visible{
+    outline:3px solid #3d6ff0;
+    outline-offset:2px;border-radius:2px;
+  }
+  .ps-row__content{
+    flex:1;min-width:0;
+    display:flex;flex-direction:column;gap:4px;
+  }
+  .ps-row__title{
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:18px;font-weight:600;
+    color:#6B4A57; /* unselected — 5.77:1 vs #F3D9E1 — WCAG AA ✓ */
+    transition:color .15s;
+    display:flex;align-items:baseline;gap:7px;
+    line-height:1.2;
+  }
+  .ps-row[aria-checked="true"] .ps-row__title{ color:#2A0E17; }
+  .ps-row__sub{
+    font-size:13px;color:#6B4A57;
+    line-height:1.4;font-family:'Inter',sans-serif;
+  }
+  .ps-row__cs{
+    font-size:9px;font-weight:700;
+    letter-spacing:.09em;text-transform:uppercase;
+    color:#b32566;font-family:'Inter',sans-serif;
+    white-space:nowrap;
+  }
+  .ps-row__arrow{
+    flex-shrink:0;width:20px;height:20px;
+    color:#b32566;opacity:0;transition:opacity .15s;
+  }
+  .ps-row[aria-checked="true"] .ps-row__arrow{ opacity:1; }
+  .ps-cta-wrap{ margin-top:28px; }
+  .ps-cta{
+    display:inline-flex;align-items:center;
+    justify-content:center;background:#b32566;
+    color:#fff;border:none;padding:14px 32px;
     border-radius:50px;
     font-family:'Inter',-apple-system,sans-serif;
-    font-size:14px;
-    font-weight:600;
-    text-decoration:none;
-    min-height:44px;
-    width:fit-content;
-    transition:background .15s,color .15s,border-color .15s;
+    font-size:15px;font-weight:600;text-decoration:none;
+    min-height:48px;transition:background .15s;
   }
-  .ps-item__btn--primary{
-    background:#b32566;
-    color:#fff;
-    border:2px solid #b32566;
-  }
-  .ps-item__btn--primary:hover,
-  .ps-item__btn--primary:focus-visible{
+  .ps-cta:hover{ background:#8f1c51; }
+  .ps-cta:focus-visible{
+    outline:3px solid #3d6ff0;outline-offset:2px;
     background:#8f1c51;
-    border-color:#8f1c51;
-  }
-  .ps-item__btn--outline{
-    background:transparent;
-    color:#b32566;
-    border:2px solid #b32566;
-  }
-  .ps-item__btn--outline:hover,
-  .ps-item__btn--outline:focus-visible{
-    background:#f9e4ee;
-  }
-  .ps-item__btn:focus-visible{
-    outline:3px solid #3d6ff0;
-    outline-offset:2px;
   }
 </style>
 
-<section class="persona-split" aria-label="Ways to experience the bloom bar">
+<section class="ps-section" aria-labelledby="ps-heading">
   <div class="container">
-    <div class="persona-split__inner">
+    <div class="ps-inner">
 
-      <div class="persona-split__img-col">
+      <div class="ps-img-col">
         <picture>
           <source srcset="images/persona-split-bouquet.webp" type="image/webp">
-          <img src="images/persona-split-bouquet.jpg" alt="Hand holding a freshly arranged bouquet with baby's breath, pink lily, and white hydrangea at a bloom bar rental" loading="lazy" width="1200" height="800">
+          <img src="images/persona-split-bouquet.jpg"
+               alt="Hand holding a freshly arranged bouquet with baby's breath, pink lily, and white hydrangea at a bloom bar rental"
+               loading="lazy" width="1200" height="800">
         </picture>
       </div>
 
-      <div class="persona-split__text-col">
+      <div class="ps-text-col">
+        <h2 id="ps-heading" class="ps-heading">What are you planning?</h2>
 
-        <div class="ps-item">
-          <h2 class="ps-item__title">Personal Events</h2>
-          <p class="ps-item__sub">Bridal showers, birthdays, and celebrations</p>
-          <a href="/book" class="ps-item__btn ps-item__btn--primary">See Pricing</a>
+        <div role="radiogroup" aria-labelledby="ps-heading" class="ps-radiogroup">
+
+          <button class="ps-row" role="radio" aria-checked="true" tabindex="0"
+                  data-href="/book" data-cta="See pricing">
+            <span class="ps-row__content">
+              <span class="ps-row__title">Personal events</span>
+              <span class="ps-row__sub">Bridal showers, birthdays, and celebrations</span>
+            </span>
+            <svg class="ps-row__arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          </button>
+
+          <button class="ps-row" role="radio" aria-checked="false" tabindex="-1"
+                  data-href="/corporate-events" data-cta="Get a quote">
+            <span class="ps-row__content">
+              <span class="ps-row__title">Corporate events</span>
+              <span class="ps-row__sub">Team building, office parties, client events</span>
+            </span>
+            <svg class="ps-row__arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          </button>
+
+          <button class="ps-row" role="radio" aria-checked="false" tabindex="-1"
+                  data-href="/workshops" data-cta="Join the waitlist">
+            <span class="ps-row__content">
+              <span class="ps-row__title">Public workshops <span class="ps-row__cs" aria-label="(coming soon)">Coming soon</span></span>
+              <span class="ps-row__sub">Join a hands-on floral class</span>
+            </span>
+            <svg class="ps-row__arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+          </button>
+
         </div>
 
-        <div class="ps-item">
-          <h2 class="ps-item__title">Corporate Events</h2>
-          <p class="ps-item__sub">Team building, office parties, client events</p>
-          <a href="/corporate-events" class="ps-item__btn ps-item__btn--primary">Get a Quote</a>
+        <div class="ps-cta-wrap">
+          <a id="ps-cta" class="ps-cta" href="/book">See pricing</a>
         </div>
-
-        <div class="ps-item">
-          <span class="ps-item__badge" aria-label="Status: Coming Soon">Coming Soon</span>
-          <h2 class="ps-item__title">Public Workshops</h2>
-          <p class="ps-item__sub">Join a hands-on floral class</p>
-          <a href="/workshops" class="ps-item__btn ps-item__btn--outline">Join the Waitlist</a>
-        </div>
-
       </div>
+
     </div>
   </div>
 </section>
@@ -1054,6 +1084,40 @@
   </div>
 </footer>
   <script src="mobile-nav.js"></script>
+<script>
+/* ── Persona selector: radio-group keyboard + click behaviour ── */
+(function(){
+  var rows = Array.from(document.querySelectorAll('.ps-row'));
+  var cta  = document.getElementById('ps-cta');
+  if (!rows.length || !cta) return;
+
+  function activate(idx) {
+    rows.forEach(function(row, i) {
+      var on = (i === idx);
+      row.setAttribute('aria-checked', on ? 'true' : 'false');
+      row.setAttribute('tabindex',     on ? '0'    : '-1');
+    });
+    cta.textContent = rows[idx].dataset.cta;
+    cta.href        = rows[idx].dataset.href;
+  }
+
+  rows.forEach(function(row, idx) {
+    row.addEventListener('click', function() { activate(idx); });
+    row.addEventListener('keydown', function(e) {
+      var next;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
+        e.preventDefault();
+        next = (idx + 1) % rows.length;
+        activate(next); rows[next].focus();
+      } else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        next = (idx - 1 + rows.length) % rows.length;
+        activate(next); rows[next].focus();
+      }
+    });
+  });
+})();
+</script>
 
 <!-- BRING THE BLOOMBAR CHAT WIDGET -->
 <!-- Paste this entire block just before the </body> tag on any HTML page -->
