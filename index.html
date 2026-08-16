@@ -384,35 +384,49 @@
   /* ── Persona split ──────────────────────────── */
   .persona-split{
     background:#fdf6f9;
-    padding:60px 0;
+    padding:0 0 72px;
     border-bottom:1px solid #f0dce4;
   }
-  .persona-split__heading{
-    font-family:'Playfair Display',Georgia,serif;
-    font-size:clamp(1.45rem,3vw,2rem);
-    font-weight:700;
-    color:#2e1522;
-    text-align:center;
-    margin:0 0 32px;
-  }
-  .persona-split__grid{
+  .persona-split__inner{
     display:grid;
     grid-template-columns:1fr;
-    gap:18px;
+    gap:0;
+    align-items:center;
   }
-  @media(min-width:640px){
-    .persona-split__grid{ grid-template-columns:repeat(3,1fr); }
+  @media(min-width:720px){
+    .persona-split__inner{
+      grid-template-columns:1fr 1fr;
+      gap:56px;
+    }
   }
-  .persona-card{
-    background:#fff;
-    border:1px solid #ecdfe1;
-    border-radius:14px;
-    padding:28px 24px;
+  .persona-split__img-col img{
+    width:100%;
+    height:420px;
+    object-fit:cover;
+    display:block;
+  }
+  @media(min-width:720px){
+    .persona-split__img-col img{
+      border-radius:16px;
+    }
+  }
+  .persona-split__text-col{
+    padding:48px 20px 0;
     display:flex;
     flex-direction:column;
-    gap:10px;
+    gap:36px;
   }
-  .persona-card__badge{
+  @media(min-width:720px){
+    .persona-split__text-col{
+      padding:0;
+    }
+  }
+  .ps-item{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .ps-item__badge{
     display:inline-flex;
     align-items:center;
     font-size:10px;
@@ -427,84 +441,89 @@
     width:fit-content;
     margin-bottom:2px;
   }
-  .persona-card__title{
+  .ps-item__title{
     font-family:'Playfair Display',Georgia,serif;
     font-size:20px;
     font-weight:700;
     color:#2e1522;
     margin:0;
   }
-  .persona-card__sub{
+  .ps-item__sub{
     font-size:14px;
     color:#6f5c66;
     margin:0;
-    flex:1;
     line-height:1.5;
   }
-  .persona-card__btn{
+  .ps-item__btn{
     display:inline-flex;
     align-items:center;
     justify-content:center;
-    margin-top:8px;
-    padding:12px 20px;
-    border-radius:9px;
+    margin-top:4px;
+    padding:11px 22px;
+    border-radius:50px;
     font-family:'Inter',-apple-system,sans-serif;
-    font-size:14.5px;
+    font-size:14px;
     font-weight:600;
     text-decoration:none;
     min-height:44px;
-    text-align:center;
+    width:fit-content;
     transition:background .15s,color .15s,border-color .15s;
   }
-  .persona-card__btn--primary{
+  .ps-item__btn--primary{
     background:#b32566;
     color:#fff;
     border:2px solid #b32566;
   }
-  .persona-card__btn--primary:hover,
-  .persona-card__btn--primary:focus-visible{
+  .ps-item__btn--primary:hover,
+  .ps-item__btn--primary:focus-visible{
     background:#8f1c51;
     border-color:#8f1c51;
   }
-  .persona-card__btn--outline{
-    background:#fff;
+  .ps-item__btn--outline{
+    background:transparent;
     color:#b32566;
     border:2px solid #b32566;
   }
-  .persona-card__btn--outline:hover,
-  .persona-card__btn--outline:focus-visible{
-    background:#fdf6f9;
+  .ps-item__btn--outline:hover,
+  .ps-item__btn--outline:focus-visible{
+    background:#f9e4ee;
   }
-  .persona-card__btn:focus-visible{
+  .ps-item__btn:focus-visible{
     outline:3px solid #3d6ff0;
     outline-offset:2px;
   }
 </style>
 
-<section class="persona-split" aria-labelledby="persona-split-heading">
+<section class="persona-split" aria-label="Ways to experience the bloom bar">
   <div class="container">
-    <h2 id="persona-split-heading" class="persona-split__heading">How are you celebrating?</h2>
-    <div class="persona-split__grid">
+    <div class="persona-split__inner">
 
-      <div class="persona-card">
-        <h3 class="persona-card__title">Personal Events</h3>
-        <p class="persona-card__sub">Bridal showers, birthdays, and celebrations</p>
-        <a href="/book" class="persona-card__btn persona-card__btn--primary">See Pricing</a>
+      <div class="persona-split__img-col">
+        <img src="images/hero-outdoor-patio.webp" alt="Guests gathered around a bloom bar at an outdoor Orange County event" loading="lazy" width="720" height="420">
       </div>
 
-      <div class="persona-card">
-        <h3 class="persona-card__title">Corporate Events</h3>
-        <p class="persona-card__sub">Team building, office parties, client events</p>
-        <a href="/corporate-events" class="persona-card__btn persona-card__btn--primary">Get a Quote</a>
-      </div>
+      <div class="persona-split__text-col">
 
-      <div class="persona-card">
-        <span class="persona-card__badge" aria-label="Status: Coming Soon">Coming Soon</span>
-        <h3 class="persona-card__title">Public Workshops</h3>
-        <p class="persona-card__sub">Join a hands-on floral class</p>
-        <a href="/workshops" class="persona-card__btn persona-card__btn--outline">Join the Waitlist</a>
-      </div>
+        <div class="ps-item">
+          <h2 class="ps-item__title">Personal Events</h2>
+          <p class="ps-item__sub">Bridal showers, birthdays, and celebrations</p>
+          <a href="/book" class="ps-item__btn ps-item__btn--primary">See Pricing</a>
+        </div>
 
+        <div class="ps-item">
+          <h2 class="ps-item__title">Corporate Events</h2>
+          <p class="ps-item__sub">Team building, office parties, client events</p>
+          <a href="/corporate-events" class="ps-item__btn ps-item__btn--primary">Get a Quote</a>
+        </div>
+
+        <div class="ps-item">
+          <span class="ps-item__badge" aria-label="Status: Coming Soon">Coming Soon</span>
+          <h2 class="ps-item__title">Public Workshops</h2>
+          <p class="ps-item__sub">Join a hands-on floral class</p>
+          <a href="/workshops" class="ps-item__btn ps-item__btn--outline">Join the Waitlist</a>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
