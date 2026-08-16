@@ -451,9 +451,8 @@
     display:flex;align-items:center;
     justify-content:space-between;gap:12px;
     width:100%;padding:20px 0;
-    background:none;border:none;
     border-bottom:1px solid #D9A9BB;
-    cursor:pointer;text-align:left;
+    text-decoration:none;cursor:pointer;
   }
   .ps-row:first-child{ border-top:1px solid #D9A9BB; }
   .ps-row:focus-visible{
@@ -523,37 +522,34 @@
 
         <div role="radiogroup" aria-labelledby="ps-heading" class="ps-radiogroup">
 
-          <button class="ps-row" role="radio" aria-checked="true" tabindex="0"
-                  data-href="/book" data-cta="See pricing">
+          <a class="ps-row" role="radio" aria-checked="true" tabindex="0" href="/book">
             <span class="ps-row__content">
               <span class="ps-row__title">Personal events</span>
               <span class="ps-row__sub">Bridal showers, birthdays, and celebrations</span>
             </span>
             <svg class="ps-row__arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
-          </button>
+          </a>
 
-          <button class="ps-row" role="radio" aria-checked="false" tabindex="-1"
-                  data-href="/corporate-events" data-cta="Get a quote">
+          <a class="ps-row" role="radio" aria-checked="false" tabindex="-1" href="/corporate-events">
             <span class="ps-row__content">
               <span class="ps-row__title">Corporate events</span>
               <span class="ps-row__sub">Team building, office parties, client events</span>
             </span>
             <svg class="ps-row__arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
-          </button>
+          </a>
 
-          <button class="ps-row" role="radio" aria-checked="false" tabindex="-1"
-                  data-href="/workshops" data-cta="Join the waitlist">
+          <a class="ps-row" role="radio" aria-checked="false" tabindex="-1" href="/workshops">
             <span class="ps-row__content">
               <span class="ps-row__title">Public workshops <span class="ps-row__cs" aria-label="(coming soon)">Coming soon</span></span>
               <span class="ps-row__sub">Join a hands-on floral class</span>
             </span>
             <svg class="ps-row__arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" focusable="false"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
-          </button>
+          </a>
 
         </div>
 
         <div class="ps-cta-wrap">
-          <a id="ps-cta" class="ps-cta" href="/book">See pricing</a>
+          <a id="ps-cta" class="ps-cta" href="/book">Book your experience</a>
         </div>
       </div>
 
@@ -1086,6 +1082,8 @@
   <script src="mobile-nav.js"></script>
 <script>
 /* ── Persona selector: radio-group keyboard + click behaviour ── */
+/* Rows are real <a href> links (crawlable). JS intercepts row clicks to
+   update selection state without navigating — navigation happens via CTA. */
 (function(){
   var rows = Array.from(document.querySelectorAll('.ps-row'));
   var cta  = document.getElementById('ps-cta');
@@ -1097,12 +1095,14 @@
       row.setAttribute('aria-checked', on ? 'true' : 'false');
       row.setAttribute('tabindex',     on ? '0'    : '-1');
     });
-    cta.textContent = rows[idx].dataset.cta;
-    cta.href        = rows[idx].dataset.href;
+    cta.href = rows[idx].href; /* CTA destination matches selected row */
   }
 
   rows.forEach(function(row, idx) {
-    row.addEventListener('click', function() { activate(idx); });
+    row.addEventListener('click', function(e) {
+      e.preventDefault(); /* prevent row from navigating; CTA navigates */
+      activate(idx);
+    });
     row.addEventListener('keydown', function(e) {
       var next;
       if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
