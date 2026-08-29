@@ -2916,12 +2916,16 @@ function buildQuote() {
     }
   }
 
-  var deliveryLabel = state.deliveryCityLabel || state.deliveryCity || '';
-  if (state.deliveryCost > 0) {
-    lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: state.deliveryCost });
-    total += state.deliveryCost;
-  } else if (state.deliveryCity) {
-    lines.push({ label: 'Delivery \u2014 ' + (deliveryLabel || state.deliveryCity), amount: 0, free: true });
+  if (state.experience === 'full') {
+    lines.push({ label: 'Delivery and setup fees', notIncluded: true });
+  } else {
+    var deliveryLabel = state.deliveryCityLabel || state.deliveryCity || '';
+    if (state.deliveryCost > 0) {
+      lines.push({ label: 'Delivery \u2014 ' + deliveryLabel, amount: state.deliveryCost });
+      total += state.deliveryCost;
+    } else if (state.deliveryCity) {
+      lines.push({ label: 'Delivery \u2014 ' + (deliveryLabel || state.deliveryCity), amount: 0, free: true });
+    }
   }
 
   // Personalized headline
@@ -2933,6 +2937,7 @@ function buildQuote() {
   lines.forEach(function(l) {
     var amountStr;
     if (l.amount === null) amountStr = '';
+    else if (l.notIncluded) amountStr = '<span style="color:#6b4c5e;font-style:italic;">Not included in this quote</span>';
     else if (l.free || l.amount === 0) amountStr = '<span style="color:#b32566;">Free</span>';
     else amountStr = '$' + l.amount;
     html += '<div class="bk-line-item"><span>' + l.label + '</span><span>' + amountStr + '</span></div>';
@@ -2940,7 +2945,12 @@ function buildQuote() {
   if (state.experience === 'full') {
     html += '<div class="bk-line-item bk-line-deposit"><span>Deposit to reserve</span><span>$100</span></div>';
   }
-  html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total</span><span class="bk-total-amount">$' + total + '</span></div>';
+  if (state.experience === 'full') {
+    html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total <span style="font-size:10px;font-weight:400;color:#7a5a6a;">(delivery and setup fees not included)</span></span><span class="bk-total-amount">$' + total + '</span></div>';
+    html += '<p style="font-size:11px;color:#6b4c5e;margin:8px 0 0;line-height:1.5;font-family:\'Inter\',sans-serif;">Final total, including delivery and setup for your location, confirmed within 24 hours.</p>';
+  } else {
+    html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total</span><span class="bk-total-amount">$' + total + '</span></div>';
+  }
   box.innerHTML = html;
 
   var upsell = document.getElementById('upsell-nudge');
@@ -3006,7 +3016,7 @@ function submitRentalsForm() {
 
 function calculateTotal() {
   var t = state.experience === 'full' ? (state.collectionTotal || 0) : (state.pkgPrice || 0);
-  t += state.deliveryCost || 0;
+  if (state.experience !== 'full') t += state.deliveryCost || 0;
   return t;
 }
 
@@ -3479,7 +3489,11 @@ function generatePDF() {
     addLine('Fresh flowers sourced within 48 hours of your event', '');
 
     var dc = state.deliveryCost, dCity = state.deliveryCityLabel || state.cityName || state.deliveryCity;
-    if (dCity) addLine('Delivery \u2014 ' + dCity, dc ? '$' + dc : 'Free');
+    if (state.experience === 'full') {
+      addLine('Delivery and setup fees', 'Not included in this quote');
+    } else if (dCity) {
+      addLine('Delivery \u2014 ' + dCity, dc ? '$' + dc : 'Free');
+    }
 
     // Totals
     y += 8;
@@ -3488,8 +3502,13 @@ function generatePDF() {
     var grandTotal = typeof calculateTotal === 'function' ? calculateTotal() : 0;
     if (grandTotal) {
       doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(dark[0],dark[1],dark[2]);
-      doc.text('Estimated Total', M, y);
+      var totalLabel = state.experience === 'full' ? 'Estimated Total (excl. delivery and setup)' : 'Estimated Total';
+      doc.text(totalLabel, M, y);
       doc.text('$' + grandTotal, W-M, y, {align:'right'}); y += 20;
+      if (state.experience === 'full') {
+        doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(107,76,94);
+        doc.text('Final total, including delivery and setup for your location, confirmed within 24 hours.', M, y); y += 14;
+      }
     }
     doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(pink[0],pink[1],pink[2]);
     doc.text('Deposit to Reserve', M, y);
