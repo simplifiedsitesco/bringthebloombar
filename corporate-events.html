@@ -257,13 +257,81 @@
     </div>
   </section>
 
-  <!-- ═══ INQUIRY FORM ═══ -->
-  <section id="corporate-quote-form" style="padding:72px 0;background:#3a1a2e;">
-    <div class="container" style="max-width:640px;">
-      <h2 style="font-size:32px;font-weight:500;color:#fff;margin:0 0 10px;line-height:1.3;">Request a Corporate Quote</h2>
-      <p style="font-size:15px;color:rgba(255,255,255,0.8);margin:0 0 28px;line-height:1.6;">We&rsquo;ll review your event details and send a custom quote within 24 hours.</p>
+  <!-- ═══ ESTIMATE & INQUIRY ═══ -->
+  <section id="corporate-quote-form" style="padding:72px 0 80px;background:#3a1a2e;">
+    <div class="container" style="max-width:760px;">
+
+      <!-- ── Estimator ── -->
+      <p class="ce-eyebrow">Get a Corporate Estimate</p>
+      <h2 class="ce-heading">See your estimated range in seconds</h2>
+
+      <!-- Step 1: Event Type -->
+      <fieldset class="ce-step">
+        <legend class="ce-step-label">1 &mdash; Event Type</legend>
+        <div class="ce-event-grid">
+          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Employee Appreciation Day" class="ce-visually-hidden"><span>Employee Appreciation Day</span></label>
+          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Office Party" class="ce-visually-hidden"><span>Office Parties &amp; Celebrations</span></label>
+          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Client Event" class="ce-visually-hidden"><span>Client Appreciation Events</span></label>
+          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Conference" class="ce-visually-hidden"><span>Conferences &amp; Networking</span></label>
+          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Onboarding" class="ce-visually-hidden"><span>Onboarding &amp; Welcome</span></label>
+        </div>
+      </fieldset>
+
+      <!-- Step 2: Guest Count -->
+      <fieldset class="ce-step">
+        <legend class="ce-step-label">2 &mdash; Guest Count</legend>
+        <div class="ce-slider-row">
+          <input type="range" id="ce-guests" min="15" max="200" step="1" value="45"
+            aria-label="Number of guests" aria-valuetext="45 guests">
+          <output id="ce-guest-out" for="ce-guests" aria-hidden="true">45 guests</output>
+        </div>
+        <p class="ce-hint">Minimum 15 guests &mdash; slide to adjust.</p>
+      </fieldset>
+
+      <!-- Step 3: Experience Tier -->
+      <fieldset class="ce-step">
+        <legend class="ce-step-label">3 &mdash; Experience Tier</legend>
+        <div class="ce-tier-grid">
+          <label class="ce-tier-card">
+            <input type="radio" name="est-tier" value="25" class="ce-visually-hidden">
+            <span class="ce-tier-name">Classic</span>
+            <span class="ce-tier-price">$25 / guest</span>
+          </label>
+          <label class="ce-tier-card is-selected">
+            <input type="radio" name="est-tier" value="35" class="ce-visually-hidden" checked>
+            <span class="ce-tier-name">Signature</span>
+            <span class="ce-tier-price">$35 / guest</span>
+          </label>
+          <label class="ce-tier-card">
+            <input type="radio" name="est-tier" value="45" class="ce-visually-hidden">
+            <span class="ce-tier-name">Luxury</span>
+            <span class="ce-tier-price">$45 / guest</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- Live Estimate Display -->
+      <div class="ce-estimate-card">
+        <p class="ce-estimate-label">Estimated range</p>
+        <p class="ce-estimate-value" id="ce-estimate-value" aria-live="polite" aria-atomic="true">$1,575 &ndash; $2,048</p>
+        <p class="ce-estimate-caption">Estimate only &mdash; delivery, branding, and staffing fees may apply. <a href="#faq-included" class="ce-faq-link">See what&rsquo;s included &rarr;</a></p>
+      </div>
+
+      <!-- Validation error + Continue CTA -->
+      <p id="ce-error" class="ce-error" role="alert" hidden>Please select an event type before continuing.</p>
+      <button type="button" id="ce-continue" class="ce-continue-btn">Continue to contact details</button>
+
+      <!-- ── Divider ── -->
+      <hr class="ce-divider" aria-hidden="true">
+
+      <!-- ── Contact Form ── -->
+      <h3 id="ce-contact" class="ce-contact-heading">Request your custom quote</h3>
+      <p class="ce-contact-sub">We&rsquo;ll review your event details and send a custom quote within 24 hours.</p>
+
       <form name="corporate-bloom-bar-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Corporate flower bar quote request form">
         <input type="hidden" name="form-name" value="corporate-bloom-bar-inquiry">
+        <input type="hidden" name="estimated-range" id="ce-hidden-range" value="">
+        <input type="hidden" name="experience-tier" id="ce-hidden-tier" value="">
         <p style="display:none"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
 
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
@@ -308,9 +376,11 @@
           <label for="corp-event-type" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Event Type</label>
           <select id="corp-event-type" name="event-type" required style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;appearance:none;">
             <option value="" disabled selected style="color:#333;">Select event type</option>
+            <option value="Employee Appreciation Day" style="color:#333;">Employee Appreciation Day</option>
             <option value="Office Party" style="color:#333;">Office Party</option>
             <option value="Client Event" style="color:#333;">Client Event</option>
             <option value="Conference" style="color:#333;">Conference</option>
+            <option value="Onboarding" style="color:#333;">Onboarding &amp; Welcome</option>
             <option value="Other" style="color:#333;">Other</option>
           </select>
         </div>
@@ -331,6 +401,7 @@
           <a href="sms:7142516478" aria-label="Text Bring the Bloom Bar and Rentals at 714-251-6478" style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.12);color:#fff;padding:10px 20px;border-radius:2rem;text-decoration:none;font-size:14px;border:1px solid rgba(255,255,255,0.25);font-family:'Inter',sans-serif;">Text us: (714) 251-6478</a>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -358,6 +429,11 @@
       <details class="faq-item">
         <summary aria-expanded="false"><span>Can the Bloom Bar come to our office building?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
         <p>Yes &mdash; we deliver, set up, and break down at your location. We serve office buildings, hotel event spaces, conference centers, and outdoor areas across North Orange County, Central and South Orange County, and LA County border cities including Fullerton, Anaheim, Irvine, and Cerritos. If you&rsquo;re not sure whether your venue is in our service area, just mention the city in your quote request and we will confirm.</p>
+      </details>
+
+      <details class="faq-item" id="faq-included">
+        <summary aria-expanded="false"><span>What&rsquo;s included in the estimate, and what costs extra?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
+        <p>Your estimate covers the flower bar experience itself &mdash; fresh flowers, the cart, and on-site staffing to run the bar for your event. A few things are quoted separately once we know your details: delivery outside our standard zones, custom branding (your logo or colors on the cart and signage), and design requests beyond our standard palettes. We&rsquo;ll flag any of these clearly in your custom quote &mdash; nothing gets added after the fact.</p>
       </details>
 
     </div>
@@ -436,8 +512,268 @@
     outline: 3px solid #f9a8c8;
     outline-offset: 2px;
   }
+
+  /* ─── Estimator (CE) ────────────────────────────── */
+  .ce-visually-hidden {
+    position:absolute; width:1px; height:1px; padding:0;
+    margin:-1px; overflow:hidden; clip:rect(0,0,0,0);
+    white-space:nowrap; border:0;
+  }
+  .ce-eyebrow {
+    font-size:11px; font-weight:600; color:#f9a8c8;
+    letter-spacing:0.12em; text-transform:uppercase;
+    margin:0 0 14px; font-family:'Inter',sans-serif;
+  }
+  .ce-heading {
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:clamp(24px,3.5vw,34px); font-weight:500;
+    color:#fff; margin:0 0 44px; line-height:1.2;
+  }
+  .ce-step {
+    border:none; padding:0; margin:0 0 40px;
+  }
+  .ce-step legend {
+    display:block; padding:0; width:100%;
+    font-size:11px; font-weight:600; letter-spacing:0.12em;
+    text-transform:uppercase; color:rgba(255,255,255,0.5);
+    font-family:'Inter',sans-serif; margin:0 0 16px;
+  }
+  /* Event type grid */
+  .ce-event-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:10px;
+  }
+  .ce-event-btn {
+    display:flex; align-items:center; justify-content:center;
+    text-align:center; padding:14px 16px; min-height:52px;
+    background:rgba(255,255,255,0.07);
+    border:1.5px solid rgba(255,255,255,0.15);
+    border-radius:10px; cursor:pointer;
+    font-size:14px; font-weight:600;
+    color:rgba(255,255,255,0.88);
+    font-family:'Inter',sans-serif;
+    transition:background .15s, border-color .15s;
+    user-select:none;
+  }
+  .ce-event-btn:hover { background:rgba(255,255,255,0.13); border-color:rgba(255,255,255,0.3); }
+  .ce-event-btn.is-selected { background:#b32566; border-color:#b32566; color:#fff; }
+  .ce-event-btn:focus-within { outline:3px solid #f9a8c8; outline-offset:2px; border-radius:10px; }
+  /* Slider */
+  .ce-slider-row { display:flex; align-items:center; gap:18px; }
+  #ce-guests {
+    flex:1; height:6px; -webkit-appearance:none; appearance:none;
+    border-radius:3px; background:rgba(255,255,255,0.2); cursor:pointer;
+  }
+  #ce-guests::-webkit-slider-thumb {
+    -webkit-appearance:none; width:22px; height:22px;
+    border-radius:50%; background:#b32566; border:2px solid #fff;
+    cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.3);
+  }
+  #ce-guests::-moz-range-thumb {
+    width:22px; height:22px; border-radius:50%;
+    background:#b32566; border:2px solid #fff;
+    cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.3);
+  }
+  #ce-guests:focus-visible {
+    outline:3px solid #f9a8c8; outline-offset:4px; border-radius:4px;
+  }
+  #ce-guest-out {
+    font-size:15px; font-weight:600; color:#fff;
+    font-family:'Inter',sans-serif; white-space:nowrap;
+    min-width:84px; display:inline-block; text-align:right;
+  }
+  .ce-hint {
+    font-size:12px; color:rgba(255,255,255,0.4);
+    margin:10px 0 0; font-family:'Inter',sans-serif;
+    font-style:italic;
+  }
+  /* Tier grid */
+  .ce-tier-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; }
+  .ce-tier-card {
+    display:flex; flex-direction:column; align-items:center;
+    justify-content:center; text-align:center;
+    padding:22px 16px; min-height:92px;
+    background:rgba(255,255,255,0.07);
+    border:1.5px solid rgba(255,255,255,0.15);
+    border-radius:12px; cursor:pointer;
+    transition:background .15s, border-color .15s;
+    user-select:none;
+  }
+  .ce-tier-card:hover { background:rgba(255,255,255,0.13); }
+  .ce-tier-card.is-selected { background:#b32566; border-color:#b32566; }
+  .ce-tier-card:focus-within { outline:3px solid #f9a8c8; outline-offset:2px; border-radius:12px; }
+  .ce-tier-name {
+    font-size:15px; font-weight:600; color:#fff;
+    font-family:'Inter',sans-serif; display:block; margin-bottom:6px;
+  }
+  .ce-tier-price {
+    font-size:13px; color:rgba(255,255,255,0.7);
+    font-family:'Inter',sans-serif; display:block;
+  }
+  .ce-tier-card.is-selected .ce-tier-price { color:rgba(255,255,255,0.92); }
+  /* Estimate card */
+  .ce-estimate-card {
+    background:rgba(255,255,255,0.09);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:14px; padding:26px 28px; margin:0 0 28px;
+  }
+  .ce-estimate-label {
+    font-size:11px; font-weight:600; letter-spacing:0.1em;
+    text-transform:uppercase; color:rgba(255,255,255,0.55);
+    font-family:'Inter',sans-serif; margin:0 0 8px;
+  }
+  .ce-estimate-value {
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:clamp(26px,4vw,38px); font-weight:500;
+    color:#fff; margin:0 0 12px; line-height:1.15; display:block;
+  }
+  .ce-estimate-caption {
+    font-size:13px; color:rgba(255,255,255,0.52);
+    font-family:'Inter',sans-serif; margin:0; line-height:1.55;
+  }
+  .ce-faq-link { color:#f9a8c8; text-decoration:underline; }
+  .ce-faq-link:hover { color:#fff; }
+  .ce-faq-link:focus-visible { outline:2px solid #f9a8c8; outline-offset:1px; border-radius:2px; }
+  /* Error + Continue */
+  .ce-error {
+    color:#ffb3b3; font-size:13px; font-family:'Inter',sans-serif;
+    margin:0 0 14px; display:block;
+  }
+  .ce-continue-btn {
+    display:flex; align-items:center; justify-content:center;
+    width:100%; background:#fff; color:#993556;
+    border:none; padding:14px 36px; border-radius:30px;
+    font-weight:600; font-size:16px; min-height:48px;
+    font-family:'Inter',sans-serif; cursor:pointer;
+    transition:opacity .15s; margin:0 0 56px;
+  }
+  .ce-continue-btn:hover { opacity:.9; }
+  .ce-continue-btn:focus-visible { outline:3px solid #f9a8c8; outline-offset:2px; }
+  /* Divider */
+  .ce-divider { border:none; border-top:1px solid rgba(255,255,255,0.14); margin:0 0 52px; }
+  /* Contact form heading */
+  .ce-contact-heading {
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:28px; font-weight:500; color:#fff;
+    margin:0 0 10px; line-height:1.3;
+  }
+  .ce-contact-sub {
+    font-size:15px; color:rgba(255,255,255,0.8);
+    margin:0 0 28px; line-height:1.6; font-family:'Inter',sans-serif;
+  }
+  /* Scroll margin so sticky header doesn't overlap jump targets */
+  #ce-contact, #faq-included { scroll-margin-top:80px; }
+  /* Mobile */
+  @media (max-width:767px) {
+    .ce-event-grid { grid-template-columns:1fr; }
+    .ce-tier-grid  { grid-template-columns:1fr; }
+    .ce-slider-row { flex-direction:column; align-items:stretch; gap:10px; }
+    #ce-guest-out  { text-align:left; }
+    .ce-estimate-card { padding:22px 20px; }
+  }
 </style>
 
+  <script>
+  /* ── Corporate Estimate Tool ─────────────────────── */
+  (function () {
+    var slider   = document.getElementById('ce-guests');
+    var guestOut = document.getElementById('ce-guest-out');
+    var estVal   = document.getElementById('ce-estimate-value');
+    var contBtn  = document.getElementById('ce-continue');
+    var errMsg   = document.getElementById('ce-error');
+    var hidRange = document.getElementById('ce-hidden-range');
+    var hidTier  = document.getElementById('ce-hidden-tier');
+    var fmHC     = document.getElementById('corp-headcount');
+    var fmET     = document.getElementById('corp-event-type');
+    var tierNames = { '25': 'Classic', '35': 'Signature', '45': 'Luxury' };
+
+    /* Formula: low = price × guests; high = round(price × guests × 1.3) */
+    function fmt(n) {
+      return '$' + Math.round(n).toLocaleString('en-US');
+    }
+
+    function refreshEstimate() {
+      var guests  = Math.max(15, parseInt(slider.value, 10));
+      var tierInp = document.querySelector('input[name="est-tier"]:checked');
+      var price   = tierInp ? parseInt(tierInp.value, 10) : 35;
+      var low     = price * guests;
+      var high    = Math.round(price * guests * 1.3);
+      var text    = fmt(low) + ' \u2013 ' + fmt(high);
+      estVal.textContent = text;
+      guestOut.value = guests + ' guests';
+      slider.setAttribute('aria-valuetext', guests + ' guests');
+      if (hidRange) hidRange.value = text;
+      if (hidTier && tierInp) {
+        hidTier.value = (tierNames[tierInp.value] || tierInp.value) +
+          ' ($' + tierInp.value + '/guest)';
+      }
+      if (fmHC) fmHC.value = guests + ' guests';
+    }
+
+    function applySelected(name) {
+      document.querySelectorAll('input[name="' + name + '"]').forEach(function (inp) {
+        inp.parentElement.classList.toggle('is-selected', inp.checked);
+      });
+    }
+
+    /* Slider */
+    slider.addEventListener('input', function () {
+      if (parseInt(slider.value, 10) < 15) slider.value = 15;
+      refreshEstimate();
+    });
+
+    /* Event type */
+    document.querySelectorAll('input[name="est-event-type"]').forEach(function (inp) {
+      inp.addEventListener('change', function () {
+        applySelected('est-event-type');
+        errMsg.hidden = true;
+        if (fmET) fmET.value = inp.value;
+      });
+    });
+
+    /* Tier */
+    document.querySelectorAll('input[name="est-tier"]').forEach(function (inp) {
+      inp.addEventListener('change', function () {
+        applySelected('est-tier');
+        refreshEstimate();
+      });
+    });
+
+    /* Continue button */
+    contBtn.addEventListener('click', function () {
+      if (!document.querySelector('input[name="est-event-type"]:checked')) {
+        errMsg.hidden = false;
+        document.querySelector('.ce-event-btn input').focus();
+        return;
+      }
+      errMsg.hidden = true;
+      /* Final sync before revealing form */
+      refreshEstimate();
+      if (fmET) {
+        var sel = document.querySelector('input[name="est-event-type"]:checked');
+        if (sel) fmET.value = sel.value;
+      }
+      var target = document.getElementById('ce-contact');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTimeout(function () {
+        var first = document.getElementById('corp-name');
+        if (first) first.focus();
+      }, 550);
+    });
+
+    /* "See what's included" — auto-open the FAQ details item */
+    document.querySelectorAll('.ce-faq-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        var id = link.getAttribute('href').replace('#', '');
+        var det = document.getElementById(id);
+        if (det && det.tagName === 'DETAILS') det.open = true;
+      });
+    });
+
+    /* Init */
+    applySelected('est-tier');
+    refreshEstimate();
+  })();
+  </script>
   <script src="mobile-nav.js"></script>
 
 </body>
