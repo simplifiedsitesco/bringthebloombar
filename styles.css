@@ -51,7 +51,8 @@ header {
 .nav { display: flex; justify-content: space-between; align-items: center; padding: .95rem 0; }
 
 .logo { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-.logo img { height: 120px; width: auto; display: block; }
+.logo picture { display: block; line-height: 0; }
+.logo img { height: 48px; width: auto; display: block; }
 
 nav ul { display: flex; list-style: none; gap: 1rem; margin: 0; padding: 0; align-items: center; }
 nav a { text-decoration: none; font-weight: 600; }
@@ -369,7 +370,7 @@ small { color: var(--muted); }
   header { position: sticky; top: 0; z-index: 50; }
 
   .nav { position: relative; flex-direction: row; gap: .75rem; align-items: center; padding: .8rem 0; }
-  .logo img { height: 90px; }
+  .logo img { height: 40px; }
 
   .mobile-nav-toggle {
     display: inline-flex;
