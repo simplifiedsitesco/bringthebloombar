@@ -224,6 +224,20 @@
     </image:image>
   </url>
   <url>
+    <loc>https://bringthebloombar.com/gallery.html</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://bringthebloombar.com/images/gallery/baby-shower/baby-shower-bloom-bar-wildflower-sign-orange-county.webp</image:loc>
+      <image:title>Baby shower bloom bar with wildflower sign in Orange County</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://bringthebloombar.com/images/gallery/birthday/birthday-bloom-bar-bouquet-sign-orange-county.webp</image:loc>
+      <image:title>Birthday bloom bar with custom bouquet sign in Orange County</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://bringthebloombar.com/diy-rentals.html</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
