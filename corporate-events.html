@@ -297,16 +297,19 @@
             <input type="radio" name="est-tier" value="25" class="ce-visually-hidden">
             <span class="ce-tier-name">Classic</span>
             <span class="ce-tier-price">$25 / guest</span>
+            <span class="ce-tier-desc">5–6 stems, garden-variety blooms (carnations, daisies, alstroemeria)</span>
           </label>
           <label class="ce-tier-card is-selected">
             <input type="radio" name="est-tier" value="35" class="ce-visually-hidden" checked>
             <span class="ce-tier-name">Signature</span>
             <span class="ce-tier-price">$35 / guest</span>
+            <span class="ce-tier-desc">6–8 stems, roses and spray roses, fuller palette</span>
           </label>
           <label class="ce-tier-card">
             <input type="radio" name="est-tier" value="45" class="ce-visually-hidden">
             <span class="ce-tier-name">Luxury</span>
             <span class="ce-tier-price">$45 / guest</span>
+            <span class="ce-tier-desc">8–10 stems, garden roses and seasonal peonies, premium blooms</span>
           </label>
         </div>
       </fieldset>
@@ -592,7 +595,7 @@
   .ce-tier-card {
     display:flex; flex-direction:column; align-items:center;
     justify-content:center; text-align:center;
-    padding:22px 16px; min-height:92px;
+    padding:22px 16px;
     background:rgba(255,255,255,0.07);
     border:1.5px solid rgba(255,255,255,0.15);
     border-radius:12px; cursor:pointer;
@@ -611,6 +614,12 @@
     font-family:'Inter',sans-serif; display:block;
   }
   .ce-tier-card.is-selected .ce-tier-price { color:rgba(255,255,255,0.92); }
+  .ce-tier-desc {
+    font-size:11px; color:rgba(255,255,255,0.5);
+    font-family:'Inter',sans-serif; display:block;
+    margin-top:7px; line-height:1.45;
+  }
+  .ce-tier-card.is-selected .ce-tier-desc { color:rgba(255,255,255,0.82); }
   /* Estimate card */
   .ce-estimate-card {
     background:rgba(255,255,255,0.09);
