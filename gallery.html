@@ -191,6 +191,7 @@
       background: none;
       cursor: pointer;
       text-align: left;
+      overflow: hidden;
     }
     .glr-trigger:focus-visible {
       outline: 3px solid #3d6ff0;
@@ -235,7 +236,7 @@
       padding: 16px;
       box-sizing: border-box;
     }
-    .glr-lightbox[hidden] { display: none; }
+    .glr-lightbox[hidden] { display: none !important; }
 
     .glr-lb-overlay {
       position: absolute;
@@ -329,8 +330,8 @@
   <div class="glr-header">
     <div class="container">
       <p class="glr-eyebrow">Photo Gallery &middot; Orange County &amp; Surrounding Areas</p>
-      <h1 class="glr-h1">Real events, real flowers.</h1>
-      <p class="glr-subtext">Every setup is different. Here&rsquo;s what ours look like.</p>
+      <h1 class="glr-h1">Gallery</h1>
+      <p class="glr-subtext">Real events, real flowers. Every setup is different &mdash; here&rsquo;s what ours look like.</p>
     </div>
   </div>
 
@@ -362,8 +363,6 @@
             <img
               src="images/gallery/baby-shower/baby-shower-bloom-bar-wildflower-sign-orange-county.webp"
               alt="Baby shower bloom bar with wildflower sign in Orange County"
-              width="900"
-              height="1201"
               loading="eager"
             >
           </button>
@@ -383,8 +382,6 @@
             <img
               src="images/gallery/birthday/birthday-bloom-bar-bouquet-sign-orange-county.webp"
               alt="Birthday bloom bar with custom bouquet sign in Orange County"
-              width="900"
-              height="1350"
               loading="lazy"
             >
           </button>
