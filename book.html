@@ -668,7 +668,7 @@
 </header>
 
 <div class="trust-bar" role="complementary" aria-label="Service highlights">
-  Setup &amp; breakdown included on every booking <span class="sep" aria-hidden="true">&middot;</span> Same-day response Mon&ndash;Fri <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County, LA County &amp; San Bernardino County
+  Setup &amp; breakdown on every booking <span class="sep" aria-hidden="true">&middot;</span> Same-day response Mon&ndash;Fri <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County, LA County &amp; San Bernardino County
 </div>
 
 <nav id="bk-progress-bar" class="bk-progress" role="navigation" aria-label="Booking progress" tabindex="0">
@@ -923,12 +923,12 @@
         <p class="bk-card-desc">You choose the blooms, we deliver the bar, set it up, and break it down. Your guests do the arranging &mdash; the fun part.</p>
         <p class="bk-card-price" style="color:#993556;font-weight:500;">From $84/day</p>
       </button>
-      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $25 per guest, 15-guest minimum" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
+      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $375, $25 per guest with a 15-guest minimum" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
         <p class="bk-card-title">We Handle Everything</p>
         <hr class="bk-card-rule">
-        <p class="bk-card-desc">Fresh flowers, setup, and breakdown &mdash; all included. Your guests build their own bouquets and leave with something they made.</p>
-        <p class="bk-card-price" style="color:#7a5a6a;font-weight:400;font-size:11px;">15 guest minimum &middot; flowers included</p>
+        <p class="bk-card-desc">Fresh flowers included. Delivery, design, setup and breakdown: $110&ndash;$125. Your guests build their own bouquets and leave with something they made.</p>
+        <p class="bk-card-price" style="color:#7a5a6a;font-weight:400;font-size:11px;">From $375 &middot; 15 guest minimum &middot; flowers included</p>
       </button>
     </div>
 
@@ -1006,7 +1006,7 @@
           <span class="bb-pricing-row-details">$45/guest &rarr; <strong id="preview-luxury">$900</strong></span>
         </div>
       </div>
-      <p class="bb-pricing-disclaimer">Delivery calculated separately based on your location. 15 guest minimum applies.</p>
+      <p class="bb-pricing-disclaimer">15 guest minimum applies, so collections start from $375. Delivery, design, setup and breakdown: $110&ndash;$125.</p>
     </div>
 
     <div class="bk-cta-row">
@@ -1028,7 +1028,7 @@
     <p class="bk-confirm-line" id="confirm-collection" aria-live="polite"></p>
     <p class="bk-eyebrow" style="color:#993556;">Step 3 &mdash; Full Bloom Bar Experience</p>
     <h2 class="bk-h1" id="collection-heading">Choose your collection.</h2>
-    <p class="bk-subtext">Every collection includes fresh flowers and your full bloom bar setup.</p>
+    <p class="bk-subtext">Every collection includes fresh flowers. Delivery, design, setup and breakdown are a $110&ndash;$125 fee.</p>
 
     <!-- Collection cards -->
     <div class="bb-collection-grid" role="radiogroup" aria-labelledby="collection-heading">
@@ -1370,7 +1370,7 @@
       <p class="bk-confirm-line" id="confirm-full" aria-live="polite"><span class="sr-only">YOUR EVENT </span></p>
       <p class="bk-eyebrow" id="step2-eyebrow-full">Step 3 &mdash; Full Bloom Bar Experience</p>
       <h2 class="bk-h1" id="step2-heading-full">Choose your package.</h2>
-      <p class="bk-subtext">Flowers, setup, and breakdown are all included.</p>
+      <p class="bk-subtext">Flowers included. Delivery, design, setup and breakdown are a $110&ndash;$125 fee.</p>
       <div class="bk-card-grid-3" role="radiogroup" aria-labelledby="step2-heading-full">
         <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="bloom-social" data-price="725" onclick="selectPackage('bloom-social',725)" onkeydown="rovingKey(event,'step3-full-rg',0)">
           <p class="bk-card-label">BLOOM SOCIAL</p>
@@ -1859,6 +1859,7 @@
     <nav class="footer-nav" aria-label="Footer navigation">
       <a href="/about">About</a>
       <a href="/locations">Locations</a>
+      <a href="/flower-bar-rental-orange-county">Flower Bar Rental</a>
       <a href="/book">Book your experience</a>
       <a href="/rental-agreement">Rental Agreement</a>
       <a href="/privacy-policy">Privacy Policy</a>
@@ -2752,6 +2753,11 @@ function setupStep5() {
   updateSummaryBar();
 }
 
+// Full service: one fee covers delivery, design, setup and breakdown (not by zip)
+var FULL_SERVICE_FEE_MIN = 110, FULL_SERVICE_FEE_MAX = 125;
+var FULL_SERVICE_FEE_TEXT = '$' + FULL_SERVICE_FEE_MIN + '\u2013$' + FULL_SERVICE_FEE_MAX;
+
+// DIY delivery by zip
 var FULL_DELIVERY_ZONES = {
   '90631':{'city':'La Habra','cost':0},'90632':{'city':'La Habra','cost':0},'90633':{'city':'La Habra','cost':0},
   '92831':{'city':'Fullerton','cost':14},'92832':{'city':'Fullerton','cost':14},'92833':{'city':'Fullerton','cost':14},
@@ -2824,7 +2830,13 @@ function calculateDeliveryS2() {
     return;
   }
   var zone = FULL_DELIVERY_ZONES[zip];
-  if (zone) {
+  if (state.experience === 'full') {
+    state.deliveryCost     = 0;
+    state.deliveryCityLabel= zone ? zone.city : 'Your area';
+    state.deliveryCity     = zip;
+    if (cityEl) cityEl.textContent = (zone ? zone.city + ' \u2014 ' : '') + 'Delivery, design, setup and breakdown: ' + FULL_SERVICE_FEE_TEXT;
+    if (detailsEl) detailsEl.textContent = 'Exact fee confirmed within 24 hours.';
+  } else if (zone) {
     state.deliveryCost     = zone.cost;
     state.deliveryCityLabel= zone.city;
     state.deliveryCity     = zip;
@@ -2924,7 +2936,7 @@ function buildQuote() {
   }
 
   if (state.experience === 'full') {
-    lines.push({ label: 'Delivery and setup fees', notIncluded: true });
+    lines.push({ label: 'Delivery, design, setup and breakdown', rangeText: FULL_SERVICE_FEE_TEXT });
   } else {
     var deliveryLabel = state.deliveryCityLabel || state.deliveryCity || '';
     if (state.deliveryCost > 0) {
@@ -2943,7 +2955,8 @@ function buildQuote() {
   var html = '<p class="bk-quote-title">' + quoteTitle + (state.eventDate ? ' \u2014 ' + state.eventDate : '') + '</p>';
   lines.forEach(function(l) {
     var amountStr;
-    if (l.amount === null) amountStr = '';
+    if (l.rangeText) amountStr = l.rangeText;
+    else if (l.amount === null) amountStr = '';
     else if (l.notIncluded) amountStr = '<span style="color:#6b4c5e;font-style:italic;">Not included in this quote</span>';
     else if (l.free || l.amount === 0) amountStr = '<span style="color:#b32566;">Free</span>';
     else amountStr = '$' + l.amount;
@@ -2953,8 +2966,8 @@ function buildQuote() {
     html += '<div class="bk-line-item bk-line-deposit"><span>Deposit to reserve</span><span>$100</span></div>';
   }
   if (state.experience === 'full') {
-    html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total <span style="font-size:10px;font-weight:400;color:#7a5a6a;">(delivery and setup fees not included)</span></span><span class="bk-total-amount">$' + total + '</span></div>';
-    html += '<p style="font-size:11px;color:#6b4c5e;margin:8px 0 0;line-height:1.5;font-family:\'Inter\',sans-serif;">Final total, including delivery and setup for your location, confirmed within 24 hours.</p>';
+    html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total</span><span class="bk-total-amount">$' + (total + FULL_SERVICE_FEE_MIN) + '\u2013$' + (total + FULL_SERVICE_FEE_MAX) + '</span></div>';
+    html += '<p style="font-size:11px;color:#6b4c5e;margin:8px 0 0;line-height:1.5;font-family:\'Inter\',sans-serif;">Final total, including the ' + FULL_SERVICE_FEE_TEXT + ' delivery, design, setup and breakdown fee, confirmed within 24 hours.</p>';
   } else {
     html += '<div class="bk-line-total"><span class="bk-total-label">Estimated total</span><span class="bk-total-amount">$' + total + '</span></div>';
   }
@@ -3241,7 +3254,7 @@ setTimeout(hideScissorsQuantity, 3000);
         set('hf-style',         s.tier ? s.tier.charAt(0).toUpperCase() + s.tier.slice(1) : '');
       }
       set('hf-total',         '$' + (typeof calculateTotal === 'function' ? calculateTotal() : 0));
-      set('hf-delivery',      s.deliveryCost ? '$' + s.deliveryCost : '');
+      set('hf-delivery',      s.experience === 'full' ? FULL_SERVICE_FEE_TEXT : (s.deliveryCost ? '$' + s.deliveryCost : ''));
     } catch(e) {
       console.warn('bb: populateHiddenFields error:', e);
     }
@@ -3304,9 +3317,9 @@ function populateLeadFields() {
     set('hf-palette',       state.palette || '');
     set('hf-total',
       state.collectionTotal
-        ? '$' + state.collectionTotal + ' + $' + (state.deliveryCost || 0) + ' delivery'
+        ? '$' + state.collectionTotal + ' + ' + FULL_SERVICE_FEE_TEXT + ' delivery, design, setup and breakdown'
         : state.pkgPrice ? '$' + state.pkgPrice : '');
-    set('hf-delivery',      state.deliveryCost || '');
+    set('hf-delivery',      state.experience === 'full' ? FULL_SERVICE_FEE_TEXT : (state.deliveryCost || ''));
   } catch(e) {
     console.warn('populateLeadFields:', e);
   }
@@ -3481,7 +3494,7 @@ function generatePDF() {
       } else {
         addLine(collName, state.collectionTotal ? '$' + state.collectionTotal : '');
       }
-      var stemsMap = {'classic':'6\u20138 stems per guest','signature':'8\u201310 stems per guest','luxury':'10\u201312 stems per guest'};
+      var stemsMap = {'classic':'5\u20136 stems per guest','signature':'6\u20138 stems per guest','luxury':'8\u201310 stems per guest'};
       if (stemsMap[state.collection]) addLine(stemsMap[state.collection], '');
     } else {
       var pkgName = state.pkg || 'Package';
@@ -3497,7 +3510,7 @@ function generatePDF() {
 
     var dc = state.deliveryCost, dCity = state.deliveryCityLabel || state.cityName || state.deliveryCity;
     if (state.experience === 'full') {
-      addLine('Delivery and setup fees', 'Not included in this quote');
+      addLine('Delivery, design, setup and breakdown', FULL_SERVICE_FEE_TEXT);
     } else if (dCity) {
       addLine('Delivery \u2014 ' + dCity, dc ? '$' + dc : 'Free');
     }
@@ -3509,12 +3522,14 @@ function generatePDF() {
     var grandTotal = typeof calculateTotal === 'function' ? calculateTotal() : 0;
     if (grandTotal) {
       doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(dark[0],dark[1],dark[2]);
-      var totalLabel = state.experience === 'full' ? 'Estimated Total (excl. delivery and setup)' : 'Estimated Total';
-      doc.text(totalLabel, M, y);
-      doc.text('$' + grandTotal, W-M, y, {align:'right'}); y += 20;
+      var totalText = state.experience === 'full'
+        ? '$' + (grandTotal + FULL_SERVICE_FEE_MIN) + '\u2013$' + (grandTotal + FULL_SERVICE_FEE_MAX)
+        : '$' + grandTotal;
+      doc.text('Estimated Total', M, y);
+      doc.text(totalText, W-M, y, {align:'right'}); y += 20;
       if (state.experience === 'full') {
         doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(107,76,94);
-        doc.text('Final total, including delivery and setup for your location, confirmed within 24 hours.', M, y); y += 14;
+        doc.text('Final total, including the ' + FULL_SERVICE_FEE_TEXT + ' delivery, design, setup and breakdown fee, confirmed within 24 hours.', M, y); y += 14;
       }
     }
     doc.setFont('helvetica','bold'); doc.setFontSize(12); doc.setTextColor(pink[0],pink[1],pink[2]);

@@ -274,6 +274,23 @@
     .layout{ grid-template-columns: 92px 1fr; gap:10px; }
     nav.categories button{ padding:9px 6px; font-size:11.5px; }
   }
+
+  /* Site footer (same as styles.css; this page doesn't load styles.css) */
+  .site-footer { background:#f8edf3; border-top:1px solid #ecd7e1; padding:2.4rem 0; margin-top:3rem; font-family:'Inter',sans-serif; line-height:1.68; }
+  .site-footer .container { width:min(1120px, 92%); margin:0 auto; }
+  .site-footer p { margin:1em 0; }
+  .footer-inner { display:flex; flex-direction:column; gap:.6rem; }
+  .footer-brand { font-weight:700; font-size:1rem; color:#2b2326; }
+  .footer-service, .footer-contact { color:#6f5f67; font-size:.9rem; }
+  .footer-contact a { color:#861a4a; }
+  .footer-nav { display:flex; gap:1rem; flex-wrap:wrap; font-size:.9rem; }
+  .footer-nav a { color:#861a4a; text-decoration:none; font-weight:600; display:inline-flex; align-items:center; min-height:44px; }
+  .footer-nav a:hover { text-decoration:underline; }
+  .site-footer .footer-legal { color:#6f5f67; font-size:.82rem; margin-top:.4rem; }
+  .footer-built { color:#6f5f67; font-size:.82rem; }
+  .footer-built a { color:#6f5f67; }
+  .footer-built a:hover { color:#861a4a; }
+  @media (max-width: 767px) { .footer-nav { gap:.75rem; } }
 </style>
 </head>
 <body>
@@ -489,6 +506,28 @@
 
   </div>
 </main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p class="footer-brand">Bring the Bloom Bar and Rentals</p>
+    <p class="footer-service">Delivering bloom bar rentals across Orange County, Southeast LA County, and surrounding areas &mdash; including Fullerton, Brea, Anaheim, Irvine, Tustin, and more.</p>
+    <p class="footer-contact"><a href="tel:7142516478">(714) 251-6478</a> &middot; M&ndash;F 8:30 AM&ndash;5 PM &middot; Response within 24 hours</p>
+    <p class="footer-contact"><a href="mailto:lriley@bringthebloombar.com">lriley@bringthebloombar.com</a></p>
+    <nav class="footer-nav" aria-label="Footer navigation">
+      <a href="/about">About</a>
+      <a href="/locations">Locations</a>
+      <a href="/flower-bar-rental-orange-county">Flower Bar Rental</a>
+      <a href="/book">Book your experience</a>
+      <a href="/rental-agreement">Rental Agreement</a>
+      <a href="/privacy-policy">Privacy Policy</a>
+      <a href="/accessibility">Accessibility</a>
+      <a href="/safety-guidelines">Safety Guidelines</a>
+      <a href="https://www.instagram.com/bringthebloombar/" target="_blank" rel="noopener noreferrer" aria-label="Follow Bring the Bloom Bar on Instagram (opens in new tab)"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false" style="vertical-align:middle;margin-right:4px;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</a>
+    </nav>
+    <p class="footer-legal">&copy; 2026 Bring the Bloom Bar and Rentals</p>
+    <p class="footer-built">Built by <a href="https://www.simplifiedsitesco.com" target="_blank" rel="noopener">SimplifiedSitesCo.com</a></p>
+  </div>
+</footer>
 
 <div class="cart-toast" id="cart-toast" role="status" aria-live="polite"></div>
 
