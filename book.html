@@ -53,7 +53,7 @@
     .bk-step-dot { width: 10px; height: 10px; border-radius: 50%; background: #f4c0d1; border: none; transition: background 0.2s; }
     .bk-step-item.active .bk-step-dot, .bk-step-item.done .bk-step-dot { background: #d4537e; }
     .bk-step-label { font-size: 10px; color: #7a5a6a; white-space: nowrap; font-family: "Inter", sans-serif; }
-    .bk-step-item.active .bk-step-label { color: #d4537e; font-weight: 600; }
+    .bk-step-item.active .bk-step-label { color: #993556; font-weight: 600; }
     .bk-step-item.done .bk-step-label { color: #6b4c5e; }
     .bk-step-connector { width: 32px; height: 0.5px; background: #f4c0d1; align-self: flex-start; margin-top: 4px; flex-shrink: 0; transition: background 0.2s; }
     .bk-step-connector.done { background: #d4537e; }
@@ -235,7 +235,7 @@
     .bk-card-tag { font-size: 10px; color: #6b4c5e; font-style: italic; margin: 0.3rem 0 0; }
 
     /* ---- DIY Path Styles ---- */
-    .diy-eyebrow { color: #d4537e !important; }
+    .diy-eyebrow { color: #993556 !important; }
 
     /* Date picker instruction + trust line */
     .diy-datepicker-label { font-size: 12px; color: #6b4c5e; margin-bottom: 0.75rem; font-family: "Inter", sans-serif; }
@@ -670,7 +670,7 @@
   Setup &amp; breakdown included on every booking <span class="sep" aria-hidden="true">&middot;</span> Same-day response Mon&ndash;Fri <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County, LA County &amp; San Bernardino County
 </div>
 
-<nav id="bk-progress-bar" class="bk-progress" role="navigation" aria-label="Booking progress">
+<nav id="bk-progress-bar" class="bk-progress" role="navigation" aria-label="Booking progress" tabindex="0">
   <!-- Rendered by JS on load -->
 </nav>
 
@@ -909,7 +909,7 @@
 
   <!-- ===================== STEP 1 — Experience Selection ===================== -->
   <section id="step-1" class="bk-step active" aria-live="polite">
-    <p class="bk-eyebrow" style="color:#d4537e;">Book Your Experience</p>
+    <p class="bk-eyebrow" style="color:#993556;">Book Your Experience</p>
     <h1 class="bk-h1">Your event. Beautifully styled.</h1>
     <p id="step1-question" style="font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:#3d1a2e;margin:0 0 0.5rem;">Two ways to bring the bloom bar to your event.</p>
     <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#7a5a6a;margin:0 0 2rem;">Hosts across Orange County, LA County, and San Bernardino County choose us for showers, birthdays, weddings, and corporate events.</p>
@@ -920,7 +920,7 @@
         <p class="bk-card-title">DIY Bloom Bar Rental</p>
         <hr class="bk-card-rule">
         <p class="bk-card-desc">You choose the blooms, we deliver the bar, set it up, and break it down. Your guests do the arranging &mdash; the fun part.</p>
-        <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $84/day</p>
+        <p class="bk-card-price" style="color:#993556;font-weight:500;">From $84/day</p>
       </button>
       <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $25 per guest, 15-guest minimum" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
@@ -955,7 +955,7 @@
     aria-live="polite"
     aria-labelledby="guest-count-heading">
 
-    <p class="bk-eyebrow" style="color:#d4537e;">Step 2 &mdash; Full Bloom Bar Experience</p>
+    <p class="bk-eyebrow" style="color:#993556;">Step 2 &mdash; Full Bloom Bar Experience</p>
     <h2 class="bk-h1" id="guest-count-heading">How many guests are you expecting?</h2>
     <p class="bk-subtext">We&rsquo;ll use this to build your custom quote. Every guest gets their own bouquet to take home.</p>
 
@@ -1025,7 +1025,7 @@
     aria-labelledby="collection-heading">
 
     <p class="bk-confirm-line" id="confirm-collection" aria-live="polite"></p>
-    <p class="bk-eyebrow" style="color:#d4537e;">Step 3 &mdash; Full Bloom Bar Experience</p>
+    <p class="bk-eyebrow" style="color:#993556;">Step 3 &mdash; Full Bloom Bar Experience</p>
     <h2 class="bk-h1" id="collection-heading">Choose your collection.</h2>
     <p class="bk-subtext">Every collection includes fresh flowers and your full bloom bar setup.</p>
 
@@ -1495,7 +1495,7 @@
   <!-- ===================== STEP PREMIUM ADD-ONS — Full Bloom Bar Experience only ===================== -->
   <section id="step-premium-addons" class="bk-step" aria-live="polite" aria-labelledby="premium-addons-heading">
 
-    <p class="bk-eyebrow" style="color:#d4537e;">Step 3b &mdash; Premium Add-Ons</p>
+    <p class="bk-eyebrow" style="color:#993556;">Step 3b &mdash; Premium Add-Ons</p>
     <h2 class="bk-h1" id="premium-addons-heading">Want to add premium blooms?</h2>
     <p class="bk-subtext">Add Ranunculus, Anemone, Dahlia, Orchid, Specialty Garden Roses, or Imported Peonies to your collection for $2&ndash;$4 per stem.</p>
 
@@ -1866,7 +1866,7 @@
     </nav>
     <p class="footer-legal">&copy; 2026 Bring the Bloom Bar and Rentals</p>
     <p class="footer-built">Built by <a href="https://www.simplifiedsitesco.com" target="_blank" rel="noopener">SimplifiedSitesCo.com</a></p>
-    <a href="/" style="color: rgba(255,255,255,0.7); text-decoration: underline; text-underline-offset: 3px; font-size: 11px; font-family: 'Inter', sans-serif; display: block; margin-top: 0.75rem;" aria-label="Need help with your booking — chat with us on our homepage">Need help with your booking? Chat with us on our homepage &rarr;</a>
+    <a href="/" style="color: var(--accent-dark); text-decoration: underline; text-underline-offset: 3px; font-size: 11px; font-family: 'Inter', sans-serif; display: block; margin-top: 0.75rem;" aria-label="Need help with your booking — chat with us on our homepage">Need help with your booking? Chat with us on our homepage &rarr;</a>
   </div>
 </footer>
 <script src="mobile-nav.js"></script>
@@ -2181,10 +2181,15 @@ function renderProgress() {
       stepStatus = ' \u2014 not yet reached';
     }
 
-    var ariaLabel = ' aria-label="' + steps[i] + stepStatus + '"';
+    // aria-label is only valid on the <button> steps; div steps carry their status as sr-only text
+    var ariaLabel = tag === 'button' ? ' aria-label="' + steps[i] + stepStatus + '"' : '';
     html += '<' + tag + ' class="bk-step-item ' + cls + '" data-step="' + (i+1) + '"' + ariaExtra + ariaLabel + '>';
     html += '<div class="bk-step-dot" aria-hidden="true"></div>';
-    html += '<span class="bk-step-label" aria-hidden="true">' + steps[i] + '</span>';
+    if (tag === 'button') {
+      html += '<span class="bk-step-label" aria-hidden="true">' + steps[i] + '</span>';
+    } else {
+      html += '<span class="bk-step-label">' + steps[i] + '<span class="sr-only">' + stepStatus + '</span></span>';
+    }
     html += '</' + tag + '>';
     if (i < steps.length - 1) {
       html += '<div class="bk-step-connector' + (i < dispIdx ? ' done' : '') + '" aria-hidden="true"></div>';
