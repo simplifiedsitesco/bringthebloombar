@@ -86,6 +86,12 @@
   force = true
 
 [[redirects]]
+  from = "/flower-bar-rental-orange-county.html"
+  to = "https://bringthebloombar.com/flower-bar-rental-orange-county"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/faq.html"
   to = "https://bringthebloombar.com/faq"
   status = 301
