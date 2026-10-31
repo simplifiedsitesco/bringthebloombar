@@ -668,7 +668,7 @@
 </header>
 
 <div class="trust-bar" role="complementary" aria-label="Service highlights">
-  Setup &amp; breakdown on every booking <span class="sep" aria-hidden="true">&middot;</span> Same-day response Mon&ndash;Fri <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County, LA County &amp; San Bernardino County
+  Setup &amp; breakdown on every booking <span class="sep" aria-hidden="true">&middot;</span> Response within 24 hours <span class="sep" aria-hidden="true">&middot;</span> Serving Orange County, LA County &amp; San Bernardino County
 </div>
 
 <nav id="bk-progress-bar" class="bk-progress" role="navigation" aria-label="Booking progress" tabindex="0">
@@ -1133,7 +1133,7 @@
     <p id="s2d-motivation" style="font-family:'Inter',sans-serif;font-size:13px;color:#d4537e;font-style:italic;margin:0 0 0.75rem;"></p>
     <p class="bk-eyebrow" id="s2d-eyebrow">Step 2</p>
     <h2 class="bk-h1">Let&rsquo;s make it yours.</h2>
-    <p class="bk-subtext">We&rsquo;ll use these details to check availability and get back to you within 2 hours.</p>
+    <p class="bk-subtext">We&rsquo;ll use these details to check availability and get back to you within 24 hours.</p>
 
     <div class="bk-field">
       <label for="step2-name" class="bb-field-label">Your name</label>
@@ -1148,7 +1148,7 @@
       <p class="bb-required-note">* Required field</p>
     </div>
 
-    <p style="font-family:'Inter',sans-serif;font-size:11px;color:#7a5a6a;border-left:2px solid #f4c0d1;padding-left:0.75rem;margin-top:1.5rem;">We&rsquo;ll review your details and get back to you within 2 hours during business hours &mdash; Monday to Friday, 8:30&nbsp;AM to 5&nbsp;PM.</p>
+    <p style="font-family:'Inter',sans-serif;font-size:11px;color:#7a5a6a;border-left:2px solid #f4c0d1;padding-left:0.75rem;margin-top:1.5rem;">We&rsquo;ll review your details and get back to you within 24 hours &mdash; Monday to Friday, 8:30&nbsp;AM to 5&nbsp;PM.</p>
 
     <div class="bk-cta-row">
       <button class="bk-btn" id="s2d-btn" aria-disabled="true" aria-label="See my full bloom bar packages and check availability" onclick="step2DetailsNext()">See my full bloom bar packages &rarr;</button>
@@ -1428,7 +1428,7 @@
             <input class="bk-input" type="number" id="le-guests" name="guest-count" placeholder="Approx. number of guests" min="35" required>
           </div>
           <button class="bk-btn" type="submit">Send my enquiry</button>
-          <p class="bk-large-form-note">We'll get back to you within 2 hours during business hours.</p>
+          <p class="bk-large-form-note">We'll get back to you within 24 hours.</p>
         </form>
       </div>
 
@@ -2655,7 +2655,7 @@ function submitLargeEvent(e) {
   var data = new FormData(form);
   fetch('/', { method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString() })
     .then(function() {
-      form.innerHTML = '<p style="color:#d4537e;font-size:13px;font-weight:600;">Thank you! We\'ll be in touch within 2 hours.</p>';
+      form.innerHTML = '<p style="color:#d4537e;font-size:13px;font-weight:600;">Thank you! We\'ll be in touch within 24 hours.</p>';
     })
     .catch(function() {
       form.innerHTML = '<p style="color:#d4537e;font-size:13px;">Something went wrong. Please email us at <a href="mailto:lriley@bringthebloombar.com">lriley@bringthebloombar.com</a>.</p>';
@@ -2986,10 +2986,10 @@ function buildQuote() {
     if (finalNote) finalNote.textContent = 'You\'ll be taken to our booking platform to check availability and complete your reservation.';
   } else if (state.experience === 'full') {
     if (finalBtn) { finalBtn.textContent = 'Reserve with deposit'; finalBtn.setAttribute('data-href', '#stripe-link'); }
-    if (finalNote) finalNote.textContent = 'A $100 deposit secures your date. We\u2019ll confirm availability within 2 hours.';
+    if (finalNote) finalNote.textContent = 'A $100 deposit secures your date. We\u2019ll confirm availability within 24 hours.';
   } else {
     if (finalBtn) { finalBtn.textContent = 'Send my booking request'; finalBtn.removeAttribute('data-href'); }
-    if (finalNote) finalNote.textContent = 'We\'ll confirm your booking and send a full invoice within 2 hours.';
+    if (finalNote) finalNote.textContent = 'We\'ll confirm your booking and send a full invoice within 24 hours.';
   }
   var s6eyebrow = document.querySelector('#step-7 .bk-eyebrow');
   var s6stepNum = state.experience === 'full' ? 6 : 4;
@@ -3027,7 +3027,7 @@ function submitRentalsForm() {
       var btn = document.getElementById('final-cta-btn');
       if (btn) { btn.textContent = 'Request sent!'; btn.setAttribute('aria-disabled','true'); }
       var note = document.getElementById('final-note');
-      if (note) note.textContent = 'Thank you! We\'ll confirm your booking within 2 hours.';
+      if (note) note.textContent = 'Thank you! We\'ll confirm your booking within 24 hours.';
     })
     .catch(function() {
       window.location.href = 'mailto:lriley@bringthebloombar.com?subject=Rental%20Booking%20Request&body=I%27d%20like%20to%20book%20for%20' + encodeURIComponent(state.eventDate);

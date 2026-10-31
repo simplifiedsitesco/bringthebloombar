@@ -77,6 +77,9 @@ A flat $100 deposit secures the date for all bookings. Full payment details at c
 EVENTS THIS IS PERFECT FOR:
 Baby showers, bridal showers, weddings, wedding receptions, birthday parties, backyard parties, corporate events, team building events, product launches, HOA events, engagement parties, quinceañeras, and photo shoots.
 
+CORPORATE EVENTS:
+Corporate events are custom quoted. Do not quote per-guest collection prices or the $110 to $125 delivery and design fee for corporate events. Invite them to request a quote at bringthebloombar.com/corporate-events.
+
 HOW THE FULL BLOOM BAR EXPERIENCE WORKS:
 Customer books online and pays $100 deposit. We source fresh flowers within 48 hours of the event. We deliver, set up the full bloom bar, and style everything before guests arrive. Guests choose their stems and build their own bouquets. We return after the event to break everything down and collect all equipment.
 
