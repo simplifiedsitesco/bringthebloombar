@@ -92,7 +92,7 @@
         "Chino Hills", "Huntington Beach",
         "Newport Beach", "Irvine", "Cerritos"
       ],
-      "description": "Bring the Bloom Bar and Rentals is Orange County's bloom bar and flower bar rental service based in La Habra, CA. We offer DIY flower bar rentals from $49/day and full bloom bar experiences from $25/guest. Fresh flowers, setup, and breakdown included on full service bookings. Serving bridal showers, baby showers, quinceañeras, corporate events, and celebrations across north OC, central OC, south OC, and LA County border cities.",
+      "description": "Bring the Bloom Bar and Rentals is Orange County's bloom bar and flower bar rental service based in La Habra, CA. We offer DIY flower bar rentals from $84/day and full bloom bar experiences from $25/guest (15-guest minimum). Fresh flowers, setup, and breakdown included on full service bookings. Serving bridal showers, baby showers, quinceañeras, corporate events, and celebrations across north OC, central OC, south OC, and LA County border cities.",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "5.0",
@@ -145,7 +145,7 @@
           "name": "Do you provide flowers?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — we offer both. Our DIY flower bar rentals start at $49/day and you bring your own blooms. Prefer a flowers-included experience? Our full bloom bar collections start at $25/guest and include fresh flowers sourced within 48 hours, full setup, and breakdown. 15 guest minimum applies to full service bookings."
+            "text": "Yes — we offer both. Our DIY flower bar rentals start at $84/day and you bring your own blooms. Prefer a flowers-included experience? Our full bloom bar collections start at $25/guest and include fresh flowers sourced within 48 hours, full setup, and breakdown. 15 guest minimum applies to full service bookings."
           }
         },
         {
@@ -161,7 +161,7 @@
           "name": "What if I only need one rental item?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes — our Flower Bar stand is available on its own starting at $49/day. You can also add a boho umbrella with our Boho Bloom Bundle at $84/day."
+            "text": "Yes — our Boho Bloom Bundle (cart + umbrella) is $84/day, or choose The Bloom Bar Deluxe (cart + display bar + umbrella) at $149/day. Flowers are not included."
           }
         },
         {
@@ -257,17 +257,17 @@
       "offers": [
         {
           "@type": "Offer",
-          "name": "The Flower Bar",
-          "price": "49",
-          "priceCurrency": "USD",
-          "description": "Bloom bar stand rental, per day. Flowers not included."
-        },
-        {
-          "@type": "Offer",
           "name": "Boho Bloom Bundle",
           "price": "84",
           "priceCurrency": "USD",
           "description": "Bloom bar stand and boho umbrella rental, per day. Flowers not included."
+        },
+        {
+          "@type": "Offer",
+          "name": "The Bloom Bar Deluxe",
+          "price": "149",
+          "priceCurrency": "USD",
+          "description": "Bloom bar cart, display bar, and boho umbrella rental, per day. Flowers not included."
         }
       ]
     },
@@ -937,30 +937,31 @@
 
       <div id="pricing-diy-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:24px;align-items:stretch;">
 
-        <!-- THE FLOWER BAR -->
-        <div style="border:1px solid #ecd7e1;border-radius:14px;padding:24px;background:#fff;display:flex;flex-direction:column;height:100%;">
-          <span style="display:inline-block;background:#f0f0f0;color:#6f5f67;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:1px;text-transform:uppercase;width:fit-content;font-family:'Inter',sans-serif;" aria-label="Most flexible DIY option">Most Flexible</span>
-          <h3 style="font-size:20px;font-weight:600;color:#2b2326;margin:0 0 16px;font-family:'Playfair Display',Georgia,serif;">The Flower Bar</h3>
-          <p style="font-size:28px;font-weight:600;color:#2b2326;margin:0 0 20px;line-height:1;">$49<span style="font-size:14px;font-weight:400;color:#6f5f67;">/day</span></p>
-          <ul style="list-style:none;padding:0;margin:0;flex:1;">
-            <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Bloom bar stand</li>
-            <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Setup &amp; breakdown included</li>
-            <li style="padding-left:20px;position:relative;margin-bottom:0;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Delivery from $14</li>
-          </ul>
-        </div>
-
         <!-- BOHO BLOOM BUNDLE -->
         <div style="border:1.5px solid #e9b8c9;border-radius:14px;padding:24px;background:#fff4f8;display:flex;flex-direction:column;height:100%;">
           <span style="display:inline-block;background:#f9e4ee;color:#861a4a;font-size:10px;font-weight:600;padding:3px 10px;border-radius:20px;margin-bottom:10px;letter-spacing:1px;text-transform:uppercase;width:fit-content;font-family:'Inter',sans-serif;" aria-label="Best value DIY option">Best Value</span>
           <h3 style="font-size:20px;font-weight:600;color:#2b2326;margin:0 0 16px;font-family:'Playfair Display',Georgia,serif;">Boho Bloom Bundle</h3>
           <p style="font-size:28px;font-weight:600;color:#2b2326;margin:0 0 20px;line-height:1;">$84<span style="font-size:14px;font-weight:400;color:#6f5f67;">/day</span></p>
           <ul style="list-style:none;padding:0;margin:0;flex:1;">
-            <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Bloom bar stand</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Bloom bar cart</li>
             <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Boho umbrella included</li>
             <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Setup &amp; breakdown included</li>
             <li style="padding-left:20px;position:relative;margin-bottom:0;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Delivery from $14</li>
           </ul>
           <p style="font-size:12px;color:#6f5f67;margin:16px 0 0;font-style:italic;font-family:'Inter',sans-serif;">After booking, let us know your umbrella preference &mdash; pink striped or cream white &mdash; at no extra charge.</p>
+        </div>
+
+        <!-- THE BLOOM BAR DELUXE -->
+        <div style="border:1px solid #ecd7e1;border-radius:14px;padding:24px;background:#fff;display:flex;flex-direction:column;height:100%;">
+          <h3 style="font-size:20px;font-weight:600;color:#2b2326;margin:0 0 16px;font-family:'Playfair Display',Georgia,serif;">The Bloom Bar Deluxe</h3>
+          <p style="font-size:28px;font-weight:600;color:#2b2326;margin:0 0 20px;line-height:1;">$149<span style="font-size:14px;font-weight:400;color:#6f5f67;">/day</span></p>
+          <ul style="list-style:none;padding:0;margin:0;flex:1;">
+            <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Bloom bar cart</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Display bar</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Boho umbrella included</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:10px;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Setup &amp; breakdown included</li>
+            <li style="padding-left:20px;position:relative;margin-bottom:0;color:#2b2326;font-size:14px;font-family:'Inter',sans-serif;"><span aria-hidden="true" style="position:absolute;left:0;color:#b32566;font-weight:700;">&#10003;</span>Delivery from $14</li>
+          </ul>
         </div>
 
       </div>
@@ -980,7 +981,7 @@
     <div class="container" style="max-width: 900px;">
       <h2>What Is a Bloom Bar Rental?</h2>
       <p>Bring the Bloom Bar is a luxury, interactive bloom bar experience serving Orange County and surrounding areas. Your guests build their own bouquets to take home from a styled flower bar filled with fresh blooms. We bring the bloom bar to weddings, bridal showers, baby showers, birthdays, and corporate events. Prefer to style it yourself? Our DIY bloom bar rentals are available too.</p>
-      <p>We offer two ways to experience it. With our DIY rentals starting at $49/day, you bring the flowers and we bring the beautifully styled bar — setup and breakdown included. Prefer a fully flowers-included experience? Our full flower packages start at $25/guest and include everything from sourcing to styling to delivery. 15 guest minimum applies.</p>
+      <p>We offer two ways to experience it. With our DIY rentals from $84/day, you bring the flowers and we bring the beautifully styled bar — setup and breakdown included. Prefer a fully flowers-included experience? Our full flower packages start at $25/guest and include everything from sourcing to styling to delivery. 15 guest minimum applies.</p>
       <p>Either way, your guests leave with something they made themselves.</p>
     </div>
   </section>
@@ -995,7 +996,7 @@
       </style>
       <details class="faq-item">
         <summary aria-expanded="false"><span>Do you provide flowers?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
-        <p>Yes — we offer both. Our DIY rentals start at $49/day and you bring your own flowers. If you prefer a fully flowers-included experience, our full flower packages start at $25/guest &mdash; 15 guest minimum &mdash; and include sourcing, arranging, and delivery. Whether you are looking for a DIY flower bar rental or a fully flowers-included bloom bar experience, we have an option for you.</p>
+        <p>Yes — we offer both. Our DIY rentals start at $84/day and you bring your own flowers. If you prefer a fully flowers-included experience, our full flower packages start at $25/guest &mdash; 15 guest minimum &mdash; and include sourcing, arranging, and delivery. Whether you are looking for a DIY flower bar rental or a fully flowers-included bloom bar experience, we have an option for you.</p>
       </details>
       <details class="faq-item">
         <summary aria-expanded="false"><span>Can I book a flower bar rental near me?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
@@ -1003,7 +1004,7 @@
       </details>
       <details class="faq-item">
         <summary aria-expanded="false"><span>What if I only need one rental item?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>
-        <p>Yes — our Flower Bar stand is available on its own starting at $49/day. You can also add a boho umbrella with our Boho Bloom Bundle at $84/day. Flowers are not included — you bring the blooms. Both are bookable directly through our online calendar.</p>
+        <p>Yes — our Boho Bloom Bundle (cart + umbrella) is $84/day, or choose The Bloom Bar Deluxe (cart + display bar + umbrella) at $149/day. Flowers are not included — you bring the blooms. Both are bookable directly through our online calendar.</p>
       </details>
       <details class="faq-item">
         <summary aria-expanded="false"><span>How far ahead should I reserve?</span><span class="faq-toggle" aria-hidden="true">+</span></summary>

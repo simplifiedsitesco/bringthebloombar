@@ -32,8 +32,9 @@ OPTION 1 — DIY BLOOM BAR RENTAL:
 The customer brings their own flowers. We deliver the bar, set it up, and break it down after.
 
 DIY PRODUCTS — all rentals are 1 day:
-1. The Flower Bar — $49/day. Bloom bar stand only. No flowers included. Delivery from $14.
-2. Boho Bloom Bundle — $84/day. Bloom bar stand plus boho umbrella. No flowers included. Delivery from $14. Customer chooses umbrella color after booking at no extra charge.
+1. Boho Bloom Bundle — $84/day. Bloom bar cart plus boho umbrella. No flowers included. Delivery from $14. Customer chooses umbrella color after booking at no extra charge.
+2. The Bloom Bar Deluxe — $149/day. Bloom bar cart plus display bar and boho umbrella. No flowers included. Delivery from $14.
+DIY rentals start from $84/day. The Flower Bar (stand only, $49/day) has been discontinued — if a customer asks about it, let them know it is no longer offered and suggest the Boho Bloom Bundle or The Bloom Bar Deluxe.
 
 DIY DELIVERY PRICING:
 Base fee: $14 for all deliveries.

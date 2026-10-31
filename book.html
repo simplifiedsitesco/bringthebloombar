@@ -915,14 +915,14 @@
     <p style="font-family:'Inter',sans-serif;font-size:12px;font-style:italic;color:#7a5a6a;margin:0 0 2rem;">Hosts across Orange County, LA County, and San Bernardino County choose us for showers, birthdays, weddings, and corporate events.</p>
 
     <div class="bk-exp-grid bb-experience-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;" role="radiogroup" aria-labelledby="step1-question">
-      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="0" data-exp="diy" aria-label="Select DIY Bloom Bar Rental from $49 per day" onclick="selectExperienceS1('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
+      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="0" data-exp="diy" aria-label="Select DIY Bloom Bar Rental from $84 per day" onclick="selectExperienceS1('diy')" onkeydown="rovingKey(event,'step1-rg',0)">
         <p class="bk-card-label">DIY BLOOM BAR</p>
         <p class="bk-card-title">DIY Bloom Bar Rental</p>
         <hr class="bk-card-rule">
         <p class="bk-card-desc">You choose the blooms, we deliver the bar, set it up, and break it down. Your guests do the arranging &mdash; the fun part.</p>
-        <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $49/day</p>
+        <p class="bk-card-price" style="color:#d4537e;font-weight:500;">From $84/day</p>
       </button>
-      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $725" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
+      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $25 per guest, 15-guest minimum" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
         <p class="bk-card-title">We Handle Everything</p>
         <hr class="bk-card-rule">
@@ -1234,7 +1234,7 @@
   // Booqable injects product images without alt text — patch them as they appear
   (function() {
     var ALT_MAP = {
-      'flower-bar-no-flowers-package': 'The Flower Bar — DIY bloom bar rental with fresh flowers, ribbon holder, and vases',
+      'flower-bar-no-flowers-package': 'Boho Bloom Bundle — flower bar rental with fringe umbrella included',
       'boho-bloom-bundle-flower-bar-and-umbrella': 'Boho Bloom Bundle — flower bar rental with fringe umbrella included',
       'add-on-scissors-4': 'Scissors add-on — set of 4 flower-cutting scissors for your bloom bar guests'
     };
@@ -2883,7 +2883,7 @@ function buildQuote() {
     'spring-pastels': 'Spring Pastels palette', 'jewel-tones': 'Jewel Tones palette'
   };
   var pkgLabels = {
-    'flower-bar': 'The Flower Bar (DIY)', 'boho-bloom-bundle': 'Boho Bloom Bundle (DIY)',
+    'flower-bar': 'Boho Bloom Bundle (DIY)', 'boho-bloom-bundle': 'Boho Bloom Bundle (DIY)',
     'bloom-social': 'Bloom Social', 'bloom-celebration': 'Bloom Celebration',
     'pink-backdrop': 'Pink Flower Backdrop', 'white-backdrop': 'White Flower Backdrop',
     'green-backdrop': 'Green Backdrop', 'bar-cart': 'Bar Cart', 'champagne-wall': 'Champagne Wall'
@@ -3128,7 +3128,7 @@ function setBooqableIframeTitles() {
   var titles = [
     'Select rental start date',
     'Select rental end date',
-    'The Flower Bar \u2014 check availability and add to cart',
+    'Boho Bloom Bundle \u2014 check availability and add to cart',
     'Boho Bloom Bundle \u2014 check availability and add to cart',
     'Scissors add-on \u2014 add to cart'
   ];
@@ -3189,7 +3189,7 @@ setTimeout(hideScissorsQuantity, 3000);
 
   // Package display labels — mirrors buildQuote() pkgLabels
   var PKG_LABELS = {
-    'flower-bar':       'The Flower Bar (DIY)',
+    'flower-bar':       'Boho Bloom Bundle (DIY)',
     'boho-bloom-bundle':'Boho Bloom Bundle (DIY)',
     'bloom-social':     'Bloom Social',
     'bloom-celebration':'Bloom Celebration',
