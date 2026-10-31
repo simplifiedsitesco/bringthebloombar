@@ -9,190 +9,193 @@
   [headers.values]
     Content-Type = "application/xml; charset=UTF-8"
 
-[[redirects]]
-  from = "https://www.bringthebloombar.com/*"
-  to = "https://bringthebloombar.com/:splat"
-  status = 301
-  force = true
 
-# Clean URLs: send old .html addresses to the address without .html
+# Clean URLs: send old .html addresses (on any host, www included) straight to the
+# non-www address without .html, so www + .html is a single 301
 
 [[redirects]]
   from = "/about.html"
-  to = "/about"
+  to = "https://bringthebloombar.com/about"
   status = 301
   force = true
 
 [[redirects]]
   from = "/accessibility.html"
-  to = "/accessibility"
+  to = "https://bringthebloombar.com/accessibility"
   status = 301
   force = true
 
 [[redirects]]
   from = "/anaheim-bloom-bar-rentals.html"
-  to = "/anaheim-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/anaheim-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/baby-shower.html"
-  to = "/baby-shower"
+  to = "https://bringthebloombar.com/baby-shower"
   status = 301
   force = true
 
 [[redirects]]
   from = "/blog/diy-bloom-bar-wedding-flowers-save-money.html"
-  to = "/blog/diy-bloom-bar-wedding-flowers-save-money"
+  to = "https://bringthebloombar.com/blog/diy-bloom-bar-wedding-flowers-save-money"
   status = 301
   force = true
 
 [[redirects]]
   from = "/book.html"
-  to = "/book"
+  to = "https://bringthebloombar.com/book"
   status = 301
   force = true
 
 [[redirects]]
   from = "/brea-bloom-bar-rentals.html"
-  to = "/brea-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/brea-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/bridal-shower.html"
-  to = "/bridal-shower"
+  to = "https://bringthebloombar.com/bridal-shower"
   status = 301
   force = true
 
 [[redirects]]
   from = "/cerritos-bloom-bar-rentals.html"
-  to = "/cerritos-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/cerritos-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/chino-hills-bloom-bar-rentals.html"
-  to = "/chino-hills-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/chino-hills-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/corporate-events.html"
-  to = "/corporate-events"
+  to = "https://bringthebloombar.com/corporate-events"
   status = 301
   force = true
 
 [[redirects]]
   from = "/diy-rentals.html"
-  to = "/diy-rentals"
+  to = "https://bringthebloombar.com/diy-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/faq.html"
-  to = "/faq"
+  to = "https://bringthebloombar.com/faq"
   status = 301
   force = true
 
 [[redirects]]
   from = "/fullerton-bloom-bar-rentals.html"
-  to = "/fullerton-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/fullerton-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/gallery.html"
-  to = "/gallery"
+  to = "https://bringthebloombar.com/gallery"
   status = 301
   force = true
 
 [[redirects]]
   from = "/hacienda-heights-bloom-bar-rentals.html"
-  to = "/hacienda-heights-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/hacienda-heights-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/huntington-beach-bloom-bar-rentals.html"
-  to = "/huntington-beach-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/huntington-beach-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/index.html"
-  to = "/"
+  to = "https://bringthebloombar.com/"
   status = 301
   force = true
 
 [[redirects]]
   from = "/irvine-bloom-bar-rentals.html"
-  to = "/irvine-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/irvine-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/la-habra-bloom-bar-rentals.html"
-  to = "/la-habra-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/la-habra-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/locations.html"
-  to = "/locations"
+  to = "https://bringthebloombar.com/locations"
   status = 301
   force = true
 
 [[redirects]]
   from = "/newport-beach-bloom-bar-rentals.html"
-  to = "/newport-beach-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/newport-beach-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/occasions.html"
-  to = "/occasions"
+  to = "https://bringthebloombar.com/occasions"
   status = 301
   force = true
 
 [[redirects]]
   from = "/orange-bloom-bar-rentals.html"
-  to = "/orange-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/orange-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/privacy-policy.html"
-  to = "/privacy-policy"
+  to = "https://bringthebloombar.com/privacy-policy"
   status = 301
   force = true
 
 [[redirects]]
   from = "/rental-agreement.html"
-  to = "/rental-agreement"
+  to = "https://bringthebloombar.com/rental-agreement"
   status = 301
   force = true
 
 [[redirects]]
   from = "/safety-guidelines.html"
-  to = "/safety-guidelines"
+  to = "https://bringthebloombar.com/safety-guidelines"
   status = 301
   force = true
 
 [[redirects]]
   from = "/whittier-bloom-bar-rentals.html"
-  to = "/whittier-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/whittier-bloom-bar-rentals"
   status = 301
   force = true
 
 [[redirects]]
   from = "/workshops.html"
-  to = "/workshops"
+  to = "https://bringthebloombar.com/workshops"
   status = 301
   force = true
 
 [[redirects]]
   from = "/yorba-linda-bloom-bar-rentals.html"
-  to = "/yorba-linda-bloom-bar-rentals"
+  to = "https://bringthebloombar.com/yorba-linda-bloom-bar-rentals"
+  status = 301
+  force = true
+
+# www -> non-www for everything else (must stay after the .html rules)
+[[redirects]]
+  from = "https://www.bringthebloombar.com/*"
+  to = "https://bringthebloombar.com/:splat"
   status = 301
   force = true
