@@ -180,11 +180,15 @@
 
   /* ── Coming-soon package card ───────────────────── */
   .product-card--soon{
-    border-style:dashed; opacity:.6;
+    border-style:dashed;
   }
+  /* Fade the image and button only; fading the whole card dropped text below WCAG AA */
   .product-card--soon .thumb{
-    background:var(--border);
+    background:var(--border); opacity:.6;
   }
+  .product-card--soon .btn{ opacity:.6; }
+  .product-card--soon h3{ color:var(--text-muted); }
+  .product-card--soon .desc{ color:#7a6871; }
 
   /* ── Stem-list collapsible ──────────────────────── */
   .stem-list{ margin:0; }
@@ -554,6 +558,19 @@
   });
 
   // Availability display is handled by the Booqable datepicker embed above.
+
+  /* ── Label Booqable's quantity inputs (added after Booqable loads) ── */
+  document.querySelectorAll('.booqable-product-button').forEach(function(box){
+    var heading = box.closest('.product-card') && box.closest('.product-card').querySelector('h3');
+    var name = heading ? heading.textContent.trim() : 'this item';
+    function labelInputs(){
+      box.querySelectorAll('input.bq-quantity:not([aria-label])').forEach(function(inp){
+        inp.setAttribute('aria-label', 'Quantity for ' + name);
+      });
+    }
+    labelInputs();
+    new MutationObserver(labelInputs).observe(box, { childList:true, subtree:true });
+  });
 
   /* ── Stem-list aria-expanded sync ─────────────── */
   document.querySelectorAll('details.stem-list').forEach(function(el){
