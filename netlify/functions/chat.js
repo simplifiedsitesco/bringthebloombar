@@ -42,23 +42,23 @@ Plus $1.50 per mile from La Habra for distances beyond the base rate.
 No pickup option is available — delivery only.
 
 OPTION 2 — FULL BLOOM BAR EXPERIENCE:
-We handle everything — fresh flowers sourced within 48 hours, full bloom bar setup, and breakdown after the event. Delivery, design, setup and breakdown are a $110 to $125 fee. Minimum 15 guests. Customer chooses their color palette when booking.
+We handle everything — fresh flowers sourced within 48 hours, full bloom bar setup, and breakdown after the event. Delivery, design, setup and breakdown are a $110 to $125 fee. Minimum 16 guests. Customer chooses their color palette when booking.
 
 FULL BLOOM BAR COLLECTIONS:
 1. Classic Collection — $25/guest
    5 to 6 stems per guest.
    Flowers: Carnation, Mini Carnation, Daisy, Alstroemeria, Baby's Breath, and Leatherleaf Fern.
-   Minimum order: $375 for 15 guests.
+   Minimum order: $400 for 16 guests.
 
 2. Signature Collection — $35/guest (most popular)
    6 to 8 stems per guest.
    Flowers: Roses, Spray Roses, Alstroemeria, Snapdragon, Wax Flower, and Silver Dollar Eucalyptus.
-   Minimum order: $525 for 15 guests.
+   Minimum order: $560 for 16 guests.
 
 3. Luxury Collection — $45/guest
    8 to 10 stems per guest.
    Flowers: Garden Roses, Peonies (seasonal), Premium Roses, Spray Roses, Astilbe, and Italian Ruscus.
-   Minimum order: $675 for 15 guests.
+   Minimum order: $720 for 16 guests.
 
 FULL BLOOM BAR COLOR PALETTES:
 Customers choose from 6 palettes during booking: Blush and White, Garden Greens, Bold and Romantic, Something Blue, Spring Pastels, Jewel Tones.
@@ -78,7 +78,7 @@ EVENTS THIS IS PERFECT FOR:
 Baby showers, bridal showers, weddings, wedding receptions, birthday parties, backyard parties, corporate events, team building events, product launches, HOA events, engagement parties, quinceañeras, and photo shoots.
 
 CORPORATE EVENTS:
-Corporate events are custom quoted. Do not quote per-guest collection prices or the $110 to $125 delivery and design fee for corporate events. Invite them to request a quote at bringthebloombar.com/corporate-events.
+Corporate events and brand activations are custom quoted. They start at $650 with a 16-guest minimum. The final quote depends on guest count and flower selection. Every corporate event includes fresh flowers sourced for the event, a styled flower bar, setup before and breakdown after, and a bouquet every guest builds and takes home. We do not staff or run the bar by default; an attendant to host the bar and guide guests is an optional add-on. Do not quote per-guest collection prices or the $110 to $125 delivery and design fee for corporate events. Invite them to request a quote at bringthebloombar.com/corporate-events.
 
 HOW THE FULL BLOOM BAR EXPERIENCE WORKS:
 Customer books online and pays $100 deposit. We source fresh flowers within 48 hours of the event. We deliver, set up the full bloom bar, and style everything before guests arrive. Guests choose their stems and build their own bouquets. We return after the event to break everything down and collect all equipment.
@@ -108,7 +108,7 @@ Q: Do you provide flowers for the DIY rental? A: No, the DIY rental is a setup o
 
 Q: Do you provide flowers for the full bloom bar experience? A: Yes, our full bloom bar experience includes fresh flowers sourced within 48 hours of your event. You choose your color palette when you book.
 
-Q: What is the minimum guest count? A: The full bloom bar experience requires a minimum of 15 guests. The DIY rental has no guest minimum.
+Q: What is the minimum guest count? A: The full bloom bar experience requires a minimum of 16 guests. The DIY rental has no guest minimum.
 
 Q: How many stems do guests get? A: It depends on the collection you choose. Classic gives 5 to 6 stems per guest, Signature gives 6 to 8 stems, and Luxury gives 8 to 10 stems.
 

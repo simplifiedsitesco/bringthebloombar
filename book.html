@@ -923,12 +923,12 @@
         <p class="bk-card-desc">You choose the blooms, we deliver the bar, set it up, and break it down. Your guests do the arranging &mdash; the fun part.</p>
         <p class="bk-card-price" style="color:#993556;font-weight:500;">From $84/day</p>
       </button>
-      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $375, $25 per guest with a 15-guest minimum" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
+      <button class="bk-card bb-card-link" role="radio" aria-checked="false" tabindex="-1" data-exp="full" aria-label="Select Full Bloom Bar Experience from $400, $25 per guest with a 16-guest minimum" onclick="selectExperienceS1('full')" onkeydown="rovingKey(event,'step1-rg',1)">
         <p class="bk-card-label">FULL BLOOM BAR EXPERIENCE</p>
         <p class="bk-card-title">We Handle Everything</p>
         <hr class="bk-card-rule">
         <p class="bk-card-desc">Fresh flowers included. Delivery, design, setup and breakdown: $110&ndash;$125. Your guests build their own bouquets and leave with something they made.</p>
-        <p class="bk-card-price" style="color:#7a5a6a;font-weight:400;font-size:11px;">From $375 &middot; 15 guest minimum &middot; flowers included</p>
+        <p class="bk-card-price" style="color:#7a5a6a;font-weight:400;font-size:11px;">From $400 &middot; 16 guest minimum &middot; flowers included</p>
       </button>
     </div>
 
@@ -977,11 +977,11 @@
         onclick="adjustGuests(1)">&plus;</button>
     </div>
 
-    <!-- 15 guest minimum nudge — hidden by default -->
+    <!-- 16 guest minimum nudge — hidden by default -->
     <p id="guest-minimum-nudge" class="bb-guest-nudge"
       role="status" aria-live="polite"
       style="display:none;">
-      Our bloom bar experience starts at 15 guests &mdash; we&rsquo;ve updated your count. The more the merrier!
+      Our bloom bar experience starts at 16 guests &mdash; we&rsquo;ve updated your count. The more the merrier!
     </p>
 
     <!-- Live pricing preview -->
@@ -1006,7 +1006,7 @@
           <span class="bb-pricing-row-details">$45/guest &rarr; <strong id="preview-luxury">$900</strong></span>
         </div>
       </div>
-      <p class="bb-pricing-disclaimer">15 guest minimum applies, so collections start from $375. Delivery, design, setup and breakdown: $110&ndash;$125.</p>
+      <p class="bb-pricing-disclaimer">16 guest minimum applies, so collections start from $400. Delivery, design, setup and breakdown: $110&ndash;$125.</p>
     </div>
 
     <div class="bk-cta-row">
@@ -1111,7 +1111,7 @@
 
     </div>
 
-    <p class="bk-trust-line">All fresh flowers sourced within 48 hours of your event. 15 guest minimum applies.</p>
+    <p class="bk-trust-line">All fresh flowers sourced within 48 hours of your event. 16 guest minimum applies.</p>
 
     <p class="bk-error" id="step-collection-error" role="alert" aria-atomic="true">Please choose a collection above to continue.</p>
 
@@ -2309,7 +2309,7 @@ function updateProgressBarForStep(activeIndex) {
 }
 
 // ── GUEST COUNT STEP ──────────────────────────────
-var MIN_GUESTS = 15;
+var MIN_GUESTS = 16;
 var MAX_GUESTS = 200;
 
 function adjustGuests(delta) {
