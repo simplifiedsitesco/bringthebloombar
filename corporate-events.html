@@ -307,113 +307,84 @@
       <p class="ce-eyebrow">Corporate Quote</p>
       <h2 class="ce-heading">Request a Corporate Quote</h2>
       <p class="ce-contact-sub">Every corporate event is custom quoted. Tell us about your event and we&rsquo;ll send your quote within 24 hours.</p>
-
-      <!-- Step 1: Event Type -->
-      <fieldset class="ce-step">
-        <legend class="ce-step-label">1 &mdash; Event Type</legend>
-        <div class="ce-event-grid">
-          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Employee Appreciation Day" class="ce-visually-hidden"><span>Employee Appreciation Day</span></label>
-          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Office Party" class="ce-visually-hidden"><span>Office Parties &amp; Celebrations</span></label>
-          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Client Event" class="ce-visually-hidden"><span>Client Appreciation Events</span></label>
-          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Conference" class="ce-visually-hidden"><span>Conferences &amp; Networking</span></label>
-          <label class="ce-event-btn"><input type="radio" name="est-event-type" value="Onboarding" class="ce-visually-hidden"><span>Onboarding &amp; Welcome</span></label>
-        </div>
-      </fieldset>
-
-      <!-- Step 2: Guest Count -->
-      <fieldset class="ce-step">
-        <legend class="ce-step-label">2 &mdash; Guest Count</legend>
-        <div class="ce-slider-row">
-          <input type="range" id="ce-guests" min="16" max="200" step="1" value="45"
-            aria-label="Number of guests" aria-valuetext="45 guests">
-          <output id="ce-guest-out" for="ce-guests" aria-hidden="true">45 guests</output>
-        </div>
-        <p class="ce-hint">16-guest minimum.</p>
-      </fieldset>
-
-      <!-- Validation error + Continue CTA -->
-      <p id="ce-error" class="ce-error" role="alert" hidden>Please select an event type before continuing.</p>
-      <button type="button" id="ce-continue" class="ce-continue-btn">Continue to contact details</button>
-
-      <!-- ── Divider ── -->
-      <hr class="ce-divider" aria-hidden="true">
-
-      <!-- ── Contact Form ── -->
-      <h3 id="ce-contact" class="ce-contact-heading">Your contact details</h3>
+      <p class="ce-talk">Prefer to talk? <a href="tel:7142516478" aria-label="Call (714) 251-6478">Call</a> or <a href="sms:7142516478" aria-label="Text (714) 251-6478">text</a> (714) 251-6478</p>
 
       <form name="corporate-bloom-bar-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-label="Corporate flower bar quote request form">
         <input type="hidden" name="form-name" value="corporate-bloom-bar-inquiry">
         <p style="display:none"><label>Don&rsquo;t fill this out: <input name="bot-field"></label></p>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-          <div>
-            <label for="corp-name" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Your Name</label>
-            <input id="corp-name" name="name" type="text" autocomplete="name" required style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;" placeholder="Jane Smith">
+        <div class="ce-row">
+          <div class="ce-field">
+            <label class="ce-label" for="corp-name">Your Name</label>
+            <input class="ce-input" id="corp-name" name="name" type="text" autocomplete="name" required>
           </div>
-          <div>
-            <label for="corp-company" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Company</label>
-            <input id="corp-company" name="company" type="text" autocomplete="organization" required style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;" placeholder="Acme Corp">
-          </div>
-        </div>
-
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-          <div>
-            <label for="corp-email" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Email</label>
-            <input id="corp-email" name="email" type="email" autocomplete="email" required style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;" placeholder="jane@company.com">
-          </div>
-          <div>
-            <label for="corp-phone" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Phone <span style="font-size:11px;opacity:0.65;">(optional)</span></label>
-            <input id="corp-phone" name="phone" type="tel" autocomplete="tel" style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;" placeholder="(714) 000-0000">
+          <div class="ce-field">
+            <label class="ce-label" for="corp-company">Company</label>
+            <input class="ce-input" id="corp-company" name="company" type="text" autocomplete="organization" required>
           </div>
         </div>
 
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
-          <div>
-            <label for="corp-date" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Event Date</label>
-            <input id="corp-date" name="event-date" type="text" required style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;" placeholder="e.g. September 15, 2026">
+        <div class="ce-row">
+          <div class="ce-field">
+            <label class="ce-label" for="corp-email">Email</label>
+            <input class="ce-input" id="corp-email" name="email" type="email" autocomplete="email" required>
           </div>
-          <div>
-            <label for="corp-headcount" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Estimated Headcount</label>
-            <input id="corp-headcount" name="headcount" type="text" required style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;" placeholder="e.g. 40 guests">
+          <div class="ce-field">
+            <label class="ce-label" for="corp-phone">Phone <span class="ce-optional">(optional)</span></label>
+            <input class="ce-input" id="corp-phone" name="phone" type="tel" autocomplete="tel">
           </div>
         </div>
 
-        <div style="margin-bottom:16px;">
-          <label for="corp-venue" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Venue / Location</label>
-          <input id="corp-venue" name="venue" type="text" style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;" placeholder="e.g. our office in Irvine, or venue name + city">
-        </div>
-
-        <div style="margin-bottom:16px;">
-          <label for="corp-event-type" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Event Type</label>
-          <select id="corp-event-type" name="event-type" required style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;appearance:none;">
-            <option value="" disabled selected style="color:#333;">Select event type</option>
-            <option value="Employee Appreciation Day" style="color:#333;">Employee Appreciation Day</option>
-            <option value="Office Party" style="color:#333;">Office Party</option>
-            <option value="Client Event" style="color:#333;">Client Event</option>
-            <option value="Conference" style="color:#333;">Conference</option>
-            <option value="Onboarding" style="color:#333;">Onboarding &amp; Welcome</option>
-            <option value="Other" style="color:#333;">Other</option>
+        <div class="ce-field">
+          <label class="ce-label" for="corp-event-type">Event Type</label>
+          <select class="ce-input" id="corp-event-type" name="event-type" required>
+            <option value="" disabled selected>Select event type</option>
+            <option value="Team Building">Team Building</option>
+            <option value="Employee Appreciation">Employee Appreciation</option>
+            <option value="Client Appreciation">Client Appreciation</option>
+            <option value="Holiday Party">Holiday Party</option>
+            <option value="Brand Activation">Brand Activation</option>
+            <option value="Conference or Networking">Conference or Networking</option>
+            <option value="Onboarding or Welcome">Onboarding or Welcome</option>
+            <option value="Other">Other</option>
           </select>
         </div>
 
-        <div style="margin-bottom:16px;">
-          <label for="corp-budget" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Approximate Budget <span style="font-size:11px;opacity:0.65;">(optional)</span></label>
-          <select id="corp-budget" name="budget" style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;appearance:none;">
-            <option value="" selected style="color:#333;">Select a range</option>
-            <option value="$650–$1,000" style="color:#333;">$650&ndash;$1,000</option>
-            <option value="$1,000–$2,000" style="color:#333;">$1,000&ndash;$2,000</option>
-            <option value="$2,000+" style="color:#333;">$2,000+</option>
-            <option value="Not sure yet" style="color:#333;">Not sure yet</option>
+        <div class="ce-row">
+          <div class="ce-field">
+            <label class="ce-label" for="corp-date">Event Date</label>
+            <input class="ce-input" id="corp-date" name="event-date" type="text" autocomplete="off" required placeholder="e.g. March 12, 2027">
+          </div>
+          <div class="ce-field">
+            <label class="ce-label" for="corp-guests">Number of Guests</label>
+            <input class="ce-input" id="corp-guests" name="guests" type="number" min="16" step="1" inputmode="numeric" required aria-describedby="corp-guests-hint">
+            <p class="ce-hint" id="corp-guests-hint">16-guest minimum</p>
+          </div>
+        </div>
+
+        <div class="ce-field">
+          <label class="ce-label" for="corp-venue">City or Venue</label>
+          <input class="ce-input" id="corp-venue" name="city-or-venue" type="text" required placeholder="e.g. our office in Irvine, or venue name + city">
+        </div>
+
+        <div class="ce-field">
+          <label class="ce-label" for="corp-budget">Approximate Budget <span class="ce-optional">(optional)</span></label>
+          <select class="ce-input" id="corp-budget" name="budget">
+            <option value="" selected>Select a range</option>
+            <option value="$650–$1,000">$650&ndash;$1,000</option>
+            <option value="$1,000–$2,000">$1,000&ndash;$2,000</option>
+            <option value="$2,000+">$2,000+</option>
+            <option value="Not sure yet">Not sure yet</option>
           </select>
         </div>
 
-        <div style="margin-bottom:24px;">
-          <label for="corp-details" style="display:block;color:rgba(255,255,255,0.9);font-size:13px;font-weight:600;margin-bottom:6px;font-family:'Inter',sans-serif;">Additional Details <span style="font-size:11px;opacity:0.65;">(optional)</span></label>
-          <textarea id="corp-details" name="details" rows="4" style="width:100%;padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;font-family:'Inter',sans-serif;box-sizing:border-box;resize:vertical;" placeholder="Anything else we should know — collection preference, color palette, special requests, etc."></textarea>
+        <div class="ce-field ce-field-last">
+          <label class="ce-label" for="corp-details">Anything else we should know? <span class="ce-optional">(optional)</span></label>
+          <textarea class="ce-input" id="corp-details" name="details" rows="4"></textarea>
         </div>
 
-        <button type="submit" style="display:flex;align-items:center;justify-content:center;width:100%;background:#fff;color:#993556;border:none;padding:14px 36px;border-radius:30px;font-weight:600;font-size:16px;min-height:48px;font-family:'Inter',sans-serif;cursor:pointer;transition:opacity 0.15s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">Send My Quote Request</button>
-        <p style="font-size:12px;color:rgba(255,255,255,0.6);text-align:center;margin:12px 0 0;font-family:'Inter',sans-serif;">We respond within 24 hours. No spam, ever.</p>
+        <button type="submit" class="ce-submit">Send My Quote Request</button>
+        <p class="ce-respond">We respond within 24 hours.</p>
       </form>
 
       <div style="margin-top:24px;text-align:center;">
@@ -518,25 +489,7 @@
       grid-template-columns: 1fr !important;
     }
   }
-  /* ─── Form focus states (WCAG AA) ─── */
-  #corp-name:focus, #corp-company:focus, #corp-email:focus,
-  #corp-phone:focus, #corp-date:focus, #corp-headcount:focus,
-  #corp-venue:focus, #corp-event-type:focus, #corp-details:focus {
-    outline: 3px solid #f9a8c8;
-    outline-offset: 2px;
-    border-color: #f9a8c8;
-  }
-  button[type="submit"]:focus-visible {
-    outline: 3px solid #f9a8c8;
-    outline-offset: 2px;
-  }
-
-  /* ─── Estimator (CE) ────────────────────────────── */
-  .ce-visually-hidden {
-    position:absolute; width:1px; height:1px; padding:0;
-    margin:-1px; overflow:hidden; clip:rect(0,0,0,0);
-    white-space:nowrap; border:0;
-  }
+  /* ─── Quote form ─── */
   .ce-eyebrow {
     font-size:11px; font-weight:600; color:#f9a8c8;
     letter-spacing:0.12em; text-transform:uppercase;
@@ -545,162 +498,57 @@
   .ce-heading {
     font-family:'Playfair Display',Georgia,serif;
     font-size:clamp(24px,3.5vw,34px); font-weight:500;
-    color:#fff; margin:0 0 44px; line-height:1.2;
-  }
-  .ce-step {
-    border:none; padding:0; margin:0 0 40px;
-  }
-  .ce-step legend {
-    display:block; padding:0; width:100%;
-    font-size:11px; font-weight:600; letter-spacing:0.12em;
-    text-transform:uppercase; color:rgba(255,255,255,0.5);
-    font-family:'Inter',sans-serif; margin:0 0 16px;
-  }
-  /* Event type grid */
-  .ce-event-grid {
-    display:grid; grid-template-columns:1fr 1fr; gap:10px;
-  }
-  .ce-event-btn {
-    display:flex; align-items:center; justify-content:center;
-    text-align:center; padding:14px 16px; min-height:52px;
-    background:rgba(255,255,255,0.07);
-    border:1.5px solid rgba(255,255,255,0.15);
-    border-radius:10px; cursor:pointer;
-    font-size:14px; font-weight:600;
-    color:rgba(255,255,255,0.88);
-    font-family:'Inter',sans-serif;
-    transition:background .15s, border-color .15s;
-    user-select:none;
-  }
-  .ce-event-btn:hover { background:rgba(255,255,255,0.13); border-color:rgba(255,255,255,0.3); }
-  .ce-event-btn.is-selected { background:#b32566; border-color:#b32566; color:#fff; }
-  .ce-event-btn:focus-within { outline:3px solid #f9a8c8; outline-offset:2px; border-radius:10px; }
-  /* Slider */
-  .ce-slider-row { display:flex; align-items:center; gap:18px; }
-  #ce-guests {
-    flex:1; height:6px; -webkit-appearance:none; appearance:none;
-    border-radius:3px; background:rgba(255,255,255,0.2); cursor:pointer;
-  }
-  #ce-guests::-webkit-slider-thumb {
-    -webkit-appearance:none; width:22px; height:22px;
-    border-radius:50%; background:#b32566; border:2px solid #fff;
-    cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.3);
-  }
-  #ce-guests::-moz-range-thumb {
-    width:22px; height:22px; border-radius:50%;
-    background:#b32566; border:2px solid #fff;
-    cursor:pointer; box-shadow:0 1px 4px rgba(0,0,0,.3);
-  }
-  #ce-guests:focus-visible {
-    outline:3px solid #f9a8c8; outline-offset:4px; border-radius:4px;
-  }
-  #ce-guest-out {
-    font-size:15px; font-weight:600; color:#fff;
-    font-family:'Inter',sans-serif; white-space:nowrap;
-    min-width:84px; display:inline-block; text-align:right;
-  }
-  .ce-hint {
-    font-size:12px; color:rgba(255,255,255,0.7);
-    margin:10px 0 0; font-family:'Inter',sans-serif;
-    font-style:italic;
-  }
-  /* Error + Continue */
-  .ce-error {
-    color:#ffb3b3; font-size:13px; font-family:'Inter',sans-serif;
-    margin:0 0 14px; display:block;
-  }
-  .ce-error[hidden] { display:none; }
-  .ce-continue-btn {
-    display:flex; align-items:center; justify-content:center;
-    width:100%; background:#fff; color:#993556;
-    border:none; padding:14px 36px; border-radius:30px;
-    font-weight:600; font-size:16px; min-height:48px;
-    font-family:'Inter',sans-serif; cursor:pointer;
-    transition:opacity .15s; margin:0 0 56px;
-  }
-  .ce-continue-btn:hover { opacity:.9; }
-  .ce-continue-btn:focus-visible { outline:3px solid #f9a8c8; outline-offset:2px; }
-  /* Divider */
-  .ce-divider { border:none; border-top:1px solid rgba(255,255,255,0.14); margin:0 0 52px; }
-  /* Contact form heading */
-  .ce-contact-heading {
-    font-family:'Playfair Display',Georgia,serif;
-    font-size:28px; font-weight:500; color:#fff;
-    margin:0 0 10px; line-height:1.3;
+    color:#fff; margin:0 0 14px; line-height:1.2;
   }
   .ce-contact-sub {
     font-size:15px; color:rgba(255,255,255,0.8);
-    margin:0 0 28px; line-height:1.6; font-family:'Inter',sans-serif;
+    margin:0 0 8px; line-height:1.6; font-family:'Inter',sans-serif;
   }
-  /* Scroll margin so sticky header doesn't overlap jump targets */
-  #ce-contact { scroll-margin-top:80px; }
-  /* Mobile */
+  .ce-talk {
+    font-size:15px; color:rgba(255,255,255,0.8);
+    margin:0 0 32px; line-height:1.6; font-family:'Inter',sans-serif;
+  }
+  .ce-talk a { color:#f9a8c8; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
+  .ce-talk a:focus-visible { outline:2px solid #f9a8c8; outline-offset:2px; border-radius:2px; }
+  .ce-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .ce-field { margin-bottom:16px; }
+  .ce-field-last { margin-bottom:24px; }
+  .ce-label {
+    display:block; color:rgba(255,255,255,0.9); font-size:13px; font-weight:600;
+    margin-bottom:6px; font-family:'Inter',sans-serif;
+  }
+  .ce-optional { font-size:11px; font-weight:400; color:rgba(255,255,255,0.75); }
+  .ce-input {
+    width:100%; padding:10px 14px; border-radius:8px; box-sizing:border-box;
+    border:1px solid rgba(255,255,255,0.35); background:rgba(255,255,255,0.08);
+    color:#fff; font-size:16px; font-family:'Inter',sans-serif; min-height:44px;
+  }
+  textarea.ce-input { resize:vertical; }
+  select.ce-input { appearance:none; }
+  .ce-input option { color:#333; }
+  .ce-input::placeholder { color:rgba(255,255,255,0.7); }
+  .ce-input:focus { outline:3px solid #f9a8c8; outline-offset:2px; border-color:#f9a8c8; }
+  .ce-hint {
+    font-size:12px; color:rgba(255,255,255,0.75);
+    margin:6px 0 0; font-family:'Inter',sans-serif;
+  }
+  .ce-submit {
+    display:flex; align-items:center; justify-content:center; width:100%;
+    background:#fff; color:#993556; border:none; padding:14px 36px; border-radius:30px;
+    font-weight:600; font-size:16px; min-height:48px; font-family:'Inter',sans-serif;
+    cursor:pointer; transition:opacity .15s;
+  }
+  .ce-submit:hover { opacity:.9; }
+  .ce-submit:focus-visible { outline:3px solid #f9a8c8; outline-offset:2px; }
+  .ce-respond {
+    font-size:13px; color:rgba(255,255,255,0.75); text-align:center;
+    margin:12px 0 0; font-family:'Inter',sans-serif;
+  }
   @media (max-width:767px) {
-    .ce-event-grid { grid-template-columns:1fr; }
-    .ce-slider-row { flex-direction:column; align-items:stretch; gap:10px; }
-    #ce-guest-out  { text-align:left; }
+    .ce-row { grid-template-columns:1fr; gap:0; }
   }
 </style>
 
-  <script>
-  /* ── Corporate quote request: event type + headcount feed the form ── */
-  (function () {
-    var slider   = document.getElementById('ce-guests');
-    var guestOut = document.getElementById('ce-guest-out');
-    var contBtn  = document.getElementById('ce-continue');
-    var errMsg   = document.getElementById('ce-error');
-    var fmHC     = document.getElementById('corp-headcount');
-    var fmET     = document.getElementById('corp-event-type');
-
-    function syncGuests() {
-      var guests = Math.max(16, parseInt(slider.value, 10));
-      guestOut.value = guests + ' guests';
-      slider.setAttribute('aria-valuetext', guests + ' guests');
-      if (fmHC) fmHC.value = guests + ' guests';
-    }
-
-    function applySelected(name) {
-      document.querySelectorAll('input[name="' + name + '"]').forEach(function (inp) {
-        inp.parentElement.classList.toggle('is-selected', inp.checked);
-      });
-    }
-
-    /* Slider */
-    slider.addEventListener('input', function () {
-      if (parseInt(slider.value, 10) < 16) slider.value = 16;
-      syncGuests();
-    });
-
-    /* Event type */
-    document.querySelectorAll('input[name="est-event-type"]').forEach(function (inp) {
-      inp.addEventListener('change', function () {
-        applySelected('est-event-type');
-        errMsg.hidden = true;
-        if (fmET) fmET.value = inp.value;
-      });
-    });
-
-    /* Continue button */
-    contBtn.addEventListener('click', function () {
-      if (!document.querySelector('input[name="est-event-type"]:checked')) {
-        errMsg.hidden = false;
-        document.querySelector('.ce-event-btn input').focus();
-        return;
-      }
-      errMsg.hidden = true;
-      syncGuests();
-      var target = document.getElementById('ce-contact');
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(function () {
-        var first = document.getElementById('corp-name');
-        if (first) first.focus();
-      }, 550);
-    });
-
-    /* Init */
-    syncGuests();
-  })();
-  </script>
   <script src="mobile-nav.js"></script>
 
 </body>
