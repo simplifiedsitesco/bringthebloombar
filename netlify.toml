@@ -14,6 +14,12 @@
 # non-www address without .html, so www + .html is a single 301
 
 [[redirects]]
+  from = "/thank-you.html"
+  to = "https://bringthebloombar.com/thank-you"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/about.html"
   to = "https://bringthebloombar.com/about"
   status = 301
