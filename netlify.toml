@@ -170,6 +170,12 @@
   force = true
 
 [[redirects]]
+  from = "/terms.html"
+  to = "https://bringthebloombar.com/terms"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/privacy-policy.html"
   to = "https://bringthebloombar.com/privacy-policy"
   status = 301

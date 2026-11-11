@@ -306,8 +306,14 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://bringthebloombar.com/terms</loc>
+    <lastmod>2026-11-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://bringthebloombar.com/privacy-policy</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

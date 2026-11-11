@@ -321,6 +321,19 @@ ul.checks li { margin-bottom: .45rem; }
   border-color: var(--accent-soft);
 }
 
+/* ─── SMS consent checkbox (inquiry forms on dark backgrounds) ─── */
+.sms-consent { display: flex; gap: .65rem; align-items: flex-start; margin: .5rem 0 1.1rem; }
+form .sms-consent input[type="checkbox"] {
+  width: 22px; height: 22px; min-width: 22px; margin: .1rem 0 0; padding: 0;
+  border-radius: 4px; accent-color: #b32566; cursor: pointer;
+}
+form .sms-consent input[type="checkbox"]:focus-visible { outline: 3px solid #f9a8c8; outline-offset: 2px; }
+form .sms-consent label {
+  display: block; margin: 0; font-weight: 400; font-size: .8rem; line-height: 1.55;
+  color: rgba(255,255,255,.88); cursor: pointer;
+}
+.sms-consent a { color: #f9a8c8; text-decoration: underline; text-underline-offset: 2px; }
+
 /* ─── Form ───────────────────────────────────── */
 form label { display: block; font-weight: 600; margin-bottom: .3rem; }
 form input, form textarea {
