@@ -624,6 +624,14 @@
   .bb-lead-submit { min-height:48px; padding:10px 18px; white-space:nowrap; flex-shrink:0; font-size:13px; }
   .bb-lead-submit:focus-visible { outline:3px solid #b32566; outline-offset:3px; }
   .bb-lead-status { margin-top:10px; font-family:'Inter',sans-serif; font-size:13px; }
+  /* SMS consent on the light quote box (the shared style is for dark backgrounds) */
+  #bb-quote-form .bb-email-field-wrap + .bb-email-field-wrap { margin-top:16px; }
+  #bb-quote-form .sms-consent { margin:16px 0 4px; }
+  #bb-quote-form .sms-consent label { color:#5c4552; font-size:12px; }
+  #bb-quote-form .sms-consent a { color:#b32566; }
+  .bb-sms-error { font-family:'Inter',sans-serif; font-size:13px; color:#b91c1c; margin:4px 0 0; }
+  .bb-sms-error:empty { display:none; }
+  #bb-quote-form .bb-lead-submit { margin-top:14px; }
   .bb-status-error { color:#b91c1c; margin:0; }
   .bb-status-error a { color:#b91c1c; font-weight:600; }
 
@@ -1808,16 +1816,41 @@
                 inputmode="email"
                 aria-required="true"
                 aria-describedby="bb-lead-status bb-lead-hint">
-              <button
-                type="submit"
-                class="bk-btn bb-lead-submit"
-                id="bb-lead-submit-btn"
-                aria-label="Save details and unlock PDF download">
-                Save &amp; Unlock PDF
-              </button>
             </div>
             <p id="bb-lead-hint" class="bb-lead-hint">We&rsquo;ll use this to follow up on your booking. We never share your email.</p>
           </div>
+
+          <div class="bb-email-field-wrap">
+            <label for="bb-lead-phone" class="bb-lead-label">Mobile number (optional, for text updates)</label>
+            <div class="bb-email-row">
+              <input
+                type="tel"
+                id="bb-lead-phone"
+                name="phone"
+                class="bb-lead-input"
+                autocomplete="tel"
+                inputmode="tel"
+                aria-describedby="bb-sms-error">
+            </div>
+          </div>
+
+          <!-- SMS consent (inquiry, quotes, event planning, booking assistance). Optional and unchecked by default. -->
+          <div class="sms-consent">
+            <input type="checkbox" id="sms-consent-quote" name="sms_consent" value="yes" aria-describedby="bb-sms-error">
+            <label for="sms-consent-quote">I agree to receive text messages from Bring the Bloom Bar and Rentals regarding my inquiry, quotes, event planning, and booking assistance, including automated or AI-assisted responses and related follow-ups. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. Consent is not required to submit this form or purchase services. See our <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener">Terms of Service</a>.</label>
+          </div>
+          <p id="bb-sms-error" class="bb-sms-error" role="alert"></p>
+          <input type="hidden" name="sms_consent_timestamp" value="">
+          <input type="hidden" name="sms_consent_source" value="quote-save | /book">
+          <input type="hidden" name="sms_consent_text_version" value="2026-11-v2">
+
+          <button
+            type="submit"
+            class="bk-btn bb-lead-submit"
+            id="bb-lead-submit-btn"
+            aria-label="Save details and unlock PDF download">
+            Save &amp; Unlock PDF
+          </button>
 
           <div id="bb-lead-status"
             role="status"
@@ -3369,10 +3402,34 @@ function populateLeadFields() {
   }
 }
 
+// Local date and time with the visitor's time zone offset, e.g. 2026-11-11T10:15:30-08:00
+// (same format as sms-consent.js on the other forms)
+function smsTimestamp(d) {
+  var pad = function(n) { return (n < 10 ? '0' : '') + n; };
+  var off = -d.getTimezoneOffset();
+  var sign = off >= 0 ? '+' : '-';
+  off = Math.abs(off);
+  return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) +
+    'T' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds()) +
+    sign + pad(Math.floor(off / 60)) + ':' + pad(off % 60);
+}
+
 // Wire up lead capture form
 (function() {
   var form = document.getElementById('bb-quote-form');
   if (!form) return;
+
+  // Clear the text-updates message once they add a number or untick the box.
+  var smsBox  = form.querySelector('input[name="sms_consent"]');
+  var phoneEl = document.getElementById('bb-lead-phone');
+  var clearSmsError = function() {
+    if (smsBox && smsBox.checked && phoneEl && !phoneEl.value.trim()) return;
+    var smsErr = document.getElementById('bb-sms-error');
+    if (smsErr) smsErr.textContent = '';
+    if (phoneEl) phoneEl.removeAttribute('aria-invalid');
+  };
+  if (smsBox)  smsBox.addEventListener('change', clearSmsError);
+  if (phoneEl) phoneEl.addEventListener('input', clearSmsError);
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     populateLeadFields();
@@ -3387,6 +3444,21 @@ function populateLeadFields() {
       if (emailEl) emailEl.focus();
       return;
     }
+
+    // Text updates need a number to text. Without the box ticked, the phone stays optional.
+    var smsBox  = form.querySelector('input[name="sms_consent"]');
+    var phoneEl = document.getElementById('bb-lead-phone');
+    var smsErr  = document.getElementById('bb-sms-error');
+    if (smsBox && smsBox.checked && phoneEl && !phoneEl.value.trim()) {
+      if (smsErr) smsErr.textContent = 'Add your mobile number to get text updates';
+      phoneEl.setAttribute('aria-invalid', 'true');
+      phoneEl.focus();
+      return;
+    }
+    var smsStamp  = form.querySelector('input[name="sms_consent_timestamp"]');
+    var smsSource = form.querySelector('input[name="sms_consent_source"]');
+    if (smsSource) smsSource.value = 'quote-save | ' + window.location.origin + window.location.pathname;
+    if (smsStamp)  smsStamp.value  = smsBox && smsBox.checked ? smsTimestamp(new Date()) : '';
 
     if (submitBtn) {
       submitBtn.disabled = true;
