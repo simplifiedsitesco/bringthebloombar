@@ -166,6 +166,12 @@
   }
   .cart-toast.show{ transform:translateX(-50%) translateY(0); }
 
+  /* Reservation and Rental Agreement disclosure (information only; Booqable handles checkout) */
+  .ra-disclosure{ background:#fff; border:1px solid var(--border); border-radius: var(--radius); padding:16px 18px; margin:0 0 24px; }
+  .ra-disclosure h2{ font-family:'Inter',sans-serif; font-size:15px; font-weight:700; color:var(--text-dark); margin:0 0 8px; }
+  .ra-disclosure p{ font-size:13.5px; line-height:1.6; color:var(--text-body); margin:0 0 6px; }
+  .ra-disclosure p:last-child{ margin-bottom:0; }
+  .ra-disclosure a{ color:var(--accent-dark); text-decoration:underline; text-underline-offset:2px; }
   .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
 
   /* ── Flower-packages divider ───────────────────── */
@@ -330,6 +336,15 @@
       <div class="booqable-datepicker" style="grid-column:1 / -1;"></div>
       <p class="hint">Select your rental dates to check live availability for each item below. Delivery from $14 &middot; setup and breakdown included.</p>
     </div>
+
+    <!-- Reservation and Rental Agreement disclosure (shown before checkout; no checkbox here because checkout runs inside Booqable) -->
+    <section class="ra-disclosure" aria-labelledby="ra-title">
+      <h2 id="ra-title">Reservation and Rental Agreement</h2>
+      <p>A $100 deposit is required to reserve your event date. Your date is secured once your deposit has been received and accepted by Bring the Bloom Bar and Rentals.</p>
+      <p>Before submitting your deposit, please review our <a href="/rental-agreement" target="_blank" rel="noopener">Rental Agreement<span class="visually-hidden"> (opens in a new tab)</span></a>, which outlines our cancellation and refund policies, rental responsibilities, and other important terms.</p>
+      <p>You may sign the Rental Agreement after submitting your deposit; however, a signed agreement is required before your event or delivery of rental equipment.</p>
+      <p>Your $100 deposit is applied toward your final balance. It is refundable if you cancel more than 14 days before your event and non-refundable if you cancel within 14 days of your event.</p>
+    </section>
 
     <section class="category-panel active" id="panel-bloom-bar" aria-labelledby="heading-bloom-bar">
       <div class="panel-head">

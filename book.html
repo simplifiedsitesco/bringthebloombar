@@ -486,6 +486,19 @@
   /* ── Step-7 Quote enhancements ───────────────────────────── */
   #bb-full-actions { display:none; flex-direction:column; gap:0; width:100%; }
   #bb-full-actions.visible { display:flex; }
+  /* Reservation and Rental Agreement disclosure + acknowledgment */
+  .bb-agreement { background:#fff; border:1px solid #ecd7e1; border-radius:12px; padding:18px 18px 14px; margin:0 0 16px; text-align:left; font-family:'Inter',sans-serif; }
+  .bb-agreement-title { font-size:14px; font-weight:700; color:#3d1a2e; margin:0 0 8px; font-family:'Inter',sans-serif; }
+  .bb-agreement p { font-size:13px; line-height:1.6; color:#5c4552; margin:0 0 8px; }
+  .bb-agreement a { color:#b32566; text-decoration:underline; text-underline-offset:2px; }
+  .bb-ack { display:flex; gap:10px; align-items:flex-start; margin:12px 0 4px; }
+  .bb-ack input[type="checkbox"] { width:22px; height:22px; min-width:22px; margin:2px 0 0; accent-color:#b32566; cursor:pointer; }
+  .bb-ack input[type="checkbox"]:focus-visible { outline:3px solid #b32566; outline-offset:2px; }
+  .bb-ack label { font-size:13px; line-height:1.55; color:#3d1a2e; cursor:pointer; }
+  .bb-agreement .bb-ack-hint { font-size:12px; color:#7a5a6a; margin:6px 0 0; }
+  .bb-agreement .bb-ack-hint.is-hidden { display:none; }
+  .bb-agreement .bb-ack-hint.is-alert { color:#b91c1c; font-weight:600; }
+  a.is-locked[aria-disabled="true"], a.is-locked[aria-disabled="true"]:hover { opacity:.5; cursor:not-allowed; }
   .bb-deposit-btn {
     display:inline-flex; align-items:center; justify-content:center;
     min-height:48px; width:100%; margin-bottom:8px;
@@ -1346,6 +1359,20 @@
     <!-- Checkout block -->
     <div class="diy-checkout-block">
       <p class="diy-reassurance">Everything in your cart includes delivery, setup, and breakdown. You show up &mdash; we handle the rest.</p>
+      <!-- Reservation and Rental Agreement disclosure. The pay button stays locked until the box is checked
+           (this gates our button only; it cannot stop payment on the checkout site itself). -->
+      <div class="bb-agreement" aria-labelledby="ra-title-diy" role="group">
+        <h3 class="bb-agreement-title" id="ra-title-diy">Reservation and Rental Agreement</h3>
+        <p>A $100 deposit is required to reserve your event date. Your date is secured once your deposit has been received and accepted by Bring the Bloom Bar and Rentals.</p>
+        <p>Before submitting your deposit, please review our <a href="/rental-agreement" target="_blank" rel="noopener">Rental Agreement<span class="sr-only"> (opens in a new tab)</span></a>, which outlines our cancellation and refund policies, rental responsibilities, and other important terms.</p>
+        <p>You may sign the Rental Agreement after submitting your deposit; however, a signed agreement is required before your event or delivery of rental equipment.</p>
+        <p>Your $100 deposit is applied toward your final balance. It is refundable if you cancel more than 14 days before your event and non-refundable if you cancel within 14 days of your event.</p>
+        <div class="bb-ack">
+          <input type="checkbox" id="ack-diy" data-pay-gate="diy-final-btn">
+          <label for="ack-diy">I acknowledge that I have been provided access to the <a href="/rental-agreement" target="_blank" rel="noopener">Rental Agreement<span class="sr-only"> (opens in a new tab)</span></a> and understand that a $100 deposit reserves my event date. I understand that I must sign the Rental Agreement before my event or delivery of rental equipment. I agree that my $100 deposit will be applied toward my final balance, is refundable if I cancel more than 14 days before my event, and is non-refundable if I cancel within 14 days of my event.</label>
+        </div>
+        <p class="bb-ack-hint" id="ack-diy-hint">Check the box above to continue to payment.</p>
+      </div>
       <div class="complete-btn-wrapper">
         <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
            class="diy-checkout-btn"
@@ -1826,6 +1853,20 @@
     <!-- Reserve + Back -->
     <div class="bk-cta-row" style="margin-top:24px;">
       <div id="bb-full-actions">
+        <!-- Reservation and Rental Agreement disclosure. The pay button stays locked until the box is checked
+             (this gates our button only; it cannot stop payment on the checkout site itself). -->
+        <div class="bb-agreement" aria-labelledby="ra-title-full" role="group">
+          <h3 class="bb-agreement-title" id="ra-title-full">Reservation and Rental Agreement</h3>
+          <p>A $100 deposit is required to reserve your event date. Your date is secured once your deposit has been received and accepted by Bring the Bloom Bar and Rentals.</p>
+          <p>Before submitting your deposit, please review our <a href="/rental-agreement" target="_blank" rel="noopener">Rental Agreement<span class="sr-only"> (opens in a new tab)</span></a>, which outlines our cancellation and refund policies, rental responsibilities, and other important terms.</p>
+          <p>You may sign the Rental Agreement after submitting your deposit; however, a signed agreement is required before your event or delivery of rental equipment.</p>
+          <p>Your $100 deposit is applied toward your final balance. It is refundable if you cancel more than 14 days before your event and non-refundable if you cancel within 14 days of your event.</p>
+          <div class="bb-ack">
+            <input type="checkbox" id="ack-full" data-pay-gate="bb-reserve-btn">
+            <label for="ack-full">I acknowledge that I have been provided access to the <a href="/rental-agreement" target="_blank" rel="noopener">Rental Agreement<span class="sr-only"> (opens in a new tab)</span></a> and understand that a $100 deposit reserves my event date. I understand that I must sign the Rental Agreement before my event or delivery of rental equipment. I agree that my $100 deposit will be applied toward my final balance, is refundable if I cancel more than 14 days before my event, and is non-refundable if I cancel within 14 days of my event.</label>
+          </div>
+          <p class="bb-ack-hint" id="ack-full-hint">Check the box above to continue to payment.</p>
+        </div>
         <a href="https://buy.stripe.com/14A7sM8ad6xPgAG1MbfAc03"
           target="_blank"
           rel="noopener noreferrer"
@@ -1943,6 +1984,8 @@ function advanceToDIYAddons() {
 }
 
 function advanceDIYToBook() {
+  var ack = document.getElementById('ack-diy');
+  if (ack && !ack.checked) return;
   currentStep = 4;
   renderProgress();
   window.location.href = 'https://bring-the-bloombar.booqableshop.com/collections/bloombar';
@@ -3582,6 +3625,50 @@ document.addEventListener('DOMContentLoaded', function() {
   var dlBtn = document.getElementById('bb-download-pdf');
   if (dlBtn) dlBtn.addEventListener('click', loadAndGeneratePDF);
 });
+</script>
+<script>
+/* Pay-button lock: each [data-pay-gate] checkbox unlocks the button it names.
+   While locked the link has no href, so it cannot open checkout; without JavaScript the link works as before. */
+(function () {
+  document.querySelectorAll('input[data-pay-gate]').forEach(function (box) {
+    var btn = document.getElementById(box.getAttribute('data-pay-gate'));
+    var hint = document.getElementById(box.id + '-hint');
+    if (!btn) return;
+    var href = btn.getAttribute('href');
+    if (hint) {
+      var d = btn.getAttribute('aria-describedby');
+      btn.setAttribute('aria-describedby', (d ? d + ' ' : '') + hint.id);
+    }
+    function sync() {
+      if (box.checked) {
+        btn.setAttribute('href', href);
+        btn.removeAttribute('aria-disabled');
+        btn.removeAttribute('role');
+        btn.removeAttribute('tabindex');
+        btn.classList.remove('is-locked');
+        if (hint) hint.classList.add('is-hidden');
+      } else {
+        btn.removeAttribute('href');
+        btn.setAttribute('aria-disabled', 'true');
+        btn.setAttribute('role', 'link');
+        btn.setAttribute('tabindex', '0');
+        btn.classList.add('is-locked');
+        if (hint) { hint.classList.remove('is-hidden'); hint.classList.remove('is-alert'); }
+      }
+    }
+    function blocked(e) {
+      if (box.checked) return;
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      if (hint) hint.classList.add('is-alert');
+      box.focus();
+    }
+    btn.addEventListener('click', blocked, true);
+    btn.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') blocked(e); }, true);
+    box.addEventListener('change', sync);
+    sync();
+  });
+})();
 </script>
 </body>
 </html>
