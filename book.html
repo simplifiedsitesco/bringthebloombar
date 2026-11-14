@@ -46,7 +46,7 @@
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
     .bk-wrap { max-width: 720px; margin: 0 auto; padding: 2rem 1rem 5rem; }
     .trust-bar { background: #fff; border-bottom: 0.5px solid #f4c0d1; text-align: center; padding: 0.5rem 1rem; font-size: 11px; color: #6b4c5e; letter-spacing: 0.01em; }
-    .trust-bar .sep { color: #d4537e; margin: 0 0.4rem; }
+    .trust-bar .sep { color: #b32566; margin: 0 0.4rem; }
 
     /* Progress bar */
     .bk-progress { display: flex; align-items: center; justify-content: center; gap: 0; padding: 1.25rem 1rem 1.5rem; background: #fff; border-bottom: 0.5px solid #f4c0d1; overflow-x: auto; }
@@ -120,6 +120,10 @@
     /* CTA button */
     .bk-btn { background: #d4537e; color: #fff; border: none; border-radius: 30px; padding: 12px 28px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; transition: background 0.15s; }
     .bk-btn:hover { background: #b32566; }
+    /* Reserve and Save & Unlock PDF: darker pink so white text passes AA contrast */
+    .bk-btn.bb-deposit-btn, .bk-btn.bb-lead-submit { background: #b32566; }
+    .bk-btn.bb-deposit-btn:hover, .bk-btn.bb-lead-submit:hover { background: #72243e; }
+    .bk-btn.bb-deposit-btn.is-locked:hover { background: #b32566; }
     .bk-btn:focus-visible { outline: 2px solid #72243e; outline-offset: 3px; }
     .bk-btn[aria-disabled="true"] { opacity: 1; cursor: pointer; }
     .bk-btn-ghost { background: transparent; color: #d4537e; border: 0.5px solid #d4537e; border-radius: 30px; padding: 10px 22px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: "Inter", sans-serif; }
@@ -188,7 +192,7 @@
     .bk-quote-title { font-size: 10px; text-transform: uppercase; color: #7a5a6a; letter-spacing: 0.08em; margin: 0 0 1rem; font-family: "Inter", sans-serif; }
     .bk-line-item { display: flex; justify-content: space-between; font-size: 12px; color: #6b4c5e; padding: 0.5rem 0; border-bottom: 0.5px solid #f4c0d1; }
     .bk-line-item:last-child { border-bottom: none; }
-    .bk-line-deposit { color: #d4537e; font-weight: 600; }
+    .bk-line-deposit { color: #b32566; font-weight: 600; }
     .bk-line-total { display: flex; justify-content: space-between; align-items: baseline; padding-top: 0.75rem; border-top: 1px solid #f4c0d1; margin-top: 0.25rem; }
     .bk-total-label { font-size: 12px; color: #6b4c5e; }
     .bk-total-amount { font-family: "Playfair Display", Georgia, serif; font-size: 26px; color: #3d1a2e; }

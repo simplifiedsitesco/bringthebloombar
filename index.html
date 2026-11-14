@@ -591,6 +591,12 @@
   .gallery-tap-hint { position:absolute; bottom:0.5rem; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.75); color:#fff; font-size:11px; padding:3px 10px; border-radius:20px; opacity:0; transition:opacity 0.2s; white-space:nowrap; pointer-events:none; }
   /* decorative step numbers render via CSS so they are not read as text */
   .hiw-num::before { content: attr(data-n); }
+  /* How it works: stack the three steps on phones so the row fits the screen */
+  @media (max-width: 600px) {
+    .hiw-grid { grid-template-columns: 1fr !important; }
+    .hiw-grid > [role="listitem"] { padding: 28px 0 !important; border-right: none !important; }
+    .hiw-grid > [role="listitem"] + [role="listitem"] { border-top: 1px solid #ecd7e1; }
+  }
   .gallery-trigger:hover .gallery-tap-hint,
   .gallery-trigger:focus-visible .gallery-tap-hint { opacity:1; }
   @media (hover: none) { .gallery-tap-hint { opacity:0.9; } }
@@ -746,7 +752,7 @@
 
     <hr aria-hidden="true" style="border: none; border-top: 1px solid #ecd7e1; margin: 0;">
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr;" role="list">
+    <div class="hiw-grid" style="display: grid; grid-template-columns: 1fr 1fr 1fr;" role="list">
 
       <div style="padding: 40px 48px 40px 0; border-right: 1px solid #ecd7e1;" role="listitem">
         <p aria-hidden="true" class="hiw-num" data-n="01" style="font-family: 'Playfair Display', Georgia, serif; font-size: 80px; font-weight: 700; color: #d4537e; opacity: 0.19; margin: 0 0 12px; line-height: 1;"></p>
