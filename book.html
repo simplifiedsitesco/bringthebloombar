@@ -641,7 +641,7 @@
   .bb-unlock-success { display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:16px; }
   .bb-unlock-check { font-size:18px; color:#d4537e; font-weight:700; margin:0; line-height:1; }
   .bb-unlock-msg { font-size:14px; font-weight:600; color:#3d1a2e; margin:0; font-family:'Inter',sans-serif; }
-  .bb-pdf-btn { display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:48px; background:#fff; border:1.5px solid #d4537e; border-radius:30px; color:#d4537e; font-size:14px; font-weight:600; font-family:'Inter',sans-serif; cursor:pointer; transition:background 0.15s,color 0.15s; margin-bottom:6px; touch-action:manipulation; }
+  .bb-pdf-btn { display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:48px; background:#fff; border:1.5px solid #b32566; border-radius:30px; color:#b32566; font-size:14px; font-weight:600; font-family:'Inter',sans-serif; cursor:pointer; transition:background 0.15s,color 0.15s; margin-bottom:6px; touch-action:manipulation; }
   .bb-pdf-btn:hover { background:#fbeaf0; }
   .bb-pdf-btn:focus-visible { outline:3px solid #b32566; outline-offset:3px; }
   .bb-pdf-btn:disabled { opacity:0.6; cursor:not-allowed; }
@@ -1486,7 +1486,8 @@
 
           <input type="hidden" name="form-name" value="bloom-bar-quote">
           <p style="display:none;" aria-hidden="true">
-            <input name="bot-field" tabindex="-1" autocomplete="off">
+            <label for="bb-bot-field">Leave this blank</label>
+            <input id="bb-bot-field" name="bot-field" tabindex="-1" autocomplete="off">
           </p>
 
           <!-- Hidden fields — populated by JS -->
