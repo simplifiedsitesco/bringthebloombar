@@ -702,14 +702,6 @@
 
   <div aria-live="polite" aria-atomic="true" class="sr-only" id="step-announcement"></div>
 
-  <!-- Hidden Netlify form for bot detection -->
-  <form name="book-inquiry" data-netlify="true" hidden>
-    <input name="name"><input name="email"><input name="event-date"><input name="guest-count">
-    <input name="collection"><input name="price-per-guest"><input name="collection-total">
-    <input name="experience"><input name="package"><input name="addons"><input name="delivery-city"><input name="total">
-    <input name="premium-addons">
-  </form>
-
   <style>
   .bk-badge {
     display: inline-block;
@@ -1178,228 +1170,10 @@
     </div>
   </section>
 
-  <!-- ===================== DIY STEP 3 — Book Your Flower Bar ===================== -->
-  <section id="diy-products" class="bk-step" aria-live="polite">
-    <p class="bk-confirm-line" id="confirm-diy-products"></p>
-    <p class="bk-eyebrow diy-eyebrow">Step 3 &mdash; DIY Bloom Bar</p>
-    <h2 class="bk-h1">Book your flower bar.</h2>
-    <p class="bk-subtext">Both packages include delivery, setup, and breakdown. Select your dates then add your package to cart.</p>
-
-    <!-- Booqable datepicker -->
-    <div style="margin-bottom:1.5rem;">
-      <div role="group" aria-labelledby="datepicker-label">
-        <p id="datepicker-label" role="presentation" style="font-size:10px;text-transform:uppercase;letter-spacing:0.05em;color:#7a5a6a;font-family:'Inter',sans-serif;margin-bottom:0.5rem;">Select your rental dates to check availability</p>
-        <div class="booqable-datepicker"></div>
-      </div>
-      <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar" target="_blank" rel="noopener noreferrer" aria-label="Having trouble? Book directly on our Booqable reservations page — opens in new tab" style="font-size:11px;color:#d4537e;font-family:'Inter',sans-serif;display:block;margin-top:0.5rem;text-underline-offset:3px;">Having trouble? Book directly on our reservations page &rarr;</a>
-    </div>
-    <p class="diy-trust-line">Delivery from $14 <span class="diy-sep" aria-hidden="true">&middot;</span> Setup and breakdown included <span class="diy-sep" aria-hidden="true">&middot;</span> Most dates book 2&ndash;3 weeks out</p>
-
-    <!-- Product grid -->
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-      <div class="booqable-product-button" data-id="flower-bar-no-flowers-package"></div>
-      <div class="booqable-product-button" data-id="boho-bloom-bundle-flower-bar-and-umbrella"></div>
-    </div>
-
-    <!-- Continue to Step 4 -->
-    <div style="margin-top:1.75rem;">
-      <p class="diy-continue-instruction diy-continue-text" style="display:none;">Added your package? Continue to complete your setup.</p>
-      <div class="bk-cta-row" style="margin-top:0.75rem;">
-        <button class="bk-btn" onclick="diyProductsContinue()" aria-label="Continue to add-ons after adding package to cart">Continue to add-ons &rarr;</button>
-        <button class="bk-back" aria-label="Back to experience selection" onclick="goToStep(1)">&larr; Back</button>
-      </div>
-    </div>
-    <a href="#" aria-label="Switch to full flower package experience" onclick="event.preventDefault(); state.experience='full'; goToStep2Details();" style="font-size:11px;color:#d4537e;text-decoration:underline;text-underline-offset:3px;display:block;text-align:center;margin-top:1rem;font-family:'Inter',sans-serif;">Prefer us to handle the flowers? Explore our full flower packages &rarr;</a>
-  </section>
-  <script>
-  (function() {
-    function showContinueText() {
-      var el = document.querySelector('#diy-products .diy-continue-text');
-      if (el) el.style.display = 'block';
-    }
-
-    function autoAdvanceToDIYAddons() {
-      var diyProducts = document.getElementById('diy-products');
-      if (diyProducts && diyProducts.classList.contains('active')) {
-        setTimeout(function() {
-          showDIYSection('diy-addons', 3);
-        }, 600);
-      }
-    }
-
-    // Method 1 — Booqable custom event
-    document.addEventListener('booqable:cart:add', function() {
-      showContinueText();
-      autoAdvanceToDIYAddons();
-    });
-
-    // Method 2 — MutationObserver watching Booqable cart badge as fallback
-    var cartObserver = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.type === 'childList' || mutation.type === 'characterData') {
-          var cartBadge = document.querySelector('[class*="cart-count"], [class*="cart-badge"], [class*="bq-cart-count"]');
-          if (cartBadge && parseInt(cartBadge.textContent) > 0) {
-            showContinueText();
-            cartObserver.disconnect();
-            autoAdvanceToDIYAddons();
-          }
-        }
-      });
-    });
-
-    var cartArea = document.querySelector('#diy-products');
-    if (cartArea) {
-      cartObserver.observe(cartArea, { childList: true, subtree: true, characterData: true });
-    }
-  })();
-  </script>
-  <script>
-  // Booqable injects product images without alt text — patch them as they appear
-  (function() {
-    var ALT_MAP = {
-      'flower-bar-no-flowers-package': 'Boho Bloom Bundle — flower bar rental with fringe umbrella included',
-      'boho-bloom-bundle-flower-bar-and-umbrella': 'Boho Bloom Bundle — flower bar rental with fringe umbrella included',
-      'add-on-scissors-4': 'Scissors add-on — set of 4 flower-cutting scissors for your bloom bar guests'
-    };
-
-    function patchAltText(root) {
-      Object.keys(ALT_MAP).forEach(function(dataId) {
-        var product = (root || document).querySelector('[data-id="' + dataId + '"]');
-        if (!product) return;
-        product.querySelectorAll('img:not([data-alt-patched])').forEach(function(img) {
-          if (!img.alt) img.alt = ALT_MAP[dataId];
-          img.setAttribute('data-alt-patched', '1');
-        });
-      });
-    }
-
-    var altObserver = new MutationObserver(function(mutations) {
-      mutations.forEach(function(m) {
-        if (m.addedNodes.length) patchAltText(null);
-      });
-    });
-
-    var diySection = document.getElementById('diy-products');
-    if (diySection) {
-      altObserver.observe(diySection, { childList: true, subtree: true });
-    }
-
-    // Also run once on DOMContentLoaded in case Booqable loads synchronously
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', function() { patchAltText(null); });
-    } else {
-      patchAltText(null);
-    }
-  })();
-  </script>
-
-  <!-- ===================== DIY STEP 3 — Complete the Look ===================== -->
-  <section id="diy-addons" class="bk-step" aria-live="polite">
-
-    <!-- Cart confirmation bar -->
-    <div style="background: white; border: 0.5px solid #f4c0d1; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between;" aria-live="polite" role="status">
-      <span style="font-size: 11px; color: #7a5a6a; font-family: 'Inter', sans-serif;">In your cart:</span>
-      <span id="diy-cart-summary" style="font-size: 12px; font-weight: 500; color: #3d1a2e; font-family: 'Inter', sans-serif;">Your flower bar</span>
-    </div>
-
-    <p class="bk-eyebrow diy-eyebrow">Step 3 &mdash; Complete the Look</p>
-    <h2 class="bk-h1">Complete your setup.</h2>
-    <p class="bk-subtext">Your flower bar is in your cart. Add anything else before you book.</p>
-    <p style="font-style: italic; font-size: 12px; color: #7a5a6a; font-family: 'Inter', sans-serif; margin-bottom: 2rem;">Most hosts add at least one of these to their flower bar setup.</p>
-
-    <!-- Add-ons — available now -->
-    <p class="diy-section-label" role="heading" aria-level="3">AVAILABLE NOW</p>
-
-    <!-- Scissors — Booqable embed -->
-    <div style="background: white; border: 0.5px solid #f4c0d1; border-radius: 8px; padding: 1rem; margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem;">
-      <div style="width: 60px; height: 60px; background: #fbeaf0; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;" aria-hidden="true">&#9986;&#65039;</div>
-      <div style="flex: 1;">
-        <div style="font-size: 13px; font-weight: 500; color: #3d1a2e; font-family: 'Inter', sans-serif; margin-bottom: 0.2rem;">Scissors (4)</div>
-        <div style="font-size: 11px; color: #7a5a6a; font-family: 'Inter', sans-serif; margin-bottom: 0.4rem;">A set of 4 scissors for your flower bar guests.</div>
-        <div style="font-size: 11px; color: #7a5a6a; font-style: italic; font-family: 'Inter', sans-serif;">One set available per booking.</div>
-      </div>
-      <span class="sr-only">Add Scissors (set of 4) to cart — $6.00, one set available per booking</span>
-      <div class="booqable-product-button" data-id="add-on-scissors-4" aria-label="Add Scissors to cart" style="flex-shrink: 0;"></div>
-    </div>
-
-    <!-- Coming soon -->
-    <p class="diy-section-label" role="heading" aria-level="3" style="margin-top:2rem;">COMING SOON &mdash; NOTIFY ME WHEN AVAILABLE</p>
-
-    <div role="group" aria-label="Coming soon items — notify me when available">
-
-    <div class="diy-addon-row">
-      <div class="diy-addon-info">
-        <p class="diy-addon-name">Wood Resin Chairs</p>
-        <p class="diy-addon-desc">Elegant resin chairs for your event &mdash; up to 30 available.</p>
-        <p class="diy-addon-price">$8/each</p>
-      </div>
-      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Wood Resin Chairs is available">Notify me</a>
-    </div>
-
-    <div class="diy-addon-row">
-      <div class="diy-addon-info">
-        <p class="diy-addon-name">Plastic Tables</p>
-        <p class="diy-addon-desc">Clean white tables for any setup &mdash; up to 10 available.</p>
-        <p class="diy-addon-price">$18/each</p>
-      </div>
-      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Plastic Tables is available">Notify me</a>
-    </div>
-
-    <div class="diy-addon-row">
-      <div class="diy-addon-info">
-        <p class="diy-addon-name">Cordless Table Lamps</p>
-        <p class="diy-addon-desc">Warm ambient lighting for your event space &mdash; up to 20 available.</p>
-        <p class="diy-addon-price">$12/each</p>
-      </div>
-      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Cordless Table Lamps is available">Notify me</a>
-    </div>
-
-    <div class="diy-addon-row">
-      <div class="diy-addon-info">
-        <p class="diy-addon-name">Candle Holders</p>
-        <p class="diy-addon-desc">Gold candle holders for a styled tablescape &mdash; up to 20 available.</p>
-        <p class="diy-addon-price">$8/each</p>
-      </div>
-      <a class="diy-notify-link" href="#" onclick="return false;" aria-label="Notify me when Candle Holders is available">Notify me</a>
-    </div>
-
-    </div><!-- /coming-soon group -->
-
-    <!-- Checkout block -->
-    <div class="diy-checkout-block">
-      <p class="diy-reassurance">Everything in your cart includes delivery, setup, and breakdown. You show up &mdash; we handle the rest.</p>
-      <!-- Reservation and Rental Agreement disclosure. The pay button stays locked until the box is checked
-           (this gates our button only; it cannot stop payment on the checkout site itself). -->
-      <div class="bb-agreement" aria-labelledby="ra-title-diy" role="group">
-        <h3 class="bb-agreement-title" id="ra-title-diy">Reservation and Rental Agreement</h3>
-        <p>A $100 deposit is required to reserve your event date. Your date is secured once your deposit has been received and accepted by Bring the Bloom Bar and Rentals.</p>
-        <p>Before submitting your deposit, please review our <a href="/rental-agreement" target="_blank" rel="noopener">Rental Agreement<span class="sr-only"> (opens in a new tab)</span></a>, which outlines our cancellation and refund policies, rental responsibilities, and other important terms.</p>
-        <p>You may sign the Rental Agreement after submitting your deposit; however, a signed agreement is required before your event or delivery of rental equipment.</p>
-        <p>Your $100 deposit is applied toward your final balance. It is refundable if you cancel more than 14 days before your event and non-refundable if you cancel within 14 days of your event.</p>
-        <div class="bb-ack">
-          <input type="checkbox" id="ack-diy" data-pay-gate="diy-final-btn">
-          <label for="ack-diy">I acknowledge that I have been provided access to the <a href="/rental-agreement" target="_blank" rel="noopener">Rental Agreement<span class="sr-only"> (opens in a new tab)</span></a> and understand that a $100 deposit reserves my event date. I understand that I must sign the Rental Agreement before my event or delivery of rental equipment. I agree that my $100 deposit will be applied toward my final balance, is refundable if I cancel more than 14 days before my event, and is non-refundable if I cancel within 14 days of my event.</label>
-        </div>
-        <p class="bb-ack-hint" id="ack-diy-hint">Check the box above to continue to payment.</p>
-      </div>
-      <div class="complete-btn-wrapper">
-        <a href="https://bring-the-bloombar.booqableshop.com/collections/bloombar"
-           class="diy-checkout-btn"
-           id="diy-final-btn"
-           onclick="advanceDIYToBook()"
-           aria-label="Continue to secure checkout on our Booqable booking page">Continue to checkout &rarr;</a>
-        <p class="diy-checkout-note">You&rsquo;ll confirm your dates and complete payment on our secure booking page.</p>
-      </div>
-      <button class="bk-back" aria-label="Back to packages" onclick="showDIYSection('diy-products', 2)" style="margin-top:0.5rem;">&larr; Back to packages</button>
-    </div>
-
-    <button style="font-size:11px;color:#d4537e;text-decoration:underline;text-underline-offset:3px;display:block;text-align:center;margin-top:1.25rem;font-family:'Inter',sans-serif;background:none;border:none;cursor:pointer;width:100%;padding:0;" onclick="state.experience='full'; goToStep2Details();" aria-label="Explore full flower packages">Prefer us to handle the flowers? Explore our full flower packages &rarr;</button>
-  </section>
-
   <!-- ===================== STEP 3 — Package ===================== -->
   <section id="step-3" class="bk-step" aria-live="polite">
 
-    <!-- DIY path now uses standalone #diy-products and #diy-addons sections -->
+    <!-- DIY bookings use the standalone /diy-rentals page -->
 
     <!-- Rentals sub-section -->
     <div id="step3-rentals" style="display:none;">
@@ -1906,64 +1680,6 @@ function updateStepAriaHidden() {
   });
 }
 
-// ---- DIY section navigation ----
-function showDIYSection(id, diyStepNum) {
-  document.querySelectorAll('.bk-step.active').forEach(function(s) { s.classList.remove('active'); });
-  var target = document.getElementById(id);
-  if (target) target.classList.add('active');
-  // Booqable iframes initialize inside hidden steps with zero dimensions.
-  // Dispatching resize after the step becomes visible forces them to recalculate.
-  if (id === 'diy-products' || id === 'diy-addons') {
-    setTimeout(function() { window.dispatchEvent(new Event('resize')); }, 50);
-  }
-  currentStep = diyStepNum;
-  renderProgress();
-  updateStepAriaHidden();
-  window.scrollTo(0, 0);
-  var ann = document.getElementById('step-announcement');
-  if (ann) {
-    if (id === 'diy-products') ann.textContent = 'Step 2: Choose your flower bar package.';
-    else if (id === 'diy-addons') ann.textContent = 'Step 3: Complete your setup.';
-  }
-  if (id === 'diy-addons') updateDIYCartBar();
-  setTimeout(function() {
-    var newSection = document.getElementById(id);
-    if (newSection) {
-      var heading = newSection.querySelector('h1, h2, h3');
-      if (heading) {
-        if (!heading.getAttribute('tabindex')) heading.setAttribute('tabindex', '-1');
-        heading.focus();
-      }
-    }
-  }, 100);
-}
-
-function advanceToDIYAddons() {
-  showDIYSection('diy-addons', 3);
-}
-
-function advanceDIYToBook() {
-  var ack = document.getElementById('ack-diy');
-  if (ack && !ack.checked) return;
-  currentStep = 4;
-  renderProgress();
-  window.location.href = 'https://bring-the-bloombar.booqableshop.com/collections/bloombar';
-}
-
-function updateDIYCartBar() {
-  var el = document.getElementById('diy-cart-summary');
-  if (!el) return;
-  if (state.selectedProduct) {
-    el.textContent = state.selectedProduct + ' \u00b7 $' + state.selectedProductPrice + '.00';
-  } else {
-    el.textContent = 'Your flower bar';
-  }
-}
-
-function diyProductsContinue() {
-  advanceToDIYAddons();
-}
-
 // ---- Step 1: Experience Selection ----
 function selectExperienceS1(type) {
   state.pendingExperienceChange = false;
@@ -2242,9 +1958,7 @@ function goToStep(n) {
 
 // ---- Progress bar click-back navigation ----
 function getStepsForCurrentPath() {
-  if (state.experience === 'diy') {
-    return ['step-1', 'diy-products', 'diy-addons'];
-  } else if (state.experience === 'full') {
+  if (state.experience === 'full') {
     return ['step-1', 'step-guest-count', 'step-collection', 'step-4', 'step-6'];
   } else if (state.experience === 'rentals') {
     return ['step-1', 'step-2-details', 'step-3', 'step-6'];
@@ -2285,10 +1999,6 @@ function goToStepWithHistory(stepId, stepIndex) {
     showCollectionStep();
   } else if (stepId === 'step-2-details') {
     goToStep2Details();
-  } else if (stepId === 'diy-products') {
-    state.selectedProduct = '';
-    state.selectedProductPrice = 0;
-    showDIYSection('diy-products', 2);
   } else if (stepId === 'step-3') {
     goToStep(3);
     showStep3SubSection();
@@ -2962,40 +2672,12 @@ function buildQuote() {
 
 function finalCta() {
   var btn = document.getElementById('final-cta-btn');
-  if (state.experience === 'rentals') {
-    submitRentalsForm();
-  } else {
-    var href = btn.getAttribute('data-href');
-    if (href && href !== '#stripe-link') {
-      window.open(href, '_blank', 'noopener');
-    } else if (href === '#stripe-link') {
-      window.location.href = 'mailto:lriley@bringthebloombar.com?subject=Full%20Bloom%20Bar%20Booking&body=I%27d%20like%20to%20reserve%20with%20a%20deposit%20for%20my%20event%20on%20' + encodeURIComponent(state.eventDate);
-    }
+  var href = btn.getAttribute('data-href');
+  if (href && href !== '#stripe-link') {
+    window.open(href, '_blank', 'noopener');
+  } else if (href === '#stripe-link') {
+    window.location.href = 'mailto:lriley@bringthebloombar.com?subject=Full%20Bloom%20Bar%20Booking&body=I%27d%20like%20to%20reserve%20with%20a%20deposit%20for%20my%20event%20on%20' + encodeURIComponent(state.eventDate);
   }
-}
-
-function submitRentalsForm() {
-  var params = new URLSearchParams({
-    'form-name': 'book-inquiry',
-    name: state.customerName || state.email || '',
-    email: state.email || '',
-    'event-date': state.eventDate,
-    'guest-count': '',
-    experience: state.experience,
-    package: state.pkg,
-    'delivery-city': state.deliveryCityLabel || state.deliveryCity || state.cityName,
-    total: calculateTotal()
-  });
-  fetch('/', { method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'}, body: params.toString() })
-    .then(function() {
-      var btn = document.getElementById('final-cta-btn');
-      if (btn) { btn.textContent = 'Request sent!'; btn.setAttribute('aria-disabled','true'); }
-      var note = document.getElementById('final-note');
-      if (note) note.textContent = 'Thank you! We\'ll confirm your booking within 24 hours.';
-    })
-    .catch(function() {
-      window.location.href = 'mailto:lriley@bringthebloombar.com?subject=Rental%20Booking%20Request&body=I%27d%20like%20to%20book%20for%20' + encodeURIComponent(state.eventDate);
-    });
 }
 
 function calculateTotal() {
@@ -3103,46 +2785,6 @@ renderProgress();
 </script>
 <!-- END BOOKING FLOW JS -->
 
-<script src="https://0ef5f678-baf2-4706-893f-4937e80b40fc.assets.booqable.com/v2/booqable.js"></script>
-<script>
-function setBooqableIframeTitles() {
-  var frames = document.querySelectorAll('.booqable-datepicker iframe, .booqable-product iframe, .booqable-product-button iframe');
-  var titles = [
-    'Select rental start date',
-    'Select rental end date',
-    'Boho Bloom Bundle \u2014 check availability and add to cart',
-    'Boho Bloom Bundle \u2014 check availability and add to cart',
-    'Scissors add-on \u2014 add to cart'
-  ];
-  frames.forEach(function(f, i) {
-    if (!f.getAttribute('title')) {
-      f.setAttribute('title', titles[i] || 'Booqable booking widget');
-    }
-  });
-}
-window.addEventListener('load', function() {
-  setTimeout(setBooqableIframeTitles, 1000);
-  setTimeout(setBooqableIframeTitles, 2000);
-  setTimeout(setBooqableIframeTitles, 4000);
-});
-</script>
-<script>
-function hideScissorsQuantity() {
-  var scissorsSection = document.getElementById('diy-addons');
-  if (!scissorsSection) return;
-  var quantityEls = scissorsSection.querySelectorAll(
-    'input[type="number"], .bq-quantity, ' +
-    '[class*="quantity"], .bq-spinner, ' +
-    '[class*="spinner"]'
-  );
-  quantityEls.forEach(function(el) {
-    el.style.display = 'none';
-  });
-}
-setTimeout(hideScissorsQuantity, 1000);
-setTimeout(hideScissorsQuantity, 2000);
-setTimeout(hideScissorsQuantity, 3000);
-</script>
 <script>
 (function() {
 
@@ -3151,7 +2793,7 @@ setTimeout(hideScissorsQuantity, 3000);
     return window.state || {};
   }
 
-  // Build readable addons string matching existing submitRentalsForm pattern
+  // Build readable addons string
   function getAddonsString() {
     var s = getState();
     var addonNames = Object.values(s.addons || {}).map(function(a){ return a.name; }).join(', ');
