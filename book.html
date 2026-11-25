@@ -222,9 +222,6 @@
     .bk-proof { font-style: italic; font-size: 12px; color: #6b4c5e; text-align: center; margin-bottom: 1rem; }
 
     /* Large event inline form */
-    .bk-large-form { display: none; border-top: 0.5px solid #f4c0d1; padding-top: 1.25rem; margin-top: 1rem; }
-    .bk-large-form.visible { display: block; }
-    .bk-large-form-note { font-size: 11px; color: #6b4c5e; margin-top: 0.75rem; font-style: italic; }
 
     /* Fade in animation */
     @keyframes bk-fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
@@ -1404,81 +1401,6 @@
 
     <!-- DIY path now uses standalone #diy-products and #diy-addons sections -->
 
-    <!-- Full sub-section -->
-    <div id="step3-full" style="display:none;">
-      <p class="bk-confirm-line" id="confirm-full" aria-live="polite"><span class="sr-only">YOUR EVENT </span></p>
-      <p class="bk-eyebrow" id="step2-eyebrow-full">Step 3 &mdash; Full Bloom Bar Experience</p>
-      <h2 class="bk-h1" id="step2-heading-full">Choose your package.</h2>
-      <p class="bk-subtext">Flowers included. Delivery, design, setup and breakdown are a $110&ndash;$125 fee.</p>
-      <div class="bk-card-grid-3" role="radiogroup" aria-labelledby="step2-heading-full">
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="0" data-pkg="bloom-social" data-price="725" onclick="selectPackage('bloom-social',725)" onkeydown="rovingKey(event,'step3-full-rg',0)">
-          <p class="bk-card-label">BLOOM SOCIAL</p>
-          <p class="bk-card-title">Bloom Social</p>
-          <p class="bk-card-desc" style="font-size:10px;color:#7a5a6a;margin:0 0 0.3rem;">10&ndash;20 guests</p>
-          <hr class="bk-card-rule">
-          <p class="bk-card-price">$725 Essential &middot; $925 Lush</p>
-          <ul class="bk-card-desc" style="margin:0.4rem 0 0;">
-            <li>Full bloom bar setup</li>
-            <li>Flowers sourced and arranged</li>
-            <li>Delivery, setup and breakdown</li>
-            <li>Attendant add-on available</li>
-          </ul>
-        </button>
-        <button class="bk-card" role="radio" aria-checked="false" tabindex="-1" data-pkg="bloom-celebration" data-price="995" onclick="selectPackage('bloom-celebration',995)" onkeydown="rovingKey(event,'step3-full-rg',1)">
-          <p class="bk-card-label">BLOOM CELEBRATION</p>
-          <p class="bk-card-title">Bloom Celebration</p>
-          <p class="bk-card-desc" style="font-size:10px;color:#7a5a6a;margin:0 0 0.3rem;">20&ndash;35 guests</p>
-          <hr class="bk-card-rule">
-          <p class="bk-card-price">$995 Essential &middot; $1,250 Lush</p>
-          <ul class="bk-card-desc" style="margin:0.4rem 0 0;">
-            <li>Full bloom bar setup</li>
-            <li>Flowers sourced and arranged</li>
-            <li>Delivery, setup and breakdown</li>
-            <li>Attendant add-on available</li>
-          </ul>
-        </button>
-        <button class="bk-card" role="button" aria-pressed="false" tabindex="-1" id="large-event-card" onclick="toggleLargeEvent()" onkeydown="rovingKey(event,'step3-full-rg',2)" style="border-bottom:0.5px solid #f4c0d1!important;">
-          <p class="bk-card-label">LARGE EVENT</p>
-          <p class="bk-card-title">Large Event (35+ guests)</p>
-          <hr class="bk-card-rule">
-          <p class="bk-card-desc">Every large event is unique. Tell us about yours and we'll build a custom quote.</p>
-          <span class="bk-btn-ghost" style="display:inline-block;margin-top:0.5rem;font-size:11px;padding:6px 14px;">Get a custom quote</span>
-        </button>
-      </div>
-
-      <!-- Large event inline form -->
-      <div id="large-event-form" class="bk-large-form">
-        <form name="large-event-inquiry" data-netlify="true" onsubmit="submitLargeEvent(event)">
-          <input type="hidden" name="form-name" value="large-event-inquiry">
-          <div class="bk-field">
-            <label class="bk-label" for="le-name">Name</label>
-            <input class="bk-input" type="text" id="le-name" name="name" placeholder="Your name" required>
-          </div>
-          <div class="bk-field">
-            <label class="bk-label" for="le-email">Email</label>
-            <input class="bk-input" type="email" id="le-email" name="email" placeholder="your@email.com" required>
-          </div>
-          <div class="bk-field">
-            <label class="bk-label" for="le-date">Event date</label>
-            <input class="bk-input" type="text" id="le-date" name="event-date" placeholder="e.g. July 12, 2026" required>
-          </div>
-          <div class="bk-field">
-            <label class="bk-label" for="le-guests">Guest count</label>
-            <input class="bk-input" type="number" id="le-guests" name="guest-count" placeholder="Approx. number of guests" min="35" required>
-          </div>
-          <button class="bk-btn" type="submit">Send my enquiry</button>
-          <p class="bk-large-form-note">We'll get back to you within 24 hours.</p>
-        </form>
-      </div>
-
-      <p class="bk-trust-line">All full bloom bar packages include fresh flowers sourced within 48 hours of your event.</p>
-      <p class="bk-error" id="step3-full-error" role="alert" aria-atomic="true">Please choose a package above to continue.</p>
-      <div class="bk-cta-row" id="step3-full-cta-row">
-        <button class="bk-btn" id="step3-full-btn" aria-disabled="true" onclick="step2Next()">Continue with this package &rarr;</button>
-        <button class="bk-back" aria-label="Go back to event details" onclick="goToStep2Details()">&larr; Back</button>
-      </div>
-    </div>
-
     <!-- Rentals sub-section -->
     <div id="step3-rentals" style="display:none;">
       <p class="bk-confirm-line" id="confirm-rentals" aria-live="polite"><span class="sr-only">YOUR EVENT </span></p>
@@ -2191,6 +2113,7 @@ function step2DetailsNext() {
   state.customerName = nameInput ? nameInput.value.trim() : '';
   captureStep2Lead();
   updateConfirmLine();
+  if (state.experience === 'full') { showGuestCountStep(); return; }
   goToStep(3);
   showStep3SubSection();
 }
@@ -2204,7 +2127,7 @@ function updateConfirmLine() {
   var text = parts.join(' \u00b7 ');
   // Only show for full and rentals paths
   if (state.experience !== 'full' && state.experience !== 'rentals') return;
-  var ids = ['confirm-full', 'confirm-rentals', 'confirm-s4', 'confirm-s5', 'confirm-s6'];
+  var ids = ['confirm-rentals', 'confirm-s4', 'confirm-s5', 'confirm-s6'];
   ids.forEach(function(id) {
     var el = document.getElementById(id);
     if (el) el.textContent = text;
@@ -2212,10 +2135,8 @@ function updateConfirmLine() {
 }
 
 // Package pricing lookup
-var pkgPricing = {
-  'bloom-social':      { essential: 725, lush: 925, depositEssential: 100, depositLush: 100 },
-  'bloom-celebration': { essential: 995, lush: 1250, depositEssential: 100, depositLush: 100 }
-};
+// (The old fixed full-service packages were removed; full service now uses per-guest collections.)
+var pkgPricing = {};
 
 // ---- Progress bar rendering ----
 function renderProgress() {
@@ -2658,19 +2579,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ---- Package sub-section display ----
 function showStep3SubSection() {
-  document.getElementById('step3-full').style.display = 'none';
   document.getElementById('step3-rentals').style.display = 'none';
-  if (state.experience === 'full') document.getElementById('step3-full').style.display = 'block';
-  else if (state.experience === 'rentals') document.getElementById('step3-rentals').style.display = 'block';
+  if (state.experience === 'rentals') document.getElementById('step3-rentals').style.display = 'block';
 }
 
 function selectPackage(pkgName, price) {
   state.pkg = pkgName;
   state.pkgPrice = price;
 
-  var grp;
-  if (state.experience === 'full') grp = document.querySelectorAll('#step3-full [role="radio"]');
-  else grp = document.querySelectorAll('#step3-rentals [role="radio"]');
+  var grp = document.querySelectorAll('#step3-rentals [role="radio"]');
   grp.forEach(function(c) {
     var checked = c.dataset.pkg === pkgName;
     c.setAttribute('aria-checked', checked ? 'true' : 'false');
@@ -2698,49 +2615,16 @@ function selectPackage(pkgName, price) {
     if (step4btn) step4btn.setAttribute('aria-disabled','true');
   }
 
-  if (state.experience === 'full') hideError('step3-full-error');
-  else hideError('step3-rentals-error');
+  hideError('step3-rentals-error');
 }
 
 function step2Next() {
   if (!state.pkg) {
-    if (state.experience === 'full') showError('step3-full-error');
-    else showError('step3-rentals-error');
+    showError('step3-rentals-error');
     return;
   }
   if (state.experience === 'full') goToStep(4);
   else goToStep(6);
-}
-
-// ---- Large event toggle ----
-function toggleLargeEvent() {
-  var card = document.getElementById('large-event-card');
-  var form = document.getElementById('large-event-form');
-  var ctaRow = document.getElementById('step3-full-cta-row');
-  var isOpen = form.classList.contains('visible');
-  if (isOpen) {
-    form.classList.remove('visible');
-    card.setAttribute('aria-pressed', 'false');
-    if (ctaRow) ctaRow.style.display = 'flex';
-  } else {
-    form.classList.add('visible');
-    card.setAttribute('aria-pressed', 'true');
-    if (ctaRow) ctaRow.style.display = 'none';
-    setTimeout(function() { document.getElementById('le-name').focus(); }, 100);
-  }
-}
-
-function submitLargeEvent(e) {
-  e.preventDefault();
-  var form = e.target;
-  var data = new FormData(form);
-  fetch('/', { method: 'POST', headers: {'Content-Type':'application/x-www-form-urlencoded'}, body: new URLSearchParams(data).toString() })
-    .then(function() {
-      form.innerHTML = '<p style="color:#d4537e;font-size:13px;font-weight:600;">Thank you! We\'ll be in touch within 24 hours.</p>';
-    })
-    .catch(function() {
-      form.innerHTML = '<p style="color:#d4537e;font-size:13px;">Something went wrong. Please email us at <a href="mailto:lriley@bringthebloombar.com">lriley@bringthebloombar.com</a>.</p>';
-    });
 }
 
 // ---- Step-4 helpers ----
@@ -2983,7 +2867,6 @@ function buildQuote() {
   };
   var pkgLabels = {
     'flower-bar': 'Boho Bloom Bundle (DIY)', 'boho-bloom-bundle': 'Boho Bloom Bundle (DIY)',
-    'bloom-social': 'Bloom Social', 'bloom-celebration': 'Bloom Celebration',
     'pink-backdrop': 'Pink Flower Backdrop', 'white-backdrop': 'White Flower Backdrop',
     'green-backdrop': 'Green Backdrop', 'bar-cart': 'Bar Cart', 'champagne-wall': 'Champagne Wall'
   };
@@ -3191,7 +3074,6 @@ function hideError(id) {
 function rovingKey(e, groupId, idx) {
   var groups = {
     'step1-rg': '#step-1 [role="radio"]',
-    'step3-full-rg': '#step3-full [role="radio"]',
     'step3-rentals-rg': '#step3-rentals [role="radio"]',
     'step4-palette-rg': '.bk-palette-grid [role="radio"]'
   };
@@ -3291,8 +3173,6 @@ setTimeout(hideScissorsQuantity, 3000);
   var PKG_LABELS = {
     'flower-bar':       'Boho Bloom Bundle (DIY)',
     'boho-bloom-bundle':'Boho Bloom Bundle (DIY)',
-    'bloom-social':     'Bloom Social',
-    'bloom-celebration':'Bloom Celebration',
     'pink-backdrop':    'Pink Flower Backdrop',
     'white-backdrop':   'White Flower Backdrop',
     'green-backdrop':   'Green Backdrop',
