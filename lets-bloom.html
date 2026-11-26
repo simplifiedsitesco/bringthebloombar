@@ -162,18 +162,18 @@
             <label class="lb-label" for="lb-date">Estimated Event Date <span class="lb-opt">(optional)</span></label>
             <input class="lb-input" id="lb-date" name="estimated-event-date" type="text" autocomplete="off" placeholder="e.g. June 2027">
           </div>
-          <div class="lb-field">
-            <label class="lb-label" for="lb-phone">Mobile Number <span class="lb-opt">(optional)</span></label>
-            <input class="lb-input" id="lb-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="lb-sms-err">
-          </div>
-          <!-- SMS consent (customer care and booking-related messages). Optional and unchecked by default. -->
-          <div class="lb-consent">
-            <input type="checkbox" id="lb-sms-consent" name="sms_consent" value="yes" aria-describedby="lb-sms-err">
-            <label for="lb-sms-consent">I agree to receive customer care and booking-related text messages from Bring the Bloom Bar and Rentals, including responses to my inquiry, quotes, event planning, booking updates and reminders, and related follow-ups, which may be automated or AI-assisted. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. Consent is not required to submit this form or purchase services. See our <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener">Terms of Service</a>.</label>
-          </div>
-          <p class="lb-error" id="lb-sms-err" role="alert"></p>
         </div>
 
+        <div class="lb-field">
+          <label class="lb-label" for="lb-phone">Mobile Number <span class="lb-opt">(optional)</span></label>
+          <input class="lb-input" id="lb-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="lb-sms-err">
+        </div>
+        <!-- SMS consent (customer care and booking-related messages). Optional and unchecked by default. -->
+        <div class="lb-consent">
+          <input type="checkbox" id="lb-sms-consent" name="sms_consent" value="yes" aria-describedby="lb-sms-err">
+          <label for="lb-sms-consent">I agree to receive customer care and booking-related text messages from Bring the Bloom Bar and Rentals, including responses to my inquiry, quotes, event planning, booking updates and reminders, and related follow-ups, which may be automated or AI-assisted. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. Consent is not required to submit this form or purchase services. See our <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener">Terms of Service</a>.</label>
+        </div>
+        <p class="lb-error" id="lb-sms-err" role="alert"></p>
         <div class="lb-consent">
           <input type="checkbox" id="lb-consent" name="marketing_consent" value="yes">
           <label for="lb-consent">I agree to receive exclusive offers, floral inspiration and email updates from Bring the Bloom Bar. I understand that I can unsubscribe at any time.</label>
@@ -215,8 +215,8 @@
     var sel = form.querySelector('input[name="planning-event"]:checked');
     var show = sel && (sel.value === 'Yes' || sel.value === 'Possibly');
     details.hidden = !show;
-    typeEl.disabled = !show; dateEl.disabled = !show; phoneEl.disabled = !show; smsBox.disabled = !show;
-    if (!show) { typeEl.value = ''; dateEl.value = ''; phoneEl.value = ''; smsBox.checked = false; setErr(phoneEl, 'lb-sms-err', ''); }
+    typeEl.disabled = !show; dateEl.disabled = !show;
+    if (!show) { typeEl.value = ''; dateEl.value = ''; }
   }
   form.querySelectorAll('input[name="planning-event"]').forEach(function (r) { r.addEventListener('change', syncDetails); });
 
