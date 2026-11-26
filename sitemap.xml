@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://bringthebloombar.com/</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -31,13 +31,13 @@
   </url>
   <url>
     <loc>https://bringthebloombar.com/about</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bringthebloombar.com/locations</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -173,19 +173,19 @@
   </url>
   <url>
     <loc>https://bringthebloombar.com/blog/diy-bloom-bar-wedding-flowers-save-money</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bringthebloombar.com/faq</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://bringthebloombar.com/baby-shower</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -195,7 +195,7 @@
   </url>
   <url>
     <loc>https://bringthebloombar.com/occasions</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -205,7 +205,7 @@
   </url>
   <url>
     <loc>https://bringthebloombar.com/bridal-shower</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -220,8 +220,14 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://bringthebloombar.com/brand-activations</loc>
+    <lastmod>2026-11-26</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://bringthebloombar.com/corporate-events</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -295,7 +301,7 @@
   </url>
   <url>
     <loc>https://bringthebloombar.com/book</loc>
-    <lastmod>2026-11-14</lastmod>
+    <lastmod>2026-11-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
