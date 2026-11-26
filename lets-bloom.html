@@ -118,6 +118,9 @@
         <input type="hidden" name="event-source" id="lb-event-source" value="vendor-event">
         <input type="hidden" name="marketing_consent_timestamp" value="">
         <input type="hidden" name="marketing_consent_text_version" value="2026-11-v1">
+        <input type="hidden" name="sms_consent_timestamp" value="">
+        <input type="hidden" name="sms_consent_source" value="vendor-event-leads | /lets-bloom">
+        <input type="hidden" name="sms_consent_text_version" value="2026-11-v3">
 
         <div class="lb-field">
           <label class="lb-label" for="lb-first">First Name <span class="lb-req" aria-hidden="true">*</span><span class="sr-only"> (required)</span></label>
@@ -159,6 +162,16 @@
             <label class="lb-label" for="lb-date">Estimated Event Date <span class="lb-opt">(optional)</span></label>
             <input class="lb-input" id="lb-date" name="estimated-event-date" type="text" autocomplete="off" placeholder="e.g. June 2027">
           </div>
+          <div class="lb-field">
+            <label class="lb-label" for="lb-phone">Mobile Number <span class="lb-opt">(optional)</span></label>
+            <input class="lb-input" id="lb-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="lb-sms-err">
+          </div>
+          <!-- SMS consent (customer care and booking-related messages). Optional and unchecked by default. -->
+          <div class="lb-consent">
+            <input type="checkbox" id="lb-sms-consent" name="sms_consent" value="yes" aria-describedby="lb-sms-err">
+            <label for="lb-sms-consent">I agree to receive customer care and booking-related text messages from Bring the Bloom Bar and Rentals, including responses to my inquiry, quotes, event planning, booking updates and reminders, and related follow-ups, which may be automated or AI-assisted. Message frequency varies. Message and data rates may apply. Reply STOP to opt out or HELP for assistance. Consent is not required to submit this form or purchase services. See our <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a> and <a href="/terms" target="_blank" rel="noopener">Terms of Service</a>.</label>
+          </div>
+          <p class="lb-error" id="lb-sms-err" role="alert"></p>
         </div>
 
         <div class="lb-consent">
@@ -190,6 +203,8 @@
   var details = document.getElementById('lb-event-details');
   var typeEl = document.getElementById('lb-type');
   var dateEl = document.getElementById('lb-date');
+  var phoneEl = document.getElementById('lb-phone');
+  var smsBox = document.getElementById('lb-sms-consent');
 
   // Tag the event from the link, e.g. /lets-bloom?event=2026-11-28-holiday-market
   var ev = new URLSearchParams(window.location.search).get('event');
@@ -200,11 +215,10 @@
     var sel = form.querySelector('input[name="planning-event"]:checked');
     var show = sel && (sel.value === 'Yes' || sel.value === 'Possibly');
     details.hidden = !show;
-    typeEl.disabled = !show; dateEl.disabled = !show;
-    if (!show) { typeEl.value = ''; dateEl.value = ''; }
+    typeEl.disabled = !show; dateEl.disabled = !show; phoneEl.disabled = !show; smsBox.disabled = !show;
+    if (!show) { typeEl.value = ''; dateEl.value = ''; phoneEl.value = ''; smsBox.checked = false; setErr(phoneEl, 'lb-sms-err', ''); }
   }
   form.querySelectorAll('input[name="planning-event"]').forEach(function (r) { r.addEventListener('change', syncDetails); });
-  syncDetails();
 
   function pad(n) { return (n < 10 ? '0' : '') + n; }
   function stamp(d) {
@@ -216,13 +230,20 @@
     if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
   }
 
+  syncDetails();
+  // Clear the text-updates message once they add a number or untick the box
+  function clearSms() { if (!(smsBox.checked && !phoneEl.value.trim())) setErr(phoneEl, 'lb-sms-err', ''); }
+  smsBox.addEventListener('change', clearSms); phoneEl.addEventListener('input', clearSms);
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     var first = document.getElementById('lb-first'), email = document.getElementById('lb-email');
     var ok = true, focusEl = null;
     if (!first.value.trim()) { setErr(first, 'lb-first-err', 'Please enter your first name.'); ok = false; focusEl = focusEl || first; } else setErr(first, 'lb-first-err', '');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) { setErr(email, 'lb-email-err', 'Please enter a valid email address.'); ok = false; focusEl = focusEl || email; } else setErr(email, 'lb-email-err', '');
+    if (smsBox.checked && !phoneEl.value.trim()) { setErr(phoneEl, 'lb-sms-err', 'Add your mobile number to get text updates'); ok = false; focusEl = focusEl || phoneEl; }
     if (!ok) { focusEl.focus(); return; }
+    form.querySelector('input[name="sms_consent_timestamp"]').value = smsBox.checked ? stamp(new Date()) : '';
 
     var consent = document.getElementById('lb-consent').checked;
     form.querySelector('input[name="marketing_consent_timestamp"]').value = consent ? stamp(new Date()) : '';
