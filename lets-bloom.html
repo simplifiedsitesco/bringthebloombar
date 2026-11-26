@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Let&rsquo;s Stay in Bloom | Bring the Bloom Bar and Rentals</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="Join the Bring the Bloom Bar list for special offers, floral inspiration and event ideas.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="preload" as="image" href="images/lets-bloom-flower-bar-640.webp" imagesrcset="images/lets-bloom-flower-bar-640.webp 640w, images/lets-bloom-flower-bar-900.webp 900w" imagesizes="(min-width: 860px) 420px, 100vw" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ─── Let's Stay in Bloom (vendor-event landing page) ─── */
+    :root { --lb-burgundy:#730e27; --lb-rose:#b32566; --lb-rose-dark:#861a4a; --lb-gold:#c59b4d; --lb-ink:#2b2326; --lb-muted:#5f4f57; --lb-blush:#fdf6f9; --lb-line:#ecd7e1; }
+    body { background:var(--lb-blush); }
+    .lb-top { display:flex; justify-content:center; padding:12px 16px 2px; }
+    .lb-top img { width:140px; height:auto; display:block; }
+    .lb-wrap { max-width:980px; margin:0 auto; padding:0 16px 40px; }
+    .lb-intro { text-align:center; max-width:560px; margin:0 auto 14px; }
+    .lb-intro h1 { font-family:'Playfair Display',Georgia,serif; font-weight:500; color:var(--lb-burgundy); font-size:clamp(30px,7vw,46px); line-height:1.15; margin:4px 0 8px; }
+    .lb-rule { width:56px; height:2px; background:var(--lb-gold); border:0; margin:0 auto 10px; }
+    .lb-intro p { color:var(--lb-muted); font-size:15px; line-height:1.55; margin:0 0 6px; }
+    .lb-grid { display:grid; gap:14px; }
+    .lb-photo { margin:0; border-radius:16px; overflow:hidden; box-shadow:0 10px 26px rgba(96,35,65,.10); }
+    .lb-photo img { display:block; width:100%; height:190px; object-fit:cover; object-position:center 74%; }
+    .lb-card { background:#fff; border:1px solid var(--lb-line); border-radius:16px; padding:22px 18px; box-shadow:0 10px 26px rgba(96,35,65,.06); }
+    .lb-field { margin:0 0 16px; }
+    .lb-label, .lb-legend { display:block; font-weight:600; font-size:14px; color:var(--lb-ink); margin:0 0 6px; }
+    .lb-req { color:var(--lb-rose-dark); }
+    .lb-opt { font-weight:400; color:var(--lb-muted); font-size:13px; }
+    .lb-input { width:100%; box-sizing:border-box; min-height:48px; padding:10px 14px; font-size:16px; font-family:'Inter',sans-serif; color:var(--lb-ink); background:#fff; border:1.5px solid #d9c3ce; border-radius:10px; }
+    .lb-input:focus { outline:3px solid var(--lb-rose); outline-offset:2px; border-color:var(--lb-rose); }
+    .lb-input[aria-invalid="true"] { border-color:#b91c1c; }
+    .lb-error { color:#b91c1c; font-size:13px; margin:6px 0 0; }
+    .lb-error:empty { display:none; }
+    fieldset.lb-choices { border:0; margin:0 0 16px; padding:0; min-width:0; }
+    .lb-choice-row { display:flex; flex-wrap:wrap; gap:8px; }
+    .lb-choice { position:relative; }
+    .lb-choice input { position:absolute; opacity:0; width:1px; height:1px; }
+    .lb-choice label { display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border:1.5px solid #d9c3ce; border-radius:999px; font-size:15px; color:var(--lb-ink); cursor:pointer; background:#fff; }
+    .lb-choice input:checked + label { border-color:var(--lb-rose); background:#fbeaf0; color:var(--lb-rose-dark); font-weight:600; }
+    .lb-choice input:focus-visible + label { outline:3px solid var(--lb-rose); outline-offset:2px; }
+    .lb-event-details[hidden] { display:none; }
+    .lb-consent { display:flex; gap:10px; align-items:flex-start; margin:4px 0 18px; }
+    .lb-consent input { width:22px; height:22px; min-width:22px; margin:2px 0 0; accent-color:var(--lb-rose); }
+    .lb-consent input:focus-visible { outline:3px solid var(--lb-rose); outline-offset:2px; }
+    .lb-consent label { font-size:13px; line-height:1.55; color:var(--lb-muted); }
+    .lb-consent a, .lb-privacy a { color:var(--lb-rose-dark); text-decoration:underline; text-underline-offset:2px; }
+    .lb-submit { display:flex; align-items:center; justify-content:center; width:100%; min-height:52px; border:0; border-radius:999px; background:var(--lb-rose); color:#fff; font-size:16px; font-weight:600; font-family:'Inter',sans-serif; cursor:pointer; }
+    .lb-submit:hover { background:var(--lb-rose-dark); }
+    .lb-submit:focus-visible { outline:3px solid var(--lb-rose-dark); outline-offset:3px; }
+    .lb-submit[disabled] { opacity:.7; cursor:progress; }
+    .lb-privacy { font-size:12px; color:var(--lb-muted); text-align:center; margin:12px 0 0; }
+    .lb-status { margin:12px 0 0; font-size:14px; }
+    .lb-thanks { text-align:center; padding:18px 6px; }
+    .lb-thanks h2 { font-family:'Playfair Display',Georgia,serif; font-weight:500; color:var(--lb-burgundy); font-size:28px; margin:0 0 10px; }
+    .lb-thanks p { color:var(--lb-muted); line-height:1.6; margin:0 0 10px; }
+    .lb-thanks a { color:var(--lb-rose-dark); font-weight:600; }
+    .lb-foot { text-align:center; font-size:12px; color:var(--lb-muted); padding:8px 16px 28px; }
+    .lb-foot a { color:var(--lb-rose-dark); }
+    .lb-hp { position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
+    .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    @media (min-width:860px) {
+      .lb-top { padding-top:28px; }
+      .lb-top img { width:170px; }
+      .lb-intro p { font-size:16px; }
+      .lb-grid { grid-template-columns:420px 1fr; align-items:start; gap:28px; }
+      .lb-photo img { height:auto; aspect-ratio:900/1124; }
+      .lb-card { padding:28px 28px; }
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QZC3EBYHT7"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  if (window.location.hostname === 'bringthebloombar.com') {
+    gtag('config', 'G-QZC3EBYHT7');
+  }
+</script>
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wucxrcgmm8");
+</script>
+</head>
+<body>
+<a href="#lb-form" class="skip-link">Skip to the form</a>
+<header class="lb-top">
+  <a href="/" aria-label="Bring the Bloom Bar home"><picture><source srcset="images/logo.webp" type="image/webp"><img src="images/logo.png" alt="Bring the Bloom Bar" width="239" height="89"></picture></a>
+</header>
+<main id="main" class="lb-wrap">
+  <section class="lb-intro">
+    <h1>Let&rsquo;s Stay in Bloom</h1>
+    <hr class="lb-rule" aria-hidden="true">
+    <p>Loved your flower bar experience? Bring the magic of blooms to your next celebration.</p>
+    <p>Join our exclusive list for special offers, floral inspiration and unforgettable event ideas.</p>
+  </section>
+
+  <div class="lb-grid">
+    <figure class="lb-photo">
+      <img src="images/lets-bloom-flower-bar-640.webp" srcset="images/lets-bloom-flower-bar-640.webp 640w, images/lets-bloom-flower-bar-900.webp 900w" sizes="(min-width: 860px) 420px, 100vw" width="900" height="1124" alt="Bring the Bloom Bar flower bar setup on an outdoor patio: a fringed white umbrella, a tiered rack of fresh flowers and a cart with a gold Flower Bar sign" fetchpriority="high" decoding="async">
+    </figure>
+
+    <div class="lb-card" id="lb-form">
+      <!-- Vendor-event lead form. Reusable: add ?event=YYYY-MM-DD-name to the link to tag each event. -->
+      <form name="vendor-event-leads" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="lb-form-el" novalidate aria-label="Join the Bring the Bloom Bar list" data-clarity-mask="true">
+        <input type="hidden" name="form-name" value="vendor-event-leads">
+        <p class="lb-hp" aria-hidden="true"><label for="lb-bot">Leave this blank</label><input id="lb-bot" name="bot-field" tabindex="-1" autocomplete="off"></p>
+        <input type="hidden" name="event-source" id="lb-event-source" value="vendor-event">
+        <input type="hidden" name="marketing_consent_timestamp" value="">
+        <input type="hidden" name="marketing_consent_text_version" value="2026-11-v1">
+
+        <div class="lb-field">
+          <label class="lb-label" for="lb-first">First Name <span class="lb-req" aria-hidden="true">*</span><span class="sr-only"> (required)</span></label>
+          <input class="lb-input" id="lb-first" name="first-name" type="text" autocomplete="given-name" required aria-describedby="lb-first-err">
+          <p class="lb-error" id="lb-first-err" role="alert"></p>
+        </div>
+
+        <div class="lb-field">
+          <label class="lb-label" for="lb-email">Email Address <span class="lb-req" aria-hidden="true">*</span><span class="sr-only"> (required)</span></label>
+          <input class="lb-input" id="lb-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="lb-email-err">
+          <p class="lb-error" id="lb-email-err" role="alert"></p>
+        </div>
+
+        <fieldset class="lb-choices">
+          <legend class="lb-legend">Are you planning an upcoming event?</legend>
+          <div class="lb-choice-row">
+            <span class="lb-choice"><input type="radio" id="lb-plan-yes" name="planning-event" value="Yes"><label for="lb-plan-yes">Yes</label></span>
+            <span class="lb-choice"><input type="radio" id="lb-plan-maybe" name="planning-event" value="Possibly"><label for="lb-plan-maybe">Possibly</label></span>
+            <span class="lb-choice"><input type="radio" id="lb-plan-no" name="planning-event" value="Not at this time"><label for="lb-plan-no">Not at this time</label></span>
+          </div>
+        </fieldset>
+
+        <div class="lb-event-details" id="lb-event-details" hidden>
+          <div class="lb-field">
+            <label class="lb-label" for="lb-type">What type of event are you planning?</label>
+            <select class="lb-input" id="lb-type" name="event-type">
+              <option value="">Select an event type</option>
+              <option>Birthday</option>
+              <option>Bridal shower</option>
+              <option>Baby shower</option>
+              <option>Wedding</option>
+              <option>Corporate event</option>
+              <option>Brand activation</option>
+              <option>Graduation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="lb-field">
+            <label class="lb-label" for="lb-date">Estimated Event Date <span class="lb-opt">(optional)</span></label>
+            <input class="lb-input" id="lb-date" name="estimated-event-date" type="text" autocomplete="off" placeholder="e.g. June 2027">
+          </div>
+        </div>
+
+        <div class="lb-consent">
+          <input type="checkbox" id="lb-consent" name="marketing_consent" value="yes">
+          <label for="lb-consent">I agree to receive exclusive offers, floral inspiration and email updates from Bring the Bloom Bar. I understand that I can unsubscribe at any time.</label>
+        </div>
+
+        <button type="submit" class="lb-submit" id="lb-submit">Join the List</button>
+        <div class="lb-status" id="lb-status" role="status" aria-live="polite"></div>
+        <p class="lb-privacy">See our <a href="/privacy-policy">Privacy Policy</a>.</p>
+      </form>
+
+      <div class="lb-thanks" id="lb-thanks" hidden tabindex="-1">
+        <h2>Thank you<span id="lb-thanks-name"></span>!</h2>
+        <p id="lb-thanks-msg">We&rsquo;ve received your details.</p>
+        <p><a href="/">Explore our flower bar experiences</a></p>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="lb-foot">
+  <p>Bring the Bloom Bar and Rentals &middot; <a href="tel:7142516478">(714) 251-6478</a> &middot; <a href="/privacy-policy">Privacy Policy</a></p>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('lb-form-el');
+  if (!form) return;
+  var details = document.getElementById('lb-event-details');
+  var typeEl = document.getElementById('lb-type');
+  var dateEl = document.getElementById('lb-date');
+
+  // Tag the event from the link, e.g. /lets-bloom?event=2026-11-28-holiday-market
+  var ev = new URLSearchParams(window.location.search).get('event');
+  if (ev) document.getElementById('lb-event-source').value = ev.replace(/[^\w\- ]/g, '').slice(0, 80);
+
+  // Event type and date only for Yes or Possibly
+  function syncDetails() {
+    var sel = form.querySelector('input[name="planning-event"]:checked');
+    var show = sel && (sel.value === 'Yes' || sel.value === 'Possibly');
+    details.hidden = !show;
+    typeEl.disabled = !show; dateEl.disabled = !show;
+    if (!show) { typeEl.value = ''; dateEl.value = ''; }
+  }
+  form.querySelectorAll('input[name="planning-event"]').forEach(function (r) { r.addEventListener('change', syncDetails); });
+  syncDetails();
+
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  function stamp(d) {
+    var off = -d.getTimezoneOffset(), sign = off >= 0 ? '+' : '-'; off = Math.abs(off);
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate()) + 'T' + pad(d.getHours()) + ':' + pad(d.getMinutes()) + ':' + pad(d.getSeconds()) + sign + pad(Math.floor(off / 60)) + ':' + pad(off % 60);
+  }
+  function setErr(input, errId, msg) {
+    document.getElementById(errId).textContent = msg;
+    if (msg) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid');
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var first = document.getElementById('lb-first'), email = document.getElementById('lb-email');
+    var ok = true, focusEl = null;
+    if (!first.value.trim()) { setErr(first, 'lb-first-err', 'Please enter your first name.'); ok = false; focusEl = focusEl || first; } else setErr(first, 'lb-first-err', '');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value.trim())) { setErr(email, 'lb-email-err', 'Please enter a valid email address.'); ok = false; focusEl = focusEl || email; } else setErr(email, 'lb-email-err', '');
+    if (!ok) { focusEl.focus(); return; }
+
+    var consent = document.getElementById('lb-consent').checked;
+    form.querySelector('input[name="marketing_consent_timestamp"]').value = consent ? stamp(new Date()) : '';
+    var btn = document.getElementById('lb-submit'), status = document.getElementById('lb-status');
+    btn.disabled = true; btn.textContent = 'Sending\u2026'; status.textContent = '';
+
+    fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(new FormData(form)).toString() })
+      .then(function (res) {
+        if (!res.ok) throw new Error('Network error');
+        document.getElementById('lb-thanks-name').textContent = ', ' + first.value.trim();
+        document.getElementById('lb-thanks-msg').textContent = consent
+          ? 'You\u2019re on our list. Watch your inbox for floral inspiration, special offers and event ideas.'
+          : 'We\u2019ve received your details. We\u2019d love to help bring blooms to your next celebration.';
+        form.hidden = true;
+        var thanks = document.getElementById('lb-thanks'); thanks.hidden = false; thanks.focus();
+        if (window.gtag) gtag('event', 'generate_lead', { form_name: 'vendor-event-leads', event_source: document.getElementById('lb-event-source').value });
+      })
+      .catch(function () {
+        status.innerHTML = '<p class="lb-error">Something went wrong. Please try again, or call or text <a href="tel:7142516478">(714) 251-6478</a>.</p>';
+        btn.disabled = false; btn.textContent = 'Join the List';
+      });
+  });
+})();
+</script>
+</body>
+</html>

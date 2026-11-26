@@ -4,6 +4,17 @@
 [functions]
   directory = "netlify/functions"
 
+# Hidden vendor-event landing page: reachable by its link, kept out of search results
+[[headers]]
+  for = "/lets-bloom"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
+[[headers]]
+  for = "/lets-bloom.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
@@ -166,6 +177,12 @@
 [[redirects]]
   from = "/orange-bloom-bar-rentals.html"
   to = "https://bringthebloombar.com/orange-bloom-bar-rentals"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lets-bloom.html"
+  to = "https://bringthebloombar.com/lets-bloom"
   status = 301
   force = true
 
